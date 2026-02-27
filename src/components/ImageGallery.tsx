@@ -34,11 +34,11 @@ export default function ImageGallery({ images, gridClassName, itemClassName }: I
 
             {selectedImage !== null && (
                 <div
-                    className="fixed inset-0 z-[100] bg-[var(--color-dark-bg)] flex items-center justify-center p-4 md:p-12 transition-opacity"
+                    className="fixed inset-0 z-[100] bg-[#EAF1F6] flex items-center justify-center p-4 md:p-12 transition-opacity"
                     onClick={() => setSelectedImage(null)}
                 >
                     <button
-                        className="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white z-[101] transition-colors p-2"
+                        className="absolute top-4 right-4 md:top-8 md:right-8 text-[var(--color-text-main)] opacity-70 hover:opacity-100 z-[101] transition-opacity p-2"
                         onClick={() => setSelectedImage(null)}
                         aria-label="Schließen"
                     >
@@ -60,7 +60,7 @@ export default function ImageGallery({ images, gridClassName, itemClassName }: I
                     </div>
 
                     <button
-                        className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white z-[101] transition-colors p-4"
+                        className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-[var(--color-text-main)] opacity-50 hover:opacity-100 z-[101] transition-opacity p-4"
                         onClick={(e) => {
                             e.stopPropagation();
                             setSelectedImage((selectedImage - 1 + images.length) % images.length);
@@ -70,7 +70,7 @@ export default function ImageGallery({ images, gridClassName, itemClassName }: I
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                     </button>
                     <button
-                        className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white z-[101] transition-colors p-4"
+                        className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-[var(--color-text-main)] opacity-50 hover:opacity-100 z-[101] transition-opacity p-4"
                         onClick={(e) => {
                             e.stopPropagation();
                             setSelectedImage((selectedImage + 1) % images.length);
@@ -80,7 +80,7 @@ export default function ImageGallery({ images, gridClassName, itemClassName }: I
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </button>
 
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 text-sm tracking-widest uppercase font-semibold">
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[var(--color-text-main)] opacity-50 text-sm tracking-widest uppercase font-semibold">
                         {selectedImage + 1} / {images.length}
                     </div>
                 </div>

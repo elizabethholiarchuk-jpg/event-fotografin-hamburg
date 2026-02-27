@@ -160,31 +160,27 @@ export default function Home() {
       </section>
 
       {/* 5. SERVICES */}
-      <section className="py-24 md:py-40 bg-transparent relative overflow-hidden flex items-center min-h-[80vh]">
-        <SafeImage src="/images/home/07-services/01-services.webp" alt="Services Background" fill className="object-cover" sizes="100vw" />
-        <div className="absolute inset-0 bg-[#EAF1F6]/30" />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 w-full relative z-10">
-          <div className="w-full flex flex-col lg:flex-row justify-between gap-12 lg:gap-24 bg-[#EAF1F6]/85 border border-black/10 shadow-sm rounded-[24px] p-10 md:p-16 backdrop-blur-[2px]">
-            <div className="w-full lg:w-1/3 flex flex-col gap-4">
-              <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[var(--color-text-main)]">Dienstleistungen</h2>
+      <section className="py-14 md:py-24 bg-transparent">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row justify-between gap-10 lg:gap-24">
+          <div className="w-full lg:w-1/3 flex flex-col gap-4">
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[var(--color-text-main)]">Dienstleistungen</h2>
+          </div>
+          <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+            <div className="flex flex-col gap-3">
+              <h3 className="text-xl font-semibold text-[var(--color-text-main)]">Konferenzfotografie</h3>
+              <p className="text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed">Panels, Keynotes, Speaker-Porträts, Backstage, Publikum, Networking.</p>
             </div>
-            <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
-              <div className="flex flex-col gap-3">
-                <h3 className="text-xl font-semibold text-[var(--color-text-main)]">Konferenzfotografie</h3>
-                <p className="text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed">Panels, Keynotes, Speaker-Porträts, Backstage, Publikum, Networking.</p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <h3 className="text-xl font-semibold text-[var(--color-text-main)]">Messefotografie</h3>
-                <p className="text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed">Messestand, Besucher-Interaktionen, Branding, Team, Produkt- und Detailaufnahmen.</p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <h3 className="text-xl font-semibold text-[var(--color-text-main)]">Corporate Events</h3>
-                <p className="text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed">Awards, Executive Gatherings, interne Events, Get-togethers, Abendveranstaltungen.</p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <h3 className="text-xl font-semibold text-[var(--color-text-main)]">Videoshooting</h3>
-                <p className="text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed">Dokumentarisch oder Social First als ideales Add-on für jedes Event.</p>
-              </div>
+            <div className="flex flex-col gap-3">
+              <h3 className="text-xl font-semibold text-[var(--color-text-main)]">Messefotografie</h3>
+              <p className="text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed">Messestand, Besucher-Interaktionen, Branding, Team, Produkt- und Detailaufnahmen.</p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <h3 className="text-xl font-semibold text-[var(--color-text-main)]">Corporate Events</h3>
+              <p className="text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed">Awards, Executive Gatherings, interne Events, Get-togethers, Abendveranstaltungen.</p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <h3 className="text-xl font-semibold text-[var(--color-text-main)]">Videoshooting</h3>
+              <p className="text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed">Dokumentarisch oder Social First als ideales Add-on für jedes Event.</p>
             </div>
           </div>
         </div>

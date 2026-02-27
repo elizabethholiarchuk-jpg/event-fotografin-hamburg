@@ -74,7 +74,10 @@ export default function Portfolio() {
                                 <span className="text-lg font-normal text-[var(--color-text-muted)] mt-2">— {event.category}</span>
                             </div>
 
-                            <ImageGallery images={actualImages.map(src => ({ src, alt: event.title }))} />
+                            <ImageGallery
+                                images={actualImages.map(src => ({ src, alt: event.title }))}
+                                itemClassName="relative aspect-[3/2] overflow-hidden bg-transparent group cursor-zoom-in w-full block rounded-none shadow-sm border border-gray-100"
+                            />
                         </div>
                     );
                 })}
