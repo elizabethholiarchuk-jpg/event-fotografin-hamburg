@@ -9,7 +9,7 @@ export default function Footer() {
                         Liza Holiarchuk
                     </Link>
                     <p className="text-[var(--color-text-muted)] text-[15px] font-light max-w-[35ch] leading-relaxed">
-                        B2B Eventfotografie — Konferenzen, Messen, Corporate Events. Hamburg & International.
+                        B2B Eventfotografie — Konferenzen, Messen, Corporate Events. Hamburg & europaweit.
                     </p>
                 </div>
 

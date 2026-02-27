@@ -55,8 +55,8 @@ export default function Home() {
               Eventfotografin Hamburg
             </h1>
             <p className="text-2xl md:text-4xl font-light leading-snug text-white/95 max-w-[45ch]">
-              B2B conference & corporate event photography<br />
-              Hamburg & International
+              Fotografie für B2B-Konferenzen & Corporate Events<br />
+              Hamburg & europaweit
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-10 mt-6 w-full sm:w-auto">
@@ -131,13 +131,6 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between border-t border-[var(--color-border-hairline)] pt-8 gap-6">
-            <p className="text-[var(--color-text-main)] font-medium text-[17px] max-w-[65ch]">Halbtags- und Ganztagsbuchungen · Lieferung in 2 Werktagen · Same-Day-Highlights optional</p>
-            <Link href="/kontakt" className="text-[var(--color-text-main)] text-[15px] font-semibold transition-colors hover:text-[var(--color-text-muted)] flex items-center gap-2 group underline-offset-4 decoration-1 underline">
-              Angebot anfragen
-              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -242,41 +235,26 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-border-hairline)] border-t border-[var(--color-border-hairline)] pt-12">
             <div className="flex flex-col gap-6 md:pr-10">
               <h3 className="text-xl font-semibold tracking-tight text-[var(--color-text-main)]">Ganztags (8h)</h3>
-              <ul className="flex flex-col gap-4 text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed">
-                <li className="flex gap-3">
-                  <span className="text-[var(--color-text-main)] font-medium">—</span>
-                  <span>Ideal für Konferenzen, Messen, große Corporate Events.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[var(--color-text-main)] font-medium">—</span>
-                  <span>Vollständige Story: Setup → Programmpunkte → People → Closing.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[var(--color-text-main)] font-medium">—</span>
-                  <span>Optional: Teamporträts + zusätzliche Blöcke.</span>
-                </li>
+              <ul className="list-disc pl-5 flex flex-col gap-3 text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed marker:text-[var(--color-text-main)]">
+                <li>Ideal für Konferenzen, Messen, große Corporate Events.</li>
+                <li>Vollständige Story: Setup → Programmpunkte → People → Closing.</li>
+                <li>Optional: Teamporträts + zusätzliche Blöcke.</li>
               </ul>
             </div>
             <div className="flex flex-col gap-6 pt-10 md:pt-0 md:px-10">
               <h3 className="text-xl font-semibold tracking-tight text-[var(--color-text-main)]">Halbtags (4h)</h3>
-              <ul className="flex flex-col gap-4 text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed">
-                <li className="flex gap-3">
-                  <span className="text-[var(--color-text-main)] font-medium">—</span>
-                  <span>Kompakte Konferenzen, Panels & Networking-Formate.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[var(--color-text-main)] font-medium">—</span>
-                  <span>Fokus: Key moments, Branding, Networking, Speaker + audience.</span>
-                </li>
+              <ul className="list-disc pl-5 flex flex-col gap-3 text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed marker:text-[var(--color-text-main)]">
+                <li>Kompakte Konferenzen, Panels & Networking-Formate.</li>
+                <li>Fokus: Key moments, Branding, Networking, Speaker + Audience.</li>
               </ul>
             </div>
             <div className="flex flex-col gap-6 pt-10 md:pt-0 md:pl-10">
               <h3 className="text-xl font-semibold tracking-tight text-[var(--color-text-main)]">Add-ons</h3>
-              <ul className="flex flex-col gap-4 text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed">
-                <li className="flex gap-3"><span className="text-[var(--color-text-main)] font-medium">—</span><span>Videoshooting</span></li>
-                <li className="flex gap-3"><span className="text-[var(--color-text-main)] font-medium">—</span><span>Same-day Highlights</span></li>
-                <li className="flex gap-3"><span className="text-[var(--color-text-main)] font-medium">—</span><span>Business Portraits vor Ort</span></li>
-                <li className="flex gap-3"><span className="text-[var(--color-text-main)] font-medium">—</span><span>Mehrtages-Events</span></li>
+              <ul className="list-disc pl-5 flex flex-col gap-3 text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed marker:text-[var(--color-text-main)]">
+                <li>Videoshooting</li>
+                <li>Same-day Highlights</li>
+                <li>Business Portraits vor Ort</li>
+                <li>Mehrtages-Events</li>
               </ul>
             </div>
           </div>

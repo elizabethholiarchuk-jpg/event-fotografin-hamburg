@@ -44,7 +44,7 @@ export default function Portfolio() {
             <section className="pb-6 md:pb-8 bg-transparent border-b border-[var(--color-border-hairline)] pt-32 md:pt-40">
                 <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col items-start gap-6">
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold tracking-tight text-[var(--color-text-main)] max-w-4xl leading-[1.05]">
-                        Event Portfolio
+                        Event-Portfolio
                     </h1>
                     <p className="text-lg md:text-xl text-[var(--color-text-muted)] max-w-[55ch] font-normal leading-relaxed">
                         Einblicke in eine Auswahl vergangener Konferenzen, Messen und Corporate Events. Europaweit.
