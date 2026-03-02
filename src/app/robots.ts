@@ -5,8 +5,7 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: '/private/',
         },
-        sitemap: 'https://lizaholiarchuk.com/sitemap.xml',
+        sitemap: 'https://event-fotografin-hamburg.vercel.app/sitemap.xml',
     }
 }

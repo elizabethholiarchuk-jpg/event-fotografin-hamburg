@@ -16,7 +16,7 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row gap-16 md:gap-32">
                     <div className="flex flex-col gap-4 text-[15px] font-light">
                         <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[var(--color-text-muted)] mb-2">Kontakt</span>
-                        <a href="tel:+491752606697" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">+49 175 260 66 97</a>
+                        <a href="tel:+491752606697" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">+49 175 260 6697</a>
                         <a href="mailto:hello@lizaholiarchuk.com" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">hello@lizaholiarchuk.com</a>
                     </div>
 

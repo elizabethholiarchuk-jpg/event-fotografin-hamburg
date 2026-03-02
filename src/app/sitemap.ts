@@ -1,22 +1,37 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+    const baseUrl = 'https://event-fotografin-hamburg.vercel.app';
+    const lastModified = new Date();
+
     return [
         {
-            url: 'https://lizaholiarchuk.com',
-            lastModified: new Date(),
+            url: baseUrl,
+            lastModified,
             changeFrequency: 'monthly',
             priority: 1,
         },
         {
-            url: 'https://lizaholiarchuk.com/portfolio',
-            lastModified: new Date(),
+            url: `${baseUrl}/portfolio`,
+            lastModified,
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: 'https://lizaholiarchuk.com/kontakt',
-            lastModified: new Date(),
+            url: `${baseUrl}/kontakt`,
+            lastModified,
+            changeFrequency: 'yearly',
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/impressum`,
+            lastModified,
+            changeFrequency: 'yearly',
+            priority: 0.5,
+        },
+        {
+            url: `${baseUrl}/datenschutz`,
+            lastModified,
             changeFrequency: 'yearly',
             priority: 0.5,
         },

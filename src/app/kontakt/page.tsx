@@ -48,7 +48,7 @@ export default function Kontakt() {
                     </div>
                     <div className="flex flex-col items-start gap-3 md:pb-2">
                         <span className="text-[15px] font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">Direkte Kontaktaufnahme</span>
-                        <a href="tel:+491752606697" className="text-xl md:text-2xl font-semibold tracking-tight text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">+49 175 260 66 97</a>
+                        <a href="tel:+491752606697" className="text-xl md:text-2xl font-semibold tracking-tight text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">+49 175 260 6697</a>
                         <a href="mailto:hello@lizaholiarchuk.com" className="text-xl md:text-2xl font-semibold tracking-tight text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors mt-1">hello@lizaholiarchuk.com</a>
                     </div>
                 </div>
@@ -58,10 +58,10 @@ export default function Kontakt() {
                 <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-12 md:gap-24 items-start">
                     <div className="w-full md:w-1/3 flex flex-col gap-6 md:sticky md:top-32">
                         <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text-main)]">Wie es weitergeht</h2>
-                        <ul className="flex flex-col gap-4 text-[var(--color-text-muted)] text-[16px]">
-                            <li className="flex gap-3"><span className="text-[var(--color-text-main)] font-medium">—</span><span>Antwort in 24 Stunden</span></li>
-                            <li className="flex gap-3"><span className="text-[var(--color-text-main)] font-medium">—</span><span>Verfügbarkeit bestätigen + kurzes Angebot</span></li>
-                            <li className="flex gap-3"><span className="text-[var(--color-text-main)] font-medium">—</span><span>Optional: 15-Minuten-Call zur Abstimmung</span></li>
+                        <ul className="list-disc pl-5 flex flex-col gap-4 text-[var(--color-text-muted)] text-[16px] marker:text-[var(--color-text-main)]">
+                            <li>Antwort in 24 Stunden</li>
+                            <li>Verfügbarkeit bestätigen + kurzes Angebot</li>
+                            <li>Optional: 15-Minuten-Call zur Abstimmung</li>
                         </ul>
                     </div>
                     <div className="w-full md:w-2/3 max-w-[800px]">

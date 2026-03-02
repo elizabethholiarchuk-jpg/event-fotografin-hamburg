@@ -36,14 +36,14 @@ export default function KontaktForm() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-10 md:gap-14">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                 <label className="flex flex-col gap-2 relative">
-                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] flex items-center">
-                        Name <span className="opacity-60 ml-1 leading-none">*</span>
+                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
+                        Name <span className="text-[var(--color-accent)] ml-1">*</span>
                     </span>
                     <input required type="text" className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] placeholder:text-[var(--color-text-muted)]/50 mt-1" placeholder="Max Mustermann" />
                 </label>
                 <label className="flex flex-col gap-2 relative">
-                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] flex items-center">
-                        Firma/Organisation <span className="opacity-60 ml-1 leading-none">*</span>
+                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
+                        Firma/Organisation <span className="text-[var(--color-accent)] ml-1">*</span>
                     </span>
                     <input required type="text" className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] placeholder:text-[var(--color-text-muted)]/50 mt-1" placeholder="Muster GmbH" />
                 </label>
@@ -51,14 +51,14 @@ export default function KontaktForm() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                 <label className="flex flex-col gap-2 relative">
-                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] flex items-center">
-                        E-Mail <span className="opacity-60 ml-1 leading-none">*</span>
+                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
+                        E-Mail <span className="text-[var(--color-accent)] ml-1">*</span>
                     </span>
                     <input required type="email" className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] placeholder:text-[var(--color-text-muted)]/50 mt-1" placeholder="max@muster.de" />
                 </label>
                 <label className="flex flex-col gap-2 relative">
-                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] flex items-center">
-                        Event-Typ <span className="opacity-60 ml-1 leading-none">*</span>
+                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
+                        Event-Typ <span className="text-[var(--color-accent)] ml-1">*</span>
                     </span>
                     <select required className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] text-[var(--color-text-main)] appearance-none cursor-pointer mt-1">
                         <option value="" disabled selected>Bitte wählen</option>
@@ -72,20 +72,20 @@ export default function KontaktForm() {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-10">
                 <label className="flex flex-col gap-2 relative">
-                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] flex items-center">
-                        Datum <span className="opacity-60 ml-1 leading-none">*</span>
+                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
+                        Datum <span className="text-[var(--color-accent)] ml-1">*</span>
                     </span>
                     <input required type="date" className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] text-[var(--color-text-muted)] cursor-pointer mt-1" />
                 </label>
                 <label className="flex flex-col gap-2 relative">
-                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] flex items-center">
-                        Ort <span className="opacity-60 ml-1 leading-none">*</span>
+                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
+                        Ort <span className="text-[var(--color-accent)] ml-1">*</span>
                     </span>
                     <input required type="text" className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] placeholder:text-[var(--color-text-muted)]/50 mt-1" placeholder="z. B. Hamburg" />
                 </label>
                 <label className="flex flex-col gap-2 relative">
-                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] flex items-center">
-                        Dauer <span className="opacity-60 ml-1 leading-none">*</span>
+                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
+                        Dauer <span className="text-[var(--color-accent)] ml-1">*</span>
                     </span>
                     <select required className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] text-[var(--color-text-main)] appearance-none cursor-pointer mt-1">
                         <option value="" disabled selected>Bitte wählen</option>
@@ -99,7 +99,7 @@ export default function KontaktForm() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                 <label className="flex flex-col gap-2 relative">
-                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] flex gap-2 items-center">
+                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
                         Budget-Rahmen <span className="text-[var(--color-text-muted)] font-normal text-[11px] uppercase ml-1">Optional</span>
                     </span>
                     <input type="text" className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] placeholder:text-[var(--color-text-muted)]/50 mt-1" placeholder="z. B. 1.500 €" />
@@ -107,7 +107,7 @@ export default function KontaktForm() {
             </div>
 
             <label className="flex flex-col gap-2 relative">
-                <span className="text-[14px] font-semibold text-[var(--color-text-main)] flex gap-2 items-center">
+                <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
                     Nachricht <span className="text-[var(--color-text-muted)] font-normal text-[11px] uppercase ml-1">Optional</span>
                 </span>
                 <textarea rows={4} className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] placeholder:text-[var(--color-text-muted)]/50 resize-y mt-1" placeholder="Weitere Details zu Ihrem Event..."></textarea>
