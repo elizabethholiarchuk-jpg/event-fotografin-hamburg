@@ -110,7 +110,6 @@ export default function Datenschutz() {
                     </p>
                     <p>
                         Sie können Ihre aktuellen Datenschutzeinstellungen jederzeit über den Link "Cookie-Einstellungen" im Footer dieser Website einsehen, bearbeiten oder Ihre zuvor erteilte Einwilligung mit Wirkung für die Zukunft widerrufen.
-                        <br /><span className="italic text-sm">[Hinweis zur Umsetzung: Da derzeit das reine Analytics Tracking cookieless über berechtigtes Interesse erfolgt, ist ein Cookie-Banner technisch nicht zwingend erforderlich. Sobald zusätzliche Marketing-Tracker eingebunden werden, muss das Consent-Management-Tool aktiv diese blocken, bis der Nutzer zustimmt.]</span>
                     </p>
                 </section>
 
