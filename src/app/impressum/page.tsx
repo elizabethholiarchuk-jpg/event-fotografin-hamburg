@@ -1,3 +1,14 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Impressum",
+    description: "Impressum von Liza Holiarchuk Eventfotografie Hamburg.",
+    robots: "noindex, follow",
+    alternates: {
+        canonical: "/impressum",
+    },
+};
+
 export default function Impressum() {
     return (
         <div className="max-w-[800px] mx-auto px-6 py-24 flex flex-col gap-8 text-[var(--color-text-main)]">

@@ -4,7 +4,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Datenschutzerklärung",
     description: "Datenschutzerklärung von Liza Holiarchuk. Erfahren Sie, wie wir Ihre Daten verarbeiten und schützen.",
-    robots: "noindex, follow", // Usually privacy pages are not indexed, or leave default
+    robots: "noindex, follow",
+    alternates: {
+        canonical: "/datenschutz",
+    },
 };
 
 export default function Datenschutz() {

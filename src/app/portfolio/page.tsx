@@ -7,8 +7,8 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-    title: "Portfolio",
-    description: "Einblicke in vergangene Event-Projekte quer durch Branchen und Formate in Hamburg und europaweit.",
+    title: "Event-Portfolio Hamburg",
+    description: "Referenzen: Eventfotografie für Konferenzen, Messen und Corporate Events in Hamburg und europaweit. Authentic B2B Bildsprache.",
     alternates: {
         canonical: "/portfolio",
     },
@@ -87,7 +87,7 @@ export default function Portfolio() {
                 <div className="max-w-[800px] w-full px-6 flex flex-col gap-10 items-center">
                     <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1]">Verfügbarkeit prüfen &<br />Angebot erhalten</h2>
                     <p className="text-xl md:text-2xl opacity-80 font-light mt-2 md:mt-4">Ich melde mich in der Regel innerhalb von 24 Stunden.</p>
-                    <Link href="/kontakt" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] mt-6 rounded-2xl">
+                    <Link href="/kontakt" title="Angebot für Ihr Event anfragen" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] mt-6 rounded-2xl">
                         Zur Kontaktanfrage
                     </Link>
                 </div>

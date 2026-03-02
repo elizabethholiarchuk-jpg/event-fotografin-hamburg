@@ -4,8 +4,8 @@ import SafeImage from "@/components/SafeImage";
 import ImageGallery from "@/components/ImageGallery";
 
 export const metadata: Metadata = {
-  title: "Liza Holiarchuk | Eventfotografin Hamburg",
-  description: "Konferenzen, Messen & Corporate Events in Hamburg zuverlässig, strukturiert, schnell geliefert.",
+  title: "Eventfotografin Hamburg | Liza Holiarchuk",
+  description: "Professionelle Eventfotografin in Hamburg für Konferenzfotografie, Messefotografie & Corporate Events. Schnelle Lieferung & konsistente Bildsprache.",
   alternates: {
     canonical: "/",
   },
@@ -19,20 +19,65 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "ProfessionalService",
-            name: "Liza Holiarchuk Eventfotografie",
-            image: "https://lizaholiarchuk.com/images/home/10-about/01-about.webp",
-            url: "https://lizaholiarchuk.com",
-            telephone: "+491752606697",
-            email: "hello@lizaholiarchuk.com",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Rehhoffstrasse 10",
-              addressLocality: "Hamburg",
-              postalCode: "20459",
-              addressCountry: "DE",
-            },
-            areaServed: ["Hamburg", "Germany", "Europe"],
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Wie läuft die Buchung ab?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Anfrage → kurzes Briefing → Angebot & Bestätigung → Event → Lieferung."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Was brauchen Sie von uns, damit es vor Ort reibungslos läuft?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Grobe Timeline/Agenda, 1 Ansprechpartner, Zugang/Badge, 3–5 Must-haves (z.B. Speaker/VIPs/Branding/Teamfotos)."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Wann bekommen wir die Fotos?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Meist in 2 Werktagen; Same-day Highlights auf Wunsch (kuratierte Auswahl für schnelle Kommunikation)."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Wie erhalten wir die Bilder und wie können wir sie teilen?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Über private Online-Galerie; Link intern + mit Gästen teilbar; optional passwortgeschützt."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Welche Nutzungsrechte sind enthalten?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Nutzungsrechte für Unternehmenskommunikation (Website, Social, PR) enthalten; Details nach Use Case."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Können Sie parallele Tracks/Stages abdecken?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Ja, bei größeren Events parallel: Second Shooter möglich."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Arbeiten Sie auch außerhalb von Hamburg?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Hamburg + Umgebung sowie deutschlandweit/europaweit nach Absprache."
+                }
+              }
+            ]
           }),
         }}
       />
@@ -62,12 +107,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-10 mt-6 w-full sm:w-auto">
             <Link
               href="/kontakt"
+              title="Eventfotograf Hamburg Anfrage stellen"
               className="bg-white text-[var(--color-dark-bg)] px-12 py-5 text-sm tracking-widest uppercase font-semibold transition-colors hover:bg-gray-200 text-center rounded-2xl w-full sm:w-auto"
             >
               Verfügbarkeit prüfen
             </Link>
             <Link
               href="/portfolio"
+              title="Eventfotografie Portfolio ansehen"
               className="text-white text-sm tracking-widest uppercase font-semibold transition-all hover:text-white/70 underline-offset-8 decoration-1 underline text-center w-full sm:w-auto"
             >
               Portfolio ansehen
@@ -142,7 +189,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[var(--color-text-main)]">Portfolio Highlights</h2>
               <p className="text-[var(--color-text-muted)] text-[17px] font-normal">Konferenzen, Messen & Corporate Events — authentisch und detailbewusst.</p>
             </div>
-            <Link href="/portfolio" className="text-[var(--color-text-main)] text-[15px] font-semibold transition-colors hover:text-[var(--color-text-muted)] flex items-center gap-2 group underline-offset-4 decoration-1 underline shrink-0 mb-1">
+            <Link href="/portfolio" title="Gesamtes Eventfotografie-Portfolio" className="text-[var(--color-text-main)] text-[15px] font-semibold transition-colors hover:text-[var(--color-text-muted)] flex items-center gap-2 group underline-offset-4 decoration-1 underline shrink-0 mb-1">
               Gesamtes Portfolio
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </Link>
@@ -255,7 +302,7 @@ export default function Home() {
             </div>
           </div>
           <div className="pt-4">
-            <Link href="/kontakt" className="text-[var(--color-text-main)] text-[15px] font-semibold transition-colors hover:text-[var(--color-text-muted)] flex items-center gap-2 group underline-offset-4 decoration-1 underline w-fit">
+            <Link href="/kontakt" title="Eventfotograf Hamburg Angebot anfragen" className="text-[var(--color-text-main)] text-[15px] font-semibold transition-colors hover:text-[var(--color-text-muted)] flex items-center gap-2 group underline-offset-4 decoration-1 underline w-fit">
               Angebot anfragen
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </Link>
@@ -351,7 +398,7 @@ export default function Home() {
       <section className="py-24 md:py-32 bg-[#DDE7F0] text-[var(--color-text-main)] flex justify-center text-center">
         <div className="max-w-[800px] w-full px-6 flex flex-col gap-10 items-center">
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1]">Verfügbarkeit prüfen &<br />Angebot erhalten</h2>
-          <Link href="/kontakt" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
+          <Link href="/kontakt" title="Kontakt & Angebot Anfrage Eventfotografie Hamburg" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
             Zur Kontaktanfrage
           </Link>
         </div>

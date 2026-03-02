@@ -2,8 +2,8 @@ import KontaktForm from "@/components/KontaktForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Kontakt",
-    description: "Verfügbarkeit prüfen & Angebot für Ihre Konferenz, Messe oder Ihr Corporate Event in Hamburg erhalten. Ich melde mich in der Regel innerhalb von 24 Stunden.",
+    title: "Kontakt Eventfotografin Hamburg",
+    description: "Verfügbarkeit prüfen & Angebot für Eventfotografie (Konferenz, Messe, Corporate Event) in Hamburg erhalten. Ich melde mich in 24 Stunden.",
     alternates: {
         canonical: "/kontakt",
     },
