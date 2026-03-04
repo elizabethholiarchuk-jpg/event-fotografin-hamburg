@@ -21,15 +21,26 @@ export default function DankePage() {
                         Ihre Nachricht wurde erfolgreich gesendet. Ich werde mich in der Regel innerhalb der nächsten 24 Stunden bei Ihnen melden, um die Details zu besprechen.
                     </p>
                 </div>
-                <Link
-                    href="/"
-                    className="mt-8 bg-[var(--color-accent)] text-white px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)] inline-flex items-center gap-2 group"
-                >
-                    <svg className="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                    </svg>
-                    Zurück zur Startseite
-                </Link>
+                <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
+                    <Link
+                        href="/"
+                        className="bg-[var(--color-accent)] text-white px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)] inline-flex items-center justify-center gap-2 group w-full sm:w-auto"
+                    >
+                        <svg className="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                        </svg>
+                        Zurück zur Startseite
+                    </Link>
+                    <Link
+                        href="/portfolio"
+                        className="bg-transparent border border-[var(--color-border-hairline)] text-[var(--color-text-main)] hover:border-[var(--color-text-main)] px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors inline-flex items-center justify-center gap-2 group w-full sm:w-auto"
+                    >
+                        Zum Portfolio
+                        <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                    </Link>
+                </div>
             </div>
         </section>
     );
