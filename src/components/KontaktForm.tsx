@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function KontaktForm() {
     return (
         <form action="https://formspree.io/f/xpqjvjkq" method="POST" className="flex flex-col gap-10 md:gap-14">
-            <input type="hidden" name="_redirect" value="https://event-fotografin-hamburg.vercel.app/danke" />
+            <input type="hidden" name="_redirect" value="https://event-fotografin-hamburg.de/danke" />
             <input type="hidden" name="_subject" value="Neue Anfrage – Event Fotografin Hamburg" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
