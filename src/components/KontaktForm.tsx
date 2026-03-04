@@ -1,72 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 
 export default function KontaktForm() {
-    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setStatus("submitting");
-
-        const form = e.currentTarget;
-        const formData = new FormData(form);
-
-        try {
-            const response = await fetch("https://formspree.io/f/xpqjvjkq", {
-                method: "POST",
-                body: formData,
-                headers: {
-                    Accept: "application/json",
-                },
-            });
-
-            if (response.ok) {
-                setStatus("success");
-                form.reset();
-            } else {
-                setStatus("error");
-            }
-        } catch (error) {
-            setStatus("error");
-        }
-    };
-
-    if (status === "success") {
-        return (
-            <div className="bg-[#FAFAFA] border border-[var(--color-border-hairline)] p-8 md:p-16 flex flex-col items-start gap-6 transition-all fade-in">
-                <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-12 h-12 text-[#2E7D32] mb-2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <div className="flex flex-col gap-3">
-                    <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-text-main)]">Vielen Dank! Ihre Anfrage wurde gesendet.</h3>
-                    <p className="text-[17px] font-normal text-[var(--color-text-muted)] max-w-[45ch] leading-relaxed">Ich melde mich innerhalb von 24 Stunden zurück.</p>
-                </div>
-                <button
-                    onClick={() => setStatus("idle")}
-                    className="mt-6 text-[var(--color-text-main)] text-[15px] font-medium hover:text-[var(--color-text-muted)] tracking-wide transition-colors flex items-center gap-2 group"
-                >
-                    Weitere Anfrage senden
-                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                </button>
-            </div>
-        );
-    }
-
     return (
-        <form action="https://formspree.io/f/xpqjvjkq" method="POST" onSubmit={handleSubmit} className="flex flex-col gap-10 md:gap-14">
+        <form action="https://formspree.io/f/xpqjvjkq" method="POST" className="flex flex-col gap-10 md:gap-14">
             {/* Hidden Fields for Formspree */}
             <input type="hidden" name="_subject" value="Neue Anfrage – Event Fotografin Hamburg" />
             <div style={{ display: "none" }}>
                 <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" />
             </div>
-
-            {status === "error" && (
-                <div className="bg-red-50 text-red-700 border border-red-200 p-4 rounded-xl text-[15px]">
-                    Ups — etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie direkt an <a href="mailto:hello@lizaholiarchuk.com" className="underline font-semibold">hello@lizaholiarchuk.com</a>.
-                </div>
-            )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                 <label className="flex flex-col gap-2 relative">
@@ -158,10 +101,9 @@ export default function KontaktForm() {
                 <div className="w-full sm:w-auto text-right">
                     <button
                         type="submit"
-                        disabled={status === "submitting"}
-                        className="bg-[var(--color-accent)] text-white px-10 py-3.5 rounded-2xl text-[15px] font-semibold transition-all hover:bg-[var(--color-accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto shrink-0 flex items-center justify-center gap-2"
+                        className="bg-[var(--color-accent)] text-white px-10 py-3.5 rounded-2xl text-[15px] font-semibold transition-all hover:bg-[var(--color-accent-hover)] w-full sm:w-auto shrink-0 flex items-center justify-center gap-2"
                     >
-                        {status === "submitting" ? "Wird gesendet..." : "Anfrage senden"}
+                        Anfrage senden
                     </button>
                 </div>
             </div>
