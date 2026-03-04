@@ -1,9 +1,43 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function KontaktForm() {
+    const router = useRouter();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch("https://formspree.io/f/xpqjvjkq", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    Accept: "application/json",
+                },
+            });
+
+            if (response.ok) {
+                router.push("/danke");
+            } else {
+                console.error("Form submission error", await response.text());
+                setIsSubmitting(false);
+            }
+        } catch (error) {
+            console.error("Form submission error", error);
+            setIsSubmitting(false);
+        }
+    };
+
     return (
-        <form action="https://formspree.io/f/xpqjvjkq" method="POST" className="flex flex-col gap-10 md:gap-14">
-            <input type="hidden" name="_redirect" value="https://event-fotografin-hamburg.de/danke" />
+        <form onSubmit={handleSubmit} className="flex flex-col gap-10 md:gap-14">
             <input type="hidden" name="_subject" value="Neue Anfrage – Event Fotografin Hamburg" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
@@ -90,8 +124,12 @@ export default function KontaktForm() {
                     Ihre Daten werden sicher und entsprechend unserer Datenschutzerklärung verarbeitet.
                 </p>
                 <div className="w-full sm:w-auto text-right">
-                    <button type="submit" className="bg-[var(--color-accent)] text-white px-10 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)] w-full sm:w-auto shrink-0 flex items-center justify-center gap-2">
-                        Anfrage senden
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="bg-[var(--color-accent)] text-white px-10 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto shrink-0 flex items-center justify-center gap-2"
+                    >
+                        {isSubmitting ? "Wird gesendet..." : "Anfrage senden"}
                     </button>
                 </div>
             </div>
