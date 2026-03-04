@@ -55,7 +55,7 @@ export default function KontaktForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-10 md:gap-14">
+        <form action="https://formspree.io/f/xpqjvjkq" method="POST" onSubmit={handleSubmit} className="flex flex-col gap-10 md:gap-14">
             {/* Hidden Fields for Formspree */}
             <input type="hidden" name="_subject" value="Neue Anfrage – Event Fotografin Hamburg" />
             <div style={{ display: "none" }}>
