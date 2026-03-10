@@ -130,7 +130,7 @@ export default function Home() {
             Vertrauen von Teams bei
           </p>
           <div className="flex flex-row flex-nowrap overflow-x-auto md:overflow-visible items-center justify-start md:justify-center gap-6 md:gap-12 pb-4 md:pb-0 brightness-0 opacity-60 w-full no-scrollbar">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+            {[1, 2, 3, 5, 6, 7, 8].map((num) => (
               <div key={num} className="relative h-8 md:h-10 w-20 md:w-28 shrink-0">
                 <SafeImage
                   src={`/images/home/03-client-logos/0${num}-logo.webp`}
