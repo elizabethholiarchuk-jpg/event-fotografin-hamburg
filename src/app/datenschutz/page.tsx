@@ -91,7 +91,7 @@ export default function Datenschutz() {
                         Vercel Web Analytics ist so konfiguriert, dass standardmäßig <strong>keine Tracking-Cookies</strong> auf Ihrem Endgerät gespeichert werden. Es werden lediglich pseudonymisierte Hash-Werte auf Basis der IP-Adresse und des User-Agents genutzt, um Besuche zuzuordnen. Diese Hash-Werte rotieren täglich, sodass Nutzer nicht dauerhaft über Tage hinweg getrackt werden können.
                     </p>
                     <p>
-                        Die Nutzung dieses Analyse-Tools erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der anonymisierten Analyse des Nutzerverhaltens, um sein Webangebot zu optimieren.
+                        Die Nutzung dieses Analyse-Tools erfolgt ausschließlich mit Ihrer ausdrücklichen Einwilligung auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO. Sie können diese Einwilligung jederzeit über die Cookie-Einstellungen im Footer widerrufen.
                     </p>
                 </section>
 

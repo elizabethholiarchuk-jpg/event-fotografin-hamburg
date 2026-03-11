@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/next";
+import CookieBanner from "@/components/CookieBanner";
 import Script from "next/script";
 
 const inter = Inter({
@@ -85,7 +85,7 @@ export default function RootLayout({
             }),
           }}
         />
-        <Analytics />
+        <CookieBanner />
       </body>
     </html>
   );

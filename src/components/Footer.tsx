@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CookieSettingsButton from "./CookieSettingsButton";
 
 export default function Footer() {
     return (
@@ -31,7 +32,7 @@ export default function Footer() {
             <div className="max-w-[1120px] mx-auto px-6 md:px-10 mt-24">
                 <div className="pt-8 border-t border-[var(--color-border-hairline)] flex justify-between items-center text-xs text-[var(--color-text-muted)] font-light">
                     <p>© {new Date().getFullYear()} Liza Holiarchuk</p>
-                    <button className="hover:text-[var(--color-text-main)] transition-colors">Cookie-Einstellungen</button>
+                    <CookieSettingsButton />
                 </div>
             </div>
         </footer>
