@@ -15,20 +15,20 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://lizaholiarchuk.com"),
   title: {
     template: "%s | Liza Holiarchuk",
-    default: "Eventfotografin Hamburg | Liza Holiarchuk",
+    default: "Event Photographer Hamburg | Liza Holiarchuk",
   },
-  description: "Professionelle Eventfotografin in Hamburg: Konferenzfotografie, Messefotografie & Corporate Events europaweit.",
+  description: "Professional event photographer in Hamburg for conferences, trade shows & corporate events. Europe-wide.",
   openGraph: {
     type: "website",
-    locale: "de_DE",
+    locale: "en_US",
     url: "https://lizaholiarchuk.com",
-    siteName: "Liza Holiarchuk Eventfotografie",
+    siteName: "Liza Holiarchuk Event Photography",
     images: [
       {
         url: "/images/home/02-hero/01-hero.webp",
         width: 1200,
         height: 630,
-        alt: "Liza Holiarchuk - Eventfotografin Hamburg",
+        alt: "Liza Holiarchuk - Event Photographer Hamburg",
       },
     ],
   },
@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <head>
         <Script id="clarity-script" strategy="afterInteractive">
           {`

@@ -40,7 +40,7 @@ export default function PortfolioPage({ lang }: { lang: Language }) {
                         {t.portfolio.title}
                     </h1>
                     <p className="text-lg md:text-xl text-[var(--color-text-muted)] max-w-[55ch] font-normal leading-relaxed">
-                        {lang === 'en' ? 'Insights into a selection of past conferences, trade shows, and corporate events. Europe-wide.' : 'Einblicke in eine Auswahl vergangener Konferenzen, Messen und Corporate Events. Europaweit.'}
+                        {t.portfolio.subtitle}
                     </p>
                 </div>
             </section>
@@ -64,7 +64,7 @@ export default function PortfolioPage({ lang }: { lang: Language }) {
                         <div key={event.slug} className={`max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col py-10 md:py-16 ${index !== portfolioEvents.length - 1 ? 'border-b border-[var(--color-border-hairline)]' : ''}`}>
                             <div className="flex flex-col gap-2 mb-8 md:mb-12">
                                 <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text-main)] tracking-tight max-w-[85ch]">{event.title}</h2>
-                                <span className="text-lg font-normal text-[var(--color-text-muted)] mt-2">— {event.category}</span>
+                                <span className="text-lg font-normal text-[var(--color-text-muted)] mt-2">— {event.category[lang]}</span>
                             </div>
 
                             <ImageGallery
@@ -79,7 +79,7 @@ export default function PortfolioPage({ lang }: { lang: Language }) {
             <section className="py-24 md:py-32 bg-[#DDE7F0] text-[var(--color-text-main)] flex justify-center text-center">
                 <div className="max-w-[800px] w-full px-6 flex flex-col gap-10 items-center">
                     <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1]" dangerouslySetInnerHTML={{ __html: t.home.finalCta.title }}></h2>
-                    <p className="text-xl md:text-2xl opacity-80 font-light mt-2 md:mt-4">{lang === 'en' ? 'I usually get back to you within 24 hours.' : 'Ich melde mich in der Regel innerhalb von 24 Stunden.'}</p>
+                    <p className="text-xl md:text-2xl opacity-80 font-light mt-2 md:mt-4">{t.portfolio.replyTime}</p>
                     <Link href={lang === 'de' ? "/de/kontakt" : "/kontakt"} title="Angebot für Ihr Event anfragen" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] mt-6 rounded-2xl">
                         {t.home.finalCta.btn}
                     </Link>

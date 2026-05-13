@@ -14,64 +14,14 @@ export default function HomePage({ lang }: { lang: Language }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "Wie läuft die Buchung ab?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Anfrage → kurzes Briefing → Angebot & Bestätigung → Event → Lieferung."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Was brauchen Sie von uns, damit es vor Ort reibungslos läuft?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Grobe Timeline/Agenda, 1 Ansprechpartner, Zugang/Badge, 3–5 Must-haves (z.B. Speaker/VIPs/Branding/Teamfotos)."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Wann bekommen wir die Fotos?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Meist in 2 Werktagen; Same-day Highlights auf Wunsch (kuratierte Auswahl für schnelle Kommunikation)."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Wie erhalten wir die Bilder und wie können wir sie teilen?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Über private Online-Galerie; Link intern + mit Gästen teilbar; optional passwortgeschützt."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Welche Nutzungsrechte sind enthalten?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Nutzungsrechte für Unternehmenskommunikation (Website, Social, PR) enthalten; Details nach Use Case."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Können Sie parallele Tracks/Stages abdecken?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Ja, bei größeren Events parallel: Second Shooter möglich."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Arbeiten Sie auch außerhalb von Hamburg?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Hamburg + Umgebung sowie deutschlandweit/europaweit nach Absprache."
-                }
+            mainEntity: t.faq.items.map(faq => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a
               }
-            ]
+            }))
           }),
         }}
       />
@@ -301,12 +251,7 @@ export default function HomePage({ lang }: { lang: Language }) {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col gap-12 md:gap-16">
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[var(--color-text-main)]">{t.testimonials.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-y-20 gap-x-16">
-            {[
-              { img: "01.webp", content: "Liza hat ein exzellentes Auge für die richtigen Momente. Die Zusammenarbeit war entspannt und die Lieferung unheimlich schnell.", name: "Maya Wagner", role: "Partner Success | Plug and Play Tech Center Hamburg" },
-              { img: "02.webp", content: "Sehr zuverlässig und unsere Erwartungen übertroffen. Die Nachbearbeitung ist stark — wir würden Liza jederzeit wieder buchen.", name: "Mia Lohmeier", role: "HR & Partnership Manager | flair" },
-              { img: "03.webp", content: "Liza hat unsere dreitägige Messe professionell begleitet. Starke Detailaufnahmen und perfekt dokumentierte Präsentationen. Eine Freude, mit ihr zu arbeiten.", name: "Maria Kossivaki", role: "Event Specialist | Lloyd's Register" },
-              { img: "04.webp", content: "Die Reaktionen auf die Fotos waren überwältigend positiv. Die Bilder sehen einfach fantastisch aus und fangen die Stimmung optimal ein.", name: "Marcia Fahrenheim", role: "Director | Factory Hammerbrooklyn" }
-            ].map((testi, i) => (
+            {t.testimonials.items.map((testi, i) => (
               <div key={i} className="flex flex-col gap-6">
                 <p className="text-xl md:text-2xl text-[var(--color-text-main)] leading-relaxed font-normal">"{testi.content}"</p>
                 <div className="flex items-center gap-4 mt-2">
@@ -350,15 +295,7 @@ export default function HomePage({ lang }: { lang: Language }) {
               <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[var(--color-text-main)]">{t.faq.title}</h2>
             </div>
             <div className="w-full lg:w-2/3 flex flex-col divide-y divide-[var(--color-border-hairline)] border-t border-[var(--color-border-hairline)] lg:mt-2">
-              {[
-                { q: "Wie läuft die Buchung ab?", a: "Anfrage → kurzes Briefing → Angebot & Bestätigung → Event → Lieferung." },
-                { q: "Was brauchen Sie von uns, damit es vor Ort reibungslos läuft?", a: "Grobe Timeline/Agenda, 1 Ansprechpartner, Zugang/Badge, 3–5 Must-haves (z.B. Speaker/VIPs/Branding/Teamfotos)." },
-                { q: "Wann bekommen wir die Fotos?", a: "Meist in 2 Werktagen; Same-day Highlights auf Wunsch (kuratierte Auswahl für schnelle Kommunikation)." },
-                { q: "Wie erhalten wir die Bilder und wie können wir sie teilen?", a: "Über private Online-Galerie; Link intern + mit Gästen teilbar; optional passwortgeschützt." },
-                { q: "Welche Nutzungsrechte sind enthalten?", a: "Nutzungsrechte für Unternehmenskommunikation (Website, Social, PR) enthalten; Details nach Use Case." },
-                { q: "Können Sie parallele Tracks/Stages abdecken?", a: "Ja, bei größeren Events parallel: Second Shooter möglich." },
-                { q: "Arbeiten Sie auch außerhalb von Hamburg?", a: "Hamburg + Umgebung sowie deutschlandweit/europaweit nach Absprache." }
-              ].map((faq, i) => (
+              {t.faq.items.map((faq, i) => (
                 <details key={i} className="group [&_summary::-webkit-details-marker]:hidden py-6">
                   <summary className="flex items-center justify-between cursor-pointer text-lg md:text-xl font-semibold text-[var(--color-text-main)]">
                     <span className="pr-8">{faq.q}</span>

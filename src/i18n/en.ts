@@ -52,7 +52,13 @@ export const en: Dictionary = {
       cta: "Request a quote"
     },
     testimonials: {
-      title: "Testimonials"
+      title: "Testimonials",
+      items: [
+        { img: "01.webp", content: "Liza has an excellent eye for the right moments. The collaboration was relaxed and the delivery incredibly fast.", name: "Maya Wagner", role: "Partner Success | Plug and Play Tech Center Hamburg" },
+        { img: "02.webp", content: "Very reliable and exceeded our expectations. The post-processing is strong — we would book Liza again anytime.", name: "Mia Lohmeier", role: "HR & Partnership Manager | flair" },
+        { img: "03.webp", content: "Liza professionally accompanied our three-day trade show. Strong detailed shots and perfectly documented presentations. A pleasure to work with her.", name: "Maria Kossivaki", role: "Event Specialist | Lloyd's Register" },
+        { img: "04.webp", content: "The reactions to the photos were overwhelmingly positive. The pictures look simply fantastic and capture the atmosphere perfectly.", name: "Marcia Fahrenheim", role: "Director | Factory Hammerbrooklyn" }
+      ]
     },
     about: {
       title: "Liza Holiarchuk",
@@ -60,7 +66,16 @@ export const en: Dictionary = {
       p2: "Besides Hamburg, I accompany conferences and corporate events throughout Europe (e.g., Milan, Amsterdam, Copenhagen). On-site, I work calmly, discreetly, and structured. Delivery is seamless via a private, optionally password-protected online gallery."
     },
     faq: {
-      title: "FAQ"
+      title: "FAQ",
+      items: [
+        { q: "How does the booking process work?", a: "Inquiry → short briefing → quote & confirmation → event → delivery." },
+        { q: "What do you need from us to ensure everything runs smoothly on-site?", a: "Rough timeline/agenda, 1 contact person, access/badge, 3–5 must-haves (e.g. speakers/VIPs/branding/team photos)." },
+        { q: "When do we get the photos?", a: "Usually in 2 business days; same-day highlights upon request (curated selection for quick communication)." },
+        { q: "How do we receive the pictures and how can we share them?", a: "Via a private online gallery; link can be shared internally + with guests; optionally password-protected." },
+        { q: "What usage rights are included?", a: "Usage rights for corporate communication (website, social, PR) included; details depending on use case." },
+        { q: "Can you cover parallel tracks/stages?", a: "Yes, for larger events in parallel: second shooter possible." },
+        { q: "Do you also work outside of Hamburg?", a: "Hamburg + surroundings as well as Germany-wide/Europe-wide by arrangement." }
+      ]
     },
     finalCta: {
       title: "Check availability &\nGet a quote",
@@ -70,12 +85,16 @@ export const en: Dictionary = {
   portfolio: {
     meta: { title: "Portfolio" },
     title: "Portfolio",
-    subtitle: "Conferences, Trade Shows & Corporate Events"
+    subtitle: "Conferences, Trade Shows & Corporate Events — Europe-wide.",
+    replyTime: "I usually get back to you within 24 hours."
   },
   kontakt: {
     meta: { title: "Contact" },
     title: "Let's talk about your event",
     subtitle: "Send a non-binding request. You will usually receive a suitable quote or feedback on availability within 24 hours.",
+    directContact: "Direct Contact",
+    nextSteps: "Next steps",
+    steps: ["Response within 24 hours", "Availability confirmation + short quote", "Optional: 15-minute coordination call"],
     form: {
       name: "Name",
       email: "Email",
@@ -89,13 +108,17 @@ export const en: Dictionary = {
     meta: { title: "Thank You" },
     title: "Thank you for your request!",
     subtitle: "I will get back to you shortly.",
-    back: "Back to Homepage"
+    messageSent: "Your message has been successfully sent. I will usually get back to you within 24 hours to discuss the details.",
+    back: "Back to Homepage",
+    toPortfolio: "To Portfolio"
   },
   footer: {
     rights: "All rights reserved.",
     impressum: "Legal Notice",
     datenschutz: "Privacy Policy",
-    cookieSettings: "Cookie Settings"
+    cookieSettings: "Cookie Settings",
+    tagline: "B2B Event Photography — Conferences, Trade Shows, Corporate Events. Hamburg & Europe-wide.",
+    contactHeading: "Contact"
   },
   cookieBanner: {
     title: "Cookie Settings",

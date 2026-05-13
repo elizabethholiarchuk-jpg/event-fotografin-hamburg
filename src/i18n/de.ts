@@ -50,7 +50,13 @@ export const de = {
       cta: "Angebot anfragen"
     },
     testimonials: {
-      title: "Kundenstimmen"
+      title: "Kundenstimmen",
+      items: [
+        { img: "01.webp", content: "Liza hat ein exzellentes Auge für die richtigen Momente. Die Zusammenarbeit war entspannt und die Lieferung unheimlich schnell.", name: "Maya Wagner", role: "Partner Success | Plug and Play Tech Center Hamburg" },
+        { img: "02.webp", content: "Sehr zuverlässig und unsere Erwartungen übertroffen. Die Nachbearbeitung ist stark — wir würden Liza jederzeit wieder buchen.", name: "Mia Lohmeier", role: "HR & Partnership Manager | flair" },
+        { img: "03.webp", content: "Liza hat unsere dreitägige Messe professionell begleitet. Starke Detailaufnahmen und perfekt dokumentierte Präsentationen. Eine Freude, mit ihr zu arbeiten.", name: "Maria Kossivaki", role: "Event Specialist | Lloyd's Register" },
+        { img: "04.webp", content: "Die Reaktionen auf die Fotos waren überwältigend positiv. Die Bilder sehen einfach fantastisch aus und fangen die Stimmung optimal ein.", name: "Marcia Fahrenheim", role: "Director | Factory Hammerbrooklyn" }
+      ]
     },
     about: {
       title: "Liza Holiarchuk",
@@ -58,7 +64,16 @@ export const de = {
       p2: "Neben Hamburg begleite ich Konferenzen und Corporate Events europaweit (z. B. Mailand, Amsterdam, Kopenhagen). Vor Ort arbeite ich ruhig, diskret und strukturiert. Die Lieferung erfolgt nahtlos über eine private, bei Bedarf passwortgeschützte Online-Galerie."
     },
     faq: {
-      title: "FAQ"
+      title: "FAQ",
+      items: [
+        { q: "Wie läuft die Buchung ab?", a: "Anfrage → kurzes Briefing → Angebot & Bestätigung → Event → Lieferung." },
+        { q: "Was brauchen Sie von uns, damit es vor Ort reibungslos läuft?", a: "Grobe Timeline/Agenda, 1 Ansprechpartner, Zugang/Badge, 3–5 Must-haves (z.B. Speaker/VIPs/Branding/Teamfotos)." },
+        { q: "Wann bekommen wir die Fotos?", a: "Meist in 2 Werktagen; Same-day Highlights auf Wunsch (kuratierte Auswahl für schnelle Kommunikation)." },
+        { q: "Wie erhalten wir die Bilder und wie können wir sie teilen?", a: "Über private Online-Galerie; Link intern + mit Gästen teilbar; optional passwortgeschützt." },
+        { q: "Welche Nutzungsrechte sind enthalten?", a: "Nutzungsrechte für Unternehmenskommunikation (Website, Social, PR) enthalten; Details nach Use Case." },
+        { q: "Können Sie parallele Tracks/Stages abdecken?", a: "Ja, bei größeren Events parallel: Second Shooter möglich." },
+        { q: "Arbeiten Sie auch außerhalb von Hamburg?", a: "Hamburg + Umgebung sowie deutschlandweit/europaweit nach Absprache." }
+      ]
     },
     finalCta: {
       title: "Verfügbarkeit prüfen &\nAngebot erhalten",
@@ -68,12 +83,16 @@ export const de = {
   portfolio: {
     meta: { title: "Portfolio" },
     title: "Portfolio",
-    subtitle: "Konferenzen, Messen & Corporate Events"
+    subtitle: "Konferenzen, Messen & Corporate Events — europaweit.",
+    replyTime: "Ich melde mich in der Regel innerhalb von 24 Stunden."
   },
   kontakt: {
     meta: { title: "Kontakt" },
     title: "Lassen Sie uns über Ihr Event sprechen",
     subtitle: "Senden Sie eine unverbindliche Anfrage. Sie erhalten in der Regel innerhalb von 24 Stunden ein passendes Angebot oder eine Rückmeldung zur Verfügbarkeit.",
+    directContact: "Direkte Kontaktaufnahme",
+    nextSteps: "Wie es weitergeht",
+    steps: ["Antwort in 24 Stunden", "Verfügbarkeit bestätigen + kurzes Angebot", "Optional: 15-Minuten-Call zur Abstimmung"],
     form: {
       name: "Name",
       email: "E-Mail",
@@ -87,13 +106,17 @@ export const de = {
     meta: { title: "Danke" },
     title: "Vielen Dank für Ihre Anfrage!",
     subtitle: "Ich werde mich in Kürze bei Ihnen melden.",
-    back: "Zurück zur Startseite"
+    messageSent: "Ihre Nachricht wurde erfolgreich gesendet. Ich werde mich in der Regel innerhalb der nächsten 24 Stunden bei Ihnen melden, um die Details zu besprechen.",
+    back: "Zurück zur Startseite",
+    toPortfolio: "Zum Portfolio"
   },
   footer: {
     rights: "Alle Rechte vorbehalten.",
     impressum: "Impressum",
     datenschutz: "Datenschutz",
-    cookieSettings: "Cookie-Einstellungen"
+    cookieSettings: "Cookie-Einstellungen",
+    tagline: "B2B Eventfotografie — Konferenzen, Messen, Corporate Events. Hamburg & europaweit.",
+    contactHeading: "Kontakt"
   },
   cookieBanner: {
     title: "Cookie-Einstellungen",

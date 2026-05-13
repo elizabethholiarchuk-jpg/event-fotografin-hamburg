@@ -13,7 +13,7 @@ export default function DankePage({ lang }: { lang: Language }) {
                         {t.title}
                     </h1>
                     <p className="text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl font-normal mx-auto leading-relaxed">
-                        {lang === 'en' ? 'Your message has been successfully sent. I will usually get back to you within 24 hours to discuss the details.' : 'Ihre Nachricht wurde erfolgreich gesendet. Ich werde mich in der Regel innerhalb der nächsten 24 Stunden bei Ihnen melden, um die Details zu besprechen.'}
+                        {t.messageSent}
                     </p>
                 <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
                     <Link
@@ -29,7 +29,7 @@ export default function DankePage({ lang }: { lang: Language }) {
                         href={lang === 'de' ? "/de/portfolio" : "/portfolio"}
                         className="bg-transparent border border-[var(--color-border-hairline)] text-[var(--color-text-main)] hover:border-[var(--color-text-main)] px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors inline-flex items-center justify-center gap-2 group w-full sm:w-auto"
                     >
-                        {lang === 'en' ? 'To Portfolio' : 'Zum Portfolio'}
+                        {t.toPortfolio}
                         <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                         </svg>
