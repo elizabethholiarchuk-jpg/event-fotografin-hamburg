@@ -91,7 +91,7 @@ export const en: Dictionary = {
   kontakt: {
     meta: { title: "Contact" },
     title: "Let's talk about your event",
-    subtitle: "Send a non-binding request. You will usually receive a suitable quote or feedback on availability within 24 hours.",
+    subtitle: "Send your inquiry — I'll confirm availability and next steps.",
     directContact: "Direct Contact",
     nextSteps: "Next steps",
     steps: ["Response within 24 hours", "Availability confirmation + short quote", "Optional: 15-minute coordination call"],
@@ -99,9 +99,22 @@ export const en: Dictionary = {
       name: "Name",
       email: "Email",
       company: "Company",
-      date: "Event Date (optional)",
+      date: "Event Date",
+      eventType: "Event Type",
+      eventTypePlaceholder: "Please choose",
+      eventTypeOptions: { conference: "Conference", tradeShow: "Trade Show", corporate: "Corporate Event", other: "Other Format" },
+      location: "Location",
+      locationPlaceholder: "e.g. Hamburg",
+      duration: "Duration",
+      durationPlaceholder: "Please choose",
+      durationOptions: { short: "Short (~2h)", half: "Half Day (~4h)", full: "Full Day (~8h)", multi: "Multiple Days" },
+      budget: "Budget range",
+      budgetPlaceholder: "e.g. 1.500 €",
       message: "Message / Event Details",
-      submit: "Send Request"
+      messagePlaceholder: "More details about your event...",
+      privacyNote: "Your data will be processed securely according to our privacy policy.",
+      submit: "Send Request",
+      sending: "Sending..."
     }
   },
   danke: {

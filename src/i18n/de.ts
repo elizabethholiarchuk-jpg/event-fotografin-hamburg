@@ -1,6 +1,6 @@
 export const de = {
   header: {
-    home: "Home",
+    home: "Start",
     portfolio: "Portfolio",
     contact: "Kontakt",
     checkAvailability: "Verfügbarkeit prüfen",
@@ -89,7 +89,7 @@ export const de = {
   kontakt: {
     meta: { title: "Kontakt" },
     title: "Lassen Sie uns über Ihr Event sprechen",
-    subtitle: "Senden Sie eine unverbindliche Anfrage. Sie erhalten in der Regel innerhalb von 24 Stunden ein passendes Angebot oder eine Rückmeldung zur Verfügbarkeit.",
+    subtitle: "Sende deine Anfrage – ich melde mich innerhalb von 24 Stunden.",
     directContact: "Direkte Kontaktaufnahme",
     nextSteps: "Wie es weitergeht",
     steps: ["Antwort in 24 Stunden", "Verfügbarkeit bestätigen + kurzes Angebot", "Optional: 15-Minuten-Call zur Abstimmung"],
@@ -97,9 +97,22 @@ export const de = {
       name: "Name",
       email: "E-Mail",
       company: "Unternehmen",
-      date: "Event-Datum (optional)",
+      date: "Event-Datum",
+      eventType: "Event-Typ",
+      eventTypePlaceholder: "Bitte wählen",
+      eventTypeOptions: { conference: "Konferenz", tradeShow: "Messe", corporate: "Corporate Event", other: "Anderes Format" },
+      location: "Ort",
+      locationPlaceholder: "z. B. Hamburg",
+      duration: "Dauer",
+      durationPlaceholder: "Bitte wählen",
+      durationOptions: { short: "Kurz (~2h)", half: "Halbtags (~4h)", full: "Ganztags (~8h)", multi: "Mehrtägig" },
+      budget: "Budget-Rahmen",
+      budgetPlaceholder: "z. B. 1.500 €",
       message: "Nachricht / Event-Details",
-      submit: "Anfrage senden"
+      messagePlaceholder: "Weitere Details zu Ihrem Event...",
+      privacyNote: "Ihre Daten werden sicher und entsprechend unserer Datenschutzerklärung verarbeitet.",
+      submit: "Anfrage senden",
+      sending: "Wird gesendet..."
     }
   },
   danke: {
