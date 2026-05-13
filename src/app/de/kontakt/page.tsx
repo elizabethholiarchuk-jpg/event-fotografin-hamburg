@@ -3,12 +3,12 @@ import KontaktPage from "@/components/pages/KontaktPage";
 import { getDictionary } from "@/i18n";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = getDictionary('en');
+  const t = getDictionary('de');
   return {
     title: t.kontakt.meta.title,
     description: t.home.meta.description,
     alternates: {
-      canonical: "/kontakt",
+      canonical: "/de/kontakt",
       languages: {
         'en': '/kontakt',
         'de': '/de/kontakt',
@@ -18,6 +18,6 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Kontakt() {
-  return <KontaktPage lang="en" />;
+export default function KontaktDE() {
+  return <KontaktPage lang="de" />;
 }

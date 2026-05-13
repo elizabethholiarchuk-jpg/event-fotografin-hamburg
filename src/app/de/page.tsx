@@ -3,12 +3,12 @@ import HomePage from "@/components/pages/HomePage";
 import { getDictionary } from "@/i18n";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = getDictionary('en');
+  const t = getDictionary('de');
   return {
     title: t.home.meta.title,
     description: t.home.meta.description,
     alternates: {
-      canonical: "/",
+      canonical: "/de",
       languages: {
         'en': '/',
         'de': '/de',
@@ -18,6 +18,6 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Home() {
-  return <HomePage lang="en" />;
+export default function HomeDE() {
+  return <HomePage lang="de" />;
 }

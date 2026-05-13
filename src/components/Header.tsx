@@ -3,11 +3,29 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { getDictionary, Language } from "@/i18n";
 
 export default function Header() {
     const pathname = usePathname();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+
+    const lang: Language = pathname.startsWith("/de") ? "de" : "en";
+    const t = getDictionary(lang).header;
+
+    const switchLanguage = (newLang: Language) => {
+        if (newLang === lang) return;
+        document.cookie = `site_lang=${newLang}; path=/; max-age=31536000; samesite=lax`;
+        
+        // Compute new path
+        let newPath = pathname;
+        if (newLang === "de") {
+            newPath = `/de${pathname === "/" ? "" : pathname}`;
+        } else {
+            newPath = pathname.replace(/^\/de/, "") || "/";
+        }
+        window.location.href = newPath;
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,21 +45,27 @@ export default function Header() {
     const buttonClass = "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] border border-transparent";
 
     const links = [
-        { href: "/", label: "Home" },
-        { href: "/portfolio", label: "Portfolio" },
-        { href: "/kontakt", label: "Kontakt" },
+        { href: "/", label: t.home },
+        { href: "/portfolio", label: t.portfolio },
+        { href: "/kontakt", label: t.contact },
     ];
+
+    const getLocalizedHref = (href: string) => {
+        if (lang === "en") return href;
+        return href === "/" ? "/de" : `/de${href}`;
+    };
 
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 h-[80px] flex items-center transition-all duration-500 ${bgClass}`}>
             <div className={`max-w-[1400px] w-full mx-auto px-6 md:px-12 flex justify-between items-center ${textClass}`}>
-                <Link href="/" className="text-[22px] font-semibold tracking-tight transition-opacity hover:opacity-80">
+                <Link href={getLocalizedHref("/")} className="text-[22px] font-semibold tracking-tight transition-opacity hover:opacity-80">
                     Liza Holiarchuk
                 </Link>
                 <nav className="hidden md:flex items-center gap-10">
                     <div className="flex items-center gap-8">
                         {links.map((link) => {
-                            const isActive = pathname === link.href;
+                            const localizedHref = getLocalizedHref(link.href);
+                            const isActive = pathname === localizedHref || (pathname === "/de" && link.href === "/") || (pathname === "/" && link.href === "/");
 
                             let linkColor = "";
                             if (isActive) {
@@ -53,7 +77,7 @@ export default function Header() {
                             return (
                                 <Link
                                     key={link.href}
-                                    href={link.href}
+                                    href={localizedHref}
                                     className={`text-[15px] font-medium transition-colors relative py-1 ${linkColor}`}
                                 >
                                     {link.label}
@@ -65,11 +89,27 @@ export default function Header() {
                         })}
                     </div>
                     <Link
-                        href="/kontakt"
+                        href={getLocalizedHref("/kontakt")}
                         className={`${buttonClass} px-8 py-3 rounded-2xl text-[15px] font-medium transition-colors flex items-center gap-2`}
                     >
-                        Verfügbarkeit prüfen
+                        {t.checkAvailability}
                     </Link>
+                    
+                    <div className="flex items-center gap-2 text-[14px] font-medium border-l border-gray-300 pl-6">
+                        <button 
+                            onClick={() => switchLanguage('en')}
+                            className={`transition-colors ${lang === 'en' ? textClass : mutedTextClass + ' hover:' + textClass}`}
+                        >
+                            EN
+                        </button>
+                        <span className={mutedTextClass}>|</span>
+                        <button 
+                            onClick={() => switchLanguage('de')}
+                            className={`transition-colors ${lang === 'de' ? textClass : mutedTextClass + ' hover:' + textClass}`}
+                        >
+                            DE
+                        </button>
+                    </div>
                 </nav>
 
                 {/* Mobile Toggle */}
@@ -100,11 +140,12 @@ export default function Header() {
                 <div className="absolute top-[80px] left-0 right-0 bg-[#EAF1F6] border-b border-[var(--color-border-hairline)] px-6 py-8 flex flex-col gap-8 md:hidden shadow-sm">
                     <div className="flex flex-col gap-6">
                         {links.map((link) => {
-                            const isActive = pathname === link.href;
+                            const localizedHref = getLocalizedHref(link.href);
+                            const isActive = pathname === localizedHref || (pathname === "/de" && link.href === "/") || (pathname === "/" && link.href === "/");
                             return (
                                 <Link
                                     key={link.href}
-                                    href={link.href}
+                                    href={localizedHref}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className={`text-lg font-medium ${isActive ? "text-[var(--color-text-main)]" : "text-[var(--color-text-muted)]"}`}
                                 >
@@ -114,12 +155,28 @@ export default function Header() {
                         })}
                     </div>
                     <Link
-                        href="/kontakt"
+                        href={getLocalizedHref("/kontakt")}
                         onClick={() => setMobileMenuOpen(false)}
                         className="bg-[var(--color-accent)] text-white text-center w-full py-4 rounded-2xl text-[16px] font-medium transition-colors hover:bg-[var(--color-accent-hover)] border border-transparent"
                     >
-                        Verfügbarkeit prüfen
+                        {t.checkAvailability}
                     </Link>
+                    
+                    <div className="flex items-center justify-center gap-4 text-[16px] font-medium pt-4 border-t border-[var(--color-border-hairline)]">
+                        <button 
+                            onClick={() => { switchLanguage('en'); setMobileMenuOpen(false); }}
+                            className={`transition-colors ${lang === 'en' ? textClass : mutedTextClass}`}
+                        >
+                            EN
+                        </button>
+                        <span className={mutedTextClass}>|</span>
+                        <button 
+                            onClick={() => { switchLanguage('de'); setMobileMenuOpen(false); }}
+                            className={`transition-colors ${lang === 'de' ? textClass : mutedTextClass}`}
+                        >
+                            DE
+                        </button>
+                    </div>
                 </div>
             )}
         </header>

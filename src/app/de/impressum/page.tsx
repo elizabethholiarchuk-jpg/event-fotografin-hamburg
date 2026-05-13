@@ -2,10 +2,10 @@ import { Metadata } from "next";
 import ImpressumPage from "@/components/pages/ImpressumPage";
 
 export const metadata: Metadata = {
-  title: "Impressum | Legal Notice",
+  title: "Impressum",
   robots: "noindex, follow",
   alternates: {
-    canonical: "/impressum",
+    canonical: "/de/impressum",
     languages: {
       'en': '/impressum',
       'de': '/de/impressum',
@@ -14,6 +14,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Impressum() {
-  return <ImpressumPage lang="en" />;
+export default function ImpressumDE() {
+  return <ImpressumPage lang="de" />;
 }
