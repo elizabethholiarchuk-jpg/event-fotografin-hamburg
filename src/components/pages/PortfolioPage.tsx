@@ -63,7 +63,7 @@ export default function PortfolioPage({ lang }: { lang: Language }) {
                     return (
                         <div key={event.slug} className={`max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col py-10 md:py-16 ${index !== portfolioEvents.length - 1 ? 'border-b border-[var(--color-border-hairline)]' : ''}`}>
                             <div className="flex flex-col gap-2 mb-8 md:mb-12">
-                                <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text-main)] tracking-tight max-w-[85ch]">{event.title}</h2>
+                                <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text-main)] tracking-tight max-w-[85ch]">{event.title_i18n?.[lang] ?? event.title}</h2>
                                 <span className="text-lg font-normal text-[var(--color-text-muted)] mt-2">— {event.category[lang]}</span>
                             </div>
 
