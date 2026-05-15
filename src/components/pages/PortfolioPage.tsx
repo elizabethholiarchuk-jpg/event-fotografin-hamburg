@@ -85,7 +85,7 @@ export default function PortfolioPage({ lang }: { lang: Language }) {
                             </div>
 
                             <ImageGallery
-                                images={actualImages.map(src => ({ src, alt: event.title }))}
+                                images={actualImages.map(src => ({ src, alt: event.alt_i18n?.[lang] ?? event.title_i18n?.[lang] ?? event.title }))}
                                 itemClassName="relative aspect-[3/2] overflow-hidden bg-transparent group cursor-zoom-in w-full block rounded-none shadow-sm border border-gray-100"
                             />
                         </div>

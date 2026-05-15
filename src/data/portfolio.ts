@@ -12,6 +12,8 @@ export interface PortfolioEvent {
     venue_i18n?: { en: string; de: string };
     /** Short SEO-optimised one-liner */
     oneLiner_i18n?: { en: string; de: string };
+    /** Per-language image alt text (used for all images in this event's gallery) */
+    alt_i18n?: { en: string; de: string };
 }
 
 export const portfolioEvents: PortfolioEvent[] = [
@@ -21,6 +23,10 @@ export const portfolioEvents: PortfolioEvent[] = [
         title_i18n: {
             en: 'WISE Conference — World Federation of United Nations Associations',
             de: 'WISE Conference — World Federation of United Nations Associations',
+        },
+        alt_i18n: {
+            en: 'WISE Conference (WFUNA) at the United Nations Office at Geneva and CICG — Geneva, Switzerland',
+            de: 'WISE Conference (WFUNA) im UN-Büro Genf und im CICG — Genf, Schweiz',
         },
         location_i18n: { en: 'Geneva, Switzerland', de: 'Genf, Schweiz' },
         venue_i18n: { en: 'UN Office at Geneva (UNOG) · CICG', de: 'UN Office at Geneva (UNOG) · CICG' },
@@ -37,6 +43,10 @@ export const portfolioEvents: PortfolioEvent[] = [
         title_i18n: {
             en: "Lloyd's Register at SMM Hamburg",
             de: "Lloyd's Register auf der SMM Hamburg",
+        },
+        alt_i18n: {
+            en: "Lloyd's Register at SMM trade fair — Hamburg Messe und Congress, Hamburg, Germany",
+            de: "Lloyd's Register auf der SMM — Hamburg Messe und Congress, Hamburg",
         },
         location_i18n: { en: 'Hamburg, Germany', de: 'Hamburg, Deutschland' },
         venue_i18n: { en: 'Hamburg Messe und Congress', de: 'Hamburg Messe und Congress' },
@@ -69,6 +79,10 @@ export const portfolioEvents: PortfolioEvent[] = [
         title_i18n: {
             en: 'Shell Global Solutions Event — SBRS GmbH',
             de: 'Shell Global Solutions Event — SBRS GmbH',
+        },
+        alt_i18n: {
+            en: 'Corporate event for Shell Global Solutions (SBRS) at Shell Technology Centre — Hamburg, Germany',
+            de: 'Corporate Event für Shell Global Solutions (SBRS) im Shell Technology Centre — Hamburg',
         },
         location_i18n: { en: 'Hamburg, Germany', de: 'Hamburg, Deutschland' },
         venue_i18n: { en: 'Shell Technology Centre Hamburg', de: 'Shell Technology Centre Hamburg' },
@@ -148,6 +162,10 @@ export const portfolioEvents: PortfolioEvent[] = [
             en: 'FEMS 2023 — 10th Congress of European Microbiologists',
             de: 'FEMS 2023 — 10. Kongress europäischer Mikrobiolog:innen',
         },
+        alt_i18n: {
+            en: 'FEMS 2023 conference at Hamburg Messe und Congress — Hamburg, Germany',
+            de: 'FEMS 2023 Konferenz in der Hamburg Messe und Congress — Hamburg',
+        },
         location_i18n: { en: 'Hamburg, Germany', de: 'Hamburg, Deutschland' },
         venue_i18n: { en: 'Hamburg Messe und Congress', de: 'Hamburg Messe und Congress' },
         category: { en: 'Conference', de: 'Konferenz' },
@@ -195,6 +213,10 @@ export const portfolioEvents: PortfolioEvent[] = [
         title_i18n: {
             en: 'AKVANTIS at Aquatech Amsterdam',
             de: 'AKVANTIS auf der Aquatech Amsterdam',
+        },
+        alt_i18n: {
+            en: 'AKVANTIS at Aquatech trade fair — Amsterdam, Netherlands',
+            de: 'AKVANTIS auf der Aquatech-Messe — Amsterdam, Niederlande',
         },
         location_i18n: { en: 'Amsterdam, Netherlands', de: 'Amsterdam, Niederlande' },
         category: { en: 'Trade Show', de: 'Messe' },
@@ -258,6 +280,10 @@ export const portfolioEvents: PortfolioEvent[] = [
             en: 'CLAAS at AGRITECHNICA 2023',
             de: 'CLAAS auf der AGRITECHNICA 2023',
         },
+        alt_i18n: {
+            en: 'CLAAS at AGRITECHNICA 2023 trade show — Hanover, Germany',
+            de: 'CLAAS auf der AGRITECHNICA 2023 — Hannover',
+        },
         location_i18n: { en: 'Hanover, Germany', de: 'Hannover, Deutschland' },
         category: { en: 'Trade Show', de: 'Messe' },
         oneLiner_i18n: {
@@ -272,6 +298,10 @@ export const portfolioEvents: PortfolioEvent[] = [
         title_i18n: {
             en: 'Mario Game Activation — Junico GmbH',
             de: 'Mario Game Aktivierung — Junico GmbH',
+        },
+        alt_i18n: {
+            en: 'Mario game activation with Junico GmbH at Factory Hammerbrooklyn — Hamburg, Germany',
+            de: 'Mario-Game-Aktion mit Junico GmbH in der Factory Hammerbrooklyn — Hamburg',
         },
         location_i18n: { en: 'Hamburg, Germany', de: 'Hamburg, Deutschland' },
         venue_i18n: { en: 'Factory Hammerbrooklyn', de: 'Factory Hammerbrooklyn' },
@@ -288,6 +318,10 @@ export const portfolioEvents: PortfolioEvent[] = [
         title_i18n: {
             en: 'Salesforce World Tour Hamburg 2023 — Flair',
             de: 'Salesforce World Tour Hamburg 2023 — Flair',
+        },
+        alt_i18n: {
+            en: 'Salesforce World Tour Hamburg 2023 conference at Schuppen 52 — Hamburg, Germany',
+            de: 'Salesforce World Tour Hamburg 2023 im Schuppen 52 — Hamburg',
         },
         location_i18n: { en: 'Hamburg, Germany', de: 'Hamburg, Deutschland' },
         venue_i18n: { en: 'Schuppen 52', de: 'Schuppen 52' },
