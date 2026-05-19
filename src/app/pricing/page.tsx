@@ -43,8 +43,8 @@ const packages = [
   },
   {
     name: "Multi-Day",
-    duration: "2–5 days",
-    range: "€1,200 – €1,800 / day",
+    duration: "2+ days",
+    range: "Custom, discounted day-rate",
     ideal:
       "Trade fairs, international congresses, brand activations and events running across multiple days.",
     includes: [
@@ -60,23 +60,19 @@ const packages = [
 const addons = [
   {
     name: "Same-Day Selects",
-    desc: "10–20 edited images delivered the same evening — ready for LinkedIn, press, or internal channels.",
+    desc: "10–20 edited images delivered the same evening.",
   },
   {
     name: "Second Photographer",
-    desc: "For parallel sessions, multiple stages, or large-scale events requiring simultaneous coverage.",
-  },
-  {
-    name: "Speaker & Team Portraits",
-    desc: "Dedicated portrait block — 5–15 minutes per subject in a designated area.",
+    desc: "For parallel sessions or large-scale multi-track events.",
   },
   {
     name: "Travel (Europe-wide)",
-    desc: "Available for events in Berlin, Frankfurt, Düsseldorf, Amsterdam, Milan, Copenhagen and beyond. Quoted per project.",
+    desc: "Amsterdam, Milan, Copenhagen, Berlin and beyond. Quoted per project.",
   },
   {
     name: "Short Highlight Film",
-    desc: "60–90 second documentary-style edit suitable for internal sharing or social media.",
+    desc: "60–90 second edit for internal sharing or social media.",
   },
 ];
 
