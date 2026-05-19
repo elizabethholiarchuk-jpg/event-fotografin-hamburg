@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Pricing | Event Photography Hamburg | Liza Holiarchuk",
   description:
-    "Transparent pricing for event photography in Hamburg. Half-day from €590, full-day from €990, multi-day packages available. Get a custom quote.",
+    "Project-based pricing for professional event photography in Hamburg. Transparent day-based packages. Request a custom quote within 24 hours.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Event Photography Pricing Hamburg | Liza Holiarchuk",
@@ -15,26 +15,28 @@ export const metadata: Metadata = {
 const packages = [
   {
     name: "Half Day",
-    duration: "Up to 4 hours",
-    from: "from €590",
-    ideal: "Compact conferences, panel discussions, networking events, stand photography for shorter exhibition days.",
+    duration: "Up to 4 hours on-site",
+    range: "€750 – €1,150",
+    ideal:
+      "Panel discussions, compact conferences, networking events, single-day stand coverage at a trade fair.",
     includes: [
       "Up to 4 hours on-site",
       "Fully edited gallery (typically 80–150 images)",
-      "Private online delivery within 48h",
-      "Usage rights for corporate communication",
+      "Private online gallery, delivered within 48h",
+      "Full corporate usage rights",
     ],
   },
   {
     name: "Full Day",
-    duration: "Up to 8 hours",
-    from: "from €990",
-    ideal: "Full conferences, all-day trade show coverage, corporate events, award ceremonies.",
+    duration: "Up to 8 hours on-site",
+    range: "€1,350 – €2,050",
+    ideal:
+      "Full-day conferences, all-day trade show coverage, corporate events, award ceremonies.",
     includes: [
       "Up to 8 hours on-site",
       "Fully edited gallery (typically 200–400 images)",
-      "Private online delivery within 48h",
-      "Usage rights for corporate communication",
+      "Private online gallery, delivered within 48h",
+      "Full corporate usage rights",
       "Optional: same-day highlight selects",
     ],
     highlight: true,
@@ -42,25 +44,40 @@ const packages = [
   {
     name: "Multi-Day",
     duration: "2–5 days",
-    from: "Custom",
-    ideal: "Trade fairs, congresses, international conferences, brand activations across multiple days.",
+    range: "€1,200 – €1,800 / day",
+    ideal:
+      "Trade fairs, international congresses, brand activations and events running across multiple days.",
     includes: [
       "Full multi-day coverage",
       "Daily highlight delivery available",
       "Full edited gallery within 3 business days",
-      "Usage rights for all corporate communication",
-      "Optional: second photographer for parallel tracks",
+      "Full corporate usage rights",
+      "Optional: second photographer for parallel sessions",
     ],
   },
 ];
 
 const addons = [
-  { name: "Same-Day Highlights", desc: "10–20 edited images delivered by end of day — ready for LinkedIn and press." },
-  { name: "Second Photographer", desc: "For parallel sessions, multiple stages, or large-scale events." },
-  { name: "Speaker / Team Portraits", desc: "Dedicated portrait block — 5–15 minutes per person in a designated area." },
-  { name: "Travel (outside Hamburg)", desc: "For events in Berlin, Hanover, Amsterdam, Milan and other European cities. Quoted per project." },
-  { name: "Video Add-on", desc: "Short documentary or social-first highlight reel (60–90 seconds)." },
-  { name: "Rush Delivery", desc: "Full gallery within 24 hours instead of 48 — available on request." },
+  {
+    name: "Same-Day Selects",
+    desc: "10–20 edited images delivered the same evening — ready for LinkedIn, press, or internal channels.",
+  },
+  {
+    name: "Second Photographer",
+    desc: "For parallel sessions, multiple stages, or large-scale events requiring simultaneous coverage.",
+  },
+  {
+    name: "Speaker & Team Portraits",
+    desc: "Dedicated portrait block — 5–15 minutes per subject in a designated area.",
+  },
+  {
+    name: "Travel (Europe-wide)",
+    desc: "Available for events in Berlin, Frankfurt, Düsseldorf, Amsterdam, Milan, Copenhagen and beyond. Quoted per project.",
+  },
+  {
+    name: "Short Highlight Film",
+    desc: "60–90 second documentary-style edit suitable for internal sharing or social media.",
+  },
 ];
 
 export default function PricingPage() {
@@ -87,7 +104,10 @@ export default function PricingPage() {
             Pricing
           </h1>
           <p className="text-xl text-[var(--color-text-muted)] max-w-[55ch] font-normal leading-relaxed">
-            Transparent, project-based pricing for event photography. Every quote is tailored to your event — duration, location, and scope.
+            Project-based, day-rate pricing for professional event photography. Every quote is tailored to your event.
+          </p>
+          <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed max-w-[65ch]">
+            Final quotes depend on agenda complexity (parallel sessions), venue logistics, deliverables, and travel.
           </p>
         </div>
       </section>
@@ -95,7 +115,15 @@ export default function PricingPage() {
       {/* Packages */}
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-10">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">Packages</h2>
+          <div className="flex flex-col gap-2">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
+              Typical Budgets
+            </h2>
+            <p className="text-[14px] text-[var(--color-text-muted)]">
+              Minimum booking: half-day.&ensp;·&ensp;All prices exclude VAT (if applicable).
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {packages.map((pkg) => (
               <div
@@ -107,15 +135,20 @@ export default function PricingPage() {
                 }`}
               >
                 {pkg.highlight && (
-                  <span className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-accent)]">Most Popular</span>
+                  <span className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-accent)]">
+                    Most Common
+                  </span>
                 )}
                 <div className="flex flex-col gap-1">
                   <h3 className="text-2xl font-semibold text-[var(--color-text-main)]">{pkg.name}</h3>
                   <p className="text-sm text-[var(--color-text-muted)]">{pkg.duration}</p>
                 </div>
-                <div className="text-3xl font-semibold text-[var(--color-text-main)]">{pkg.from}</div>
+                <div className="flex flex-col gap-0.5">
+                  <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Typical budget</p>
+                  <p className="text-3xl font-semibold text-[var(--color-text-main)]">{pkg.range}</p>
+                </div>
                 <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{pkg.ideal}</p>
-                <ul className="flex flex-col gap-2 mt-2">
+                <ul className="flex flex-col gap-2 mt-auto">
                   {pkg.includes.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-[14px] text-[var(--color-text-muted)]">
                       <span className="mt-1.5 shrink-0 w-3 h-3 rounded-full bg-[var(--color-accent)] opacity-60" />
@@ -126,9 +159,6 @@ export default function PricingPage() {
               </div>
             ))}
           </div>
-          <p className="text-sm text-[var(--color-text-muted)] italic">
-            * Prices shown are starting points. Final quotes depend on event duration, location, and additional requirements. All prices exclude VAT.
-          </p>
         </div>
       </section>
 
@@ -136,9 +166,12 @@ export default function PricingPage() {
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-10">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">Add-ons</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {addons.map((addon) => (
-              <div key={addon.name} className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl">
+              <div
+                key={addon.name}
+                className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl"
+              >
                 <h3 className="text-base font-semibold text-[var(--color-text-main)]">{addon.name}</h3>
                 <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{addon.desc}</p>
               </div>
@@ -147,20 +180,25 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* What's always included */}
+      {/* Always included */}
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-8">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">Always Included</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
+            Always Included
+          </h2>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              "Professional full-frame camera + backup",
+              "Professional full-frame camera + backup body",
               "Consistent colour grading and editing",
               "Private online gallery delivery",
               "Full corporate usage rights",
               "Shareable link for internal distribution",
               "Response to your inquiry within 24 hours",
             ].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-[var(--color-text-muted)] text-[15px] leading-relaxed">
+              <li
+                key={item}
+                className="flex items-start gap-3 text-[var(--color-text-muted)] text-[15px] leading-relaxed"
+              >
                 <span className="mt-1.5 shrink-0 w-4 h-4 rounded-full bg-[var(--color-accent)] opacity-70" />
                 {item}
               </li>
@@ -171,14 +209,20 @@ export default function PricingPage() {
 
       {/* CTA */}
       <section className="py-24 md:py-32 bg-[#DDE7F0] text-[var(--color-text-main)] flex justify-center text-center">
-        <div className="max-w-[700px] w-full px-6 flex flex-col gap-8 items-center">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">Get a Custom Quote</h2>
-          <p className="text-xl opacity-80 font-light">
-            Tell me about your event — date, location, and any specific requirements. I'll send you a clear quote within 24 hours.
+        <div className="max-w-[700px] w-full px-6 flex flex-col gap-6 items-center">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
+            Get a Custom Quote
+          </h2>
+          <p className="text-xl opacity-80 font-light max-w-[50ch]">
+            Tell me about your event — date, location, and deliverables. I'll send a clear quote tailored to your scope.
           </p>
-          <Link href="/contact" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
+          <Link
+            href="/contact"
+            className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl"
+          >
             Request a Quote
           </Link>
+          <p className="text-[13px] opacity-60 font-normal">Reply within 24 hours.</p>
         </div>
       </section>
     </>
