@@ -2,183 +2,213 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getDictionary, Language } from "@/i18n";
 
+const serviceLinks = [
+  { href: "/event-photographer-hamburg", label: "Event Photographer Hamburg" },
+  { href: "/conference-photography-hamburg", label: "Conference Photography" },
+  { href: "/trade-show-photography-hamburg", label: "Trade Show Photography" },
+  { href: "/corporate-event-photography-hamburg", label: "Corporate Event Photography" },
+];
+
+const enNavLinks = [
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/insights", label: "Insights" },
+  { href: "/about", label: "About" },
+  { href: "/pricing", label: "Pricing" },
+];
+
 export default function Header() {
-    const pathname = usePathname();
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-    const lang: Language = pathname.startsWith("/de") ? "de" : "en";
-    const t = getDictionary(lang).header;
+  const lang: Language = pathname.startsWith("/de") ? "de" : "en";
+  const t = getDictionary(lang).header;
 
-    const switchLanguage = (newLang: Language) => {
-        if (newLang === lang) return;
-        document.cookie = `site_lang=${newLang}; path=/; max-age=31536000; samesite=lax`;
-        
-        // Compute new path
-        let newPath = pathname;
-        if (newLang === "de") {
-            newPath = `/de${pathname === "/" ? "" : pathname}`;
-        } else {
-            newPath = pathname.replace(/^\/de/, "") || "/";
-        }
-        window.location.href = newPath;
+  const switchLanguage = (newLang: Language) => {
+    if (newLang === lang) return;
+    document.cookie = `site_lang=${newLang}; path=/; max-age=31536000; samesite=lax`;
+    let newPath = pathname;
+    if (newLang === "de") {
+      newPath = `/de${pathname === "/" ? "" : pathname}`;
+    } else {
+      newPath = pathname.replace(/^\/de/, "") || "/";
+    }
+    window.location.href = newPath;
+  };
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
     };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener("scroll", handleScroll);
-        handleScroll();
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setServicesOpen(false);
+  }, [pathname]);
 
-    const isHome = pathname === "/";
-    const bgClass = scrolled
-        ? "bg-[#EAF1F6]/92 backdrop-blur-md border-b border-[var(--color-border-hairline)] shadow-sm"
-        : "bg-[#EAF1F6]/85 backdrop-blur-md border-b border-[var(--color-border-hairline)]";
-    const textClass = "text-[var(--color-text-main)]";
-    const mutedTextClass = "text-[var(--color-text-muted)]";
-    const buttonClass = "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] border border-transparent";
+  const isDE = lang === "de";
+  const bgClass = scrolled
+    ? "bg-[#EAF1F6]/92 backdrop-blur-md border-b border-[var(--color-border-hairline)] shadow-sm"
+    : "bg-[#EAF1F6]/85 backdrop-blur-md border-b border-[var(--color-border-hairline)]";
+  const textClass = "text-[var(--color-text-main)]";
+  const mutedTextClass = "text-[var(--color-text-muted)]";
+  const buttonClass = "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] border border-transparent";
 
-    const links = [
-        { href: "/", label: t.home },
-        { href: "/portfolio", label: t.portfolio },
-        { href: "/kontakt", label: t.contact },
-    ];
+  const getLocalizedHref = (href: string) => {
+    if (!isDE) return href;
+    return href === "/" ? "/de" : `/de${href}`;
+  };
 
-    const getLocalizedHref = (href: string) => {
-        if (lang === "en") return href;
-        return href === "/" ? "/de" : `/de${href}`;
-    };
+  const isActive = (href: string) => {
+    const loc = getLocalizedHref(href);
+    return pathname === loc || pathname.startsWith(loc + "/");
+  };
 
-    return (
-        <header className={`fixed top-0 left-0 right-0 z-50 h-[80px] flex items-center transition-all duration-500 ${bgClass}`}>
-            <div className={`max-w-[1400px] w-full mx-auto px-6 md:px-12 flex justify-between items-center ${textClass}`}>
-                <Link href={getLocalizedHref("/")} className="text-[22px] font-semibold tracking-tight transition-opacity hover:opacity-80">
-                    Liza Holiarchuk
-                </Link>
-                <nav className="hidden md:flex items-center gap-10">
-                    <div className="flex items-center gap-8">
-                        {links.map((link) => {
-                            const localizedHref = getLocalizedHref(link.href);
-                            const isActive = pathname === localizedHref || (pathname === "/de" && link.href === "/") || (pathname === "/" && link.href === "/");
+  const linkClass = (href: string) =>
+    `text-[15px] font-medium transition-colors relative py-1 ${
+      isActive(href)
+        ? `${textClass} underline underline-offset-4 decoration-1`
+        : `${mutedTextClass} hover:${textClass} hover:underline hover:underline-offset-4 hover:decoration-1`
+    }`;
 
-                            let linkColor = "";
-                            if (isActive) {
-                                linkColor = textClass;
-                            } else {
-                                linkColor = `${mutedTextClass} hover:${textClass} hover:underline hover:underline-offset-4 hover:decoration-1`;
-                            }
+  const contactHref = isDE ? "/de/kontakt" : "/contact";
 
-                            return (
-                                <Link
-                                    key={link.href}
-                                    href={localizedHref}
-                                    className={`text-[15px] font-medium transition-colors relative py-1 ${linkColor}`}
-                                >
-                                    {link.label}
-                                    {isActive && (
-                                        <span className={`absolute left-0 bottom-0 h-[1.5px] w-full bg-[var(--color-dark-bg)]`} />
-                                    )}
-                                </Link>
-                            );
-                        })}
-                    </div>
+  return (
+    <header className={`fixed top-0 left-0 right-0 z-50 h-[80px] flex items-center transition-all duration-500 ${bgClass}`}>
+      <div className={`max-w-[1400px] w-full mx-auto px-6 md:px-12 flex justify-between items-center ${textClass}`}>
+        {/* Logo */}
+        <Link href={getLocalizedHref("/")} className="text-[22px] font-semibold tracking-tight transition-opacity hover:opacity-80 shrink-0">
+          Liza Holiarchuk
+        </Link>
+
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          {/* Portfolio */}
+          <Link href={getLocalizedHref("/portfolio")} className={linkClass("/portfolio")}>
+            Portfolio
+          </Link>
+
+          {/* Services dropdown — EN only */}
+          {!isDE && (
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className={`text-[15px] font-medium transition-colors relative py-1 flex items-center gap-1 ${
+                  serviceLinks.some(s => pathname.startsWith(s.href))
+                    ? `${textClass} underline underline-offset-4 decoration-1`
+                    : `${mutedTextClass} hover:${textClass}`
+                }`}
+              >
+                Services
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              {servicesOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-[#EAF1F6] border border-[var(--color-border-hairline)] shadow-lg rounded-2xl py-3 px-2 min-w-[280px] flex flex-col gap-1 z-50">
+                  {serviceLinks.map(s => (
                     <Link
-                        href={getLocalizedHref("/kontakt")}
-                        className={`${buttonClass} px-8 py-3 rounded-2xl text-[15px] font-medium transition-colors flex items-center gap-2`}
+                      key={s.href}
+                      href={s.href}
+                      className={`text-[14px] px-4 py-2.5 rounded-xl transition-colors ${
+                        pathname === s.href
+                          ? "bg-[var(--color-border-hairline)] text-[var(--color-text-main)] font-medium"
+                          : "text-[var(--color-text-muted)] hover:bg-[var(--color-border-hairline)] hover:text-[var(--color-text-main)]"
+                      }`}
+                      onClick={() => setServicesOpen(false)}
                     >
-                        {t.checkAvailability}
+                      {s.label}
                     </Link>
-                    
-                    <div className="flex items-center gap-2 text-[14px] font-medium border-l border-gray-300 pl-6">
-                        <button 
-                            onClick={() => switchLanguage('en')}
-                            className={`transition-colors ${lang === 'en' ? textClass : mutedTextClass + ' hover:' + textClass}`}
-                        >
-                            EN
-                        </button>
-                        <span className={mutedTextClass}>|</span>
-                        <button 
-                            onClick={() => switchLanguage('de')}
-                            className={`transition-colors ${lang === 'de' ? textClass : mutedTextClass + ' hover:' + textClass}`}
-                        >
-                            DE
-                        </button>
-                    </div>
-                </nav>
-
-                {/* Mobile Toggle */}
-                <button
-                    className={`md:hidden p-2 -mr-2 ${textClass}`}
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    aria-label="Toggle menu"
-                >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        {mobileMenuOpen ? (
-                            <>
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </>
-                        ) : (
-                            <>
-                                <line x1="3" y1="12" x2="21" y2="12"></line>
-                                <line x1="3" y1="6" x2="21" y2="6"></line>
-                                <line x1="3" y1="18" x2="21" y2="18"></line>
-                            </>
-                        )}
-                    </svg>
-                </button>
-            </div>
-
-            {/* Mobile Menu */}
-            {mobileMenuOpen && (
-                <div className="absolute top-[80px] left-0 right-0 bg-[#EAF1F6] border-b border-[var(--color-border-hairline)] px-6 py-8 flex flex-col gap-8 md:hidden shadow-sm">
-                    <div className="flex flex-col gap-6">
-                        {links.map((link) => {
-                            const localizedHref = getLocalizedHref(link.href);
-                            const isActive = pathname === localizedHref || (pathname === "/de" && link.href === "/") || (pathname === "/" && link.href === "/");
-                            return (
-                                <Link
-                                    key={link.href}
-                                    href={localizedHref}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className={`text-lg font-medium ${isActive ? "text-[var(--color-text-main)]" : "text-[var(--color-text-muted)]"}`}
-                                >
-                                    {link.label}
-                                </Link>
-                            );
-                        })}
-                    </div>
-                    <Link
-                        href={getLocalizedHref("/kontakt")}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="bg-[var(--color-accent)] text-white text-center w-full py-4 rounded-2xl text-[16px] font-medium transition-colors hover:bg-[var(--color-accent-hover)] border border-transparent"
-                    >
-                        {t.checkAvailability}
-                    </Link>
-                    
-                    <div className="flex items-center justify-center gap-4 text-[16px] font-medium pt-4 border-t border-[var(--color-border-hairline)]">
-                        <button 
-                            onClick={() => { switchLanguage('en'); setMobileMenuOpen(false); }}
-                            className={`transition-colors ${lang === 'en' ? textClass : mutedTextClass}`}
-                        >
-                            EN
-                        </button>
-                        <span className={mutedTextClass}>|</span>
-                        <button 
-                            onClick={() => { switchLanguage('de'); setMobileMenuOpen(false); }}
-                            className={`transition-colors ${lang === 'de' ? textClass : mutedTextClass}`}
-                        >
-                            DE
-                        </button>
-                    </div>
+                  ))}
                 </div>
+              )}
+            </div>
+          )}
+
+          {/* Other nav links */}
+          {enNavLinks.filter(l => isDE ? (l.href === "/portfolio") : true).map(link => {
+            if (link.href === "/portfolio") return null; // already rendered above
+            return (
+              <Link key={link.href} href={getLocalizedHref(link.href)} className={linkClass(link.href)}>
+                {link.label}
+              </Link>
+            );
+          })}
+
+          {/* Contact CTA */}
+          <Link href={contactHref} className={`${buttonClass} px-7 py-2.5 rounded-2xl text-[15px] font-medium transition-colors flex items-center gap-2 ml-2`}>
+            Contact
+          </Link>
+
+          {/* Language switcher */}
+          <div className="flex items-center gap-2 text-[14px] font-medium border-l border-gray-300 pl-5">
+            <button onClick={() => switchLanguage("en")} className={`transition-colors ${lang === "en" ? textClass : mutedTextClass + " hover:" + textClass}`}>EN</button>
+            <span className={mutedTextClass}>|</span>
+            <button onClick={() => switchLanguage("de")} className={`transition-colors ${lang === "de" ? textClass : mutedTextClass + " hover:" + textClass}`}>DE</button>
+          </div>
+        </nav>
+
+        {/* Mobile hamburger */}
+        <button className={`md:hidden p-2 -mr-2 ${textClass}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            {mobileMenuOpen ? (
+              <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
+            ) : (
+              <><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></>
             )}
-        </header>
-    );
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {mobileMenuOpen && (
+        <div className="absolute top-[80px] left-0 right-0 bg-[#EAF1F6] border-b border-[var(--color-border-hairline)] px-6 py-8 flex flex-col gap-6 md:hidden shadow-sm max-h-[80vh] overflow-y-auto">
+          <Link href={getLocalizedHref("/portfolio")} onClick={() => setMobileMenuOpen(false)} className={`text-lg font-medium ${isActive("/portfolio") ? textClass : mutedTextClass}`}>Portfolio</Link>
+
+          {!isDE && (
+            <>
+              <div className="text-lg font-medium text-[var(--color-text-muted)]">Services</div>
+              <div className="flex flex-col gap-4 pl-4">
+                {serviceLinks.map(s => (
+                  <Link key={s.href} href={s.href} onClick={() => setMobileMenuOpen(false)} className={`text-base font-normal ${pathname === s.href ? textClass : mutedTextClass}`}>{s.label}</Link>
+                ))}
+              </div>
+              <Link href="/insights" onClick={() => setMobileMenuOpen(false)} className={`text-lg font-medium ${pathname.startsWith("/insights") ? textClass : mutedTextClass}`}>Insights</Link>
+              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className={`text-lg font-medium ${pathname === "/about" ? textClass : mutedTextClass}`}>About</Link>
+              <Link href="/pricing" onClick={() => setMobileMenuOpen(false)} className={`text-lg font-medium ${pathname === "/pricing" ? textClass : mutedTextClass}`}>Pricing</Link>
+            </>
+          )}
+
+          <Link href={contactHref} onClick={() => setMobileMenuOpen(false)} className="bg-[var(--color-accent)] text-white text-center w-full py-4 rounded-2xl text-[16px] font-medium transition-colors hover:bg-[var(--color-accent-hover)]">
+            Contact
+          </Link>
+
+          <div className="flex items-center justify-center gap-4 text-[16px] font-medium pt-4 border-t border-[var(--color-border-hairline)]">
+            <button onClick={() => { switchLanguage("en"); setMobileMenuOpen(false); }} className={lang === "en" ? textClass : mutedTextClass}>EN</button>
+            <span className={mutedTextClass}>|</span>
+            <button onClick={() => { switchLanguage("de"); setMobileMenuOpen(false); }} className={lang === "de" ? textClass : mutedTextClass}>DE</button>
+          </div>
+        </div>
+      )}
+    </header>
+  );
 }

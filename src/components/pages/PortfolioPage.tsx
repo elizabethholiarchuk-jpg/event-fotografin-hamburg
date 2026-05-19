@@ -63,7 +63,9 @@ export default function PortfolioPage({ lang }: { lang: Language }) {
                     return (
                         <div key={event.slug} className={`max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col py-10 md:py-16 ${index !== portfolioEvents.length - 1 ? 'border-b border-[var(--color-border-hairline)]' : ''}`}>
                             <div className="flex flex-col gap-1 mb-8 md:mb-12">
-                                <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text-main)] tracking-tight max-w-[85ch]">{event.title_i18n?.[lang] ?? event.title}</h2>
+                                <Link href={lang === 'en' ? `/portfolio/${event.slug}` : `/de/portfolio`} className="group w-fit">
+                                    <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text-main)] tracking-tight max-w-[85ch] group-hover:underline underline-offset-4 decoration-1">{event.title_i18n?.[lang] ?? event.title}</h2>
+                                </Link>
                                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2">
                                     <span className="text-base font-medium text-[var(--color-text-muted)]">{event.category[lang]}</span>
                                     {event.location_i18n?.[lang] && (
@@ -82,6 +84,11 @@ export default function PortfolioPage({ lang }: { lang: Language }) {
                                 {event.oneLiner_i18n?.[lang] && (
                                     <p className="text-[15px] font-normal text-[var(--color-text-muted)] mt-1 max-w-[70ch] leading-relaxed">{event.oneLiner_i18n[lang]}</p>
                                 )}
+                                {lang === 'en' && (
+                                    <Link href={`/portfolio/${event.slug}`} className="text-[13px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 mt-2 w-fit">
+                                        View case study →
+                                    </Link>
+                                )}
                             </div>
 
                             <ImageGallery
@@ -97,7 +104,7 @@ export default function PortfolioPage({ lang }: { lang: Language }) {
                 <div className="max-w-[800px] w-full px-6 flex flex-col gap-10 items-center">
                     <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1]" dangerouslySetInnerHTML={{ __html: t.home.finalCta.title }}></h2>
                     <p className="text-xl md:text-2xl opacity-80 font-light mt-2 md:mt-4">{t.portfolio.replyTime}</p>
-                    <Link href={lang === 'de' ? "/de/kontakt" : "/kontakt"} title="Angebot für Ihr Event anfragen" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] mt-6 rounded-2xl">
+                    <Link href={lang === 'de' ? "/de/kontakt" : "/contact"} title="Request event photography" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] mt-6 rounded-2xl">
                         {t.home.finalCta.btn}
                     </Link>
                 </div>
