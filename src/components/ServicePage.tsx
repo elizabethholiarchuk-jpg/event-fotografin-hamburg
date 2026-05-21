@@ -15,6 +15,7 @@ export interface ServicePageProps {
   relatedCategories: string[];
   schema: object;
   faqSchema?: object;
+  extraSchemas?: object[];
 }
 
 export default function ServicePage({
@@ -27,6 +28,7 @@ export default function ServicePage({
   relatedCategories,
   schema,
   faqSchema,
+  extraSchemas,
 }: ServicePageProps) {
   // Pull relevant portfolio items (EN only; pick first 6 matching categories)
   const related = portfolioEvents
@@ -36,6 +38,9 @@ export default function ServicePage({
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      {extraSchemas?.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
 
       {/* Hero */}
       <section className="pt-32 md:pt-44 pb-16 md:pb-24 bg-transparent border-b border-[var(--color-border-hairline)]">

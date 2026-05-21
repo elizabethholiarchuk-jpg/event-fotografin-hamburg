@@ -97,6 +97,29 @@ export default function CorporateEventPhotographyHamburg() {
           },
         ],
       }}
+      extraSchemas={[
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Corporate Event Photography Hamburg",
+          description: "Corporate event photographer in Hamburg for awards evenings, internal events, company anniversaries, product launches and executive gatherings.",
+          provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
+          url: "https://www.event-fotografin-hamburg.de/corporate-event-photography-hamburg",
+          areaServed: [
+            { "@type": "City", "name": "Hamburg" },
+            { "@type": "Country", "name": "Germany" },
+          ],
+          serviceType: "Corporate Event Photography",
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de/" },
+            { "@type": "ListItem", position: 2, name: "Corporate Event Photography Hamburg", item: "https://www.event-fotografin-hamburg.de/corporate-event-photography-hamburg" },
+          ],
+        },
+      ]}
     />
   );
 }

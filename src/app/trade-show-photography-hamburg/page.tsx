@@ -105,6 +105,29 @@ export default function TradeShowPhotographyHamburg() {
           },
         ],
       }}
+      extraSchemas={[
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Trade Show Photography Hamburg",
+          description: "Trade show photographer in Hamburg. Booth coverage, visitor interactions, product shots and branding \u2014 for Hamburg Messe and beyond.",
+          provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
+          url: "https://www.event-fotografin-hamburg.de/trade-show-photography-hamburg",
+          areaServed: [
+            { "@type": "City", "name": "Hamburg" },
+            { "@type": "Country", "name": "Germany" },
+          ],
+          serviceType: "Trade Show Photography",
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de/" },
+            { "@type": "ListItem", position: 2, name: "Trade Show Photography Hamburg", item: "https://www.event-fotografin-hamburg.de/trade-show-photography-hamburg" },
+          ],
+        },
+      ]}
     />
   );
 }

@@ -100,6 +100,29 @@ export default function EventPhotographerHamburg() {
           },
         ],
       }}
+      extraSchemas={[
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Event Photographer Hamburg",
+          description: "Professional event photographer based in Hamburg. Covering conferences, trade shows, and corporate events across Hamburg and Europe.",
+          provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
+          url: "https://www.event-fotografin-hamburg.de/event-photographer-hamburg",
+          areaServed: [
+            { "@type": "City", "name": "Hamburg" },
+            { "@type": "Country", "name": "Germany" },
+          ],
+          serviceType: "Event Photography",
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de/" },
+            { "@type": "ListItem", position: 2, name: "Event Photographer Hamburg", item: "https://www.event-fotografin-hamburg.de/event-photographer-hamburg" },
+          ],
+        },
+      ]}
     />
   );
 }

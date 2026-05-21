@@ -23,6 +23,20 @@ const categoryColors: Record<string, string> = {
 export default function InsightsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de/" },
+              { "@type": "ListItem", position: 2, name: "Insights", item: "https://www.event-fotografin-hamburg.de/insights" },
+            ],
+          }),
+        }}
+      />
+
       {/* Hero */}
       <section className="pt-32 md:pt-44 pb-16 md:pb-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-6">

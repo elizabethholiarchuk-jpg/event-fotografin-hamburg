@@ -105,6 +105,29 @@ export default function ConferencePhotographyHamburg() {
           },
         ],
       }}
+      extraSchemas={[
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Conference Photography Hamburg",
+          description: "Professional conference photographer in Hamburg. Keynotes, panels, networking and speaker portraits — delivered within 48 hours.",
+          provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
+          url: "https://www.event-fotografin-hamburg.de/conference-photography-hamburg",
+          areaServed: [
+            { "@type": "City", "name": "Hamburg" },
+            { "@type": "Country", "name": "Germany" },
+          ],
+          serviceType: "Conference Photography",
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de/" },
+            { "@type": "ListItem", position: 2, name: "Conference Photography Hamburg", item: "https://www.event-fotografin-hamburg.de/conference-photography-hamburg" },
+          ],
+        },
+      ]}
     />
   );
 }
