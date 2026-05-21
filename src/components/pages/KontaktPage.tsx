@@ -16,13 +16,13 @@ export default function KontaktPage({ lang }: { lang: Language }) {
                                 "@type": "ListItem",
                                 "position": 1,
                                 "name": "Home",
-                                "item": "https://lizaholiarchuk.com"
+                                "item": "https://www.event-fotografin-hamburg.de"
                             },
                             {
                                 "@type": "ListItem",
                                 "position": 2,
                                 "name": "Kontakt",
-                                "item": "https://lizaholiarchuk.com/kontakt"
+                                "item": "https://www.event-fotografin-hamburg.de/kontakt"
                             }
                         ]
                     }),

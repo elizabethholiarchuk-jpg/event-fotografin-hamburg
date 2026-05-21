@@ -2,13 +2,13 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About | Liza Holiarchuk — Event Photographer Hamburg",
+  title: { absolute: "About — Liza Holiarchuk, Event Photographer Hamburg" },
   description:
     "Liza Holiarchuk is a professional event and conference photographer based in Hamburg, working with B2B brands across Germany and Europe.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Liza Holiarchuk — Event Photographer Hamburg",
-    url: "https://lizaholiarchuk.com/about",
+    title: "About — Liza Holiarchuk, Event Photographer Hamburg",
+    url: "/about",
   },
 };
 
@@ -22,8 +22,8 @@ export default function AboutPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://lizaholiarchuk.com" },
-              { "@type": "ListItem", position: 2, name: "About", item: "https://lizaholiarchuk.com/about" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de" },
+              { "@type": "ListItem", position: 2, name: "About", item: "https://www.event-fotografin-hamburg.de/about" },
             ],
           }),
         }}

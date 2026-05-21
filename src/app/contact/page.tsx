@@ -5,7 +5,7 @@ import { getDictionary } from "@/i18n";
 export async function generateMetadata(): Promise<Metadata> {
   const t = getDictionary("en");
   return {
-    title: "Contact — Event Photographer Hamburg | Liza Holiarchuk",
+    title: { absolute: "Contact — Book Event Photographer Hamburg" },
     description:
       "Get in touch to check availability and request a quote for your conference, trade show or corporate event. I'll reply within 24 hours.",
     alternates: {
@@ -17,9 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: "Contact | Liza Holiarchuk Event Photography",
+      title: "Contact — Book Event Photographer Hamburg",
       description: "Request a quote for your event. Available across Hamburg & Europe.",
-      url: "https://lizaholiarchuk.com/contact",
+      url: "/contact",
     },
   };
 }

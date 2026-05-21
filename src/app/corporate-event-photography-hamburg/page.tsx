@@ -2,14 +2,14 @@ import { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Corporate Event Photography Hamburg | Liza Holiarchuk",
+  title: "Corporate Event Photography Hamburg",
   description:
     "Corporate event photographer in Hamburg for awards evenings, internal events, company anniversaries, product launches and executive gatherings.",
   alternates: { canonical: "/corporate-event-photography-hamburg" },
   openGraph: {
     title: "Corporate Event Photography Hamburg | Liza Holiarchuk",
     description: "Corporate event photography in Hamburg and across Europe.",
-    url: "https://lizaholiarchuk.com/corporate-event-photography-hamburg",
+    url: "/corporate-event-photography-hamburg",
   },
 };
 
@@ -62,7 +62,7 @@ export default function CorporateEventPhotographyHamburg() {
         provider: {
           "@type": "LocalBusiness",
           name: "Liza Holiarchuk",
-          url: "https://lizaholiarchuk.com",
+          url: "https://www.event-fotografin-hamburg.de",
         },
         areaServed: "Hamburg, Germany, Europe",
         description: "Corporate event photography for awards evenings, internal events and executive gatherings in Hamburg and Europe.",

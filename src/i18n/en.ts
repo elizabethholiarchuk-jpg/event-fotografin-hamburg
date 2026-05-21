@@ -9,7 +9,7 @@ export const en: Dictionary = {
   },
   home: {
     meta: {
-      title: "Event Photographer Hamburg | Liza Holiarchuk",
+      title: "Event Photographer Hamburg",
       description: "Professional event photographer in Hamburg for conference photography, trade shows & corporate events. Fast delivery & consistent visual style."
     },
     hero: {
@@ -83,7 +83,7 @@ export const en: Dictionary = {
     }
   },
   portfolio: {
-    meta: { title: "Portfolio" },
+    meta: { title: "Portfolio — Event Photography Hamburg" },
     title: "Portfolio",
     subtitle: "Conferences, Trade Shows & Corporate Events — Europe-wide.",
     replyTime: "I usually get back to you within 24 hours."

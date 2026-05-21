@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${title} | Liza Holiarchuk Event Photography`,
       description: desc,
-      url: `https://lizaholiarchuk.com/portfolio/${slug}`,
+      url: `/portfolio/${slug}`,
       images: [{ url: `/images/portfolio/${slug}/01.webp`, width: 1200, height: 800, alt: title }],
     },
   };
@@ -69,9 +69,9 @@ export default async function CaseStudyPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://lizaholiarchuk.com" },
-      { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://lizaholiarchuk.com/portfolio" },
-      { "@type": "ListItem", position: 3, name: title, item: `https://lizaholiarchuk.com/portfolio/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de" },
+      { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://www.event-fotografin-hamburg.de/portfolio" },
+      { "@type": "ListItem", position: 3, name: title, item: `https://www.event-fotografin-hamburg.de/portfolio/${slug}` },
     ],
   };
 

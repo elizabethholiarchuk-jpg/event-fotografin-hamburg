@@ -2,14 +2,14 @@ import { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Trade Show & Expo Photography Hamburg | Liza Holiarchuk",
+  title: "Trade Show Photography Hamburg",
   description:
     "Trade show photographer in Hamburg. Booth coverage, visitor interactions, product shots and branding — for SMM, AGRITECHNICA, Aquatech and more.",
   alternates: { canonical: "/trade-show-photography-hamburg" },
   openGraph: {
     title: "Trade Show Photography Hamburg | Liza Holiarchuk",
     description: "Trade show and expo photography across Hamburg and Europe.",
-    url: "https://lizaholiarchuk.com/trade-show-photography-hamburg",
+    url: "/trade-show-photography-hamburg",
   },
 };
 
@@ -62,7 +62,7 @@ export default function TradeShowPhotographyHamburg() {
         provider: {
           "@type": "LocalBusiness",
           name: "Liza Holiarchuk",
-          url: "https://lizaholiarchuk.com",
+          url: "https://www.event-fotografin-hamburg.de",
         },
         areaServed: "Hamburg, Germany, Europe",
         description: "Trade show and expo photography for exhibitors at Hamburg Messe and across Europe.",

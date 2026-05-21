@@ -2,14 +2,14 @@ import { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Conference Photography Hamburg | Liza Holiarchuk",
+  title: "Conference Photography Hamburg",
   description:
     "Professional conference photographer in Hamburg. Keynotes, panels, networking and speaker portraits — consistently delivered within 48 hours.",
   alternates: { canonical: "/conference-photography-hamburg" },
   openGraph: {
     title: "Conference Photography Hamburg | Liza Holiarchuk",
     description: "Conference photography for B2B events in Hamburg and Europe.",
-    url: "https://lizaholiarchuk.com/conference-photography-hamburg",
+    url: "/conference-photography-hamburg",
   },
 };
 
@@ -62,7 +62,7 @@ export default function ConferencePhotographyHamburg() {
         provider: {
           "@type": "LocalBusiness",
           name: "Liza Holiarchuk",
-          url: "https://lizaholiarchuk.com",
+          url: "https://www.event-fotografin-hamburg.de",
         },
         areaServed: "Hamburg, Germany, Europe",
         description: "Professional conference photography for B2B events in Hamburg and Europe-wide.",

@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://lizaholiarchuk.com/sitemap.xml',
+        sitemap: 'https://www.event-fotografin-hamburg.de/sitemap.xml',
     }
 }

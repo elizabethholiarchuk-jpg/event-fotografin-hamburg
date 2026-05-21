@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lizaholiarchuk.com"),
+  metadataBase: new URL("https://www.event-fotografin-hamburg.de"),
   title: {
     template: "%s | Liza Holiarchuk",
     default: "Event Photographer Hamburg | Liza Holiarchuk",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lizaholiarchuk.com",
+    url: "https://www.event-fotografin-hamburg.de",
     siteName: "Liza Holiarchuk Event Photography",
     images: [
       {
@@ -68,8 +68,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "Liza Holiarchuk",
-              image: "https://lizaholiarchuk.com/images/home/10-about/01-about.webp",
-              url: "https://lizaholiarchuk.com",
+              image: "https://www.event-fotografin-hamburg.de/images/home/10-about/01-about.webp",
+              url: "https://www.event-fotografin-hamburg.de",
               telephone: "+491752606697",
               email: "hello@lizaholiarchuk.com",
               address: {

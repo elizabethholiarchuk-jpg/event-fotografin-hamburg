@@ -4,7 +4,7 @@ import { insightsPosts } from "@/data/insights";
 export const dynamic = 'force-static';
 
 export async function GET() {
-    const baseUrl = 'https://lizaholiarchuk.com';
+    const baseUrl = 'https://www.event-fotografin-hamburg.de';
     const lastModified = new Date().toISOString();
 
     // EN+DE bilingual routes

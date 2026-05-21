@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://lizaholiarchuk.com/insights/${slug}`,
+      url: `/insights/${slug}`,
       ...(post.coverImage && { images: [{ url: post.coverImage, width: 1200, height: 630, alt: post.title }] }),
     },
   };
@@ -44,9 +44,9 @@ export default async function InsightsPostPage({ params }: Props) {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://lizaholiarchuk.com" },
-              { "@type": "ListItem", position: 2, name: "Insights", item: "https://lizaholiarchuk.com/insights" },
-              { "@type": "ListItem", position: 3, name: post.title, item: `https://lizaholiarchuk.com/insights/${slug}` },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de" },
+              { "@type": "ListItem", position: 2, name: "Insights", item: "https://www.event-fotografin-hamburg.de/insights" },
+              { "@type": "ListItem", position: 3, name: post.title, item: `https://www.event-fotografin-hamburg.de/insights/${slug}` },
             ],
           }),
         }}

@@ -3,13 +3,13 @@ import Link from "next/link";
 import { insightsPosts } from "@/data/insights";
 
 export const metadata: Metadata = {
-  title: "Insights | Event Photography Blog | Liza Holiarchuk",
+  title: "Event Photography Insights",
   description:
     "Practical insights on conference photography, trade show coverage, and event documentation for B2B marketing and communications teams.",
   alternates: { canonical: "/insights" },
   openGraph: {
     title: "Event Photography Insights | Liza Holiarchuk",
-    url: "https://lizaholiarchuk.com/insights",
+    url: "/insights",
   },
 };
 

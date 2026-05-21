@@ -2,13 +2,13 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Pricing | Event Photography Hamburg | Liza Holiarchuk",
+  title: "Event Photography Pricing Hamburg",
   description:
     "Project-based pricing for professional event photography in Hamburg. Transparent day-based packages. Request a custom quote within 24 hours.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Event Photography Pricing Hamburg | Liza Holiarchuk",
-    url: "https://lizaholiarchuk.com/pricing",
+    url: "/pricing",
   },
 };
 
@@ -86,8 +86,8 @@ export default function PricingPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://lizaholiarchuk.com" },
-              { "@type": "ListItem", position: 2, name: "Pricing", item: "https://lizaholiarchuk.com/pricing" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de" },
+              { "@type": "ListItem", position: 2, name: "Pricing", item: "https://www.event-fotografin-hamburg.de/pricing" },
             ],
           }),
         }}
