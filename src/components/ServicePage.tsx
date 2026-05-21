@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { portfolioEvents } from "@/data/portfolio";
+import FaqAccordion from "@/components/FaqAccordion";
 
 export interface ServicePageProps {
   hero: {
@@ -168,14 +169,7 @@ export default function ServicePage({
               ),
             }}
           />
-          <div className="flex flex-col gap-6">
-            {faq.map((item, i) => (
-              <div key={i} className="flex flex-col gap-2 pb-6 border-b border-[var(--color-border-hairline)] last:border-0">
-                <h3 className="text-base md:text-lg font-semibold text-[var(--color-text-main)]">{item.q}</h3>
-                <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">{item.a}</p>
-              </div>
-            ))}
-          </div>
+          <FaqAccordion items={faq} />
         </div>
       </section>
 
