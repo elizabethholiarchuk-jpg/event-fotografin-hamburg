@@ -61,30 +61,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "Liza Holiarchuk",
-              image: "https://www.event-fotografin-hamburg.de/images/home/10-about/01-about.webp",
-              url: "https://www.event-fotografin-hamburg.de",
-              telephone: "+491752606697",
-              email: "hello@lizaholiarchuk.com",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Rehhoffstrasse 10",
-                addressLocality: "Hamburg",
-                postalCode: "20459",
-                addressCountry: "DE",
-              },
-              areaServed: ["Hamburg", "Germany", "Europe"],
-              description: "Eventfotografie, Konferenzfotografie, Messefotografie, Corporate Events, Business Portraits",
-              sameAs: []
-            }),
-          }}
-        />
+
         <CookieBanner />
       </body>
     </html>
