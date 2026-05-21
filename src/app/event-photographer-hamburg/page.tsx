@@ -58,7 +58,7 @@ export default function EventPhotographerHamburg() {
       schema={{
         "@context": "https://schema.org",
         "@type": ["LocalBusiness", "ProfessionalService"],
-        name: "Liza Holiarchuk — Event Photographer Hamburg",
+        name: "Liza Holiarchuk \u2014 Event Photographer Hamburg",
         description: "Professional event photographer in Hamburg for conferences, trade shows and corporate events.",
         url: "https://www.event-fotografin-hamburg.de/event-photographer-hamburg",
         telephone: "+491752606697",
@@ -69,6 +69,36 @@ export default function EventPhotographerHamburg() {
           addressCountry: "DE",
         },
         areaServed: ["Hamburg", "Germany", "Europe"],
+      }}
+      faqSchema={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "How far in advance should I book an event photographer in Hamburg?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Ideally 4\u20138 weeks before your event. For large conferences, booking even earlier is recommended.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do you work outside Hamburg?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes \u2014 Berlin, Hanover, D\u00fcsseldorf, Frankfurt, Munich, Amsterdam, Milan, Copenhagen and other European cities. Travel costs are quoted separately.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "When do we receive the photos after the event?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Fully edited photos within 48 hours via a private online gallery. Same-day highlights available on request.",
+            },
+          },
+        ],
       }}
     />
   );

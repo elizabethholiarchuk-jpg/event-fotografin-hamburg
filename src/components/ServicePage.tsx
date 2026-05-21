@@ -13,6 +13,7 @@ export interface ServicePageProps {
   testimonial?: { quote: string; name: string; role: string };
   relatedCategories: string[];
   schema: object;
+  faqSchema?: object;
 }
 
 export default function ServicePage({
@@ -24,6 +25,7 @@ export default function ServicePage({
   testimonial,
   relatedCategories,
   schema,
+  faqSchema,
 }: ServicePageProps) {
   // Pull relevant portfolio items (EN only; pick first 6 matching categories)
   const related = portfolioEvents
@@ -153,15 +155,17 @@ export default function ServicePage({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                mainEntity: faq.map((f) => ({
-                  "@type": "Question",
-                  name: f.q,
-                  acceptedAnswer: { "@type": "Answer", text: f.a },
-                })),
-              }),
+              __html: JSON.stringify(
+                faqSchema ?? {
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: faq.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: { "@type": "Answer", text: f.a },
+                  })),
+                }
+              ),
             }}
           />
           <div className="flex flex-col gap-6">

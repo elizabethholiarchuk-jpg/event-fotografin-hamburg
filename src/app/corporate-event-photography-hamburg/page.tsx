@@ -67,6 +67,36 @@ export default function CorporateEventPhotographyHamburg() {
         areaServed: "Hamburg, Germany, Europe",
         description: "Corporate event photography for awards evenings, internal events and executive gatherings in Hamburg and Europe.",
       }}
+      faqSchema={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Can you photograph at private or members-only venues?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. I am experienced in working at private venues, hotels, and restricted-access corporate locations, and sign NDAs as required.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do you photograph awards ceremonies?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Awards evenings are a specialty \u2014 stage coverage, trophy moments, table shots, and the networking before and after.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can we use the photos for LinkedIn and internal communications?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. All images include full usage rights for internal and external corporate communication.",
+            },
+          },
+        ],
+      }}
     />
   );
 }

@@ -67,6 +67,44 @@ export default function ConferencePhotographyHamburg() {
         areaServed: "Hamburg, Germany, Europe",
         description: "Professional conference photography for B2B events in Hamburg and Europe-wide.",
       }}
+      faqSchema={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Can you cover parallel sessions at a conference?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. For conferences with parallel tracks or stages, a second photographer can be arranged to ensure nothing is missed.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can we get photos for social media the same day?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. A same-day highlights selection of 10\u201320 edited images can be delivered the same evening for immediate use on LinkedIn or Instagram.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What size conferences have you photographed?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "From 50-person panels to 2,000-delegate congresses. The workflow scales accordingly.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do you sign NDAs?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. For events with sensitive content, an NDA can be signed before the event.",
+            },
+          },
+        ],
+      }}
     />
   );
 }

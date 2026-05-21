@@ -58,7 +58,7 @@ export default function TradeShowPhotographyHamburg() {
       schema={{
         "@context": "https://schema.org",
         "@type": "Service",
-        name: "Trade Show & Expo Photography Hamburg",
+        name: "Trade Show \u0026 Expo Photography Hamburg",
         provider: {
           "@type": "LocalBusiness",
           name: "Liza Holiarchuk",
@@ -66,6 +66,44 @@ export default function TradeShowPhotographyHamburg() {
         },
         areaServed: "Hamburg, Germany, Europe",
         description: "Trade show and expo photography for exhibitors at Hamburg Messe and across Europe.",
+      }}
+      faqSchema={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Can I get trade show photos the same day for LinkedIn?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. A same-day selects delivery is available \u2014 typically 10\u201320 edited images sent by end of day.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do you work at Hamburg Messe?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Hamburg Messe und Congress is one of the primary venues. I am familiar with its halls, logistics, and photography access requirements.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can you cover multiple days at a trade show?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Multi-day coverage is available and can cover the full duration of the exhibition.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do you photograph at international trade fairs outside Germany?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes \u2014 Amsterdam, Milan, Copenhagen, and other European cities. Travel is quoted separately.",
+            },
+          },
+        ],
       }}
     />
   );
