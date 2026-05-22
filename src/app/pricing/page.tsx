@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Photography Pricing Hamburg",
   description:
-    "Project-based pricing for professional event photography in Hamburg. Transparent day-based packages. Request a custom quote within 24 hours.",
+    "Conference and event photography in Hamburg from €750. Half-day and full-day packages. Transparent pricing, custom quotes within 24 hours.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Event Photography Pricing Hamburg | Liza Holiarchuk",

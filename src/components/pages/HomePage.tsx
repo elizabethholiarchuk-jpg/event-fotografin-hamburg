@@ -30,7 +30,7 @@ export default function HomePage({ lang }: { lang: Language }) {
       <section className="relative w-full min-h-[92vh] md:min-h-screen flex items-end justify-start bg-[var(--color-dark-bg)] overflow-hidden pb-16 md:pb-24 pt-40 md:pt-48">
         <SafeImage
           src="/images/home/02-hero/01-hero.webp"
-          alt="Eventfotografin Hamburg - Liza Holiarchuk"
+          alt="Liza Holiarchuk — event photographer Hamburg at a corporate conference"
           fill
           priority
           sizes="100vw"
@@ -72,17 +72,28 @@ export default function HomePage({ lang }: { lang: Language }) {
             {t.trust.title}
           </p>
           <div className="flex flex-row flex-nowrap overflow-x-auto md:overflow-visible items-center justify-start md:justify-center gap-6 md:gap-12 pb-4 md:pb-0 brightness-0 opacity-60 w-full no-scrollbar">
-            {[1, 2, 3, 5, 6, 7, 8].map((num) => (
-              <div key={num} className="relative h-8 md:h-10 w-20 md:w-28 shrink-0">
-                <SafeImage
-                  src={`/images/home/03-client-logos/0${num}-logo.webp`}
-                  alt={`Client Logo ${num}`}
-                  fill
-                  sizes="(max-width: 768px) 80px, 112px"
-                  className="object-contain"
-                />
-              </div>
-            ))}
+            {([1, 2, 3, 5, 6, 7, 8] as const).map((num) => {
+              const clientLogoAlts: Record<number, string> = {
+                1: "Plug and Play Tech Center Hamburg logo",
+                2: "flair HR software logo",
+                3: "Lloyd's Register logo",
+                5: "Shell Global Solutions logo",
+                6: "FEMS logo",
+                7: "CLAAS logo",
+                8: "Factory Hammerbrooklyn logo",
+              };
+              return (
+                <div key={num} className="relative h-8 md:h-10 w-20 md:w-28 shrink-0">
+                  <SafeImage
+                    src={`/images/home/03-client-logos/0${num}-logo.webp`}
+                    alt={clientLogoAlts[num]}
+                    fill
+                    sizes="(max-width: 768px) 80px, 112px"
+                    className="object-contain"
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -140,7 +151,21 @@ export default function HomePage({ lang }: { lang: Language }) {
           <ImageGallery
             images={Array.from({ length: 12 }, (_, i) => {
               const strNum = (i + 1).toString().padStart(2, '0');
-              return { src: `/images/home/06-gallery/${strNum}.webp`, alt: `Portfolio Vorschau ${strNum}` };
+              const portfolioAlts: Record<string, string> = {
+                "01": "Conference photography Hamburg — keynote speaker on stage",
+                "02": "B2B event photography Hamburg — networking at conference",
+                "03": "Trade show photography Hamburg Messe — booth coverage",
+                "04": "Corporate event photography Hamburg — awards ceremony",
+                "05": "Conference photographer Hamburg — panel discussion",
+                "06": "Event photography Hamburg — audience at conference",
+                "07": "Trade fair photographer — exhibitor stand Hamburg Messe",
+                "08": "Corporate photographer Hamburg — team and branding shot",
+                "09": "Conference photography Europe — speaker portrait",
+                "10": "B2B event photographer Hamburg — networking moment",
+                "11": "Event documentation Hamburg — product presentation",
+                "12": "Corporate event Hamburg — executive gathering",
+              };
+              return { src: `/images/home/06-gallery/${strNum}.webp`, alt: portfolioAlts[strNum] ?? `Portfolio ${strNum}` };
             })}
             gridClassName="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3"
             itemClassName="relative aspect-[3/2] md:aspect-[4/3] overflow-hidden bg-transparent group cursor-zoom-in w-full block rounded-none"
@@ -256,7 +281,12 @@ export default function HomePage({ lang }: { lang: Language }) {
                 <p className="text-xl md:text-2xl text-[var(--color-text-main)] leading-relaxed font-normal">"{testi.content}"</p>
                 <div className="flex items-center gap-4 mt-2">
                   <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 border border-[var(--color-border-hairline)] shadow-sm">
-                    <SafeImage src={`/images/home/09-testimonials/${testi.img}`} alt={testi.name} fill sizes="56px" className="object-cover" />
+                    <SafeImage src={`/images/home/09-testimonials/${testi.img}`} alt={{
+                        "Maya Wagner": "Maya Wagner, Partner Success at Plug and Play Tech Center Hamburg",
+                        "Mia Lohmeier": "Mia Lohmeier, HR Manager at flair",
+                        "Maria Kossivaki": "Maria Kossivaki, Event Specialist at Lloyd's Register",
+                        "Marcia Fahrenheim": "Marcia Fahrenheim, Director at Factory Hammerbrooklyn",
+                      }[testi.name] ?? testi.name} fill sizes="56px" className="object-cover" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-base font-semibold text-[var(--color-text-main)]">{testi.name}</span>
@@ -273,7 +303,7 @@ export default function HomePage({ lang }: { lang: Language }) {
       <section className="py-14 md:py-24 bg-transparent border-t border-[var(--color-border-hairline)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-12 md:gap-20 items-center">
           <div className="w-full md:w-1/2 relative aspect-[3/2] overflow-hidden rounded-[20px] shadow-sm border border-gray-100">
-            <SafeImage src="/images/home/10-about/01-about.webp" alt="Liza Holiarchuk" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+            <SafeImage src="/images/home/10-about/01-about.webp" alt="Liza Holiarchuk, event and conference photographer based in Hamburg" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
           </div>
           <div className="w-full md:w-1/2 flex flex-col gap-6">
             <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[var(--color-text-main)]">{t.about.title}</h2>
@@ -287,7 +317,7 @@ export default function HomePage({ lang }: { lang: Language }) {
 
       {/* 10. FAQ */}
       <section className="py-24 md:py-40 bg-transparent border-y border-[var(--color-border-hairline)] relative overflow-hidden flex items-center min-h-[80vh]">
-        <SafeImage src="/images/home/11-faq/01-faq.webp" alt="FAQ Background" fill className="object-cover" sizes="100vw" />
+        <SafeImage src="/images/home/11-faq/01-faq.webp" alt="Event photographer Hamburg — frequently asked questions" fill className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 bg-[#EAF1F6]/30" />
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 w-full relative z-10 flex">
           <div className="w-full flex flex-col lg:flex-row gap-12 lg:gap-24 bg-[#EAF1F6]/85 border border-black/10 shadow-sm rounded-[24px] p-10 md:p-16 backdrop-blur-[2px]">

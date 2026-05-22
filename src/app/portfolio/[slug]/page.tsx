@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: desc,
     alternates: { canonical: `/portfolio/${slug}` },
     openGraph: {
-      title: `${title} | Liza Holiarchuk Event Photography`,
+      title: `${title}`,
       description: desc,
       url: `/portfolio/${slug}`,
       images: [{ url: `/images/portfolio/${slug}/01.webp`, width: 1200, height: 800, alt: title }],

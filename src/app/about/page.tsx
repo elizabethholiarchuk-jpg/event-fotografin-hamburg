@@ -2,12 +2,12 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: { absolute: "About — Liza Holiarchuk, Event Photographer Hamburg" },
+  title: "About — Event Photographer Hamburg",
   description:
-    "Liza Holiarchuk is a professional event and conference photographer based in Hamburg, working with B2B brands across Germany and Europe.",
+    "Event and conference photographer based in Hamburg. Trusted by Lloyd's Register, Shell, and WFUNA. Covering B2B events across Germany and Europe.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About — Liza Holiarchuk, Event Photographer Hamburg",
+    title: "About — Event Photographer Hamburg | Liza Holiarchuk",
     url: "/about",
   },
 };

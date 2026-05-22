@@ -5,7 +5,7 @@ import { insightsPosts } from "@/data/insights";
 export const metadata: Metadata = {
   title: "Event Photography Insights",
   description:
-    "Practical insights on conference photography, trade show coverage, and event documentation for B2B marketing and communications teams.",
+    "Guides on event photography briefings, trade show coverage at Hamburg Messe, and same-day photo delivery — for marketing and event managers.",
   alternates: { canonical: "/insights" },
   openGraph: {
     title: "Event Photography Insights | Liza Holiarchuk",
