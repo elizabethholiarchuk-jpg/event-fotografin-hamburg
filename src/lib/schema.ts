@@ -17,7 +17,7 @@ const EMAIL       = 'hello@lizaholiarchuk.com';
 const SAME_AS = [
   'https://de.linkedin.com/in/lizaholiarchuk',
   'https://www.instagram.com/liza.holiarchuk/',
-  // TODO: add Google Business Profile URL once provided
+  'https://share.google/PykESRa2nPSRxACg0',
 ] as const;
 
 const ADDRESS = {
