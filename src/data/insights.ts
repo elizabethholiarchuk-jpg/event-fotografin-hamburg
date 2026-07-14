@@ -10,6 +10,15 @@ export interface InsightsPost {
 
 export const insightsPosts: InsightsPost[] = [
   {
+    slug: "how-much-does-an-event-photographer-cost-hamburg",
+    title: "Event Photographer in Hamburg: What Does It Actually Cost?",
+    excerpt:
+      "Event photography in Hamburg costs €450–€2,050+ depending on scope. Here's what's behind the price — and what to look for before you book.",
+    category: "Pricing & Booking",
+    date: "June 2026",
+    coverImage: "/images/insights/event-photographer-hamburg-conference-speaker-audience.webp",
+  },
+  {
     slug: "how-to-brief-your-event-photographer-conference-hamburg",
     title: "How to Brief Your Event Photographer for a Conference in Hamburg",
     excerpt:

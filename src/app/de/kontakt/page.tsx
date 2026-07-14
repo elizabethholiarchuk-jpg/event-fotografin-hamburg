@@ -10,9 +10,9 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: "/de/kontakt",
       languages: {
-        'en': '/kontakt',
+        'en': '/contact',
         'de': '/de/kontakt',
-        'x-default': '/kontakt',
+        'x-default': '/contact',
       },
     },
   };

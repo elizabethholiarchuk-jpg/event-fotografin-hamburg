@@ -5,7 +5,9 @@ export const metadata: Metadata = {
   title: "Event Photography Pricing Hamburg",
   description:
     "Conference and event photography in Hamburg from €750. Half-day and full-day packages. Transparent pricing, custom quotes within 24 hours.",
-  alternates: { canonical: "/pricing" },
+  alternates: {
+    canonical: "/pricing",
+  },
   openGraph: {
     title: "Event Photography Pricing Hamburg | Liza Holiarchuk",
     url: "/pricing",
@@ -16,7 +18,7 @@ const packages = [
   {
     name: "Half Day",
     duration: "Up to 4 hours on-site",
-    range: "€750 – €1,150",
+    range: "€1,000 – €1,500",
     ideal:
       "Panel discussions, compact conferences, networking events, single-day stand coverage at a trade fair.",
     includes: [
@@ -29,7 +31,7 @@ const packages = [
   {
     name: "Full Day",
     duration: "Up to 8 hours on-site",
-    range: "€1,350 – €2,050",
+    range: "€2,000 – €2,500",
     ideal:
       "Full-day conferences, all-day trade show coverage, corporate events, award ceremonies.",
     includes: [
@@ -96,6 +98,11 @@ export default function PricingPage() {
       {/* Hero */}
       <section className="pt-32 md:pt-44 pb-16 md:pb-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1000px] mx-auto px-6 md:px-12 flex flex-col gap-6">
+          <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)] font-light">
+            <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Home</Link>
+            <span className="mx-2" aria-hidden="true">›</span>
+            <span className="text-[var(--color-text-main)]">Pricing</span>
+          </nav>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[var(--color-text-main)] leading-[1.08]">
             Pricing
           </h1>

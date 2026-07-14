@@ -64,6 +64,12 @@ export default function Footer() {
                             <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[var(--color-text-muted)] mb-2">{t.footer.contactHeading}</span>
                             <a href="tel:+491752606697" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">+49 175 260 6697</a>
                             <a href="mailto:hello@lizaholiarchuk.com" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">hello@lizaholiarchuk.com</a>
+                            <address className="not-italic text-[var(--color-text-muted)] leading-relaxed text-[14px]">
+                                Liza Holiarchuk<br />
+                                Rehhoffstrasse 10<br />
+                                20459 Hamburg<br />
+                                {lang === "de" ? "Deutschland" : "Germany"}
+                            </address>
                         </div>
                         <div className="flex flex-col gap-4 text-[15px] font-light">
                             <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[var(--color-text-muted)] mb-2">Legal</span>

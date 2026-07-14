@@ -7,7 +7,7 @@ export const de = {
   },
   home: {
     meta: {
-      title: "Eventfotografin Hamburg | Liza Holiarchuk",
+      title: "Eventfotografin Hamburg",
       description: "Professionelle Eventfotografin in Hamburg für Konferenzfotografie, Messefotografie & Corporate Events. Schnelle Lieferung & konsistente Bildsprache."
     },
     hero: {
@@ -60,7 +60,7 @@ export const de = {
     },
     about: {
       title: "Liza Holiarchuk",
-      p1: "Ich bin Event- und Businessfotografin mit Base in Hamburg. Ich dokumentiere Events so, wie sie wirklich sind: Bühne, Publikum, Networking und die Details, die später für PR, Social und interne Kommunikation den Unterschied machen.",
+      p1: "Ich bin Event- und Businessfotografin mit Base in Hamburg und offizielle Fotografin der Hamburg Messe und Congress GmbH. Ich dokumentiere Events so, wie sie wirklich sind: Bühne, Publikum, Networking und die Details, die später für PR, Social und interne Kommunikation den Unterschied machen.",
       p2: "Neben Hamburg begleite ich Konferenzen und Corporate Events europaweit (z. B. Mailand, Amsterdam, Kopenhagen). Vor Ort arbeite ich ruhig, diskret und strukturiert. Die Lieferung erfolgt nahtlos über eine private, bei Bedarf passwortgeschützte Online-Galerie."
     },
     faq: {

@@ -5,11 +5,32 @@ export const metadata: Metadata = {
   title: "Conference Photography Hamburg",
   description:
     "Professional conference photographer in Hamburg. Keynotes, panels, networking and speaker portraits — consistently delivered within 48 hours.",
-  alternates: { canonical: "/conference-photography-hamburg" },
+  alternates: {
+    canonical: "/conference-photography-hamburg",
+  },
   openGraph: {
     title: "Conference Photography Hamburg | Liza Holiarchuk",
     description: "Conference photography for B2B events in Hamburg and Europe.",
     url: "/conference-photography-hamburg",
+    images: [
+      {
+        url: "/images/services/conference-photography-hamburg-cover.webp",
+        width: 1200,
+        height: 630,
+        alt: "Conference photography — large auditorium with engaged audience",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: "/images/services/conference-photography-hamburg-cover.webp",
+        width: 1200,
+        height: 630,
+        alt: "Conference photography — large auditorium with engaged audience",
+      },
+    ],
   },
 };
 
@@ -20,6 +41,10 @@ export default function ConferencePhotographyHamburg() {
         h1: "Conference Photography Hamburg",
         subtitle:
           "Keynotes, panels, networking and audience — professional conference photography for B2B events in Hamburg and across Europe.",
+      }}
+      heroImage={{
+        src: "/images/services/conference-photography-hamburg-cover.webp",
+        alt: "Conference photography — large auditorium with engaged audience",
       }}
       intro="Conferences depend on high-quality photography for PR, post-event communication, and future marketing. I document every layer of your conference: the keynote stage, speaker portraits, breakout sessions, networking breaks, branded spaces, and the audience reactions that tell the full story. Based in Hamburg, I have photographed conferences at venues including Hamburg Messe und Congress, the CCH, and international venues in Milan, Amsterdam, and Copenhagen. My images are delivered with consistent colour grading and ready to use across LinkedIn, press releases, and internal reports."
       whatYouGet={[
@@ -59,13 +84,15 @@ export default function ConferencePhotographyHamburg() {
         "@context": "https://schema.org",
         "@type": "Service",
         name: "Conference Photography Hamburg",
-        provider: {
-          "@type": "LocalBusiness",
-          name: "Liza Holiarchuk",
-          url: "https://www.event-fotografin-hamburg.de",
-        },
-        areaServed: "Hamburg, Germany, Europe",
-        description: "Professional conference photography for B2B events in Hamburg and Europe-wide.",
+        description: "Professional conference photographer in Hamburg. Keynotes, panels, networking and speaker portraits — delivered within 48 hours.",
+        url: "https://www.event-fotografin-hamburg.de/conference-photography-hamburg",
+        provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
+        areaServed: [
+          { "@type": "City", "name": "Hamburg" },
+          { "@type": "Country", "name": "Germany" },
+        ],
+        serviceType: "Conference Photography",
+        image: "https://www.event-fotografin-hamburg.de/images/services/conference-photography-hamburg-cover.webp",
       }}
       faqSchema={{
         "@context": "https://schema.org",
@@ -73,10 +100,34 @@ export default function ConferencePhotographyHamburg() {
         mainEntity: [
           {
             "@type": "Question",
-            name: "Can you cover parallel sessions at a conference?",
+            name: "Can you cover parallel sessions?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. For conferences with parallel tracks or stages, a second photographer can be arranged to ensure nothing is missed.",
+              text: "Yes. For conferences with parallel tracks or stages, I can arrange a second photographer to ensure nothing is missed.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do you photograph speakers before or after their presentation?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Speaker portrait sessions can be added as an optional block, either before the conference opens or during a scheduled break.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What do you need from the organiser on-site?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "A point of contact, a press or photographer badge, a rough agenda, and 3\u20135 must-have shots (e.g. opening keynote, specific speakers, networking). The rest I handle.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How do you handle low-light conference halls?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "I use fast lenses and professional full-frame sensors optimised for mixed and low-light environments, so stage lighting is never a problem.",
             },
           },
           {
@@ -84,7 +135,15 @@ export default function ConferencePhotographyHamburg() {
             name: "Can we get photos for social media the same day?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. A same-day highlights selection of 10\u201320 edited images can be delivered the same evening for immediate use on LinkedIn or Instagram.",
+              text: "Yes. A same-day highlights selection (10\u201320 edited images) can be delivered the same evening for immediate use on LinkedIn or Instagram.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do you sign NDAs or confidentiality agreements?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes, for events with sensitive content I\u2019m happy to sign an NDA before the event.",
             },
           },
           {
@@ -97,28 +156,15 @@ export default function ConferencePhotographyHamburg() {
           },
           {
             "@type": "Question",
-            name: "Do you sign NDAs?",
+            name: "How do I get the photos after the event?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. For events with sensitive content, an NDA can be signed before the event.",
+              text: "Via a private Picdrop gallery \u2014 the link can be shared with your team, speakers, or press.",
             },
           },
         ],
       }}
       extraSchemas={[
-        {
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Conference Photography Hamburg",
-          description: "Professional conference photographer in Hamburg. Keynotes, panels, networking and speaker portraits — delivered within 48 hours.",
-          provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
-          url: "https://www.event-fotografin-hamburg.de/conference-photography-hamburg",
-          areaServed: [
-            { "@type": "City", "name": "Hamburg" },
-            { "@type": "Country", "name": "Germany" },
-          ],
-          serviceType: "Conference Photography",
-        },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

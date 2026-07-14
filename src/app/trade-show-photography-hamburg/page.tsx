@@ -5,11 +5,32 @@ export const metadata: Metadata = {
   title: "Trade Show Photography Hamburg",
   description:
     "Trade show photographer in Hamburg. Booth coverage, visitor interactions, product shots and branding — for SMM, AGRITECHNICA, Aquatech and more.",
-  alternates: { canonical: "/trade-show-photography-hamburg" },
+  alternates: {
+    canonical: "/trade-show-photography-hamburg",
+  },
   openGraph: {
     title: "Trade Show Photography Hamburg | Liza Holiarchuk",
     description: "Trade show and expo photography across Hamburg and Europe.",
     url: "/trade-show-photography-hamburg",
+    images: [
+      {
+        url: "/images/services/trade-show-photography-hamburg-messe.webp",
+        width: 1200,
+        height: 630,
+        alt: "Trade show photography — branded exhibitor booth at an international trade fair",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: "/images/services/trade-show-photography-hamburg-messe.webp",
+        width: 1200,
+        height: 630,
+        alt: "Trade show photography — branded exhibitor booth at an international trade fair",
+      },
+    ],
   },
 };
 
@@ -20,6 +41,10 @@ export default function TradeShowPhotographyHamburg() {
         h1: "Trade Show & Expo Photography Hamburg",
         subtitle:
           "Booth coverage, visitor interactions, product detail shots and team photography — for trade fairs and expos at Hamburg Messe and across Europe.",
+      }}
+      heroImage={{
+        src: "/images/services/trade-show-photography-hamburg-messe.webp",
+        alt: "Trade show photography — branded exhibitor booth at an international trade fair",
       }}
       intro="Trade shows are high-investment events. The photography must capture your booth's atmosphere, your team's professionalism, and the quality of your products — all while working fast in a busy hall environment. I have photographed exhibitors at SMM (Hamburg), AGRITECHNICA (Hanover), Aquatech (Amsterdam), and other international trade fairs, covering everything from booth setup to live demos and client conversations. Images are delivered quickly so you can update your social media while the fair is still running."
       whatYouGet={[
@@ -58,14 +83,16 @@ export default function TradeShowPhotographyHamburg() {
       schema={{
         "@context": "https://schema.org",
         "@type": "Service",
-        name: "Trade Show \u0026 Expo Photography Hamburg",
-        provider: {
-          "@type": "LocalBusiness",
-          name: "Liza Holiarchuk",
-          url: "https://www.event-fotografin-hamburg.de",
-        },
-        areaServed: "Hamburg, Germany, Europe",
-        description: "Trade show and expo photography for exhibitors at Hamburg Messe and across Europe.",
+        name: "Trade Show & Expo Photography Hamburg",
+        description: "Trade show photographer in Hamburg. Booth coverage, visitor interactions, product shots and branding — for Hamburg Messe and beyond.",
+        url: "https://www.event-fotografin-hamburg.de/trade-show-photography-hamburg",
+        provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
+        areaServed: [
+          { "@type": "City", "name": "Hamburg" },
+          { "@type": "Country", "name": "Germany" },
+        ],
+        serviceType: "Trade Show Photography",
+        image: "https://www.event-fotografin-hamburg.de/images/services/trade-show-photography-hamburg-messe.webp",
       }}
       faqSchema={{
         "@context": "https://schema.org",
@@ -73,7 +100,23 @@ export default function TradeShowPhotographyHamburg() {
         mainEntity: [
           {
             "@type": "Question",
-            name: "Can I get trade show photos the same day for LinkedIn?",
+            name: "Can you cover multiple days at a trade show?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Multi-day coverage is available and can cover the full duration of your exhibition.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What if my booth is in a dark or crowded hall?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Trade show halls are my specialty. I use professional equipment optimised for mixed lighting, crowds, and dynamic environments.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can I get photos the same day for LinkedIn?",
             acceptedAnswer: {
               "@type": "Answer",
               text: "Yes. A same-day selects delivery is available \u2014 typically 10\u201320 edited images sent by end of day.",
@@ -84,15 +127,23 @@ export default function TradeShowPhotographyHamburg() {
             name: "Do you work at Hamburg Messe?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. Hamburg Messe und Congress is one of the primary venues. I am familiar with its halls, logistics, and photography access requirements.",
+              text: "Yes. Hamburg Messe und Congress is one of my primary venues. I\u2019m familiar with its halls, logistics, and photography access requirements.",
             },
           },
           {
             "@type": "Question",
-            name: "Can you cover multiple days at a trade show?",
+            name: "Can you also photograph presentations or talks on the stand?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. Multi-day coverage is available and can cover the full duration of the exhibition.",
+              text: "Absolutely. Stand presentations, product launches, and live demos are all covered as part of the package.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "We have stands at two different fairs in the same year \u2014 can you cover both?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Annual retainer or multi-event agreements are available for brands attending multiple trade fairs.",
             },
           },
           {
@@ -103,22 +154,17 @@ export default function TradeShowPhotographyHamburg() {
               text: "Yes \u2014 Amsterdam, Milan, Copenhagen, and other European cities. Travel is quoted separately.",
             },
           },
+          {
+            "@type": "Question",
+            name: "What usage rights are included?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Full usage rights for all corporate communication: website, social media, press, and sales materials.",
+            },
+          },
         ],
       }}
       extraSchemas={[
-        {
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Trade Show Photography Hamburg",
-          description: "Trade show photographer in Hamburg. Booth coverage, visitor interactions, product shots and branding \u2014 for Hamburg Messe and beyond.",
-          provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
-          url: "https://www.event-fotografin-hamburg.de/trade-show-photography-hamburg",
-          areaServed: [
-            { "@type": "City", "name": "Hamburg" },
-            { "@type": "Country", "name": "Germany" },
-          ],
-          serviceType: "Trade Show Photography",
-        },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

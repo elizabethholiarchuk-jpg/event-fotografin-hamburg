@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { portfolioEvents } from "@/data/portfolio";
 import FaqAccordion from "@/components/FaqAccordion";
 
@@ -6,6 +7,10 @@ export interface ServicePageProps {
   hero: {
     h1: string;
     subtitle: string;
+  };
+  heroImage?: {
+    src: string;
+    alt: string;
   };
   intro: string;
   whatYouGet: string[];
@@ -20,6 +25,7 @@ export interface ServicePageProps {
 
 export default function ServicePage({
   hero,
+  heroImage,
   intro,
   whatYouGet,
   howItWorks,
@@ -42,9 +48,29 @@ export default function ServicePage({
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
 
-      {/* Hero */}
-      <section className="pt-32 md:pt-44 pb-16 md:pb-24 bg-transparent border-b border-[var(--color-border-hairline)]">
+      {/* Hero image */}
+      {heroImage && (
+        <section className="relative w-full aspect-[21/9] md:aspect-[3/1] bg-[var(--color-dark-bg)] overflow-hidden mt-[72px]">
+          <Image
+            src={heroImage.src}
+            alt={heroImage.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+        </section>
+      )}
+
+      {/* Hero text */}
+      <section className={`${heroImage ? 'pt-12 md:pt-16' : 'pt-32 md:pt-44'} pb-16 md:pb-24 bg-transparent border-b border-[var(--color-border-hairline)]`}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-6">
+          <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)] font-light">
+            <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Home</Link>
+            <span className="mx-2" aria-hidden="true">›</span>
+            <span className="text-[var(--color-text-main)]">{hero.h1}</span>
+          </nav>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[var(--color-text-main)] max-w-4xl leading-[1.08]">
             {hero.h1}
           </h1>

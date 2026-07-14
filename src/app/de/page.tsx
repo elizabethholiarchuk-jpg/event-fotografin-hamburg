@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import HomePage from "@/components/pages/HomePage";
 import { getDictionary } from "@/i18n";
+import { JsonLd } from "@/components/JsonLd";
+import { buildHomepageJsonLd } from "@/lib/schema";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = getDictionary('de');
@@ -19,5 +21,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function HomeDE() {
-  return <HomePage lang="de" />;
+  return (
+    <>
+      <JsonLd data={buildHomepageJsonLd('de')} />
+      <HomePage lang="de" />
+    </>
+  );
 }

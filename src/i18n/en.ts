@@ -62,7 +62,7 @@ export const en: Dictionary = {
     },
     about: {
       title: "Liza Holiarchuk",
-      p1: "I am an event and business photographer based in Hamburg. I document events as they truly are: stage, audience, networking, and the details that later make the difference for PR, social media, and internal communication.",
+      p1: "I am an event and business photographer based in Hamburg and an official photographer at Hamburg Messe und Congress GmbH. I document events as they truly are: stage, audience, networking, and the details that later make the difference for PR, social media, and internal communication.",
       p2: "Besides Hamburg, I accompany conferences and corporate events throughout Europe (e.g., Milan, Amsterdam, Copenhagen). On-site, I work calmly, discreetly, and structured. Delivery is seamless via a private, optionally password-protected online gallery."
     },
     faq: {

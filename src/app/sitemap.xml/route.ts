@@ -18,7 +18,6 @@ export async function GET() {
     // EN-only routes
     const enOnlyRoutes = [
         { path: '/contact', priority: '0.8', changefreq: 'yearly' },
-        { path: '/event-photographer-hamburg', priority: '0.9', changefreq: 'monthly' },
         { path: '/conference-photography-hamburg', priority: '0.9', changefreq: 'monthly' },
         { path: '/trade-show-photography-hamburg', priority: '0.9', changefreq: 'monthly' },
         { path: '/corporate-event-photography-hamburg', priority: '0.9', changefreq: 'monthly' },
@@ -51,6 +50,27 @@ export async function GET() {
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${route.path}" />
   </url>`;
     });
+
+    // Asymmetric event photography routes with reciprocal hreflang
+    urls += `
+  <url>
+    <loc>${baseUrl}/event-photographer-hamburg</loc>
+    <lastmod>${lastModified}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/event-photographer-hamburg" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/eventfotograf-hamburg" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/event-photographer-hamburg" />
+  </url>
+  <url>
+    <loc>${baseUrl}/de/eventfotograf-hamburg</loc>
+    <lastmod>${lastModified}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/event-photographer-hamburg" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/eventfotograf-hamburg" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/event-photographer-hamburg" />
+  </url>`;
 
     // EN-only routes
     enOnlyRoutes.forEach(route => {

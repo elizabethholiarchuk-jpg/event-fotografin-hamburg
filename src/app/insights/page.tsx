@@ -6,7 +6,9 @@ export const metadata: Metadata = {
   title: "Event Photography Insights",
   description:
     "Guides on event photography briefings, trade show coverage at Hamburg Messe, and same-day photo delivery — for marketing and event managers.",
-  alternates: { canonical: "/insights" },
+  alternates: {
+    canonical: "/insights",
+  },
   openGraph: {
     title: "Event Photography Insights | Liza Holiarchuk",
     url: "/insights",
@@ -18,6 +20,7 @@ const categoryColors: Record<string, string> = {
   "Trade Show Photography": "bg-amber-50 text-amber-700",
   "Behind the Scenes": "bg-purple-50 text-purple-700",
   "Tips & Workflow": "bg-green-50 text-green-700",
+  "Pricing & Booking": "bg-emerald-50 text-emerald-700",
 };
 
 export default function InsightsPage() {
@@ -40,6 +43,11 @@ export default function InsightsPage() {
       {/* Hero */}
       <section className="pt-32 md:pt-44 pb-16 md:pb-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-6">
+          <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)] font-light">
+            <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Home</Link>
+            <span className="mx-2" aria-hidden="true">›</span>
+            <span className="text-[var(--color-text-main)]">Insights</span>
+          </nav>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[var(--color-text-main)] leading-[1.08]">
             Insights
           </h1>

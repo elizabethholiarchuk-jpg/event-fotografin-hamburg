@@ -1,11 +1,15 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
+import { buildAboutJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "About — Event Photographer Hamburg",
   description:
     "Event and conference photographer based in Hamburg. Trusted by Lloyd's Register, Shell, and WFUNA. Covering B2B events across Germany and Europe.",
-  alternates: { canonical: "/about" },
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "About — Event Photographer Hamburg | Liza Holiarchuk",
     url: "/about",
@@ -15,29 +19,22 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de/" },
-              { "@type": "ListItem", position: 2, name: "About", item: "https://www.event-fotografin-hamburg.de/about" },
-            ],
-          }),
-        }}
-      />
+      <JsonLd data={buildAboutJsonLd('en')} />
 
       {/* Hero */}
       <section className="pt-32 md:pt-44 pb-16 md:pb-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className="flex flex-col gap-6">
+            <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)] font-light">
+              <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Home</Link>
+              <span className="mx-2" aria-hidden="true">›</span>
+              <span className="text-[var(--color-text-main)]">About</span>
+            </nav>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[var(--color-text-main)] leading-[1.08]">
               Liza Holiarchuk
             </h1>
             <p className="text-xl text-[var(--color-text-muted)] font-normal leading-relaxed">
-              Event & conference photographer based in Hamburg.
+              Event & conference photographer based in Hamburg and official photographer at Hamburg Messe und Congress GmbH.
             </p>
             <p className="text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
               I document B2B events as they truly are: stage moments, audience energy, networking, and the details that later make the difference for PR, social media, and internal communication. My clients range from international associations and trade show exhibitors to tech startups and established corporations.

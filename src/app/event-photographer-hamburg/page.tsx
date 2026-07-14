@@ -5,11 +5,37 @@ export const metadata: Metadata = {
   title: "Event Photographer Hamburg",
   description:
     "Professional event photographer based in Hamburg. Covering conferences, trade shows, and corporate events across Hamburg and Europe. Fast delivery, consistent quality.",
-  alternates: { canonical: "/event-photographer-hamburg" },
+  alternates: {
+    canonical: "/event-photographer-hamburg",
+    languages: {
+      en: "/event-photographer-hamburg",
+      de: "/de/eventfotograf-hamburg",
+      "x-default": "/event-photographer-hamburg",
+    },
+  },
   openGraph: {
     title: "Event Photographer Hamburg | Liza Holiarchuk",
     description: "Professional event photography in Hamburg & Europe-wide.",
     url: "/event-photographer-hamburg",
+    images: [
+      {
+        url: "/images/services/event-photographer-hamburg-cover.webp",
+        width: 1200,
+        height: 630,
+        alt: "Event photographer Hamburg — panel discussion at a B2B conference in Hamburg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: "/images/services/event-photographer-hamburg-cover.webp",
+        width: 1200,
+        height: 630,
+        alt: "Event photographer Hamburg — panel discussion at a B2B conference in Hamburg",
+      },
+    ],
   },
 };
 
@@ -20,6 +46,10 @@ export default function EventPhotographerHamburg() {
         h1: "Event Photographer Hamburg",
         subtitle:
           "B2B conferences, trade shows and corporate events — documented with precision. Based in Hamburg, available Europe-wide.",
+      }}
+      heroImage={{
+        src: "/images/services/event-photographer-hamburg-cover.webp",
+        alt: "Event photographer Hamburg — panel discussion at a B2B conference in Hamburg",
       }}
       intro="I'm Liza Holiarchuk, a professional event photographer based in Hamburg. I specialise in B2B event photography for conferences, trade fairs, and corporate events — from single-day panels to large-scale multi-day expos. My work is trusted by marketing teams, PR managers, and event agencies across Germany and Europe who need high-quality, brand-consistent imagery delivered fast. Whether your event is at Hamburg Messe, a conference centre in Berlin, or a venue in Amsterdam or Milan — I travel where your events take place."
       whatYouGet={[
@@ -57,18 +87,17 @@ export default function EventPhotographerHamburg() {
       relatedCategories={["Conference", "Trade Show", "Corporate"]}
       schema={{
         "@context": "https://schema.org",
-        "@type": ["LocalBusiness", "ProfessionalService"],
-        name: "Liza Holiarchuk \u2014 Event Photographer Hamburg",
-        description: "Professional event photographer in Hamburg for conferences, trade shows and corporate events.",
+        "@type": "Service",
+        name: "Event Photographer Hamburg",
+        description: "Professional event photographer based in Hamburg. Covering conferences, trade shows, and corporate events across Hamburg and Europe. Fast delivery, consistent quality.",
         url: "https://www.event-fotografin-hamburg.de/event-photographer-hamburg",
-        telephone: "+491752606697",
-        email: "hello@lizaholiarchuk.com",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Hamburg",
-          addressCountry: "DE",
-        },
-        areaServed: ["Hamburg", "Germany", "Europe"],
+        provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
+        areaServed: [
+          { "@type": "City", "name": "Hamburg" },
+          { "@type": "Country", "name": "Germany" },
+        ],
+        serviceType: "Event Photography",
+        image: "https://www.event-fotografin-hamburg.de/images/services/event-photographer-hamburg-cover.webp",
       }}
       faqSchema={{
         "@context": "https://schema.org",
@@ -76,10 +105,10 @@ export default function EventPhotographerHamburg() {
         mainEntity: [
           {
             "@type": "Question",
-            name: "How far in advance should I book an event photographer in Hamburg?",
+            name: "How far in advance should I book?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Ideally 4\u20138 weeks before your event. For large conferences, booking even earlier is recommended.",
+              text: "Ideally 4\u20138 weeks before your event. For large conferences I recommend booking even earlier. For last-minute requests, feel free to reach out \u2014 I\u2019ll do my best.",
             },
           },
           {
@@ -87,33 +116,60 @@ export default function EventPhotographerHamburg() {
             name: "Do you work outside Hamburg?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes \u2014 Berlin, Hanover, D\u00fcsseldorf, Frankfurt, Munich, Amsterdam, Milan, Copenhagen and other European cities. Travel costs are quoted separately.",
+              text: "Yes. I regularly shoot events in Berlin, Hanover, D\u00fcsseldorf, Frankfurt, Munich, Amsterdam, Milan, Copenhagen and other European cities. Travel costs are quoted separately.",
             },
           },
           {
             "@type": "Question",
-            name: "When do we receive the photos after the event?",
+            name: "What equipment do you use?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Fully edited photos within 48 hours via a private online gallery. Same-day highlights available on request.",
+              text: "Professional full-frame mirrorless cameras with a range of fast lenses suited to conference halls, exhibition floors, and evening events.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How do I receive the final images?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Via a private online gallery (Picdrop or similar) \u2014 shareable internally and with your event guests. Optionally password-protected.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can I book you for a multi-day event?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Absolutely. Multi-day packages are available for trade shows, congresses, and corporate events running 2\u20135 days. Pricing is agreed per project.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do you provide raw files?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Raw files are not included as standard. The fully edited JPEG/TIFF gallery is the deliverable. Raw files can be discussed for specific use cases.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What if I need a second photographer?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "A second photographer can be arranged for larger events with parallel stages or tracks. Just mention this in your inquiry.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How is billing handled?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "A project-based invoice is issued after confirmation. Payment terms are agreed in advance.",
             },
           },
         ],
       }}
       extraSchemas={[
-        {
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Event Photographer Hamburg",
-          description: "Professional event photographer based in Hamburg. Covering conferences, trade shows, and corporate events across Hamburg and Europe.",
-          provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
-          url: "https://www.event-fotografin-hamburg.de/event-photographer-hamburg",
-          areaServed: [
-            { "@type": "City", "name": "Hamburg" },
-            { "@type": "Country", "name": "Germany" },
-          ],
-          serviceType: "Event Photography",
-        },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
