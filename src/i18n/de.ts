@@ -159,6 +159,40 @@ export const de = {
       { q: "Reisen Sie zu Messen außerhalb Hamburgs?", a: "Ja, deutschland- und europaweit. Reisekosten kläre ich transparent im Angebot." }
     ]
   },
+  corporateEventFotografie: {
+    hero: {
+      title: "Corporate Event Fotografin Hamburg",
+      subtitle: "Preisverleihungen, interne Events, Firmenjubiläen und Executive-Dinner — diskret begleitet und schnell geliefert.",
+    },
+    intro: "Corporate Events erfordern eine Fotografin, die Marke und Moment versteht. Ich arbeite ruhig und diskret in jedem geschäftlichen Umfeld — ob bei einer Preisverleihung im Hamburger Hotel, einem All-Hands-Meeting in einem umgebauten Loft oder einem Executive-Dinner in einer exklusiven Location. Meine Bilder sind auf Ihre Unternehmenskommunikation zugeschnitten: clean, professionell und markenkonform. Zu meinen Kunden in Hamburg und Europa gehören u. a. das Plug and Play Tech Center, Lloyd's Register, Shell und Oyster Bay Venture Capital.",
+    whatYouGet: [
+      "Preisverleihungen & Galas",
+      "Porträts von Führungskräften",
+      "Dokumentation von Bühne und Präsentationen",
+      "Team- und Gruppenfotos",
+      "Location- und Atmosphären-Details",
+      "Networking und Socializing",
+      "Private Online-Galerie in der Regel innerhalb von 48h",
+      "Markenkonsistente Bearbeitung aller Bilder"
+    ],
+    howItWorks: [
+      { step: "Vorab-Call", desc: "Wir stimmen das Programm, Schlüsselmomente und den gewünschten Bildstil ab." },
+      { step: "Ankunft vor Ort", desc: "Ich bin frühzeitig vor Ort, um die Location und Lichtverhältnisse zu prüfen." },
+      { step: "Event-Begleitung", desc: "Diskrete und professionelle Begleitung — kein wichtiger Moment wird verpasst, ohne den Ablauf zu stören." },
+      { step: "Bearbeitung", desc: "Konsistenter Look und Grading für alle gelieferten Bilder." },
+      { step: "Lieferung", desc: "Private Galerie in der Regel innerhalb von 48 Stunden. Einfach teilbar mit HR, PR und Stakeholdern." }
+    ],
+    faq: [
+      { q: "Können Sie in privaten oder geschlossenen Locations fotografieren?", a: "Ja. Ich habe Erfahrung mit exklusiven Venues, Hotels und zugangsbeschränkten Unternehmensstandorten. Bei Bedarf unterzeichne ich gerne NDAs." },
+      { q: "Fotografieren Sie auch Preisverleihungen?", a: "Ja. Preisverleihungen sind eine meiner Spezialitäten — von der Bühne über den Trophäenmoment bis hin zu den Tischen und dem anschließenden Networking." },
+      { q: "Können wir die Fotos für LinkedIn und unsere interne Kommunikation nutzen?", a: "Ja. Alle Bilder beinhalten die vollen Nutzungsrechte für Ihre interne und externe Unternehmenskommunikation." },
+      { q: "Was ist mit Abendveranstaltungen bei wenig Licht?", a: "Kein Problem. Ich nutze lichtstarke Profi-Objektive und optimiere meine Ausrüstung für die jeweilige Location — egal ob heller Konferenzraum oder Award-Dinner bei Kerzenschein." },
+      { q: "Bieten Sie neben Fotos auch Highlight-Videos an?", a: "Ja, Video kann als optionaler Service hinzugefügt werden — ein kurzes Highlight-Video (60–90 Sekunden), ideal für internes Sharing oder Social Media." },
+      { q: "Wie lauten Ihre Stornierungsbedingungen?", a: "Die Bedingungen werden bei Buchung festgelegt. Bei Absagen innerhalb von 7 Tagen vor dem Event fällt in der Regel eine Teilgebühr an." },
+      { q: "Übernehmen Sie auch Events an mehreren Standorten (z. B. morgens Hamburg, abends Berlin)?", a: "Bei eintägigen Events mit mehreren Standorten muss die Logistik passen. Wir besprechen das gerne individuell." },
+      { q: "Gibt es Beispiele für Ihre Corporate Event Fotografie?", a: "Ja — in meinem Portfolio finden Sie Projekte für Plug and Play, Oyster Bay Venture Capital, IMMOJECTS, Shell und andere." }
+    ]
+  },
   portfolio: {
     meta: {
       title: "Portfolio",

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "Corporate event photographer in Hamburg for awards evenings, internal events, company anniversaries, product launches and executive gatherings.",
   alternates: {
     canonical: "/corporate-event-photography-hamburg",
+    languages: {
+      en: "/corporate-event-photography-hamburg",
+      de: "/de/corporate-event-fotografie-hamburg",
+      "x-default": "/corporate-event-photography-hamburg",
+    },
   },
   openGraph: {
     title: "Corporate Event Photography Hamburg | Liza Holiarchuk",
