@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { buildPricingBreadcrumbJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Event Photography Pricing Hamburg",
@@ -84,14 +85,7 @@ export default function PricingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de/" },
-              { "@type": "ListItem", position: 2, name: "Pricing", item: "https://www.event-fotografin-hamburg.de/pricing" },
-            ],
-          }),
+          __html: JSON.stringify(buildPricingBreadcrumbJsonLd('en')),
         }}
       />
 

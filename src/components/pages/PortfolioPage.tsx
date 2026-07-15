@@ -5,34 +5,55 @@ import ImageGallery from "@/components/ImageGallery";
 import fs from "fs";
 import path from "path";
 import { getDictionary, Language } from "@/i18n";
+import {
+    buildPortfolioIndexBreadcrumbJsonLd,
+    buildImageObjectsJsonLd,
+    type GalleryImageInput,
+} from "@/lib/schema";
 
 export default function PortfolioPage({ lang }: { lang: Language }) {
     const t = getDictionary(lang);
+
+    // Collect all gallery images for ImageObject schema
+    const allGalleryImages: GalleryImageInput[] = [];
+    for (const event of portfolioEvents) {
+        const dirPath = path.join(process.cwd(), "public/images/portfolio", event.slug);
+        if (!fs.existsSync(dirPath)) continue;
+        const files = fs.readdirSync(dirPath)
+            .filter(f => /\.(jpe?g|png|webp)$/i.test(f))
+            .sort();
+        if (files.length === 0) continue;
+        const title = event.title_i18n?.[lang] ?? event.title;
+        const alt = event.alt_i18n?.[lang] ?? title;
+        const loc = event.location_i18n?.[lang] ?? '';
+        const ven = event.venue_i18n?.[lang] ?? '';
+        const contentLocation = [ven, loc].filter(Boolean).join(', ');
+        for (const f of files) {
+            allGalleryImages.push({
+                src: `/images/portfolio/${event.slug}/${f}`,
+                caption: alt,
+                name: title,
+                contentLocation: contentLocation || undefined,
+            });
+        }
+    }
+
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            {
-                                "@type": "ListItem",
-                                "position": 1,
-                                "name": "Home",
-                                "item": "https://www.event-fotografin-hamburg.de"
-                            },
-                            {
-                                "@type": "ListItem",
-                                "position": 2,
-                                "name": "Portfolio",
-                                "item": "https://www.event-fotografin-hamburg.de/portfolio"
-                            }
-                        ]
-                    }),
+                    __html: JSON.stringify(buildPortfolioIndexBreadcrumbJsonLd(lang)),
                 }}
             />
+            {allGalleryImages.length > 0 && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(buildImageObjectsJsonLd(allGalleryImages)),
+                    }}
+                />
+            )}
 
             <section className="pb-6 md:pb-8 bg-transparent border-b border-[var(--color-border-hairline)] pt-32 md:pt-40">
                 <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col items-start gap-6">

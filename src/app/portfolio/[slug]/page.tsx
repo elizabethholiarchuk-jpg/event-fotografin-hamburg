@@ -5,6 +5,10 @@ import fs from "fs";
 import path from "path";
 import { portfolioEvents } from "@/data/portfolio";
 import ImageGallery from "@/components/ImageGallery";
+import {
+  buildCaseStudyBreadcrumbJsonLd,
+  buildImageObjectsJsonLd,
+} from "@/lib/schema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -65,19 +69,22 @@ export default async function CaseStudyPage({ params }: Props) {
     .filter((e) => e.slug !== slug && e.category.en === event.category.en)
     .slice(0, 3);
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de" },
-      { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://www.event-fotografin-hamburg.de/portfolio" },
-      { "@type": "ListItem", position: 3, name: title, item: `https://www.event-fotografin-hamburg.de/portfolio/${slug}` },
-    ],
-  };
+  // Build content location string from venue + city
+  const contentLocation = [venue, location].filter(Boolean).join(', ');
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildCaseStudyBreadcrumbJsonLd('en', title, slug)) }} />
+      {images.length > 0 && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildImageObjectsJsonLd(
+          images.map((src) => ({
+            src,
+            caption: altText,
+            name: title,
+            contentLocation: contentLocation || undefined,
+          })),
+        )) }} />
+      )}
 
       {/* Hero image */}
       <section className="pt-[80px] relative bg-[var(--color-dark-bg)]">

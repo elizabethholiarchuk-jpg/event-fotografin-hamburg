@@ -100,7 +100,7 @@ export default function EventPhotographerCostPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            buildArticleBreadcrumbJsonLd(post.title, SLUG),
+            buildArticleBreadcrumbJsonLd('en', post.title, SLUG),
           ),
         }}
       />

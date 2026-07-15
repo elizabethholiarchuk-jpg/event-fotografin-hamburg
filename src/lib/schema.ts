@@ -251,6 +251,91 @@ export function buildFaqPageJsonLd(
 }
 
 /* ------------------------------------------------------------------ */
+/*  Generic breadcrumb builder                                         */
+/* ------------------------------------------------------------------ */
+
+export interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
+/**
+ * Generic BreadcrumbList JSON-LD — localized per locale.
+ * Each item gets the full absolute URL via abs().
+ */
+export function buildBreadcrumbListJsonLd(
+  lang: Language,
+  items: BreadcrumbItem[],
+) {
+  const homeName = lang === 'de' ? 'Start' : 'Home';
+  const homePath = lang === 'de' ? '/de' : '/';
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList' as const,
+    itemListElement: [
+      {
+        '@type': 'ListItem' as const,
+        position: 1,
+        name: homeName,
+        item: abs(homePath),
+      },
+      ...items.map((item, i) => ({
+        '@type': 'ListItem' as const,
+        position: i + 2,
+        name: item.name,
+        item: abs(item.path),
+      })),
+    ],
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/*  Portfolio / Case-study breadcrumbs                                  */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Portfolio index breadcrumb: Home → Portfolio
+ */
+export function buildPortfolioIndexBreadcrumbJsonLd(lang: Language) {
+  const portfolioPath = lang === 'de' ? '/de/portfolio' : '/portfolio';
+  return buildBreadcrumbListJsonLd(lang, [
+    { name: 'Portfolio', path: portfolioPath },
+  ]);
+}
+
+/**
+ * Case-study breadcrumb: Home → Portfolio → [Case Study Title]
+ */
+export function buildCaseStudyBreadcrumbJsonLd(
+  lang: Language,
+  title: string,
+  slug: string,
+) {
+  const portfolioPath = lang === 'de' ? '/de/portfolio' : '/portfolio';
+  const casePath = lang === 'de' ? `/de/portfolio/${slug}` : `/portfolio/${slug}`;
+  return buildBreadcrumbListJsonLd(lang, [
+    { name: 'Portfolio', path: portfolioPath },
+    { name: title, path: casePath },
+  ]);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Pricing breadcrumb                                                 */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Pricing page breadcrumb: Home → Pricing
+ */
+export function buildPricingBreadcrumbJsonLd(lang: Language) {
+  const name = lang === 'de' ? 'Preise' : 'Pricing';
+  const pricingPath = lang === 'de' ? '/de/preise' : '/pricing';
+  return buildBreadcrumbListJsonLd(lang, [
+    { name, path: pricingPath },
+  ]);
+}
+
+/* ------------------------------------------------------------------ */
 /*  Blog / Article helpers                                             */
 /* ------------------------------------------------------------------ */
 
@@ -290,35 +375,17 @@ export function buildBlogPostingJsonLd(input: BlogPostingInput) {
 
 /**
  * Breadcrumb for an article page: Home → Insights → Article title.
+ * Localized per locale.
  */
 export function buildArticleBreadcrumbJsonLd(
+  lang: Language,
   title: string,
   slug: string,
 ) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList' as const,
-    itemListElement: [
-      {
-        '@type': 'ListItem' as const,
-        position: 1,
-        name: 'Home',
-        item: abs('/'),
-      },
-      {
-        '@type': 'ListItem' as const,
-        position: 2,
-        name: 'Insights',
-        item: abs('/insights'),
-      },
-      {
-        '@type': 'ListItem' as const,
-        position: 3,
-        name: title,
-        item: abs(`/insights/${slug}`),
-      },
-    ],
-  };
+  return buildBreadcrumbListJsonLd(lang, [
+    { name: 'Insights', path: '/insights' },
+    { name: title, path: `/insights/${slug}` },
+  ]);
 }
 
 /**
@@ -348,24 +415,48 @@ export function buildInsightsIndexJsonLd(
           url: abs(`/insights/${post.slug}`),
         })),
       },
-      {
-        '@type': 'BreadcrumbList' as const,
-        itemListElement: [
-          {
-            '@type': 'ListItem' as const,
-            position: 1,
-            name: 'Home',
-            item: abs('/'),
-          },
-          {
-            '@type': 'ListItem' as const,
-            position: 2,
-            name: 'Insights',
-            item: abs('/insights'),
-          },
-        ],
-      },
+      buildBreadcrumbListJsonLd('en', [
+        { name: 'Insights', path: '/insights' },
+      ]),
     ],
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/*  ImageObject schema for portfolio galleries                         */
+/* ------------------------------------------------------------------ */
+
+export interface GalleryImageInput {
+  /** Path relative to public, e.g. "/images/portfolio/slug/01.webp" */
+  src: string;
+  /** Alt text / caption */
+  caption: string;
+  /** Event title used as image name */
+  name: string;
+  /** City + venue for contentLocation */
+  contentLocation?: string;
+}
+
+/**
+ * Array of ImageObject schemas for a portfolio gallery.
+ * Each references #liza as creator.
+ */
+export function buildImageObjectsJsonLd(images: GalleryImageInput[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': images.map((img) => ({
+      '@type': 'ImageObject' as const,
+      contentUrl: abs(img.src),
+      name: img.name,
+      caption: img.caption,
+      creator: { '@id': PERSON_ID },
+      ...(img.contentLocation && {
+        contentLocation: {
+          '@type': 'Place' as const,
+          name: img.contentLocation,
+        },
+      }),
+    })),
   };
 }
 

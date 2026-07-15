@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { insightsPosts } from "@/data/insights";
+import { buildArticleBreadcrumbJsonLd } from "@/lib/schema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -40,15 +41,9 @@ export default async function InsightsPostPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de" },
-              { "@type": "ListItem", position: 2, name: "Insights", item: "https://www.event-fotografin-hamburg.de/insights" },
-              { "@type": "ListItem", position: 3, name: post.title, item: `https://www.event-fotografin-hamburg.de/insights/${slug}` },
-            ],
-          }),
+          __html: JSON.stringify(
+            buildArticleBreadcrumbJsonLd('en', post.title, slug),
+          ),
         }}
       />
 
