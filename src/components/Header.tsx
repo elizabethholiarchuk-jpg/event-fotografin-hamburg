@@ -33,6 +33,32 @@ const deNavLinks = [
   { href: "/preise", label: "Preise" },
 ];
 
+const routeMap: Record<string, string> = {
+  // Services
+  "event-photographer-hamburg": "eventfotograf-hamburg",
+  "conference-photographer-hamburg": "konferenzfotografie-hamburg",
+  "trade-show-photographer-hamburg": "messefotograf-hamburg",
+  "corporate-event-photographer-hamburg": "corporate-event-fotograf-hamburg",
+  
+  // Pages
+  "about": "ueber-mich",
+  "pricing": "preise",
+  "contact": "kontakt",
+  
+  // Shared
+  "portfolio": "portfolio",
+  "insights": "insights",
+  "impressum": "impressum",
+  "datenschutz": "datenschutz",
+  "danke": "danke",
+};
+
+const reverseRouteMap: Record<string, string> = Object.entries(routeMap).reduce(
+  (acc, [en, de]) => ({ ...acc, [de]: en }),
+  {} as Record<string, string>
+);
+
+
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,12 +72,32 @@ export default function Header() {
   const switchLanguage = (newLang: Language) => {
     if (newLang === lang) return;
     document.cookie = `site_lang=${newLang}; path=/; max-age=31536000; samesite=lax`;
-    let newPath = pathname;
+    
+    let newPath = "/";
+    const pathSegments = pathname.split('/').filter(Boolean);
+
     if (newLang === "de") {
-      newPath = `/de${pathname === "/" ? "" : pathname}`;
+      const enSegment = pathSegments[0] || "";
+      const deSegment = routeMap[enSegment] || enSegment;
+      
+      if (pathSegments.length > 1) {
+        const rest = pathSegments.slice(1).join('/');
+        newPath = deSegment ? `/de/${deSegment}/${rest}` : `/de/${rest}`;
+      } else {
+        newPath = deSegment ? `/de/${deSegment}` : `/de`;
+      }
     } else {
-      newPath = pathname.replace(/^\/de/, "") || "/";
+      const deSegment = pathSegments[1] || "";
+      const enSegment = reverseRouteMap[deSegment] || deSegment;
+
+      if (pathSegments.length > 2) {
+        const rest = pathSegments.slice(2).join('/');
+        newPath = enSegment ? `/${enSegment}/${rest}` : `/${rest}`;
+      } else {
+        newPath = enSegment ? `/${enSegment}` : `/`;
+      }
     }
+
     window.location.href = newPath;
   };
 
