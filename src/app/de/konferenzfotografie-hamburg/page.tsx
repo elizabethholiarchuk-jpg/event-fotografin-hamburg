@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/de/konferenzfotografie-hamburg",
     languages: {
-      en: "/conference-photography-hamburg",
+      en: "/conference-photographer-hamburg",
       de: "/de/konferenzfotografie-hamburg",
-      "x-default": "/conference-photography-hamburg",
+      "x-default": "/conference-photographer-hamburg",
     },
   },
   openGraph: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: "/de/konferenzfotografie-hamburg",
     images: [
       {
-        url: "/images/services/conference-photography-hamburg-cover.webp",
+        url: "/images/services/conference-photographer-hamburg-cover.webp",
         width: 1200,
         height: 630,
         alt: "Konferenzfotografie — großer Saal mit aufmerksamem Publikum",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [
       {
-        url: "/images/services/conference-photography-hamburg-cover.webp",
+        url: "/images/services/conference-photographer-hamburg-cover.webp",
         width: 1200,
         height: 630,
         alt: "Konferenzfotografie — großer Saal mit aufmerksamem Publikum",
@@ -46,12 +46,13 @@ export default function KonferenzfotografieHamburg() {
 
   return (
     <ServicePage
+      lang="de"
       hero={{
         h1: t.hero.title,
         subtitle: t.hero.subtitle,
       }}
       heroImage={{
-        src: "/images/services/conference-photography-hamburg-cover.webp",
+        src: "/images/services/conference-photographer-hamburg-cover.webp",
         alt: "Konferenzfotografie — großer Saal mit aufmerksamem Publikum",
       }}
       intro={t.intro}
@@ -69,7 +70,7 @@ export default function KonferenzfotografieHamburg() {
         name: "Konferenzfotograf Hamburg — Kongresse & B2B-Events | Liza Holiarchuk",
         description: "Konferenzfotografie in Hamburg: Keynotes, Panels, Networking und Speaker-Porträts. Bearbeitete Galerie meist in 48 Stunden, Highlights am selben Tag.",
         path: "/de/konferenzfotografie-hamburg",
-        image: "/images/services/conference-photography-hamburg-cover.webp",
+        image: "/images/services/conference-photographer-hamburg-cover.webp",
       })}
       faqSchema={buildFaqPageJsonLd(t.faq)}
     />

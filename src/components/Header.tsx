@@ -7,15 +7,15 @@ import { getDictionary, Language } from "@/i18n";
 
 const enServiceLinks = [
   { href: "/event-photographer-hamburg", label: "Event Photographer Hamburg" },
-  { href: "/conference-photography-hamburg", label: "Conference Photography" },
-  { href: "/trade-show-photography-hamburg", label: "Trade Show Photography" },
-  { href: "/corporate-event-photography-hamburg", label: "Corporate Event Photography" },
+  { href: "/conference-photographer-hamburg", label: "Conference Photography" },
+  { href: "/trade-show-photographer-hamburg", label: "Trade Show Photography" },
+  { href: "/corporate-event-photographer-hamburg", label: "Corporate Event Photography" },
 ];
 
 const deServiceLinks = [
   { href: "/eventfotograf-hamburg", label: "Eventfotograf Hamburg" },
   { href: "/konferenzfotografie-hamburg", label: "Konferenzfotografie" },
-  { href: "/messefotografie-hamburg", label: "Messefotografie" },
+  { href: "/messefotograf-hamburg", label: "Messefotografie" },
   { href: "/corporate-event-fotograf-hamburg", label: "Corporate Event Fotografie" },
 ];
 

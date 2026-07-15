@@ -179,7 +179,7 @@ export interface ServiceSchemaInput {
   name: string;
   /** Meta description or short summary */
   description: string;
-  /** Path without domain, e.g. "/conference-photography-hamburg" */
+  /** Path without domain, e.g. "/conference-photographer-hamburg" */
   path: string;
   /** Absolute image URL path, e.g. "/images/services/…" */
   image: string;

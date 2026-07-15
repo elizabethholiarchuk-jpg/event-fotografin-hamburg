@@ -7,20 +7,20 @@ export const metadata: Metadata = {
   description:
     "Corporate event photographer in Hamburg for awards evenings, internal events, company anniversaries, product launches and executive gatherings.",
   alternates: {
-    canonical: "/corporate-event-photography-hamburg",
+    canonical: "/corporate-event-photographer-hamburg",
     languages: {
-      en: "/corporate-event-photography-hamburg",
+      en: "/corporate-event-photographer-hamburg",
       de: "/de/corporate-event-fotograf-hamburg",
-      "x-default": "/corporate-event-photography-hamburg",
+      "x-default": "/corporate-event-photographer-hamburg",
     },
   },
   openGraph: {
     title: "Corporate Event Photography Hamburg | Liza Holiarchuk",
     description: "Corporate event photography in Hamburg and across Europe.",
-    url: "/corporate-event-photography-hamburg",
+    url: "/corporate-event-photographer-hamburg",
     images: [
       {
-        url: "/images/services/corporate-event-photography-hamburg-cover.webp",
+        url: "/images/services/corporate-event-photographer-hamburg-cover.webp",
         width: 1200,
         height: 630,
         alt: "Corporate event photography Hamburg — guests at an evening corporate dinner",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [
       {
-        url: "/images/services/corporate-event-photography-hamburg-cover.webp",
+        url: "/images/services/corporate-event-photographer-hamburg-cover.webp",
         width: 1200,
         height: 630,
         alt: "Corporate event photography Hamburg — guests at an evening corporate dinner",
@@ -60,7 +60,7 @@ export default function CorporateEventPhotographyHamburg() {
           "Awards nights, internal events, company anniversaries and executive gatherings — photographed with discretion and delivered fast.",
       }}
       heroImage={{
-        src: "/images/services/corporate-event-photography-hamburg-cover.webp",
+        src: "/images/services/corporate-event-photographer-hamburg-cover.webp",
         alt: "Corporate event photography Hamburg — guests at an evening corporate dinner",
       }}
       intro="Corporate events require a photographer who understands both the brand and the moment. I work calmly and discreetly in any corporate setting — whether it's an awards gala in a Hamburg hotel, an annual all-hands at a converted warehouse, or a C-suite dinner at a private venue. My images are tailored to corporate communication: clean, professional, and on-brand. I have photographed events for companies including Plug and Play Tech Center, Lloyd's Register, Shell, and Oyster Bay Venture Capital, across Hamburg and Europe."
@@ -92,8 +92,8 @@ export default function CorporateEventPhotographyHamburg() {
         serviceType: "Corporate Event Photography",
         name: "Corporate Event Photography Hamburg",
         description: "Corporate event photographer in Hamburg for awards evenings, internal events, company anniversaries, product launches and executive gatherings.",
-        path: "/corporate-event-photography-hamburg",
-        image: "/images/services/corporate-event-photography-hamburg-cover.webp",
+        path: "/corporate-event-photographer-hamburg",
+        image: "/images/services/corporate-event-photographer-hamburg-cover.webp",
       })}
       faqSchema={buildFaqPageJsonLd(FAQ)}
     />

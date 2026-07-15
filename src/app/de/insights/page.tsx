@@ -117,7 +117,7 @@ export default function InsightsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { href: "/de/konferenzfotografie-hamburg", label: "Konferenzfotografie" },
-              { href: "/de/messefotografie-hamburg", label: "Messefotografie" },
+              { href: "/de/messefotograf-hamburg", label: "Messefotografie" },
               { href: "/de/eventfotograf-hamburg", label: "Corporate Events" },
               { href: "/de/eventfotograf-hamburg", label: "Alle Leistungen" },
             ].map((s) => (

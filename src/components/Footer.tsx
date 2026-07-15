@@ -35,9 +35,9 @@ export default function Footer() {
                         <div className="flex flex-col gap-4 text-[15px] font-light">
                             <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[var(--color-text-muted)] mb-2">Services</span>
                             <Link href="/event-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Event Photography Hamburg</Link>
-                            <Link href="/conference-photography-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Conference Photography</Link>
-                            <Link href="/trade-show-photography-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Trade Show Photography</Link>
-                            <Link href="/corporate-event-photography-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Corporate Events</Link>
+                            <Link href="/conference-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Conference Photography</Link>
+                            <Link href="/trade-show-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Trade Show Photography</Link>
+                            <Link href="/corporate-event-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Corporate Events</Link>
                         </div>
                     )}
 

@@ -8,20 +8,20 @@ export const metadata: Metadata = {
   description:
     "Messefotografie in Hamburg: Standfotografie, Besucherinteraktionen und Branding. Bearbeitete Galerie meist in 48 Stunden, Highlights am selben Tag.",
   alternates: {
-    canonical: "/de/messefotografie-hamburg",
+    canonical: "/de/messefotograf-hamburg",
     languages: {
-      en: "/trade-show-photography-hamburg",
-      de: "/de/messefotografie-hamburg",
-      "x-default": "/trade-show-photography-hamburg",
+      en: "/trade-show-photographer-hamburg",
+      de: "/de/messefotograf-hamburg",
+      "x-default": "/trade-show-photographer-hamburg",
     },
   },
   openGraph: {
     title: "Messefotograf Hamburg — Messen & B2B-Ausstellungen | Liza Holiarchuk",
     description: "Messefotografie in Hamburg: Standfotografie, Besucherinteraktionen und Branding.",
-    url: "/de/messefotografie-hamburg",
+    url: "/de/messefotograf-hamburg",
     images: [
       {
-        url: "/images/services/trade-show-photography-hamburg-messe.webp",
+        url: "/images/services/trade-show-photographer-hamburg-messe.webp",
         width: 1200,
         height: 630,
         alt: "Messefotografie — gebrandeter Ausstellerstand auf einer internationalen Messe",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [
       {
-        url: "/images/services/trade-show-photography-hamburg-messe.webp",
+        url: "/images/services/trade-show-photographer-hamburg-messe.webp",
         width: 1200,
         height: 630,
         alt: "Messefotografie — gebrandeter Ausstellerstand auf einer internationalen Messe",
@@ -46,12 +46,13 @@ export default function MessefotografieHamburg() {
 
   return (
     <ServicePage
+      lang="de"
       hero={{
         h1: t.hero.title,
         subtitle: t.hero.subtitle,
       }}
       heroImage={{
-        src: "/images/services/trade-show-photography-hamburg-messe.webp",
+        src: "/images/services/trade-show-photographer-hamburg-messe.webp",
         alt: "Messefotografie — gebrandeter Ausstellerstand auf einer internationalen Messe",
       }}
       intro={t.intro}
@@ -68,8 +69,8 @@ export default function MessefotografieHamburg() {
         serviceType: "Trade Show Photography",
         name: "Messefotograf Hamburg — Messen & B2B-Ausstellungen | Liza Holiarchuk",
         description: "Messefotografie in Hamburg: Standfotografie, Besucherinteraktionen und Branding. Bearbeitete Galerie meist in 48 Stunden, Highlights am selben Tag.",
-        path: "/de/messefotografie-hamburg",
-        image: "/images/services/trade-show-photography-hamburg-messe.webp",
+        path: "/de/messefotograf-hamburg",
+        image: "/images/services/trade-show-photographer-hamburg-messe.webp",
       })}
       faqSchema={buildFaqPageJsonLd(t.faq)}
     />

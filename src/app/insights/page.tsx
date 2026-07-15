@@ -116,9 +116,9 @@ export default function InsightsPage() {
           <h2 className="text-2xl font-semibold text-[var(--color-text-main)]">Explore My Services</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { href: "/conference-photography-hamburg", label: "Conference Photography" },
-              { href: "/trade-show-photography-hamburg", label: "Trade Show Photography" },
-              { href: "/corporate-event-photography-hamburg", label: "Corporate Events" },
+              { href: "/conference-photographer-hamburg", label: "Conference Photography" },
+              { href: "/trade-show-photographer-hamburg", label: "Trade Show Photography" },
+              { href: "/corporate-event-photographer-hamburg", label: "Corporate Events" },
               { href: "/event-photographer-hamburg", label: "All Services" },
             ].map((s) => (
               <Link

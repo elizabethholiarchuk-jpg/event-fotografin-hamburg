@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/de/corporate-event-fotograf-hamburg",
     languages: {
-      en: "/corporate-event-photography-hamburg",
+      en: "/corporate-event-photographer-hamburg",
       de: "/de/corporate-event-fotograf-hamburg",
-      "x-default": "/corporate-event-photography-hamburg",
+      "x-default": "/corporate-event-photographer-hamburg",
     },
   },
   openGraph: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: "/de/corporate-event-fotograf-hamburg",
     images: [
       {
-        url: "/images/services/corporate-event-photography-hamburg-cover.webp",
+        url: "/images/services/corporate-event-photographer-hamburg-cover.webp",
         width: 1200,
         height: 630,
         alt: "Corporate Event Fotografie Hamburg — Gäste bei einem abendlichen Corporate Dinner",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [
       {
-        url: "/images/services/corporate-event-photography-hamburg-cover.webp",
+        url: "/images/services/corporate-event-photographer-hamburg-cover.webp",
         width: 1200,
         height: 630,
         alt: "Corporate Event Fotografie Hamburg — Gäste bei einem abendlichen Corporate Dinner",
@@ -52,7 +52,7 @@ export default function CorporateEventFotografieHamburg() {
         subtitle: t.hero.subtitle,
       }}
       heroImage={{
-        src: "/images/services/corporate-event-photography-hamburg-cover.webp",
+        src: "/images/services/corporate-event-photographer-hamburg-cover.webp",
         alt: "Corporate Event Fotografie Hamburg — Gäste bei einem abendlichen Corporate Dinner",
       }}
       intro={t.intro}
@@ -70,7 +70,7 @@ export default function CorporateEventFotografieHamburg() {
         name: "Corporate Event Fotografin Hamburg — Firmenfeiern & Galas | Liza Holiarchuk",
         description: "Corporate Event Fotografin in Hamburg für Preisverleihungen, interne Events, Firmenjubiläen und Executive-Dinner.",
         path: "/de/corporate-event-fotograf-hamburg",
-        image: "/images/services/corporate-event-photography-hamburg-cover.webp",
+        image: "/images/services/corporate-event-photographer-hamburg-cover.webp",
       })}
       faqSchema={buildFaqPageJsonLd(t.faq)}
     />

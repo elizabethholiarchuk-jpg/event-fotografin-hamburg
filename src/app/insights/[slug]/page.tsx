@@ -100,8 +100,8 @@ export default async function InsightsPostPage({ params }: Props) {
           {/* Internal links */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { href: "/conference-photography-hamburg", label: "Conference Photography Hamburg" },
-              { href: "/trade-show-photography-hamburg", label: "Trade Show Photography Hamburg" },
+              { href: "/conference-photographer-hamburg", label: "Conference Photography Hamburg" },
+              { href: "/trade-show-photographer-hamburg", label: "Trade Show Photography Hamburg" },
               { href: "/portfolio", label: "View Portfolio" },
               { href: "/contact", label: "Request a Quote" },
             ].map((link) => (

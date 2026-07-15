@@ -7,20 +7,20 @@ export const metadata: Metadata = {
   description:
     "Professional conference photographer in Hamburg. Keynotes, panels, networking and speaker portraits — consistently delivered within 48 hours.",
   alternates: {
-    canonical: "/conference-photography-hamburg",
+    canonical: "/conference-photographer-hamburg",
     languages: {
-      en: "/conference-photography-hamburg",
+      en: "/conference-photographer-hamburg",
       de: "/de/konferenzfotografie-hamburg",
-      "x-default": "/conference-photography-hamburg",
+      "x-default": "/conference-photographer-hamburg",
     },
   },
   openGraph: {
     title: "Conference Photography Hamburg | Liza Holiarchuk",
     description: "Conference photography for B2B events in Hamburg and Europe.",
-    url: "/conference-photography-hamburg",
+    url: "/conference-photographer-hamburg",
     images: [
       {
-        url: "/images/services/conference-photography-hamburg-cover.webp",
+        url: "/images/services/conference-photographer-hamburg-cover.webp",
         width: 1200,
         height: 630,
         alt: "Conference photography — large auditorium with engaged audience",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [
       {
-        url: "/images/services/conference-photography-hamburg-cover.webp",
+        url: "/images/services/conference-photographer-hamburg-cover.webp",
         width: 1200,
         height: 630,
         alt: "Conference photography — large auditorium with engaged audience",
@@ -60,7 +60,7 @@ export default function ConferencePhotographyHamburg() {
           "Keynotes, panels, networking and audience — professional conference photography for B2B events in Hamburg and across Europe.",
       }}
       heroImage={{
-        src: "/images/services/conference-photography-hamburg-cover.webp",
+        src: "/images/services/conference-photographer-hamburg-cover.webp",
         alt: "Conference photography — large auditorium with engaged audience",
       }}
       intro="Conferences depend on high-quality photography for PR, post-event communication, and future marketing. I document every layer of your conference: the keynote stage, speaker portraits, breakout sessions, networking breaks, branded spaces, and the audience reactions that tell the full story. Based in Hamburg, I have photographed conferences at venues including Hamburg Messe und Congress, the CCH, and international venues in Milan, Amsterdam, and Copenhagen. My images are delivered with consistent colour grading and ready to use across LinkedIn, press releases, and internal reports."
@@ -92,8 +92,8 @@ export default function ConferencePhotographyHamburg() {
         serviceType: "Conference Photography",
         name: "Conference Photography Hamburg",
         description: "Professional conference photographer in Hamburg. Keynotes, panels, networking and speaker portraits — delivered within 48 hours.",
-        path: "/conference-photography-hamburg",
-        image: "/images/services/conference-photography-hamburg-cover.webp",
+        path: "/conference-photographer-hamburg",
+        image: "/images/services/conference-photographer-hamburg-cover.webp",
       })}
       faqSchema={buildFaqPageJsonLd(FAQ)}
     />

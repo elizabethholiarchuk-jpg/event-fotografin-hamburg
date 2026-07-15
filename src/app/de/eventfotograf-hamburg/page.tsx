@@ -55,6 +55,7 @@ const FAQ = [
 export default function EventFotografHamburg() {
   return (
     <ServicePage
+      lang="de"
       hero={{
         h1: "Eventfotograf Hamburg",
         subtitle:

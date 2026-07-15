@@ -38,7 +38,7 @@ export const insightsPosts: InsightsPost[] = [
     isPlaceholder: true,
   },
   {
-    slug: "trade-show-photography-hamburg-messe-b2b-marketing",
+    slug: "trade-show-photographer-hamburg-messe-b2b-marketing",
     title: "Trade Show Photography at Hamburg Messe: What to Capture for B2B Marketing",
     excerpt:
       "Booth coverage, visitor interaction, live demos, branding shots — a complete breakdown of what event photography at a trade fair should include.",

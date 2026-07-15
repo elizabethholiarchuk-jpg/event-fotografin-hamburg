@@ -101,7 +101,7 @@ export default async function InsightsPostPage({ params }: Props) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               { href: "/de/konferenzfotografie-hamburg", label: "Konferenzfotografie Hamburg" },
-              { href: "/de/messefotografie-hamburg", label: "Messefotografie Hamburg" },
+              { href: "/de/messefotograf-hamburg", label: "Messefotografie Hamburg" },
               { href: "/de/portfolio", label: "Portfolio ansehen" },
               { href: "/de/kontakt", label: "Angebot anfordern" },
             ].map((link) => (

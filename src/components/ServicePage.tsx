@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { portfolioEvents } from "@/data/portfolio";
-import FaqAccordion from "@/components/FaqAccordion";
+import FaqAccordion from "@/components/FaqAccordion";import { Language } from "@/i18n";
 
 export interface ServicePageProps {
   hero: {
@@ -21,6 +21,7 @@ export interface ServicePageProps {
   schema: object;
   faqSchema?: object;
   extraSchemas?: object[];
+  lang?: Language;
 }
 
 export default function ServicePage({
@@ -35,6 +36,7 @@ export default function ServicePage({
   schema,
   faqSchema,
   extraSchemas,
+  lang = 'en',
 }: ServicePageProps) {
   // Pull relevant portfolio items (EN only; pick first 6 matching categories)
   const related = portfolioEvents
@@ -67,7 +69,7 @@ export default function ServicePage({
       <section className={`${heroImage ? 'pt-12 md:pt-16' : 'pt-32 md:pt-44'} pb-16 md:pb-24 bg-transparent border-b border-[var(--color-border-hairline)]`}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-6">
           <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)] font-light">
-            <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Home</Link>
+            <Link href={lang === 'de' ? "/de" : "/"} className="hover:text-[var(--color-accent)] transition-colors">{lang === 'de' ? "Startseite" : "Home"}</Link>
             <span className="mx-2" aria-hidden="true">›</span>
             <span className="text-[var(--color-text-main)]">{hero.h1}</span>
           </nav>
@@ -78,11 +80,11 @@ export default function ServicePage({
             {hero.subtitle}
           </p>
           <div className="flex flex-wrap gap-4 mt-4">
-            <Link href="/contact" className="bg-[var(--color-accent)] text-white px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)]">
-              Check Availability
+            <Link href={lang === 'de' ? "/de/kontakt" : "/contact"} className="bg-[var(--color-accent)] text-white px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)]">
+              {lang === 'de' ? "Verfügbarkeit prüfen" : "Check Availability"}
             </Link>
-            <Link href="/portfolio" className="border border-[var(--color-border-hairline)] text-[var(--color-text-main)] px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:border-[var(--color-text-main)]">
-              View Portfolio
+            <Link href={lang === 'de' ? "/de/portfolio" : "/portfolio"} className="border border-[var(--color-border-hairline)] text-[var(--color-text-main)] px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:border-[var(--color-text-main)]">
+              {lang === 'de' ? "Portfolio ansehen" : "View Portfolio"}
             </Link>
           </div>
         </div>
@@ -112,7 +114,7 @@ export default function ServicePage({
       {/* What you get */}
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-10">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">What You Get</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">{lang === 'de' ? "Was Sie bekommen" : "What You Get"}</h2>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {whatYouGet.map((item, i) => (
               <li key={i} className="flex items-start gap-3 text-[var(--color-text-muted)] text-[15px] md:text-base leading-relaxed">
@@ -127,7 +129,7 @@ export default function ServicePage({
       {/* How it works */}
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-10">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">How It Works</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">{lang === 'de' ? "Wie es funktioniert" : "How It Works"}</h2>
           <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {howItWorks.map((step, i) => (
               <li key={i} className="flex flex-col gap-3">
@@ -144,37 +146,37 @@ export default function ServicePage({
       {related.length > 0 && (
         <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
           <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-10">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">Portfolio Highlights</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">{lang === 'de' ? "Portfolio Highlights" : "Portfolio Highlights"}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {related.map((event) => (
                 <Link
                   key={event.slug}
-                  href={`/portfolio/${event.slug}`}
+                  href={lang === 'de' ? `/de/portfolio/${event.slug}` : `/portfolio/${event.slug}`}
                   className="group flex flex-col gap-3 border border-[var(--color-border-hairline)] rounded-2xl overflow-hidden hover:border-[var(--color-text-muted)] transition-colors"
                 >
                   <div className="relative aspect-[3/2] bg-[var(--color-border-hairline)] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={`/images/portfolio/${event.slug}/01.webp`}
-                      alt={event.alt_i18n?.en ?? event.title_i18n?.en ?? event.title}
+                      alt={lang === 'de' ? (event.alt_i18n?.de ?? event.title_i18n?.de ?? event.title) : (event.alt_i18n?.en ?? event.title_i18n?.en ?? event.title)}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                       loading="lazy"
                     />
                   </div>
                   <div className="px-4 pb-4 flex flex-col gap-1">
-                    <span className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">{event.category.en}</span>
+                    <span className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">{lang === 'de' ? event.category.de : event.category.en}</span>
                     <h3 className="text-base font-semibold text-[var(--color-text-main)] leading-snug group-hover:underline underline-offset-2">
-                      {event.title_i18n?.en ?? event.title}
+                      {lang === 'de' ? (event.title_i18n?.de ?? event.title) : (event.title_i18n?.en ?? event.title)}
                     </h3>
-                    {event.location_i18n?.en && (
-                      <p className="text-[13px] text-[var(--color-text-muted)]">{event.location_i18n.en}</p>
+                    {(lang === 'de' ? event.location_i18n?.de : event.location_i18n?.en) && (
+                      <p className="text-[13px] text-[var(--color-text-muted)]">{lang === 'de' ? event.location_i18n?.de : event.location_i18n?.en}</p>
                     )}
                   </div>
                 </Link>
               ))}
             </div>
-            <Link href="/portfolio" className="text-[15px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 w-fit">
-              View full portfolio →
+            <Link href={lang === 'de' ? "/de/portfolio" : "/portfolio"} className="text-[15px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 w-fit">
+              {lang === 'de' ? "Zum vollständigen Portfolio →" : "View full portfolio →"}
             </Link>
           </div>
         </section>
@@ -207,10 +209,10 @@ export default function ServicePage({
       {/* CTA */}
       <section className="py-24 md:py-32 bg-[#DDE7F0] text-[var(--color-text-main)] flex justify-center text-center">
         <div className="max-w-[700px] w-full px-6 flex flex-col gap-8 items-center">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">Ready to Book?</h2>
-          <p className="text-xl opacity-80 font-light">Send your inquiry — I'll confirm availability and next steps.</p>
-          <Link href="/contact" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
-            Contact Me
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">{lang === 'de' ? "Bereit für eine Anfrage?" : "Ready to Book?"}</h2>
+          <p className="text-xl opacity-80 font-light">{lang === 'de' ? "Senden Sie Ihre Anfrage – ich melde mich zeitnah bezüglich Verfügbarkeit und den nächsten Schritten." : "Send your inquiry — I'll confirm availability and next steps."}</p>
+          <Link href={lang === 'de' ? "/de/kontakt" : "/contact"} className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
+            {lang === 'de' ? "Angebot anfordern" : "Contact Me"}
           </Link>
         </div>
       </section>

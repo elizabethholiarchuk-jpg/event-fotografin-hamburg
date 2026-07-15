@@ -7,20 +7,20 @@ export const metadata: Metadata = {
   description:
     "Trade show photographer in Hamburg. Booth coverage, visitor interactions, product shots and branding — for SMM, AGRITECHNICA, Aquatech and more.",
   alternates: {
-    canonical: "/trade-show-photography-hamburg",
+    canonical: "/trade-show-photographer-hamburg",
     languages: {
-      en: "/trade-show-photography-hamburg",
-      de: "/de/messefotografie-hamburg",
-      "x-default": "/trade-show-photography-hamburg",
+      en: "/trade-show-photographer-hamburg",
+      de: "/de/messefotograf-hamburg",
+      "x-default": "/trade-show-photographer-hamburg",
     },
   },
   openGraph: {
     title: "Trade Show Photography Hamburg | Liza Holiarchuk",
     description: "Trade show and expo photography across Hamburg and Europe.",
-    url: "/trade-show-photography-hamburg",
+    url: "/trade-show-photographer-hamburg",
     images: [
       {
-        url: "/images/services/trade-show-photography-hamburg-messe.webp",
+        url: "/images/services/trade-show-photographer-hamburg-messe.webp",
         width: 1200,
         height: 630,
         alt: "Trade show photography — branded exhibitor booth at an international trade fair",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [
       {
-        url: "/images/services/trade-show-photography-hamburg-messe.webp",
+        url: "/images/services/trade-show-photographer-hamburg-messe.webp",
         width: 1200,
         height: 630,
         alt: "Trade show photography — branded exhibitor booth at an international trade fair",
@@ -60,7 +60,7 @@ export default function TradeShowPhotographyHamburg() {
           "Booth coverage, visitor interactions, product detail shots and team photography — for trade fairs and expos at Hamburg Messe and across Europe.",
       }}
       heroImage={{
-        src: "/images/services/trade-show-photography-hamburg-messe.webp",
+        src: "/images/services/trade-show-photographer-hamburg-messe.webp",
         alt: "Trade show photography — branded exhibitor booth at an international trade fair",
       }}
       intro="Trade shows are high-investment events. The photography must capture your booth's atmosphere, your team's professionalism, and the quality of your products — all while working fast in a busy hall environment. I have photographed exhibitors at SMM (Hamburg), AGRITECHNICA (Hanover), Aquatech (Amsterdam), and other international trade fairs, covering everything from booth setup to live demos and client conversations. Images are delivered quickly so you can update your social media while the fair is still running."
@@ -92,8 +92,8 @@ export default function TradeShowPhotographyHamburg() {
         serviceType: "Trade Show Photography",
         name: "Trade Show & Expo Photography Hamburg",
         description: "Trade show photographer in Hamburg. Booth coverage, visitor interactions, product shots and branding — for Hamburg Messe and beyond.",
-        path: "/trade-show-photography-hamburg",
-        image: "/images/services/trade-show-photography-hamburg-messe.webp",
+        path: "/trade-show-photographer-hamburg",
+        image: "/images/services/trade-show-photographer-hamburg-messe.webp",
       })}
       faqSchema={buildFaqPageJsonLd(FAQ)}
     />

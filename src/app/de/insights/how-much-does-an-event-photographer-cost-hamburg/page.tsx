@@ -649,7 +649,7 @@ export default function EventPhotographerCostPage() {
               { href: "/de/preise", label: "Preise" },
               { href: "/de/eventfotograf-hamburg", label: "Eventfotografie Hamburg" },
               { href: "/de/konferenzfotografie-hamburg", label: "Konferenzfotografie" },
-              { href: "/de/messefotografie-hamburg", label: "Messefotografie" },
+              { href: "/de/messefotograf-hamburg", label: "Messefotografie" },
             ].map((s) => (
               <Link
                 key={s.href}
