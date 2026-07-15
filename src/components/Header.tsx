@@ -27,6 +27,7 @@ const enNavLinks = [
 
 const deNavLinks = [
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/insights", label: "Insights" },
   { href: "/pricing", label: "Preise" },
 ];
 
