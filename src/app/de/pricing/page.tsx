@@ -31,6 +31,7 @@ export default function GermanPricingPage() {
       duration: p.halbtags.duration,
       range: p.halbtags.range,
       ideal: p.halbtags.ideal,
+      includes: p.halbtags.includes,
       highlight: false,
     },
     {
@@ -38,7 +39,16 @@ export default function GermanPricingPage() {
       duration: p.ganztags.duration,
       range: p.ganztags.range,
       ideal: p.ganztags.ideal,
+      includes: p.ganztags.includes,
       highlight: true,
+    },
+    {
+      name: p.mehrtagig.name,
+      duration: p.mehrtagig.duration,
+      range: p.mehrtagig.range,
+      ideal: p.mehrtagig.ideal,
+      includes: p.mehrtagig.includes,
+      highlight: false,
     },
   ];
 
@@ -71,6 +81,9 @@ export default function GermanPricingPage() {
           <p className="text-xl text-[var(--color-text-muted)] max-w-[55ch] font-normal leading-relaxed">
             {p.hero.subtitle}
           </p>
+          <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed max-w-[65ch]">
+            {p.heroDesc}
+          </p>
         </div>
       </section>
 
@@ -81,9 +94,12 @@ export default function GermanPricingPage() {
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
               {p.packagesTitle}
             </h2>
+            <p className="text-[14px] text-[var(--color-text-muted)]">
+              {p.packagesSub}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {packages.map((pkg) => (
               <div
                 key={pkg.name}
@@ -93,15 +109,46 @@ export default function GermanPricingPage() {
                     : "border-[var(--color-border-hairline)] bg-transparent"
                 }`}
               >
+                {pkg.highlight && (
+                  <span className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-accent)]">
+                    Am häufigsten gebucht
+                  </span>
+                )}
                 <div className="flex flex-col gap-1">
                   <h3 className="text-2xl font-semibold text-[var(--color-text-main)]">{pkg.name}</h3>
                   <p className="text-sm text-[var(--color-text-muted)]">{pkg.duration}</p>
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Ab</p>
-                  <p className="text-3xl font-semibold text-[var(--color-text-main)]">{pkg.range.replace("Ab ", "")}</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Typisches Budget</p>
+                  <p className="text-3xl font-semibold text-[var(--color-text-main)]">{pkg.range}</p>
                 </div>
                 <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{pkg.ideal}</p>
+                <ul className="flex flex-col gap-2 mt-auto">
+                  {pkg.includes.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-[14px] text-[var(--color-text-muted)]">
+                      <span className="mt-1.5 shrink-0 w-3 h-3 rounded-full bg-[var(--color-accent)] opacity-60" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Add-ons */}
+      <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-10">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">{p.addons.title}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {p.addons.items.map((addon) => (
+              <div
+                key={addon.name}
+                className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl"
+              >
+                <h3 className="text-base font-semibold text-[var(--color-text-main)]">{addon.name}</h3>
+                {addon.desc && <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{addon.desc}</p>}
               </div>
             ))}
           </div>
@@ -125,24 +172,6 @@ export default function GermanPricingPage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      {/* Add-ons */}
-      <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-10">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">{p.addons.title}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {p.addons.items.map((addon) => (
-              <div
-                key={addon.name}
-                className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl"
-              >
-                <h3 className="text-base font-semibold text-[var(--color-text-main)]">{addon.name}</h3>
-                {addon.desc && <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{addon.desc}</p>}
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -178,6 +207,7 @@ export default function GermanPricingPage() {
           >
             {p.cta.btn}
           </Link>
+          <p className="text-[13px] opacity-60 font-normal">{p.cta.reply}</p>
         </div>
       </section>
     </>

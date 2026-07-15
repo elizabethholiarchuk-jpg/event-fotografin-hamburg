@@ -238,44 +238,74 @@ export const de = {
     },
     hero: {
       title: "Preise & Pakete",
-      subtitle: "Transparente Preise für Eventfotografie in Hamburg. Klare Pakete, ein festes Angebot innerhalb von 24 Stunden — ohne Überraschungen."
+      subtitle: "Projektbasierte Tagessätze für professionelle Eventfotografie. Jedes Angebot wird individuell auf Ihr Event zugeschnitten."
     },
-    packagesTitle: "Pakete",
+    heroDesc: "Die finalen Angebote richten sich nach der Komplexität der Agenda (parallele Sessions), der Logistik vor Ort, den gewünschten Ergebnissen und eventuellen Reisekosten.",
+    packagesTitle: "Typische Budgets",
+    packagesSub: "Mindestbuchung: halbtags. · Alle Preise verstehen sich zzgl. der gesetzlichen MwSt.",
     halbtags: {
       name: "Halbtags",
-      range: "Ab 1.000 €",
-      duration: "bis zu 4 Stunden vor Ort",
-      ideal: "Passend für Konferenz-Vormittage, kürzere Firmenevents und einzelne Programmpunkte."
-    },
-    ganztags: {
-      name: "Ganztags",
-      range: "Ab 2.000 €",
-      duration: "bis zu 8 Stunden vor Ort",
-      ideal: "Für ganztägige Konferenzen, Messetage und Abendveranstaltungen."
-    },
-    included: {
-      title: "Was immer enthalten ist",
-      items: [
-        "Vorbereitung anhand Ihrer Agenda",
-        "konsistente Bildbearbeitung",
-        "private, passwortgeschützte Galerie in der Regel innerhalb von 48 Stunden",
+      range: "1.000 € – 1.500 €",
+      duration: "Bis zu 4 Stunden vor Ort",
+      ideal: "Panel-Diskussionen, kompakte Konferenzen, Networking-Events, eintägige Messestand-Begleitung.",
+      includes: [
+        "Bis zu 4 Stunden vor Ort",
+        "Komplett bearbeitete Galerie (meist 80–150 Bilder)",
+        "Private Online-Galerie, in der Regel in 48h",
         "Nutzungsrechte für Ihre Unternehmenskommunikation"
       ]
     },
-    addons: {
-      title: "Optional ergänzbar",
+    ganztags: {
+      name: "Ganztags",
+      range: "2.000 € – 2.500 €",
+      duration: "Bis zu 8 Stunden vor Ort",
+      ideal: "Ganztägige Konferenzen, komplette Messebegleitung, Corporate Events, Preisverleihungen.",
+      includes: [
+        "Bis zu 8 Stunden vor Ort",
+        "Komplett bearbeitete Galerie (meist 200–400 Bilder)",
+        "Private Online-Galerie, in der Regel in 48h",
+        "Nutzungsrechte für Ihre Unternehmenskommunikation",
+        "Optional: Erste Highlights am selben Tag"
+      ]
+    },
+    mehrtagig: {
+      name: "Mehrtägig",
+      range: "Individuell (reduzierter Tagessatz)",
+      duration: "2+ Tage",
+      ideal: "Messen, internationale Kongresse, Brand Activations und Events über mehrere Tage.",
+      includes: [
+        "Vollständige mehrtägige Begleitung",
+        "Tägliche Highlights möglich",
+        "Bearbeitete Galerie innerhalb von 3 Werktagen",
+        "Nutzungsrechte für Ihre Unternehmenskommunikation",
+        "Optional: Second Shooter für parallele Sessions"
+      ]
+    },
+    included: {
+      title: "Immer inklusive",
       items: [
-        { name: "Erste Highlights am selben Tag", desc: "Zusatzleistung auf Wunsch" },
-        { name: "Speaker-Porträts on-site", desc: "Zusatzleistung auf Wunsch" },
-        { name: "Social-Media-Content (Reels/LinkedIn-Format)", desc: "Zusatzleistung auf Wunsch" },
-        { name: "mehrtägige Kongresse", desc: "Zusatzleistung auf Wunsch" },
-        { name: "Reisen außerhalb Hamburgs", desc: "Zusatzleistung auf Wunsch" }
+        "Professionelle Vollformatkamera + Backup-Body",
+        "Konsistente Bildbearbeitung & Farbkorrektur",
+        "Lieferung via privater Online-Galerie",
+        "Volle Nutzungsrechte für die Unternehmenskommunikation",
+        "Teilbarer Link für die interne Weitergabe",
+        "Antwort auf Ihre Anfrage innerhalb von 24 Stunden"
+      ]
+    },
+    addons: {
+      title: "Add-ons",
+      items: [
+        { name: "Same-Day Selects", desc: "10–20 bearbeitete Bilder noch am selben Abend geliefert." },
+        { name: "Second Photographer", desc: "Für parallele Sessions oder großflächige, mehrspurige Events." },
+        { name: "Reisen (Europaweit)", desc: "Amsterdam, Mailand, Kopenhagen, Berlin und darüber hinaus. Individuell berechnet." },
+        { name: "Kurzer Highlight-Film", desc: "60–90 Sekunden für den internen Gebrauch oder Social Media." }
       ]
     },
     cta: {
-      title: "Individuelles Angebot",
-      desc: "Jedes Event ist anders. Schildern Sie mir kurz Rahmen, Datum und Umfang — Sie erhalten innerhalb von 24 Stunden ein festes Angebot.",
-      btn: "Angebot anfragen"
+      title: "Individuelles Angebot anfragen",
+      desc: "Erzählen Sie mir von Ihrem Event — Datum, Ort und gewünschte Leistungen. Sie erhalten ein klares, auf Ihr Projekt zugeschnittenes Angebot.",
+      btn: "Angebot anfragen",
+      reply: "Antwort innerhalb von 24 Stunden."
     },
     faq: {
       title: "FAQ",
