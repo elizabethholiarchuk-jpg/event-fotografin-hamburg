@@ -82,6 +82,46 @@ export const en: Dictionary = {
       btn: "To Contact Form"
     }
   },
+  konferenzFotografie: {
+    hero: {
+      title: "Conference Photographer in Hamburg",
+      subtitle: "Keynotes, panels, networking and speaker portraits — consistently delivered within 48 hours. Same-day highlights available on request.",
+    },
+    intro: "Conferences depend on high-quality photography for PR, post-event communication, and future marketing. I document every layer of your conference: the keynote stage, speaker portraits, breakout sessions, networking breaks, branded spaces, and the audience reactions that tell the full story. Based in Hamburg, I have photographed conferences at venues including Hamburg Messe und Congress, the CCH, and international venues in Milan, Amsterdam, and Copenhagen. My images are delivered with consistent colour grading and ready to use across LinkedIn, press releases, and internal reports.",
+    whatYouGet: [
+      "Stage and keynote photography",
+      "Panel and speaker coverage",
+      "Audience and reaction shots",
+      "Networking and exhibition floor",
+      "Branded space and environment details",
+      "Speaker portrait session (optional)"
+    ],
+    consistentStyle: {
+      title: "Images ready to use immediately",
+      desc: "Consistent visual language throughout the entire day — same look for keynote, panel, and evening reception. No outliers, no gaps during important moments. You get a curated selection, not 3,000 raw files to sort yourself."
+    },
+    howItWorks: [
+      { step: "Briefing", desc: "Share your agenda, key speakers, must-have shots, and brand guidelines." },
+      { step: "Pre-event walkthrough", desc: "I arrive early to assess the room, lighting, and stage layout." },
+      { step: "Full coverage", desc: "Opening to closing — I capture every key moment without disrupting the programme." }
+    ],
+    pricing: {
+      title: "Scope & Pricing",
+      desc: "Half-day or full-day, for single and multi-day congresses. Speaker portraits and social media content can be added."
+    },
+    cta: {
+      title: "Tell me about your conference",
+      btn: "Check availability"
+    },
+    faq: [
+      { q: "How fast do I get the pictures?", a: "The complete, edited gallery is usually delivered within 48 hours. Upon request, you can get first highlights on the same day — ideal for press and social media during the event." },
+      { q: "Can highlights be delivered during the conference?", a: "Yes. If you want to post on the day of the event, I will provide a small selection of edited images at short notice." },
+      { q: "Do you also photograph multi-day congresses?", a: "Yes, single and multi-day formats. For longer congresses, we agree in advance on which programme points have priority." },
+      { q: "What do you need from us in advance?", a: "The agenda and the names of the most important people (board, keynote speakers, guests of honour). This ensures that the crucial moments are covered." },
+      { q: "Are the images cleared for press and social media?", a: "Yes. You receive the usage rights for your corporate communication — press, website, LinkedIn and internal marketing." },
+      { q: "Do you also travel outside of Hamburg?", a: "Yes. Hamburg is my base, but I work throughout Germany and Europe. Travel costs are transparently clarified in the quote." }
+    ]
+  },
   portfolio: {
     meta: {
       title: "Portfolio — Event Photography Hamburg",
