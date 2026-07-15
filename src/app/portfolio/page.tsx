@@ -6,7 +6,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = getDictionary('en');
   return {
     title: t.portfolio.meta.title,
-    description: t.home.meta.description,
+    description: t.portfolio.meta.description,
     alternates: {
       canonical: "/portfolio",
       languages: {

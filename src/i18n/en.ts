@@ -83,13 +83,19 @@ export const en: Dictionary = {
     }
   },
   portfolio: {
-    meta: { title: "Portfolio — Event Photography Hamburg" },
+    meta: {
+      title: "Portfolio — Event Photography Hamburg",
+      description: "Selected B2B event, conference and trade-show photography in Hamburg — real client case studies with brief, coverage and delivery for each."
+    },
     title: "Portfolio",
     subtitle: "Conferences, Trade Shows & Corporate Events — Europe-wide.",
     replyTime: "I usually get back to you within 24 hours."
   },
   kontakt: {
-    meta: { title: "Contact" },
+    meta: {
+      title: "Contact",
+      description: "Get in touch to check availability and request a quote for your conference, trade show or corporate event. I'll reply within 24 hours."
+    },
     title: "Let's talk about your event",
     subtitle: "Send your inquiry — I'll confirm availability and next steps.",
     directContact: "Direct Contact",

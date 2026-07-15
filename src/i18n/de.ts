@@ -81,13 +81,19 @@ export const de = {
     }
   },
   portfolio: {
-    meta: { title: "Portfolio" },
+    meta: {
+      title: "Portfolio",
+      description: "Ausgewählte B2B-Eventfotografie aus Hamburg — Konferenzen, Messen und Corporate Events mit Projektüberblick, Bildauswahl und Lieferdetails."
+    },
     title: "Portfolio",
     subtitle: "Konferenzen, Messen & Corporate Events — europaweit.",
     replyTime: "Ich melde mich in der Regel innerhalb von 24 Stunden."
   },
   kontakt: {
-    meta: { title: "Kontakt" },
+    meta: {
+      title: "Kontakt",
+      description: "Verfügbarkeit prüfen und Angebot für Ihre Konferenz, Messe oder Ihr Corporate Event anfragen. Antwort innerhalb von 24 Stunden."
+    },
     title: "Lassen Sie uns über Ihr Event sprechen",
     subtitle: "Sende deine Anfrage – ich melde mich innerhalb von 24 Stunden.",
     directContact: "Direkte Kontaktaufnahme",
