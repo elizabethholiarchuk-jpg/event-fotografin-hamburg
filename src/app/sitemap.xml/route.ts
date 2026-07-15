@@ -19,7 +19,6 @@ export async function GET() {
     const enOnlyRoutes = [
         { path: '/contact', priority: '0.8', changefreq: 'yearly' },
         { path: '/conference-photography-hamburg', priority: '0.9', changefreq: 'monthly' },
-        { path: '/trade-show-photography-hamburg', priority: '0.9', changefreq: 'monthly' },
         { path: '/corporate-event-photography-hamburg', priority: '0.9', changefreq: 'monthly' },
         { path: '/about', priority: '0.6', changefreq: 'yearly' },
         { path: '/pricing', priority: '0.7', changefreq: 'monthly' },
@@ -70,6 +69,24 @@ export async function GET() {
     <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/event-photographer-hamburg" />
     <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/eventfotograf-hamburg" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/event-photographer-hamburg" />
+  </url>
+  <url>
+    <loc>${baseUrl}/trade-show-photography-hamburg</loc>
+    <lastmod>${lastModified}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/trade-show-photography-hamburg" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/messefotografie-hamburg" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/trade-show-photography-hamburg" />
+  </url>
+  <url>
+    <loc>${baseUrl}/de/messefotografie-hamburg</loc>
+    <lastmod>${lastModified}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/trade-show-photography-hamburg" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/messefotografie-hamburg" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/trade-show-photography-hamburg" />
   </url>`;
 
     // EN-only routes
