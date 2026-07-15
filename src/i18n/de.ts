@@ -80,6 +80,46 @@ export const de = {
       btn: "Zur Kontaktanfrage"
     }
   },
+  konferenzFotografie: {
+    hero: {
+      title: "Konferenzfotografin in Hamburg",
+      subtitle: "Keynotes, Panels, Networking und Speaker-Porträts — konsistent festgehalten und in der Regel innerhalb von 48 Stunden geliefert. Auf Wunsch erste Highlights noch am selben Tag.",
+    },
+    intro: "Für Konferenzen, Kongresse und B2B-Events in Hamburg und deutschlandweit. Ich fotografiere so, dass Sie die Bilder direkt weiterverwenden können — für Presse, LinkedIn, den Event-Recap und Ihr Marketing im nächsten Jahr. Vertraut u. a. von internationalen Unternehmen und Verbänden, die auf verlässliche, planbare Bildergebnisse angewiesen sind.",
+    whatYouGet: [
+      "Keynotes & Bühne — Sprecherinnen und Sprecher im besten Moment: Gestik, Präsenz, die Slide im Hintergrund lesbar.",
+      "Panels & Diskussionen — Interaktion statt steifer Reihenbilder. Blickkontakt, Reaktionen, der Austausch auf dem Podium.",
+      "Networking & Pausen — die Gespräche, an die sich alle erinnern. Oft die wertvollsten Bilder für Ihre spätere Kommunikation.",
+      "Speaker-Porträts — saubere, wiederverwendbare Porträts Ihrer Referentinnen und Referenten, on-site in wenigen Minuten.",
+      "Publikum & Atmosphäre — volle Ränge, aufmerksame Gesichter, der Raum als Ganzes. Der Beleg dafür, dass Ihr Event funktioniert hat.",
+      "Details & Branding — Bühnenbild, Logos, Roll-ups, Catering, Signage — die Bilder, die Sponsoren und Partner sehen wollen."
+    ],
+    consistentStyle: {
+      title: "Bilder, die Sie sofort einsetzen können",
+      desc: "Konsistente Bildsprache über den gesamten Tag — gleicher Look bei Keynote, Panel und Abendempfang. Keine Ausreißer, keine Lücken bei den wichtigen Momenten. Sie bekommen eine kuratierte Auswahl, nicht 3.000 Rohdateien zum Selbstsortieren."
+    },
+    howItWorks: [
+      { step: "Vorab", desc: "Ich bitte um Ihre Agenda und die Namen der wichtigsten Personen — so verpasse ich weder den CEO auf der Bühne noch den entscheidenden Handshake." },
+      { step: "Vor Ort", desc: "Diskret, planbar, ohne Ihren Ablauf zu stören. Ich weiß, wann ich vorne sein muss und wann ich mich zurücknehme." },
+      { step: "Danach", desc: "Zweistufige Bearbeitung — Auswahl am selben Tag, finale Bearbeitung am nächsten mit frischem Blick. Private, passwortgeschützte Galerie in der Regel innerhalb von 48 Stunden. Erste Highlights auf Wunsch noch am Eventtag." }
+    ],
+    pricing: {
+      title: "Umfang & Preise",
+      desc: "Halbtags oder ganztags, für ein- und mehrtägige Kongresse. Speaker-Porträts und Social-Media-Content lassen sich ergänzen."
+    },
+    cta: {
+      title: "Erzählen Sie mir von Ihrer Konferenz",
+      btn: "Verfügbarkeit anfragen"
+    },
+    faq: [
+      { q: "Wie schnell erhalte ich die Bilder?", a: "Die vollständige, bearbeitete Galerie liefere ich in der Regel innerhalb von 48 Stunden. Auf Wunsch bekommen Sie erste Highlights noch am selben Tag — ideal für Presse und Social Media während des Events." },
+      { q: "Können Highlights schon während der Konferenz geliefert werden?", a: "Ja. Wenn Sie noch am Eventtag posten möchten, stelle ich eine kleine Auswahl bearbeiteter Bilder kurzfristig bereit." },
+      { q: "Fotografieren Sie auch mehrtägige Kongresse?", a: "Ja, ein- und mehrtägige Formate. Bei längeren Kongressen stimmen wir vorab ab, welche Programmpunkte Priorität haben." },
+      { q: "Was benötigen Sie vorab von uns?", a: "Die Agenda und die Namen der wichtigsten Personen (Vorstand, Keynote-Speaker, Ehrengäste). Damit stelle ich sicher, dass die entscheidenden Momente abgedeckt sind." },
+      { q: "Sind die Bilder für Presse und Social Media freigegeben?", a: "Ja. Sie erhalten die Nutzungsrechte für Ihre Unternehmenskommunikation — Presse, Website, LinkedIn und internes Marketing." },
+      { q: "Reisen Sie auch außerhalb Hamburgs?", a: "Ja. Basis ist Hamburg, ich arbeite aber deutschland- und europaweit. Reisekosten kläre ich transparent im Angebot." }
+    ]
+  },
   portfolio: {
     meta: {
       title: "Portfolio",

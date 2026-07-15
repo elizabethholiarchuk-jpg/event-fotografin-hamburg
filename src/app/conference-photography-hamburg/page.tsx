@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "Professional conference photographer in Hamburg. Keynotes, panels, networking and speaker portraits — consistently delivered within 48 hours.",
   alternates: {
     canonical: "/conference-photography-hamburg",
+    languages: {
+      en: "/conference-photography-hamburg",
+      de: "/de/konferenzfotografie-hamburg",
+      "x-default": "/conference-photography-hamburg",
+    },
   },
   openGraph: {
     title: "Conference Photography Hamburg | Liza Holiarchuk",
