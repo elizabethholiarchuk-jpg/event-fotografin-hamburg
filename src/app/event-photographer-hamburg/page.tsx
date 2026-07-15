@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { buildServicePageJsonLd, buildFaqPageJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Event Photographer Hamburg",
@@ -39,6 +40,17 @@ export const metadata: Metadata = {
   },
 };
 
+const FAQ = [
+  { q: "How far in advance should I book?", a: "Ideally 4–8 weeks before your event. For large conferences I recommend booking even earlier. For last-minute requests, feel free to reach out — I'll do my best." },
+  { q: "Do you work outside Hamburg?", a: "Yes. I regularly shoot events in Berlin, Hanover, Düsseldorf, Frankfurt, Munich, Amsterdam, Milan, Copenhagen and other European cities. Travel costs are quoted separately." },
+  { q: "What equipment do you use?", a: "Professional full-frame mirrorless cameras with a range of fast lenses suited to conference halls, exhibition floors, and evening events." },
+  { q: "How do I receive the final images?", a: "Via a private online gallery (Picdrop or similar) — shareable internally and with your event guests. Optionally password-protected." },
+  { q: "Can I book you for a multi-day event?", a: "Absolutely. Multi-day packages are available for trade shows, congresses, and corporate events running 2–5 days. Pricing is agreed per project." },
+  { q: "Do you provide raw files?", a: "Raw files are not included as standard. The fully edited JPEG/TIFF gallery is the deliverable. Raw files can be discussed for specific use cases." },
+  { q: "What if I need a second photographer?", a: "A second photographer can be arranged for larger events with parallel stages or tracks. Just mention this in your inquiry." },
+  { q: "How is billing handled?", a: "A project-based invoice is issued after confirmation. Payment terms are agreed in advance." },
+];
+
 export default function EventPhotographerHamburg() {
   return (
     <ServicePage
@@ -69,116 +81,21 @@ export default function EventPhotographerHamburg() {
         { step: "Editing & Delivery", desc: "Fully edited photos delivered via private gallery — typically within 48 hours." },
         { step: "Usage & Licensing", desc: "All images include full usage rights for corporate communication, website, and social." },
       ]}
-      faq={[
-        { q: "How far in advance should I book?", a: "Ideally 4–8 weeks before your event. For large conferences I recommend booking even earlier. For last-minute requests, feel free to reach out — I'll do my best." },
-        { q: "Do you work outside Hamburg?", a: "Yes. I regularly shoot events in Berlin, Hanover, Düsseldorf, Frankfurt, Munich, Amsterdam, Milan, Copenhagen and other European cities. Travel costs are quoted separately." },
-        { q: "What equipment do you use?", a: "Professional full-frame mirrorless cameras with a range of fast lenses suited to conference halls, exhibition floors, and evening events." },
-        { q: "How do I receive the final images?", a: "Via a private online gallery (Picdrop or similar) — shareable internally and with your event guests. Optionally password-protected." },
-        { q: "Can I book you for a multi-day event?", a: "Absolutely. Multi-day packages are available for trade shows, congresses, and corporate events running 2–5 days. Pricing is agreed per project." },
-        { q: "Do you provide raw files?", a: "Raw files are not included as standard. The fully edited JPEG/TIFF gallery is the deliverable. Raw files can be discussed for specific use cases." },
-        { q: "What if I need a second photographer?", a: "A second photographer can be arranged for larger events with parallel stages or tracks. Just mention this in your inquiry." },
-        { q: "How is billing handled?", a: "A project-based invoice is issued after confirmation. Payment terms are agreed in advance." },
-      ]}
+      faq={FAQ}
       testimonial={{
         quote: "Liza has an excellent eye for the right moments. The collaboration was relaxed and the delivery incredibly fast.",
         name: "Maya Wagner",
         role: "Partner Success, Plug and Play Tech Center Hamburg",
       }}
       relatedCategories={["Conference", "Trade Show", "Corporate"]}
-      schema={{
-        "@context": "https://schema.org",
-        "@type": "Service",
+      schema={buildServicePageJsonLd('en', {
+        serviceType: "Event Photography",
         name: "Event Photographer Hamburg",
         description: "Professional event photographer based in Hamburg. Covering conferences, trade shows, and corporate events across Hamburg and Europe. Fast delivery, consistent quality.",
-        url: "https://www.event-fotografin-hamburg.de/event-photographer-hamburg",
-        provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
-        areaServed: [
-          { "@type": "City", "name": "Hamburg" },
-          { "@type": "Country", "name": "Germany" },
-        ],
-        serviceType: "Event Photography",
-        image: "https://www.event-fotografin-hamburg.de/images/services/event-photographer-hamburg-cover.webp",
-      }}
-      faqSchema={{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "How far in advance should I book?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Ideally 4\u20138 weeks before your event. For large conferences I recommend booking even earlier. For last-minute requests, feel free to reach out \u2014 I\u2019ll do my best.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Do you work outside Hamburg?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. I regularly shoot events in Berlin, Hanover, D\u00fcsseldorf, Frankfurt, Munich, Amsterdam, Milan, Copenhagen and other European cities. Travel costs are quoted separately.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What equipment do you use?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Professional full-frame mirrorless cameras with a range of fast lenses suited to conference halls, exhibition floors, and evening events.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "How do I receive the final images?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Via a private online gallery (Picdrop or similar) \u2014 shareable internally and with your event guests. Optionally password-protected.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can I book you for a multi-day event?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Absolutely. Multi-day packages are available for trade shows, congresses, and corporate events running 2\u20135 days. Pricing is agreed per project.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Do you provide raw files?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Raw files are not included as standard. The fully edited JPEG/TIFF gallery is the deliverable. Raw files can be discussed for specific use cases.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What if I need a second photographer?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "A second photographer can be arranged for larger events with parallel stages or tracks. Just mention this in your inquiry.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "How is billing handled?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "A project-based invoice is issued after confirmation. Payment terms are agreed in advance.",
-            },
-          },
-        ],
-      }}
-      extraSchemas={[
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de/" },
-            { "@type": "ListItem", position: 2, name: "Event Photographer Hamburg", item: "https://www.event-fotografin-hamburg.de/event-photographer-hamburg" },
-          ],
-        },
-      ]}
+        path: "/event-photographer-hamburg",
+        image: "/images/services/event-photographer-hamburg-cover.webp",
+      })}
+      faqSchema={buildFaqPageJsonLd(FAQ)}
     />
   );
 }

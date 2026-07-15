@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { buildServicePageJsonLd, buildFaqPageJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Conference Photography Hamburg",
@@ -34,6 +35,17 @@ export const metadata: Metadata = {
   },
 };
 
+const FAQ = [
+  { q: "Can you cover parallel sessions?", a: "Yes. For conferences with parallel tracks or stages, I can arrange a second photographer to ensure nothing is missed." },
+  { q: "Do you photograph speakers before or after their presentation?", a: "Speaker portrait sessions can be added as an optional block, either before the conference opens or during a scheduled break." },
+  { q: "What do you need from the organiser on-site?", a: "A point of contact, a press or photographer badge, a rough agenda, and 3–5 must-have shots (e.g. opening keynote, specific speakers, networking). The rest I handle." },
+  { q: "How do you handle low-light conference halls?", a: "I use fast lenses and professional full-frame sensors optimised for mixed and low-light environments, so stage lighting is never a problem." },
+  { q: "Can we get photos for social media the same day?", a: "Yes. A same-day highlights selection (10–20 edited images) can be delivered the same evening for immediate use on LinkedIn or Instagram." },
+  { q: "Do you sign NDAs or confidentiality agreements?", a: "Yes, for events with sensitive content I'm happy to sign an NDA before the event." },
+  { q: "What size conferences have you photographed?", a: "From 50-person panels to 2,000-delegate congresses. The workflow scales accordingly." },
+  { q: "How do I get the photos after the event?", a: "Via a private Picdrop gallery — the link can be shared with your team, speakers, or press." },
+];
+
 export default function ConferencePhotographyHamburg() {
   return (
     <ServicePage
@@ -64,116 +76,21 @@ export default function ConferencePhotographyHamburg() {
         { step: "Editing", desc: "Consistent colour grading applied across all images." },
         { step: "Delivery", desc: "Private gallery ready within 48 business hours, shareable immediately." },
       ]}
-      faq={[
-        { q: "Can you cover parallel sessions?", a: "Yes. For conferences with parallel tracks or stages, I can arrange a second photographer to ensure nothing is missed." },
-        { q: "Do you photograph speakers before or after their presentation?", a: "Speaker portrait sessions can be added as an optional block, either before the conference opens or during a scheduled break." },
-        { q: "What do you need from the organiser on-site?", a: "A point of contact, a press or photographer badge, a rough agenda, and 3–5 must-have shots (e.g. opening keynote, specific speakers, networking). The rest I handle." },
-        { q: "How do you handle low-light conference halls?", a: "I use fast lenses and professional full-frame sensors optimised for mixed and low-light environments, so stage lighting is never a problem." },
-        { q: "Can we get photos for social media the same day?", a: "Yes. A same-day highlights selection (10–20 edited images) can be delivered the same evening for immediate use on LinkedIn or Instagram." },
-        { q: "Do you sign NDAs or confidentiality agreements?", a: "Yes, for events with sensitive content I'm happy to sign an NDA before the event." },
-        { q: "What size conferences have you photographed?", a: "From 50-person panels to 2,000-delegate congresses. The workflow scales accordingly." },
-        { q: "How do I get the photos after the event?", a: "Via a private Picdrop gallery — the link can be shared with your team, speakers, or press." },
-      ]}
+      faq={FAQ}
       testimonial={{
         quote: "Liza professionally accompanied our three-day trade show. Strong detailed shots and perfectly documented presentations. A pleasure to work with her.",
         name: "Maria Kossivaki",
         role: "Event Specialist, Lloyd's Register",
       }}
       relatedCategories={["Conference"]}
-      schema={{
-        "@context": "https://schema.org",
-        "@type": "Service",
+      schema={buildServicePageJsonLd('en', {
+        serviceType: "Conference Photography",
         name: "Conference Photography Hamburg",
         description: "Professional conference photographer in Hamburg. Keynotes, panels, networking and speaker portraits — delivered within 48 hours.",
-        url: "https://www.event-fotografin-hamburg.de/conference-photography-hamburg",
-        provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
-        areaServed: [
-          { "@type": "City", "name": "Hamburg" },
-          { "@type": "Country", "name": "Germany" },
-        ],
-        serviceType: "Conference Photography",
-        image: "https://www.event-fotografin-hamburg.de/images/services/conference-photography-hamburg-cover.webp",
-      }}
-      faqSchema={{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "Can you cover parallel sessions?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. For conferences with parallel tracks or stages, I can arrange a second photographer to ensure nothing is missed.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Do you photograph speakers before or after their presentation?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Speaker portrait sessions can be added as an optional block, either before the conference opens or during a scheduled break.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What do you need from the organiser on-site?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "A point of contact, a press or photographer badge, a rough agenda, and 3\u20135 must-have shots (e.g. opening keynote, specific speakers, networking). The rest I handle.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "How do you handle low-light conference halls?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "I use fast lenses and professional full-frame sensors optimised for mixed and low-light environments, so stage lighting is never a problem.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can we get photos for social media the same day?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. A same-day highlights selection (10\u201320 edited images) can be delivered the same evening for immediate use on LinkedIn or Instagram.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Do you sign NDAs or confidentiality agreements?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes, for events with sensitive content I\u2019m happy to sign an NDA before the event.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What size conferences have you photographed?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "From 50-person panels to 2,000-delegate congresses. The workflow scales accordingly.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "How do I get the photos after the event?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Via a private Picdrop gallery \u2014 the link can be shared with your team, speakers, or press.",
-            },
-          },
-        ],
-      }}
-      extraSchemas={[
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de/" },
-            { "@type": "ListItem", position: 2, name: "Conference Photography Hamburg", item: "https://www.event-fotografin-hamburg.de/conference-photography-hamburg" },
-          ],
-        },
-      ]}
+        path: "/conference-photography-hamburg",
+        image: "/images/services/conference-photography-hamburg-cover.webp",
+      })}
+      faqSchema={buildFaqPageJsonLd(FAQ)}
     />
   );
 }

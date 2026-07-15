@@ -161,3 +161,91 @@ export function buildAboutJsonLd(lang: Language) {
     ],
   };
 }
+
+/* ------------------------------------------------------------------ */
+/*  Service-page helpers                                               */
+/* ------------------------------------------------------------------ */
+
+const AREA_SERVED = [
+  { '@type': 'City' as const, name: 'Hamburg' },
+  { '@type': 'Country' as const, name: 'Germany' },
+  { '@type': 'AdministrativeArea' as const, name: 'Europe' },
+] as const;
+
+export interface ServiceSchemaInput {
+  /** e.g. "Event Photography", "Conference Photography" */
+  serviceType: string;
+  /** Page title / heading */
+  name: string;
+  /** Meta description or short summary */
+  description: string;
+  /** Path without domain, e.g. "/conference-photography-hamburg" */
+  path: string;
+  /** Absolute image URL path, e.g. "/images/services/…" */
+  image: string;
+}
+
+/**
+ * Service-page JSON-LD — emits Service + BreadcrumbList in a single @graph.
+ */
+export function buildServicePageJsonLd(
+  lang: Language,
+  input: ServiceSchemaInput,
+) {
+  const homeName = lang === 'de' ? 'Start' : 'Home';
+  const homePath = lang === 'de' ? '/de' : '/';
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service' as const,
+        name: input.name,
+        description: input.description,
+        url: abs(input.path),
+        image: abs(input.image),
+        serviceType: input.serviceType,
+        provider: { '@id': BUSINESS_ID },
+        areaServed: [...AREA_SERVED],
+        inLanguage: LANG_TAG[lang],
+      },
+      {
+        '@type': 'BreadcrumbList' as const,
+        itemListElement: [
+          {
+            '@type': 'ListItem' as const,
+            position: 1,
+            name: homeName,
+            item: abs(homePath),
+          },
+          {
+            '@type': 'ListItem' as const,
+            position: 2,
+            name: input.name,
+            item: abs(input.path),
+          },
+        ],
+      },
+    ],
+  };
+}
+
+/**
+ * FAQPage JSON-LD — built directly from the visible Q&A pairs.
+ */
+export function buildFaqPageJsonLd(
+  faqs: { q: string; a: string }[],
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage' as const,
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question' as const,
+      name: f.q,
+      acceptedAnswer: {
+        '@type': 'Answer' as const,
+        text: f.a,
+      },
+    })),
+  };
+}

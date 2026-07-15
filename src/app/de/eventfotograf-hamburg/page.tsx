@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import SafeImage from "@/components/SafeImage";
 import ImageGallery from "@/components/ImageGallery";
+import { buildServicePageJsonLd, buildFaqPageJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Eventfotograf Hamburg – Liza Holiarchuk | Messen & Konferenzen",
@@ -43,108 +44,32 @@ export const metadata: Metadata = {
   },
 };
 
+const FAQ = [
+  { q: "Was kostet ein Eventfotograf in Hamburg?", a: "Für Firmenevents in Hamburg liegen realistische Preise bei etwa 450–600 € netto für 2 Stunden, 750–1.150 € für einen halben Tag und 1.350–2.050 € für einen ganzen Tag – jeweils inklusive Bearbeitung und Nutzungsrechten. Den genauen Preis stimme ich pro Projekt ab. Schreiben Sie mir mit den Eckdaten Ihres Events, und Sie erhalten ein konkretes Angebot." },
+  { q: "Wie läuft der Buchungsprozess ab?", a: "Anfrage → kurzes Briefing → Angebot & Bestätigung → Event → Lieferung." },
+  { q: "Was brauchen Sie von uns, damit vor Ort alles reibungslos läuft?", a: "Einen groben Zeitplan bzw. das Programm, eine Ansprechperson, Zugang/Badge und 3–5 Must-haves (z. B. Speaker, VIPs, Branding, Teamfotos)." },
+  { q: "Wann erhalten wir die Fotos?", a: "In der Regel innerhalb von 2 Werktagen; Same-Day-Highlights auf Wunsch (eine kuratierte Auswahl für die schnelle Kommunikation)." },
+  { q: "Wie erhalten wir die Bilder und wie können wir sie teilen?", a: "Über eine private Online-Galerie; der Link ist intern und mit Ihren Gästen teilbar, auf Wunsch passwortgeschützt." },
+  { q: "Welche Nutzungsrechte sind enthalten?", a: "Umfassende Nutzungsrechte für Ihre Unternehmenskommunikation (Website, Social Media, PR) sind enthalten; Details je nach Anwendungsfall." },
+  { q: "Können Sie parallele Bühnen oder Tracks abdecken?", a: "Ja. Für größere Events mit parallelen Programmpunkten lässt sich ein zweiter Fotograf organisieren." },
+  { q: "Arbeiten Sie auch außerhalb von Hamburg?", a: "Ja – Hamburg und Umgebung sowie deutschland- und europaweit nach Absprache. Reisekosten werden separat und transparent kalkuliert." },
+];
+
+const serviceJsonLd = buildServicePageJsonLd('de', {
+  serviceType: "Eventfotografie",
+  name: "Eventfotograf Hamburg",
+  description: "Eventfotografin in Hamburg für Konferenzen, Messen und Firmenevents. Bearbeitete Galerie in der Regel in 2 Werktagen, Highlights am selben Tag auf Wunsch. Jetzt anfragen.",
+  path: "/de/eventfotograf-hamburg",
+  image: "/images/services/event-photographer-hamburg-cover.webp",
+});
+
+const faqJsonLd = buildFaqPageJsonLd(FAQ);
+
 export default function EventFotografHamburg() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Eventfotograf Hamburg",
-    "description":
-      "Eventfotografin in Hamburg für Konferenzen, Messen und Firmenevents. Bearbeitete Galerie in der Regel in 2 Werktagen, Highlights am selben Tag auf Wunsch. Jetzt anfragen.",
-    "url": "https://www.event-fotografin-hamburg.de/de/eventfotograf-hamburg",
-    "provider": { "@id": "https://www.event-fotografin-hamburg.de/#business" },
-    "areaServed": [
-      { "@type": "City", "name": "Hamburg" },
-      { "@type": "Country", "name": "Germany" }
-    ],
-    "serviceType": "Event Photography",
-    "image": "https://www.event-fotografin-hamburg.de/images/services/event-photographer-hamburg-cover.webp"
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://www.event-fotografin-hamburg.de/de" },
-      { "@type": "ListItem", "position": 2, "name": "Eventfotograf Hamburg", "item": "https://www.event-fotografin-hamburg.de/de/eventfotograf-hamburg" }
-    ]
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Was kostet ein Eventfotograf in Hamburg?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Für Firmenevents in Hamburg liegen realistische Preise bei etwa 450–600 € netto für 2 Stunden, 750–1.150 € für einen halben Tag und 1.350–2.050 € für einen ganzen Tag – jeweils inklusive Bearbeitung und Nutzungsrechten. Den genauen Preis stimme ich pro Projekt ab. Schreiben Sie mir mit den Eckdaten Ihres Events, und Sie erhalten ein konkretes Angebot."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wie läuft der Buchungsprozess ab?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Anfrage → kurzes Briefing → Angebot & Bestätigung → Event → Lieferung."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Was brauchen Sie von uns, damit vor Ort alles reibungslos läuft?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Einen groben Zeitplan bzw. das Programm, eine Ansprechperson, Zugang/Badge und 3–5 Must-haves (z. B. Speaker, VIPs, Branding, Teamfotos)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wann erhalten wir die Fotos?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "In der Regel innerhalb von 2 Werktagen; Same-Day-Highlights auf Wunsch (eine kuratierte Auswahl für die schnelle Kommunikation)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wie erhalten wir die Bilder und wie können wir sie teilen?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Über eine private Online-Galerie; der Link ist intern und mit Ihren Gästen teilbar, auf Wunsch passwortgeschützt."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Welche Nutzungsrechte sind enthalten?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Umfassende Nutzungsrechte für Ihre Unternehmenskommunikation (Website, Social Media, PR) sind enthalten; Details je nach Anwendungsfall."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Können Sie parallele Bühnen oder Tracks abdecken?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ja. Für größere Events mit parallelen Programmpunkten lässt sich ein zweiter Fotograf organisieren."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Arbeiten Sie auch außerhalb von Hamburg?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ja – Hamburg und Umgebung sowie deutschland- und europaweit nach Absprache. Reisekosten werden separat und transparent kalkuliert."
-        }
-      }
-    ]
-  };
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* 1. HERO */}
       <section className="relative w-full min-h-[92vh] md:min-h-screen flex items-end justify-start bg-[var(--color-dark-bg)] overflow-hidden pb-16 md:pb-24 pt-40 md:pt-48">
@@ -480,40 +405,7 @@ export default function EventFotografHamburg() {
               <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[var(--color-text-main)]">Häufige Fragen</h2>
             </div>
             <div className="w-full lg:w-2/3 flex flex-col divide-y divide-[var(--color-border-hairline)] border-t border-[var(--color-border-hairline)] lg:mt-2">
-              {[
-                {
-                  q: "Was kostet ein Eventfotograf in Hamburg?",
-                  a: "Für Firmenevents in Hamburg liegen realistische Preise bei etwa 450–600 € netto für 2 Stunden, 750–1.150 € für einen halben Tag und 1.350–2.050 € für einen ganzen Tag – jeweils inklusive Bearbeitung und Nutzungsrechten. Den genauen Preis stimme ich pro Projekt ab. Schreiben Sie mir mit den Eckdaten Ihres Events, und Sie erhalten ein konkretes Angebot."
-                },
-                {
-                  q: "Wie läuft der Buchungsprozess ab?",
-                  a: "Anfrage → kurzes Briefing → Angebot & Bestätigung → Event → Lieferung."
-                },
-                {
-                  q: "Was brauchen Sie von uns, damit vor Ort alles reibungslos läuft?",
-                  a: "Einen groben Zeitplan bzw. das Programm, eine Ansprechperson, Zugang/Badge und 3–5 Must-haves (z. B. Speaker, VIPs, Branding, Teamfotos)."
-                },
-                {
-                  q: "Wann erhalten wir die Fotos?",
-                  a: "In der Regel innerhalb von 2 Werktagen; Same-Day-Highlights auf Wunsch (eine kuratierte Auswahl für die schnelle Kommunikation)."
-                },
-                {
-                  q: "Wie erhalten wir die Bilder und wie können wir sie teilen?",
-                  a: "Über eine private Online-Galerie; der Link ist intern und mit Ihren Gästen teilbar, auf Wunsch passwortgeschützt."
-                },
-                {
-                  q: "Welche Nutzungsrechte sind enthalten?",
-                  a: "Umfassende Nutzungsrechte für Ihre Unternehmenskommunikation (Website, Social Media, PR) sind enthalten; Details je nach Anwendungsfall."
-                },
-                {
-                  q: "Können Sie parallele Bühnen oder Tracks abdecken?",
-                  a: "Ja. Für größere Events mit parallelen Programmpunkten lässt sich ein zweiter Fotograf organisieren."
-                },
-                {
-                  q: "Arbeiten Sie auch außerhalb von Hamburg?",
-                  a: "Ja – Hamburg und Umgebung sowie deutschland- und europaweit nach Absprache. Reisekosten werden separat und transparent kalkuliert."
-                }
-              ].map((faq, i) => (
+              {FAQ.map((faq, i) => (
                 <details key={i} className="group [&_summary::-webkit-details-marker]:hidden py-6">
                   <summary className="flex items-center justify-between cursor-pointer text-lg md:text-xl font-semibold text-[var(--color-text-main)]">
                     <span className="pr-8">{faq.q}</span>

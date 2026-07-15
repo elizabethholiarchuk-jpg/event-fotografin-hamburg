@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { buildServicePageJsonLd, buildFaqPageJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Corporate Event Photography Hamburg",
@@ -34,6 +35,17 @@ export const metadata: Metadata = {
   },
 };
 
+const FAQ = [
+  { q: "Can you photograph at private or members-only venues?", a: "Yes. I'm experienced in working at private venues, hotels, and restricted-access corporate locations. I sign NDAs as required." },
+  { q: "Do you photograph awards ceremonies?", a: "Yes. Awards evenings are a specialty — stage coverage, trophy moments, table shots, and the networking before and after." },
+  { q: "Can we use the photos for LinkedIn company pages and internal communications?", a: "Yes. All images include full usage rights for internal and external corporate communication." },
+  { q: "What about evening events with low light?", a: "Fully covered. I use fast professional lenses and optimise for venue lighting — whether it's a bright conference room or a candlelit awards dinner." },
+  { q: "Can you produce a highlight reel in addition to photos?", a: "Video can be added as an optional service — a short highlight reel (60–90 seconds) suitable for internal sharing or social media." },
+  { q: "What is your cancellation policy?", a: "Cancellation terms are agreed in the booking confirmation. For most events, cancellation within 7 days of the event date may incur a partial fee." },
+  { q: "Do you handle multi-location events (e.g., morning Hamburg, evening Berlin)?", a: "For single-day multi-location events, logistics need to be viable. This is always assessed case by case. Let me know your requirements." },
+  { q: "Can I see examples of corporate event work?", a: "Yes — view the portfolio for case studies from Plug and Play, Oyster Bay Venture Capital, IMMOJECTS, Shell, and others." },
+];
+
 export default function CorporateEventPhotographyHamburg() {
   return (
     <ServicePage
@@ -64,116 +76,21 @@ export default function CorporateEventPhotographyHamburg() {
         { step: "Editing", desc: "Brand-consistent tone and grading applied across all delivered images." },
         { step: "Delivery", desc: "Private gallery shared within 48 hours. Shareable with HR, PR, and stakeholders." },
       ]}
-      faq={[
-        { q: "Can you photograph at private or members-only venues?", a: "Yes. I'm experienced in working at private venues, hotels, and restricted-access corporate locations. I sign NDAs as required." },
-        { q: "Do you photograph awards ceremonies?", a: "Yes. Awards evenings are a specialty — stage coverage, trophy moments, table shots, and the networking before and after." },
-        { q: "Can we use the photos for LinkedIn company pages and internal communications?", a: "Yes. All images include full usage rights for internal and external corporate communication." },
-        { q: "What about evening events with low light?", a: "Fully covered. I use fast professional lenses and optimise for venue lighting — whether it's a bright conference room or a candlelit awards dinner." },
-        { q: "Can you produce a highlight reel in addition to photos?", a: "Video can be added as an optional service — a short highlight reel (60–90 seconds) suitable for internal sharing or social media." },
-        { q: "What is your cancellation policy?", a: "Cancellation terms are agreed in the booking confirmation. For most events, cancellation within 7 days of the event date may incur a partial fee." },
-        { q: "Do you handle multi-location events (e.g., morning Hamburg, evening Berlin)?", a: "For single-day multi-location events, logistics need to be viable. This is always assessed case by case. Let me know your requirements." },
-        { q: "Can I see examples of corporate event work?", a: "Yes — view the portfolio for case studies from Plug and Play, Oyster Bay Venture Capital, IMMOJECTS, Shell, and others." },
-      ]}
+      faq={FAQ}
       testimonial={{
         quote: "The reactions to the photos were overwhelmingly positive. The pictures look simply fantastic and capture the atmosphere perfectly.",
         name: "Marcia Fahrenheim",
         role: "Director, Factory Hammerbrooklyn",
       }}
       relatedCategories={["Corporate"]}
-      schema={{
-        "@context": "https://schema.org",
-        "@type": "Service",
+      schema={buildServicePageJsonLd('en', {
+        serviceType: "Corporate Event Photography",
         name: "Corporate Event Photography Hamburg",
         description: "Corporate event photographer in Hamburg for awards evenings, internal events, company anniversaries, product launches and executive gatherings.",
-        url: "https://www.event-fotografin-hamburg.de/corporate-event-photography-hamburg",
-        provider: { "@id": "https://www.event-fotografin-hamburg.de/#business" },
-        areaServed: [
-          { "@type": "City", "name": "Hamburg" },
-          { "@type": "Country", "name": "Germany" },
-        ],
-        serviceType: "Corporate Event Photography",
-        image: "https://www.event-fotografin-hamburg.de/images/services/corporate-event-photography-hamburg-cover.webp",
-      }}
-      faqSchema={{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "Can you photograph at private or members-only venues?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. I\u2019m experienced in working at private venues, hotels, and restricted-access corporate locations. I sign NDAs as required.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Do you photograph awards ceremonies?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Awards evenings are a specialty \u2014 stage coverage, trophy moments, table shots, and the networking before and after.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can we use the photos for LinkedIn company pages and internal communications?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. All images include full usage rights for internal and external corporate communication.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What about evening events with low light?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Fully covered. I use fast professional lenses and optimise for venue lighting \u2014 whether it\u2019s a bright conference room or a candlelit awards dinner.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can you produce a highlight reel in addition to photos?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Video can be added as an optional service \u2014 a short highlight reel (60\u201390 seconds) suitable for internal sharing or social media.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What is your cancellation policy?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Cancellation terms are agreed in the booking confirmation. For most events, cancellation within 7 days of the event date may incur a partial fee.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Do you handle multi-location events (e.g., morning Hamburg, evening Berlin)?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "For single-day multi-location events, logistics need to be viable. This is always assessed case by case. Let me know your requirements.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can I see examples of corporate event work?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes \u2014 view the portfolio for case studies from Plug and Play, Oyster Bay Venture Capital, IMMOJECTS, Shell, and others.",
-            },
-          },
-        ],
-      }}
-      extraSchemas={[
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de/" },
-            { "@type": "ListItem", position: 2, name: "Corporate Event Photography Hamburg", item: "https://www.event-fotografin-hamburg.de/corporate-event-photography-hamburg" },
-          ],
-        },
-      ]}
+        path: "/corporate-event-photography-hamburg",
+        image: "/images/services/corporate-event-photography-hamburg-cover.webp",
+      })}
+      faqSchema={buildFaqPageJsonLd(FAQ)}
     />
   );
 }
