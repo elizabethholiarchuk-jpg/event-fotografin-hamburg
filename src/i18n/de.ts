@@ -191,7 +191,65 @@ export const de = {
     title: "Seite nicht gefunden",
     desc: "Die gesuchte Seite existiert nicht oder wurde verschoben.",
     back: "Zurück zur Startseite"
+  },
+  pricing: {
+    meta: {
+      title: "Preise & Pakete — Eventfotografie Hamburg | Liza Holiarchuk",
+      description: "Eventfotografie in Hamburg ab 1.000 €. Halbtags- und Ganztagspakete, transparente Preise, individuelles Angebot innerhalb von 24 Stunden."
+    },
+    hero: {
+      title: "Preise & Pakete",
+      subtitle: "Transparente Preise für Eventfotografie in Hamburg. Klare Pakete, ein festes Angebot innerhalb von 24 Stunden — ohne Überraschungen."
+    },
+    packagesTitle: "Pakete",
+    halbtags: {
+      name: "Halbtags",
+      range: "Ab 1.000 €",
+      duration: "bis zu 4 Stunden vor Ort",
+      ideal: "Passend für Konferenz-Vormittage, kürzere Firmenevents und einzelne Programmpunkte."
+    },
+    ganztags: {
+      name: "Ganztags",
+      range: "Ab 2.000 €",
+      duration: "bis zu 8 Stunden vor Ort",
+      ideal: "Für ganztägige Konferenzen, Messetage und Abendveranstaltungen."
+    },
+    included: {
+      title: "Was immer enthalten ist",
+      items: [
+        "Vorbereitung anhand Ihrer Agenda",
+        "konsistente Bildbearbeitung",
+        "private, passwortgeschützte Galerie in der Regel innerhalb von 48 Stunden",
+        "Nutzungsrechte für Ihre Unternehmenskommunikation"
+      ]
+    },
+    addons: {
+      title: "Optional ergänzbar",
+      items: [
+        { name: "Erste Highlights am selben Tag", desc: "Zusatzleistung auf Wunsch" },
+        { name: "Speaker-Porträts on-site", desc: "Zusatzleistung auf Wunsch" },
+        { name: "Social-Media-Content (Reels/LinkedIn-Format)", desc: "Zusatzleistung auf Wunsch" },
+        { name: "mehrtägige Kongresse", desc: "Zusatzleistung auf Wunsch" },
+        { name: "Reisen außerhalb Hamburgs", desc: "Zusatzleistung auf Wunsch" }
+      ]
+    },
+    cta: {
+      title: "Individuelles Angebot",
+      desc: "Jedes Event ist anders. Schildern Sie mir kurz Rahmen, Datum und Umfang — Sie erhalten innerhalb von 24 Stunden ein festes Angebot.",
+      btn: "Angebot anfragen"
+    },
+    faq: {
+      title: "FAQ",
+      items: [
+        { q: "Was kostet ein Eventfotograf in Hamburg?", a: "Meine Pakete beginnen bei 1.000 € für einen Halbtag. Der finale Preis hängt von Dauer, Umfang und Zusatzleistungen ab — Sie bekommen vorab ein festes Angebot, keine Schätzung." },
+        { q: "Gibt es Stundensätze?", a: "Ich arbeite mit Halbtags- und Ganztagspaketen statt reinen Stundensätzen, weil Vorbereitung und Bearbeitung immer dazugehören. Für sehr kurze Formate finden wir eine passende Lösung." },
+        { q: "Wann erhalte ich die Bilder?", a: "Die bearbeitete Galerie in der Regel innerhalb von 48 Stunden, Highlights auf Wunsch am selben Tag." },
+        { q: "Fallen Reisekosten an?", a: "Innerhalb Hamburgs in der Regel nicht. Für Termine außerhalb weise ich Reisekosten transparent im Angebot aus." }
+      ]
+    }
   }
 };
 
-export type Dictionary = typeof de;
+export type Dictionary = Omit<typeof de, "pricing"> & {
+  pricing?: typeof de.pricing;
+};

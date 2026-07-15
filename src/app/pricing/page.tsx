@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "Conference and event photography in Hamburg from €750. Half-day and full-day packages. Transparent pricing, custom quotes within 24 hours.",
   alternates: {
     canonical: "/pricing",
+    languages: {
+      en: "/pricing",
+      de: "/de/pricing",
+      "x-default": "/pricing",
+    },
   },
   openGraph: {
     title: "Event Photography Pricing Hamburg | Liza Holiarchuk",
