@@ -122,6 +122,52 @@ export const en: Dictionary = {
       { q: "Do you also travel outside of Hamburg?", a: "Yes. Hamburg is my base, but I work throughout Germany and Europe. Travel costs are transparently clarified in the quote." }
     ]
   },
+  messeFotografie: {
+    hero: {
+      title: "Trade Show & Expo Photography Hamburg",
+      subtitle: "Booth coverage, visitor interactions, product detail shots and team photography — for trade fairs and expos at Hamburg Messe and across Europe.",
+    },
+    intro: "Trade shows are high-investment events. The photography must capture your booth's atmosphere, your team's professionalism, and the quality of your products — all while working fast in a busy hall environment. I have photographed exhibitors at SMM (Hamburg), AGRITECHNICA (Hanover), Aquatech (Amsterdam), and other international trade fairs, covering everything from booth setup to live demos and client conversations. Images are delivered quickly so you can update your social media while the fair is still running.",
+    whatYouGet: [
+      "Booth and stand photography",
+      "Visitor interaction and live demo coverage",
+      "Product and detail shots",
+      "Team portraits on the stand",
+      "Branding and signage documentation",
+      "Networking and aisle coverage",
+      "Same-day highlights for social media",
+      "Full gallery within 48 hours"
+    ],
+    consistentStyle: {
+      title: "Why this matters for your B2B marketing",
+      desc: "Trade show images are not an afterthought, but a content reserve. Consistent visual language across the entire stand — ready to use immediately."
+    },
+    howItWorks: [
+      { step: "Pre-fair briefing", desc: "Share your stand layout, key products, team members to photograph, and priority moments." },
+      { step: "Arrival & setup", desc: "I arrive at opening time (or during setup) to capture the stand before the crowds arrive." },
+      { step: "Full day coverage", desc: "Booth action, visitor interactions, demos, and key team moments throughout the day." },
+      { step: "Same-day selects", desc: "A curated set of 10–20 images delivered the same evening for immediate social use." },
+      { step: "Full delivery", desc: "Edited full gallery delivered via private link within 48 business hours." }
+    ],
+    pricing: {
+      title: "Scope & Pricing",
+      desc: "Link to /pricing"
+    },
+    cta: {
+      title: "Tell me about your trade show appearance",
+      btn: "Request"
+    },
+    faq: [
+      { q: "Can you cover multiple days at a trade show?", a: "Yes. Multi-day coverage is available and can cover the full duration of your exhibition." },
+      { q: "What if my booth is in a dark or crowded hall?", a: "Trade show halls are my specialty. I use professional equipment optimised for mixed lighting, crowds, and dynamic environments." },
+      { q: "Can I get photos the same day for LinkedIn?", a: "Yes. A same-day selects delivery is available — typically 10–20 edited images sent by end of day." },
+      { q: "Do you work at Hamburg Messe?", a: "Yes. Hamburg Messe und Congress is one of my primary venues. I'm familiar with its halls, logistics, and photography access requirements." },
+      { q: "Can you also photograph presentations or talks on the stand?", a: "Absolutely. Stand presentations, product launches, and live demos are all covered as part of the package." },
+      { q: "We have stands at two different fairs in the same year — can you cover both?", a: "Yes. Annual retainer or multi-event agreements are available for brands attending multiple trade fairs." },
+      { q: "Do you photograph at international trade fairs outside Germany?", a: "Yes — Amsterdam, Milan, Copenhagen, and other European cities. Travel is quoted separately." },
+      { q: "What usage rights are included?", a: "Full usage rights for all corporate communication: website, social media, press, and sales materials." }
+    ]
+  },
   portfolio: {
     meta: {
       title: "Portfolio — Event Photography Hamburg",

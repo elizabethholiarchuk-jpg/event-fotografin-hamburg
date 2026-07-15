@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "Trade show photographer in Hamburg. Booth coverage, visitor interactions, product shots and branding — for SMM, AGRITECHNICA, Aquatech and more.",
   alternates: {
     canonical: "/trade-show-photography-hamburg",
+    languages: {
+      en: "/trade-show-photography-hamburg",
+      de: "/de/messefotografie-hamburg",
+      "x-default": "/trade-show-photography-hamburg",
+    },
   },
   openGraph: {
     title: "Trade Show Photography Hamburg | Liza Holiarchuk",

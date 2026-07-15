@@ -120,6 +120,45 @@ export const de = {
       { q: "Reisen Sie auch außerhalb Hamburgs?", a: "Ja. Basis ist Hamburg, ich arbeite aber deutschland- und europaweit. Reisekosten kläre ich transparent im Angebot." }
     ]
   },
+  messeFotografie: {
+    hero: {
+      title: "Messefotografin in Hamburg",
+      subtitle: "Standfotografie, Besucherinteraktionen und Branding-Aufnahmen, die Ihr Messe-Investment sichtbar machen — in der Regel innerhalb von 48 Stunden geliefert.",
+    },
+    intro: "Ein Messeauftritt kostet viel — Standbau, Team, Anreise. Gute Bilder sind das, was davon bleibt und was Sie das ganze Jahr über einsetzen können: für Vertrieb, Social Media, Rückblick und die Planung des nächsten Auftritts. Ich fotografiere für Aussteller auf der Hamburg Messe, im CCH und auf Leitmessen wie SMM, AGRITECHNICA und Aquatech.",
+    whatYouGet: [
+      "Der Stand in Aktion — nicht der leere Stand am Morgen, sondern der volle Stand mit Gästen und Gesprächen.",
+      "Besucherinteraktionen — Ihr Team im Gespräch, echte Aufmerksamkeit, der Moment des Interesses.",
+      "Produkte & Live-Demos — Ihre Lösung im Einsatz, verständlich ins Bild gesetzt.",
+      "Branding & Details — Logos, Messaging, Standarchitektur, die Bilder, die Sponsoren und Geschäftsführung sehen wollen.",
+      "Standpersonal & Porträts — saubere Aufnahmen Ihres Teams für Website und LinkedIn.",
+      "Atmosphäre der Halle — der Kontext, der zeigt, wie präsent Sie auf der Messe waren."
+    ],
+    consistentStyle: {
+      title: "Warum das für Ihr B2B-Marketing zählt",
+      desc: "Messebilder sind kein Nachgedanke, sondern Content-Vorrat. Aus einem Messetag entstehen Beiträge, Vertriebsunterlagen und der visuelle Beleg für das nächste Budgetgespräch. Konsistente Bildsprache über den ganzen Stand hinweg — sofort einsetzbar."
+    },
+    howItWorks: [
+      { step: "Vorab", desc: "Vorab stimmen wir ab, welche Zeitfenster wichtig sind (Standbesuche von VIPs, Demos, Pressetermine)." },
+      { step: "Vor Ort", desc: "Vor Ort arbeite ich flexibel um Ihren Betrieb herum." },
+      { step: "Danach", desc: "Auswahl am selben Tag, bearbeitete Galerie in der Regel innerhalb von 48 Stunden, Highlights auf Wunsch am selben Tag — ideal, um noch während der Messe zu posten." }
+    ],
+    pricing: {
+      title: "Umfang & Preise",
+      desc: "Link zu /de/pricing"
+    },
+    cta: {
+      title: "Erzählen Sie mir von Ihrem Messeauftritt",
+      btn: "Anfragen"
+    },
+    faq: [
+      { q: "Fotografieren Sie auf der Hamburg Messe und im CCH?", a: "Ja, regelmäßig — sowohl auf der Hamburg Messe als auch im Congress Center Hamburg und auf überregionalen Leitmessen." },
+      { q: "Kann ich Bilder schon während der Messe für Social Media bekommen?", a: "Ja. Auf Wunsch liefere ich eine kleine Auswahl bearbeiteter Highlights noch am selben Tag." },
+      { q: "Wie lange dauert die Standfotografie?", a: "Von einzelnen Stunden bis zu mehreren Messetagen — je nach Standgröße und Programm. Wir legen die Prioritäten vorab fest." },
+      { q: "Erhalte ich die Nutzungsrechte fürs Marketing?", a: "Ja, für Ihre gesamte Unternehmenskommunikation — Website, Social Media, Vertrieb und Presse." },
+      { q: "Reisen Sie zu Messen außerhalb Hamburgs?", a: "Ja, deutschland- und europaweit. Reisekosten kläre ich transparent im Angebot." }
+    ]
+  },
   portfolio: {
     meta: {
       title: "Portfolio",
