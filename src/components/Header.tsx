@@ -29,7 +29,7 @@ const deNavLinks = [
   { href: "/portfolio", label: "Portfolio" },
   { href: "/insights", label: "Insights" },
   { href: "/ueber-mich", label: "Über mich" },
-  { href: "/pricing", label: "Preise" },
+  { href: "/preise", label: "Preise" },
 ];
 
 export default function Header() {

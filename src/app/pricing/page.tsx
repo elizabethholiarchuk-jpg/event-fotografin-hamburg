@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     canonical: "/pricing",
     languages: {
       en: "/pricing",
-      de: "/de/pricing",
+      de: "/de/preise",
       "x-default": "/pricing",
     },
   },

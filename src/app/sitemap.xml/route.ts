@@ -21,7 +21,6 @@ export async function GET() {
         { path: '/conference-photography-hamburg', priority: '0.9', changefreq: 'monthly' },
         { path: '/corporate-event-photography-hamburg', priority: '0.9', changefreq: 'monthly' },
         { path: '/about', priority: '0.6', changefreq: 'yearly' },
-        { path: '/pricing', priority: '0.7', changefreq: 'monthly' },
         { path: '/insights', priority: '0.7', changefreq: 'weekly' },
     ];
 
@@ -87,6 +86,24 @@ export async function GET() {
     <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/trade-show-photography-hamburg" />
     <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/messefotografie-hamburg" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/trade-show-photography-hamburg" />
+  </url>
+  <url>
+    <loc>${baseUrl}/pricing</loc>
+    <lastmod>${lastModified}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/preise" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/pricing" />
+  </url>
+  <url>
+    <loc>${baseUrl}/de/preise</loc>
+    <lastmod>${lastModified}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/preise" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/pricing" />
   </url>`;
 
     // EN-only routes

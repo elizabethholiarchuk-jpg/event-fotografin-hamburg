@@ -646,7 +646,7 @@ export default function EventPhotographerCostPage() {
           <h2 className="text-2xl font-semibold text-[var(--color-text-main)]">Meine Leistungen entdecken</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { href: "/de/pricing", label: "Preise" },
+              { href: "/de/preise", label: "Preise" },
               { href: "/de/eventfotograf-hamburg", label: "Eventfotografie Hamburg" },
               { href: "/de/konferenzfotografie-hamburg", label: "Konferenzfotografie" },
               { href: "/de/messefotografie-hamburg", label: "Messefotografie" },

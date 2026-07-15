@@ -8,16 +8,16 @@ export const metadata: Metadata = {
   description:
     "Eventfotografie in Hamburg ab 1.000 €. Halbtags- und Ganztagspakete, transparente Preise, individuelles Angebot innerhalb von 24 Stunden.",
   alternates: {
-    canonical: "https://www.event-fotografin-hamburg.de/de/pricing",
+    canonical: "https://www.event-fotografin-hamburg.de/de/preise",
     languages: {
       en: "/pricing",
-      de: "/de/pricing",
+      de: "/de/preise",
       "x-default": "/pricing",
     },
   },
   openGraph: {
     title: "Preise & Pakete — Eventfotografie Hamburg | Liza Holiarchuk",
-    url: "/de/pricing",
+    url: "/de/preise",
   },
 };
 

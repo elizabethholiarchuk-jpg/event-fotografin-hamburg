@@ -145,7 +145,7 @@ export const de = {
     ],
     pricing: {
       title: "Umfang & Preise",
-      desc: "Link zu /de/pricing"
+      desc: "Link zu /de/preise"
     },
     cta: {
       title: "Erzählen Sie mir von Ihrem Messeauftritt",
