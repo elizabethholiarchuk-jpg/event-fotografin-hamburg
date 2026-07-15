@@ -28,6 +28,7 @@ const enNavLinks = [
 const deNavLinks = [
   { href: "/portfolio", label: "Portfolio" },
   { href: "/insights", label: "Insights" },
+  { href: "/ueber-mich", label: "Über mich" },
   { href: "/pricing", label: "Preise" },
 ];
 
