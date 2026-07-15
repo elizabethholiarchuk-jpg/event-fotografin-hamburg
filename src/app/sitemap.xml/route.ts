@@ -94,8 +94,8 @@ export async function GET() {
   </url>`;
     });
 
-    // Insights blog posts
-    insightsPosts.forEach(post => {
+    // Insights blog posts (exclude placeholders)
+    insightsPosts.filter(post => !post.isPlaceholder).forEach(post => {
         urls += `
   <url>
     <loc>${baseUrl}/insights/${post.slug}</loc>

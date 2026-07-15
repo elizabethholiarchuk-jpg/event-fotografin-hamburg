@@ -16,7 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = insightsPosts.find((p) => p.slug === slug);
   if (!post) return {};
-  return {
+  
+  const baseMetadata: Metadata = {
     title: post.title,
     description: post.excerpt,
     alternates: { canonical: `/insights/${slug}` },
@@ -27,6 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ...(post.coverImage && { images: [{ url: post.coverImage, width: 1200, height: 630, alt: post.title }] }),
     },
   };
+
+  if (post.isPlaceholder) {
+    baseMetadata.robots = { index: false, follow: true };
+  }
+
+  return baseMetadata;
 }
 
 export default async function InsightsPostPage({ params }: Props) {

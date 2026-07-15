@@ -10,6 +10,7 @@ export interface InsightsPost {
   dateModified: string;
   coverImage?: string;
   content?: string; // placeholder for future MDX/content
+  isPlaceholder?: boolean; // TODO: remove once real content ships
 }
 
 export const insightsPosts: InsightsPost[] = [
@@ -34,6 +35,7 @@ export const insightsPosts: InsightsPost[] = [
     datePublished: "2025-05-12",
     dateModified: "2025-05-12",
     coverImage: "/images/portfolio/wise-conference-geneva-2024/01.webp",
+    isPlaceholder: true,
   },
   {
     slug: "trade-show-photography-hamburg-messe-b2b-marketing",
@@ -45,6 +47,7 @@ export const insightsPosts: InsightsPost[] = [
     datePublished: "2025-04-07",
     dateModified: "2025-04-07",
     coverImage: "/images/portfolio/lloyds-register-smm-hamburg-2024/01.webp",
+    isPlaceholder: true,
   },
   {
     slug: "same-day-event-photo-delivery-when-it-matters",
@@ -56,5 +59,6 @@ export const insightsPosts: InsightsPost[] = [
     datePublished: "2025-03-10",
     dateModified: "2025-03-10",
     coverImage: "/images/portfolio/plug-and-play-tech-center/01.webp",
+    isPlaceholder: true,
   },
 ];
