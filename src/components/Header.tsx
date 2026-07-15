@@ -5,11 +5,17 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { getDictionary, Language } from "@/i18n";
 
-const serviceLinks = [
+const enServiceLinks = [
   { href: "/event-photographer-hamburg", label: "Event Photographer Hamburg" },
   { href: "/conference-photography-hamburg", label: "Conference Photography" },
   { href: "/trade-show-photography-hamburg", label: "Trade Show Photography" },
   { href: "/corporate-event-photography-hamburg", label: "Corporate Event Photography" },
+];
+
+const deServiceLinks = [
+  { href: "/eventfotograf-hamburg", label: "Eventfotograf Hamburg" },
+  { href: "/konferenzfotografie-hamburg", label: "Konferenzfotografie" },
+  { href: "/messefotografie-hamburg", label: "Messefotografie" },
 ];
 
 const enNavLinks = [
@@ -17,6 +23,11 @@ const enNavLinks = [
   { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },
   { href: "/pricing", label: "Pricing" },
+];
+
+const deNavLinks = [
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/pricing", label: "Preise" },
 ];
 
 export default function Header() {
@@ -66,6 +77,9 @@ export default function Header() {
   }, [pathname]);
 
   const isDE = lang === "de";
+  const currentServiceLinks = isDE ? deServiceLinks : enServiceLinks;
+  const currentNavLinks = isDE ? deNavLinks : enNavLinks;
+
   const bgClass = scrolled
     ? "bg-[#EAF1F6]/92 backdrop-blur-md border-b border-[var(--color-border-hairline)] shadow-sm"
     : "bg-[#EAF1F6]/85 backdrop-blur-md border-b border-[var(--color-border-hairline)]";
@@ -107,45 +121,43 @@ export default function Header() {
             Portfolio
           </Link>
 
-          {/* Services dropdown — EN only */}
-          {!isDE && (
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setServicesOpen(!servicesOpen)}
-                className={`text-[15px] font-medium transition-colors relative py-1 flex items-center gap-1 ${
-                  serviceLinks.some(s => pathname.startsWith(s.href))
-                    ? `${textClass} underline underline-offset-4 decoration-1`
-                    : `${mutedTextClass} hover:${textClass}`
-                }`}
-              >
-                Services
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}>
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-              {servicesOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-[#EAF1F6] border border-[var(--color-border-hairline)] shadow-lg rounded-2xl py-3 px-2 min-w-[280px] flex flex-col gap-1 z-50">
-                  {serviceLinks.map(s => (
-                    <Link
-                      key={s.href}
-                      href={s.href}
-                      className={`text-[14px] px-4 py-2.5 rounded-xl transition-colors ${
-                        pathname === s.href
-                          ? "bg-[var(--color-border-hairline)] text-[var(--color-text-main)] font-medium"
-                          : "text-[var(--color-text-muted)] hover:bg-[var(--color-border-hairline)] hover:text-[var(--color-text-main)]"
-                      }`}
-                      onClick={() => setServicesOpen(false)}
-                    >
-                      {s.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
+          {/* Services dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className={`text-[15px] font-medium transition-colors relative py-1 flex items-center gap-1 ${
+                currentServiceLinks.some(s => pathname.startsWith(getLocalizedHref(s.href)))
+                  ? `${textClass} underline underline-offset-4 decoration-1`
+                  : `${mutedTextClass} hover:${textClass}`
+              }`}
+            >
+              {isDE ? "Leistungen" : "Services"}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}>
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            {servicesOpen && (
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-[#EAF1F6] border border-[var(--color-border-hairline)] shadow-lg rounded-2xl py-3 px-2 min-w-[280px] flex flex-col gap-1 z-50">
+                {currentServiceLinks.map(s => (
+                  <Link
+                    key={s.href}
+                    href={getLocalizedHref(s.href)}
+                    className={`text-[14px] px-4 py-2.5 rounded-xl transition-colors ${
+                      pathname === getLocalizedHref(s.href)
+                        ? "bg-[var(--color-border-hairline)] text-[var(--color-text-main)] font-medium"
+                        : "text-[var(--color-text-muted)] hover:bg-[var(--color-border-hairline)] hover:text-[var(--color-text-main)]"
+                    }`}
+                    onClick={() => setServicesOpen(false)}
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Other nav links */}
-          {enNavLinks.filter(l => isDE ? (l.href === "/portfolio") : true).map(link => {
+          {currentNavLinks.map(link => {
             if (link.href === "/portfolio") return null; // already rendered above
             return (
               <Link key={link.href} href={getLocalizedHref(link.href)} className={linkClass(link.href)}>
@@ -156,7 +168,7 @@ export default function Header() {
 
           {/* Contact CTA */}
           <Link href={contactHref} className={`${buttonClass} px-7 py-2.5 rounded-2xl text-[15px] font-medium transition-colors flex items-center gap-2 ml-2`}>
-            Contact
+            {isDE ? "Kontakt" : "Contact"}
           </Link>
 
           {/* Language switcher */}
@@ -184,22 +196,21 @@ export default function Header() {
         <div className="absolute top-[80px] left-0 right-0 bg-[#EAF1F6] border-b border-[var(--color-border-hairline)] px-6 py-8 flex flex-col gap-6 md:hidden shadow-sm max-h-[80vh] overflow-y-auto">
           <Link href={getLocalizedHref("/portfolio")} onClick={() => setMobileMenuOpen(false)} className={`text-lg font-medium ${isActive("/portfolio") ? textClass : mutedTextClass}`}>Portfolio</Link>
 
-          {!isDE && (
-            <>
-              <div className="text-lg font-medium text-[var(--color-text-muted)]">Services</div>
-              <div className="flex flex-col gap-4 pl-4">
-                {serviceLinks.map(s => (
-                  <Link key={s.href} href={s.href} onClick={() => setMobileMenuOpen(false)} className={`text-base font-normal ${pathname === s.href ? textClass : mutedTextClass}`}>{s.label}</Link>
-                ))}
-              </div>
-              <Link href="/insights" onClick={() => setMobileMenuOpen(false)} className={`text-lg font-medium ${pathname.startsWith("/insights") ? textClass : mutedTextClass}`}>Insights</Link>
-              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className={`text-lg font-medium ${pathname === "/about" ? textClass : mutedTextClass}`}>About</Link>
-              <Link href="/pricing" onClick={() => setMobileMenuOpen(false)} className={`text-lg font-medium ${pathname === "/pricing" ? textClass : mutedTextClass}`}>Pricing</Link>
-            </>
-          )}
+          <div className="text-lg font-medium text-[var(--color-text-muted)]">{isDE ? "Leistungen" : "Services"}</div>
+          <div className="flex flex-col gap-4 pl-4">
+            {currentServiceLinks.map(s => (
+              <Link key={s.href} href={getLocalizedHref(s.href)} onClick={() => setMobileMenuOpen(false)} className={`text-base font-normal ${pathname === getLocalizedHref(s.href) ? textClass : mutedTextClass}`}>{s.label}</Link>
+            ))}
+          </div>
+          {currentNavLinks.map(link => {
+            if (link.href === "/portfolio") return null;
+            return (
+              <Link key={link.href} href={getLocalizedHref(link.href)} onClick={() => setMobileMenuOpen(false)} className={`text-lg font-medium ${isActive(link.href) ? textClass : mutedTextClass}`}>{link.label}</Link>
+            );
+          })}
 
           <Link href={contactHref} onClick={() => setMobileMenuOpen(false)} className="bg-[var(--color-accent)] text-white text-center w-full py-4 rounded-2xl text-[16px] font-medium transition-colors hover:bg-[var(--color-accent-hover)]">
-            Contact
+            {isDE ? "Kontakt" : "Contact"}
           </Link>
 
           <div className="flex items-center justify-center gap-4 text-[16px] font-medium pt-4 border-t border-[var(--color-border-hairline)]">
