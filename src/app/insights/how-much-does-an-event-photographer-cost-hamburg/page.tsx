@@ -3,6 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { insightsPosts } from "@/data/insights";
 import FaqAccordion from "@/components/FaqAccordion";
+import {
+  buildBlogPostingJsonLd,
+  buildFaqPageJsonLd,
+  buildArticleBreadcrumbJsonLd,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Event Photographer in Germany: What Does It Actually Cost?",
@@ -39,45 +44,8 @@ export const metadata: Metadata = {
   },
 };
 
-const ARTICLE_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  headline:
-    "Event Photographer in Germany: What Does It Actually Cost?",
-  description:
-    "Event photography in Germany costs €300–€2,500+ depending on scope. Here's what's behind the price — and what to look for before you book.",
-  author: {
-    "@type": "Person",
-    name: "Liza Holiarchuk",
-    url: "https://www.event-fotografin-hamburg.de/about",
-    jobTitle: "Event Photographer",
-    worksFor: {
-      "@type": "LocalBusiness",
-      name: "Liza Holiarchuk Photography",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Hamburg",
-        addressCountry: "DE",
-      },
-    },
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "Liza Holiarchuk Photography",
-    url: "https://www.event-fotografin-hamburg.de",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://www.event-fotografin-hamburg.de/logo.png",
-    },
-  },
-  datePublished: "2026-06-03",
-  dateModified: "2026-06-03",
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id":
-      "https://www.event-fotografin-hamburg.de/insights/how-much-does-an-event-photographer-cost-hamburg",
-  },
-};
+const SLUG = "how-much-does-an-event-photographer-cost-hamburg";
+const post = insightsPosts.find((p) => p.slug === SLUG)!;
 
 const FAQ_ITEMS = [
   {
@@ -114,44 +82,6 @@ const FAQ_ITEMS = [
   },
 ];
 
-const FAQ_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.a,
-    },
-  })),
-};
-
-const BREADCRUMB_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://www.event-fotografin-hamburg.de",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Insights",
-      item: "https://www.event-fotografin-hamburg.de/insights",
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Event Photographer in Germany: What Does It Actually Cost?",
-      item: "https://www.event-fotografin-hamburg.de/insights/how-much-does-an-event-photographer-cost-hamburg",
-    },
-  ],
-};
-
 
 
 export default function EventPhotographerCostPage() {
@@ -168,15 +98,32 @@ export default function EventPhotographerCostPage() {
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildArticleBreadcrumbJsonLd(post.title, SLUG),
+          ),
+        }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_SCHEMA) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildBlogPostingJsonLd({
+              slug: SLUG,
+              headline: post.title,
+              description: post.excerpt,
+              datePublished: post.datePublished,
+              dateModified: post.dateModified,
+              image: post.coverImage,
+            }),
+          ),
+        }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildFaqPageJsonLd(FAQ_ITEMS)),
+        }}
       />
 
       {/* Hero */}

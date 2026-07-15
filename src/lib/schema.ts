@@ -249,3 +249,123 @@ export function buildFaqPageJsonLd(
     })),
   };
 }
+
+/* ------------------------------------------------------------------ */
+/*  Blog / Article helpers                                             */
+/* ------------------------------------------------------------------ */
+
+export interface BlogPostingInput {
+  /** Page slug, e.g. "how-much-does-an-event-photographer-cost-hamburg" */
+  slug: string;
+  headline: string;
+  description: string;
+  /** ISO 8601 date */
+  datePublished: string;
+  /** ISO 8601 date */
+  dateModified: string;
+  /** Absolute image path, e.g. "/images/insights/…" */
+  image?: string;
+}
+
+/**
+ * BlogPosting JSON-LD — references #liza as author and #business as publisher.
+ */
+export function buildBlogPostingJsonLd(input: BlogPostingInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting' as const,
+    headline: input.headline,
+    description: input.description,
+    datePublished: input.datePublished,
+    dateModified: input.dateModified,
+    ...(input.image && { image: abs(input.image) }),
+    author: { '@id': PERSON_ID },
+    publisher: { '@id': BUSINESS_ID },
+    mainEntityOfPage: {
+      '@type': 'WebPage' as const,
+      '@id': abs(`/insights/${input.slug}`),
+    },
+  };
+}
+
+/**
+ * Breadcrumb for an article page: Home → Insights → Article title.
+ */
+export function buildArticleBreadcrumbJsonLd(
+  title: string,
+  slug: string,
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList' as const,
+    itemListElement: [
+      {
+        '@type': 'ListItem' as const,
+        position: 1,
+        name: 'Home',
+        item: abs('/'),
+      },
+      {
+        '@type': 'ListItem' as const,
+        position: 2,
+        name: 'Insights',
+        item: abs('/insights'),
+      },
+      {
+        '@type': 'ListItem' as const,
+        position: 3,
+        name: title,
+        item: abs(`/insights/${slug}`),
+      },
+    ],
+  };
+}
+
+/**
+ * /insights index JSON-LD — Blog + ItemList of published articles.
+ */
+export function buildInsightsIndexJsonLd(
+  posts: BlogPostingInput[],
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Blog' as const,
+        '@id': abs('/insights'),
+        url: abs('/insights'),
+        name: 'Event Photography Insights',
+        description:
+          'Guides on event photography briefings, trade show coverage at Hamburg Messe, and same-day photo delivery — for marketing and event managers.',
+        publisher: { '@id': BUSINESS_ID },
+        inLanguage: 'en',
+      },
+      {
+        '@type': 'ItemList' as const,
+        itemListElement: posts.map((post, i) => ({
+          '@type': 'ListItem' as const,
+          position: i + 1,
+          url: abs(`/insights/${post.slug}`),
+        })),
+      },
+      {
+        '@type': 'BreadcrumbList' as const,
+        itemListElement: [
+          {
+            '@type': 'ListItem' as const,
+            position: 1,
+            name: 'Home',
+            item: abs('/'),
+          },
+          {
+            '@type': 'ListItem' as const,
+            position: 2,
+            name: 'Insights',
+            item: abs('/insights'),
+          },
+        ],
+      },
+    ],
+  };
+}
+

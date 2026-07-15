@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { insightsPosts } from "@/data/insights";
+import { buildInsightsIndexJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Event Photography Insights",
@@ -23,20 +24,31 @@ const categoryColors: Record<string, string> = {
   "Pricing & Booking": "bg-emerald-50 text-emerald-700",
 };
 
+/* Only include articles that are fully published (not "Coming soon" placeholders) */
+const PUBLISHED_SLUGS = new Set([
+  "how-much-does-an-event-photographer-cost-hamburg",
+]);
+
+const indexablePosts = insightsPosts.filter((p) => PUBLISHED_SLUGS.has(p.slug));
+
 export default function InsightsPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.event-fotografin-hamburg.de/" },
-              { "@type": "ListItem", position: 2, name: "Insights", item: "https://www.event-fotografin-hamburg.de/insights" },
-            ],
-          }),
+          __html: JSON.stringify(
+            buildInsightsIndexJsonLd(
+              indexablePosts.map((p) => ({
+                slug: p.slug,
+                headline: p.title,
+                description: p.excerpt,
+                datePublished: p.datePublished,
+                dateModified: p.dateModified,
+                image: p.coverImage,
+              })),
+            ),
+          ),
         }}
       />
 
