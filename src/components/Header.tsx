@@ -16,6 +16,7 @@ const deServiceLinks = [
   { href: "/eventfotograf-hamburg", label: "Eventfotograf Hamburg" },
   { href: "/konferenzfotografie-hamburg", label: "Konferenzfotografie" },
   { href: "/messefotografie-hamburg", label: "Messefotografie" },
+  { href: "/corporate-event-fotograf-hamburg", label: "Corporate Event Fotografie" },
 ];
 
 const enNavLinks = [

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     canonical: "/corporate-event-photography-hamburg",
     languages: {
       en: "/corporate-event-photography-hamburg",
-      de: "/de/corporate-event-fotografie-hamburg",
+      de: "/de/corporate-event-fotograf-hamburg",
       "x-default": "/corporate-event-photography-hamburg",
     },
   },
