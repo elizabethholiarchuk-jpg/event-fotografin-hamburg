@@ -84,7 +84,7 @@ export default function PortfolioPage({ lang }: { lang: Language }) {
                     return (
                         <div key={event.slug} className={`max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col py-10 md:py-16 ${index !== portfolioEvents.length - 1 ? 'border-b border-[var(--color-border-hairline)]' : ''}`}>
                             <div className="flex flex-col gap-1 mb-8 md:mb-12">
-                                <Link href={lang === 'en' ? `/portfolio/${event.slug}` : `/de/portfolio`} className="group w-fit">
+                                <Link href={lang === 'en' ? `/portfolio/${event.slug}` : `/de/portfolio/${event.slug}`} className="group w-fit">
                                     <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-text-main)] tracking-tight max-w-[85ch] group-hover:underline underline-offset-4 decoration-1">{event.title_i18n?.[lang] ?? event.title}</h2>
                                 </Link>
                                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2">
@@ -105,11 +105,9 @@ export default function PortfolioPage({ lang }: { lang: Language }) {
                                 {event.oneLiner_i18n?.[lang] && (
                                     <p className="text-[15px] font-normal text-[var(--color-text-muted)] mt-1 max-w-[70ch] leading-relaxed">{event.oneLiner_i18n[lang]}</p>
                                 )}
-                                {lang === 'en' && (
-                                    <Link href={`/portfolio/${event.slug}`} className="text-[13px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 mt-2 w-fit">
-                                        View case study →
-                                    </Link>
-                                )}
+                                <Link href={lang === 'en' ? `/portfolio/${event.slug}` : `/de/portfolio/${event.slug}`} className="text-[13px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 mt-2 w-fit">
+                                    {lang === 'de' ? 'Case Study ansehen →' : 'View case study →'}
+                                </Link>
                             </div>
 
                             <ImageGallery

@@ -7,6 +7,7 @@ import { getDictionary, Language } from "@/i18n";
 export default function KontaktForm({ lang = 'en' }: { lang?: Language }) {
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [howFound, setHowFound] = useState("");
     const t = getDictionary(lang).kontakt.form;
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -111,7 +112,58 @@ export default function KontaktForm({ lang = 'en' }: { lang?: Language }) {
                     </span>
                     <input type="text" name="budget" className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] placeholder:text-[var(--color-text-muted)]/50 mt-1" placeholder={t.budgetPlaceholder} />
                 </label>
+                <label className="flex flex-col gap-2 relative">
+                    <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
+                        {t.howFound} <span className="text-[var(--color-text-muted)] font-normal text-[11px] uppercase ml-1">Optional</span>
+                    </span>
+                    <select
+                        name="howFound"
+                        value={howFound}
+                        onChange={(e) => setHowFound(e.target.value)}
+                        className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] text-[var(--color-text-main)] appearance-none cursor-pointer mt-1"
+                    >
+                        <option value="" disabled>{t.howFoundPlaceholder}</option>
+                        <option value="google">{t.howFoundOptions.google}</option>
+                        <option value="linkedin">{t.howFoundOptions.linkedin}</option>
+                        <option value="googleMaps">{t.howFoundOptions.googleMaps}</option>
+                        <option value="cherrydeck">{t.howFoundOptions.cherrydeck}</option>
+                        <option value="referral">{t.howFoundOptions.referral}</option>
+                        <option value="other">{t.howFoundOptions.other}</option>
+                    </select>
+                </label>
             </div>
+
+            {howFound === "referral" && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 -mt-2 md:-mt-4">
+                    <label className="flex flex-col gap-2 relative md:col-start-2">
+                        <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
+                            {t.referralWho} <span className="text-[var(--color-text-muted)] font-normal text-[11px] uppercase ml-1">Optional</span>
+                        </span>
+                        <input
+                            type="text"
+                            name="referralWho"
+                            className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] placeholder:text-[var(--color-text-muted)]/50 mt-1"
+                            placeholder={t.referralWhoPlaceholder}
+                        />
+                    </label>
+                </div>
+            )}
+
+            {howFound === "other" && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 -mt-2 md:-mt-4">
+                    <label className="flex flex-col gap-2 relative md:col-start-2">
+                        <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
+                            {t.otherSource} <span className="text-[var(--color-text-muted)] font-normal text-[11px] uppercase ml-1">Optional</span>
+                        </span>
+                        <input
+                            type="text"
+                            name="otherSource"
+                            className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] placeholder:text-[var(--color-text-muted)]/50 mt-1"
+                            placeholder={t.otherSourcePlaceholder}
+                        />
+                    </label>
+                </div>
+            )}
 
             <label className="flex flex-col gap-2 relative">
                 <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">

@@ -30,31 +30,48 @@ export default function Footer() {
 
                 {/* Nav columns */}
                 <div className="flex flex-col sm:flex-row gap-12 md:gap-16 lg:gap-24">
-                    {/* Services (EN only) */}
-                    {lang === "en" && (
-                        <div className="flex flex-col gap-4 text-[15px] font-light">
-                            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[var(--color-text-muted)] mb-2">Services</span>
-                            <Link href="/event-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Event Photography Hamburg</Link>
-                            <Link href="/conference-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Conference Photography</Link>
-                            <Link href="/trade-show-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Trade Show Photography</Link>
-                            <Link href="/corporate-event-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Corporate Events</Link>
-                        </div>
-                    )}
+                    {/* Services */}
+                    <div className="flex flex-col gap-4 text-[15px] font-light">
+                        <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[var(--color-text-muted)] mb-2">
+                            {lang === "en" ? "Services" : "Leistungen"}
+                        </span>
+                        {lang === "en" ? (
+                            <>
+                                <Link href="/event-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Event Photography Hamburg</Link>
+                                <Link href="/conference-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Conference Photography</Link>
+                                <Link href="/trade-show-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Trade Show Photography</Link>
+                                <Link href="/corporate-event-photographer-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Corporate Events</Link>
+                            </>
+                        ) : (
+                            <>
+                                <Link href="/de/eventfotograf-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Eventfotograf Hamburg</Link>
+                                <Link href="/de/konferenzfotografie-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Konferenzfotografie</Link>
+                                <Link href="/de/messefotograf-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Messefotografie</Link>
+                                <Link href="/de/corporate-event-fotograf-hamburg" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Corporate Events</Link>
+                            </>
+                        )}
+                    </div>
 
                     {/* Pages */}
                     <div className="flex flex-col gap-4 text-[15px] font-light">
-                        <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[var(--color-text-muted)] mb-2">Pages</span>
+                        <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[var(--color-text-muted)] mb-2">
+                            {lang === "en" ? "Pages" : "Seiten"}
+                        </span>
                         <Link href={getLocalizedHref("/portfolio")} className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Portfolio</Link>
-                        {lang === "en" && (
+                        {lang === "en" ? (
                             <>
                                 <Link href="/insights" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Insights</Link>
                                 <Link href="/about" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">About</Link>
                                 <Link href="/pricing" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Pricing</Link>
                                 <Link href="/contact" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Contact</Link>
                             </>
-                        )}
-                        {lang === "de" && (
-                            <Link href="/de/kontakt" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Kontakt</Link>
+                        ) : (
+                            <>
+                                <Link href="/de/insights" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Insights</Link>
+                                <Link href="/de/ueber-mich" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Über mich</Link>
+                                <Link href="/de/preise" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Preise</Link>
+                                <Link href="/de/kontakt" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">Kontakt</Link>
+                            </>
                         )}
                     </div>
 
