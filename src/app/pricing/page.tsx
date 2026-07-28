@@ -183,9 +183,9 @@ export default function PricingPage() {
           {/* Standalone Video Support Banner */}
           <Link
             href="/video-support"
-            className="group flex flex-col md:flex-row items-center gap-6 md:gap-8 p-6 md:p-8 rounded-3xl border border-[var(--color-border-hairline)] bg-gradient-to-r from-[#F5F8FB] to-[#EAEFF6] transition-all hover:border-[var(--color-accent)] hover:shadow-md mt-2"
+            className="group flex flex-col md:flex-row items-center gap-6 md:gap-8 p-6 md:p-8 rounded-3xl border border-[var(--color-border-hairline)] transition-all hover:border-[var(--color-text-muted)] mt-2"
           >
-            <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
+            <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border border-[var(--color-border-hairline)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/services/Valeriy.webp"
