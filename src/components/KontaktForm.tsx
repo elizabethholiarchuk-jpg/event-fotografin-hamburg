@@ -114,9 +114,10 @@ export default function KontaktForm({ lang = 'en' }: { lang?: Language }) {
                 </label>
                 <label className="flex flex-col gap-2 relative">
                     <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
-                        {t.howFound} <span className="text-[var(--color-text-muted)] font-normal text-[11px] uppercase ml-1">Optional</span>
+                        {t.howFound} <span className="text-[var(--color-accent)] ml-1">*</span>
                     </span>
                     <select
+                        required
                         name="howFound"
                         value={howFound}
                         onChange={(e) => setHowFound(e.target.value)}
@@ -137,9 +138,10 @@ export default function KontaktForm({ lang = 'en' }: { lang?: Language }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 -mt-2 md:-mt-4">
                     <label className="flex flex-col gap-2 relative md:col-start-2">
                         <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
-                            {t.referralWho} <span className="text-[var(--color-text-muted)] font-normal text-[11px] uppercase ml-1">Optional</span>
+                            {t.referralWho} <span className="text-[var(--color-accent)] ml-1">*</span>
                         </span>
                         <input
+                            required
                             type="text"
                             name="referralWho"
                             className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] placeholder:text-[var(--color-text-muted)]/50 mt-1"
@@ -153,9 +155,10 @@ export default function KontaktForm({ lang = 'en' }: { lang?: Language }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 -mt-2 md:-mt-4">
                     <label className="flex flex-col gap-2 relative md:col-start-2">
                         <span className="text-[14px] font-semibold text-[var(--color-text-main)] block">
-                            {t.otherSource} <span className="text-[var(--color-text-muted)] font-normal text-[11px] uppercase ml-1">Optional</span>
+                            {t.otherSource} <span className="text-[var(--color-accent)] ml-1">*</span>
                         </span>
                         <input
+                            required
                             type="text"
                             name="otherSource"
                             className="border-b border-[var(--color-border-hairline)] bg-transparent p-0 pb-3 focus:outline-none focus:border-[var(--color-text-main)] transition-colors text-[16px] placeholder:text-[var(--color-text-muted)]/50 mt-1"
