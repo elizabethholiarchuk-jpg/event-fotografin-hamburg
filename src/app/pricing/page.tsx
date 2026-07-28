@@ -82,6 +82,11 @@ const addons = [
     name: "Short Highlight Film",
     desc: "60–90 second edit for internal sharing or social media.",
   },
+  {
+    name: "Professional Video Support",
+    desc: "Full event video documentation with my trusted colleague Valeriy Riyako.",
+    link: "/video-support",
+  },
 ];
 
 export default function PricingPage() {
@@ -169,15 +174,35 @@ export default function PricingPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-10">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">Add-ons</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {addons.map((addon) => (
-              <div
-                key={addon.name}
-                className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl"
-              >
-                <h3 className="text-base font-semibold text-[var(--color-text-main)]">{addon.name}</h3>
-                <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{addon.desc}</p>
-              </div>
-            ))}
+            {addons.map((addon) => {
+              const content = (
+                <>
+                  <h3 className="text-base font-semibold text-[var(--color-text-main)]">{addon.name}</h3>
+                  <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{addon.desc}</p>
+                  {addon.link && (
+                    <span className="text-[13px] font-semibold text-[var(--color-accent)] mt-1">
+                      Learn more →
+                    </span>
+                  )}
+                </>
+              );
+              return addon.link ? (
+                <Link
+                  key={addon.name}
+                  href={addon.link}
+                  className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl transition-colors hover:border-[var(--color-accent)] hover:bg-[#F5F8FB]"
+                >
+                  {content}
+                </Link>
+              ) : (
+                <div
+                  key={addon.name}
+                  className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl"
+                >
+                  {content}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

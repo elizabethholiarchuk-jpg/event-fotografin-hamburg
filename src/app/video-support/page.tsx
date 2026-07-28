@@ -53,10 +53,6 @@ export default function VideoSupportPage() {
               <span className="text-[var(--color-text-main)]">Video Support & Team Partnership</span>
             </nav>
 
-            <span className="inline-block px-3.5 py-1 text-xs font-semibold uppercase tracking-widest bg-blue-950/10 text-blue-950 rounded-full w-fit">
-              Client Exclusively Shared
-            </span>
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[var(--color-text-main)] leading-[1.08]">
               Event Photography & <br className="hidden sm:inline" />
               Professional Video Support

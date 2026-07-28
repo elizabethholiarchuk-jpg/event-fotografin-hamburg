@@ -53,10 +53,6 @@ export default function GermanVideoSupportPage() {
               <span className="text-[var(--color-text-main)]">Videobegleitung & Team-Partnerschaft</span>
             </nav>
 
-            <span className="inline-block px-3.5 py-1 text-xs font-semibold uppercase tracking-widest bg-blue-950/10 text-blue-950 rounded-full w-fit">
-              Exklusiver Kundenlink
-            </span>
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[var(--color-text-main)] leading-[1.08]">
               Eventfotografie & <br className="hidden sm:inline" />
               Professionelle Videobegleitung

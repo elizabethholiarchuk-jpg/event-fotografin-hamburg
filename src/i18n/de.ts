@@ -332,7 +332,8 @@ export const de = {
         { name: "Same-Day Selects", desc: "10–20 bearbeitete Bilder noch am selben Abend geliefert." },
         { name: "Second Photographer", desc: "Für parallele Sessions oder großflächige, mehrspurige Events." },
         { name: "Reisen (Europaweit)", desc: "Amsterdam, Mailand, Kopenhagen, Berlin und darüber hinaus. Individuell berechnet." },
-        { name: "Kurzer Highlight-Film", desc: "60–90 Sekunden für den internen Gebrauch oder Social Media." }
+        { name: "Kurzer Highlight-Film", desc: "60–90 Sekunden für den internen Gebrauch oder Social Media." },
+        { name: "Professionelle Videobegleitung", desc: "Komplette Videodokumentation Ihres Events mit meinem Teamkollegen Valeriy Riyako.", link: "/de/video-support" }
       ]
     },
     cta: {
