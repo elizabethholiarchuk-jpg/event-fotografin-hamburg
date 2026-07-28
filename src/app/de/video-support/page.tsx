@@ -93,9 +93,21 @@ export default function GermanVideoSupportPage() {
               Während ich mich vor Ort uneingeschränkt darauf konzentriere, prägnante fotografische Momente einzufangen, leitet Valeriy die gesamte Videoproduktion. Sie erhalten dadurch einen harmonischen Workflow von der ersten Vorbereitung bis zur finalen Datenabgabe.
             </p>
             <div className="p-6 bg-white/80 border border-[var(--color-border-hairline)] rounded-2xl shadow-sm mt-2">
-              <h3 className="font-semibold text-[17px] text-[var(--color-text-main)]">Valeriy Riyako</h3>
-              <p className="text-[14px] text-[var(--color-text-muted)] mt-1 font-medium">Spezialist für Event- & Messe-Videos</p>
-              <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed mt-3">
+              <div className="flex items-start gap-5">
+                <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-[var(--color-border-hairline)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/services/Valeriy.webp"
+                    alt="Valeriy Riyako — Spezialist für Event-Videos"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-[17px] text-[var(--color-text-main)]">Valeriy Riyako</h3>
+                  <p className="text-[14px] text-[var(--color-text-muted)] mt-1 font-medium">Spezialist für Event- & Messe-Videos</p>
+                </div>
+              </div>
+              <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed mt-4">
                 Valeriy ist Experte für professionell gerahmte B2B-Videografie. Sein Portfolio reicht von mitreißenden 60-Sekunden-Recapfilmen bis hin zu detaillierten Ausstellerporträts und hochauflösenden Speaker-Statements in den Messe- und Kongresshallen Hamburgs.
               </p>
             </div>

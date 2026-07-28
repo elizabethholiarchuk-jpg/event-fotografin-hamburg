@@ -93,9 +93,21 @@ export default function VideoSupportPage() {
               While I focus entirely on capturing pristine photographic moments, Valeriy leads all video and motion production. Together, we provide a unified workflow from early planning through to final media delivery.
             </p>
             <div className="p-6 bg-white/80 border border-[var(--color-border-hairline)] rounded-2xl shadow-sm mt-2">
-              <h3 className="font-semibold text-[17px] text-[var(--color-text-main)]">Valeriy Riyako</h3>
-              <p className="text-[14px] text-[var(--color-text-muted)] mt-1 font-medium">Co-working Event Video Specialist</p>
-              <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed mt-3">
+              <div className="flex items-start gap-5">
+                <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-[var(--color-border-hairline)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/services/Valeriy.webp"
+                    alt="Valeriy Riyako — Event Video Specialist"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-[17px] text-[var(--color-text-main)]">Valeriy Riyako</h3>
+                  <p className="text-[14px] text-[var(--color-text-muted)] mt-1 font-medium">Co-working Event Video Specialist</p>
+                </div>
+              </div>
+              <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed mt-4">
                 Valeriy specialises in fast-paced B2B video production, filming everything from engaging conference wrap-up movies to executive interviews and dynamic exhibition stand features at Hamburg Messe and nationwide.
               </p>
             </div>
