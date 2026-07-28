@@ -82,11 +82,6 @@ const addons = [
     name: "Short Highlight Film",
     desc: "60–90 second edit for internal sharing or social media.",
   },
-  {
-    name: "Professional Video Support",
-    desc: "Full event video documentation with my trusted colleague Valeriy Riyako.",
-    link: "/video-support",
-  },
 ];
 
 export default function PricingPage() {
@@ -173,37 +168,48 @@ export default function PricingPage() {
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-10">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">Add-ons</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {addons.map((addon) => {
-              const content = (
-                <>
-                  <h3 className="text-base font-semibold text-[var(--color-text-main)]">{addon.name}</h3>
-                  <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{addon.desc}</p>
-                  {addon.link && (
-                    <span className="text-[13px] font-semibold text-[var(--color-accent)] mt-1">
-                      Learn more →
-                    </span>
-                  )}
-                </>
-              );
-              return addon.link ? (
-                <Link
-                  key={addon.name}
-                  href={addon.link}
-                  className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl transition-colors hover:border-[var(--color-accent)] hover:bg-[#F5F8FB]"
-                >
-                  {content}
-                </Link>
-              ) : (
-                <div
-                  key={addon.name}
-                  className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl"
-                >
-                  {content}
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {addons.map((addon) => (
+              <div
+                key={addon.name}
+                className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl"
+              >
+                <h3 className="text-base font-semibold text-[var(--color-text-main)]">{addon.name}</h3>
+                <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{addon.desc}</p>
+              </div>
+            ))}
           </div>
+
+          {/* Standalone Video Support Banner */}
+          <Link
+            href="/video-support"
+            className="group flex flex-col md:flex-row items-center gap-6 md:gap-8 p-6 md:p-8 rounded-3xl border border-[var(--color-border-hairline)] bg-gradient-to-r from-[#F5F8FB] to-[#EAEFF6] transition-all hover:border-[var(--color-accent)] hover:shadow-md mt-2"
+          >
+            <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/services/Valeriy.webp"
+                alt="Valeriy Riyako — Event Video Specialist"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex flex-col gap-1 text-center md:text-left flex-1">
+              <div className="flex items-center justify-center md:justify-start">
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-blue-950/10 text-blue-950">
+                  Team Partnership
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold text-[var(--color-text-main)] mt-1">
+                Need professional video support too?
+              </h3>
+              <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed max-w-[65ch]">
+                I partner with my dedicated video specialist <strong>Valeriy Riyako</strong> to deliver both pristine event stills and dynamic motion coverage in one cohesive team package.
+              </p>
+            </div>
+            <span className="shrink-0 px-6 py-3.5 rounded-2xl bg-[var(--color-text-main)] text-white text-[14px] font-semibold transition-colors group-hover:bg-[var(--color-accent)] shadow-sm whitespace-nowrap">
+              View Video Examples →
+            </span>
+          </Link>
         </div>
       </section>
 
