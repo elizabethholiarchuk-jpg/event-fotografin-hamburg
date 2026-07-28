@@ -51,6 +51,7 @@ const routeMap: Record<string, string> = {
   "impressum": "impressum",
   "datenschutz": "datenschutz",
   "danke": "danke",
+  "video-support": "video-support",
 };
 
 const reverseRouteMap: Record<string, string> = Object.entries(routeMap).reduce(
