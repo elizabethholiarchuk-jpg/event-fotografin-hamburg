@@ -33,19 +33,15 @@ const deNavLinks = [
   { href: "/preise", label: "Preise" },
 ];
 
+// Maps EN slug → DE slug
 const routeMap: Record<string, string> = {
-  // Services
   "event-photographer-hamburg": "eventfotograf-hamburg",
   "conference-photographer-hamburg": "konferenzfotografie-hamburg",
   "trade-show-photographer-hamburg": "messefotograf-hamburg",
   "corporate-event-photographer-hamburg": "corporate-event-fotograf-hamburg",
-  
-  // Pages
   "about": "ueber-mich",
   "pricing": "preise",
   "contact": "kontakt",
-  
-  // Shared
   "portfolio": "portfolio",
   "insights": "insights",
   "impressum": "impressum",
@@ -59,7 +55,6 @@ const reverseRouteMap: Record<string, string> = Object.entries(routeMap).reduce(
   {} as Record<string, string>
 );
 
-
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -67,35 +62,36 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const lang: Language = pathname.startsWith("/de") ? "de" : "en";
+  // DE is default (root), EN is under /en/
+  const lang: Language = pathname.startsWith("/en") ? "en" : "de";
   const t = getDictionary(lang).header;
 
   const switchLanguage = (newLang: Language) => {
     if (newLang === lang) return;
     document.cookie = `site_lang=${newLang}; path=/; max-age=31536000; samesite=lax`;
-    
-    let newPath = "/";
-    const pathSegments = pathname.split('/').filter(Boolean);
 
-    if (newLang === "de") {
-      const enSegment = pathSegments[0] || "";
-      const deSegment = routeMap[enSegment] || enSegment;
-      
+    const pathSegments = pathname.split('/').filter(Boolean);
+    let newPath = "/";
+
+    if (newLang === "en") {
+      // Switching DE (root) → EN (/en/*)
+      const deSegment = pathSegments[0] || "";
+      const enSegment = reverseRouteMap[deSegment] || deSegment;
       if (pathSegments.length > 1) {
         const rest = pathSegments.slice(1).join('/');
-        newPath = deSegment ? `/de/${deSegment}/${rest}` : `/de/${rest}`;
+        newPath = enSegment ? `/en/${enSegment}/${rest}` : `/en/${rest}`;
       } else {
-        newPath = deSegment ? `/de/${deSegment}` : `/de`;
+        newPath = enSegment ? `/en/${enSegment}` : `/en`;
       }
     } else {
-      const deSegment = pathSegments[1] || "";
-      const enSegment = reverseRouteMap[deSegment] || deSegment;
-
+      // Switching EN (/en/*) → DE (root)
+      const enSegment = pathSegments[1] || "";
+      const deSegment = routeMap[enSegment] || enSegment;
       if (pathSegments.length > 2) {
         const rest = pathSegments.slice(2).join('/');
-        newPath = enSegment ? `/${enSegment}/${rest}` : `/${rest}`;
+        newPath = deSegment ? `/${deSegment}/${rest}` : `/${rest}`;
       } else {
-        newPath = enSegment ? `/${enSegment}` : `/`;
+        newPath = deSegment ? `/${deSegment}` : `/`;
       }
     }
 
@@ -109,7 +105,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -120,15 +115,14 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesOpen(false);
   }, [pathname]);
 
-  const isDE = lang === "de";
-  const currentServiceLinks = isDE ? deServiceLinks : enServiceLinks;
-  const currentNavLinks = isDE ? deNavLinks : enNavLinks;
+  const isEN = lang === "en";
+  const currentServiceLinks = isEN ? enServiceLinks : deServiceLinks;
+  const currentNavLinks = isEN ? enNavLinks : deNavLinks;
 
   const bgClass = scrolled
     ? "bg-[#EAF1F6]/92 backdrop-blur-md border-b border-[var(--color-border-hairline)] shadow-sm"
@@ -138,8 +132,8 @@ export default function Header() {
   const buttonClass = "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] border border-transparent";
 
   const getLocalizedHref = (href: string) => {
-    if (!isDE) return href;
-    return href === "/" ? "/de" : `/de${href}`;
+    if (!isEN) return href;
+    return href === "/" ? "/en" : `/en${href}`;
   };
 
   const isActive = (href: string) => {
@@ -154,24 +148,20 @@ export default function Header() {
         : `${mutedTextClass} hover:${textClass} hover:underline hover:underline-offset-4 hover:decoration-1`
     }`;
 
-  const contactHref = isDE ? "/de/kontakt" : "/contact";
+  const contactHref = isEN ? "/en/contact" : "/kontakt";
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 h-[80px] flex items-center transition-all duration-500 ${bgClass}`}>
       <div className={`max-w-[1400px] w-full mx-auto px-6 md:px-12 flex justify-between items-center ${textClass}`}>
-        {/* Logo */}
         <Link href={getLocalizedHref("/")} className="text-[22px] font-semibold tracking-tight transition-opacity hover:opacity-80 shrink-0">
           Liza Holiarchuk
         </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-          {/* Portfolio */}
           <Link href={getLocalizedHref("/portfolio")} className={linkClass("/portfolio")}>
             Portfolio
           </Link>
 
-          {/* Services dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
@@ -181,7 +171,7 @@ export default function Header() {
                   : `${mutedTextClass} hover:${textClass}`
               }`}
             >
-              {isDE ? "Leistungen" : "Services"}
+              {isEN ? "Services" : "Leistungen"}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}>
                 <polyline points="6 9 12 15 18 9" />
               </svg>
@@ -206,9 +196,8 @@ export default function Header() {
             )}
           </div>
 
-          {/* Other nav links */}
           {currentNavLinks.map(link => {
-            if (link.href === "/portfolio") return null; // already rendered above
+            if (link.href === "/portfolio") return null;
             return (
               <Link key={link.href} href={getLocalizedHref(link.href)} className={linkClass(link.href)}>
                 {link.label}
@@ -216,12 +205,10 @@ export default function Header() {
             );
           })}
 
-          {/* Contact CTA */}
           <Link href={contactHref} className={`${buttonClass} px-7 py-2.5 rounded-2xl text-[15px] font-medium transition-colors flex items-center gap-2 ml-2`}>
-            {isDE ? "Kontakt" : "Contact"}
+            {isEN ? "Contact" : "Kontakt"}
           </Link>
 
-          {/* Language switcher */}
           <div className="flex items-center gap-2 text-[14px] font-medium border-l border-gray-300 pl-5">
             <button onClick={() => switchLanguage("en")} className={`transition-colors ${lang === "en" ? textClass : mutedTextClass + " hover:" + textClass}`}>EN</button>
             <span className={mutedTextClass}>|</span>
@@ -229,7 +216,6 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* Mobile hamburger */}
         <button className={`md:hidden p-2 -mr-2 ${textClass}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             {mobileMenuOpen ? (
@@ -241,12 +227,11 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="absolute top-[80px] left-0 right-0 bg-[#EAF1F6] border-b border-[var(--color-border-hairline)] px-6 py-8 flex flex-col gap-6 md:hidden shadow-sm max-h-[80vh] overflow-y-auto">
           <Link href={getLocalizedHref("/portfolio")} onClick={() => setMobileMenuOpen(false)} className={`text-lg font-medium ${isActive("/portfolio") ? textClass : mutedTextClass}`}>Portfolio</Link>
 
-          <div className="text-lg font-medium text-[var(--color-text-muted)]">{isDE ? "Leistungen" : "Services"}</div>
+          <div className="text-lg font-medium text-[var(--color-text-muted)]">{isEN ? "Services" : "Leistungen"}</div>
           <div className="flex flex-col gap-4 pl-4">
             {currentServiceLinks.map(s => (
               <Link key={s.href} href={getLocalizedHref(s.href)} onClick={() => setMobileMenuOpen(false)} className={`text-base font-normal ${pathname === getLocalizedHref(s.href) ? textClass : mutedTextClass}`}>{s.label}</Link>
@@ -260,7 +245,7 @@ export default function Header() {
           })}
 
           <Link href={contactHref} onClick={() => setMobileMenuOpen(false)} className="bg-[var(--color-accent)] text-white text-center w-full py-4 rounded-2xl text-[16px] font-medium transition-colors hover:bg-[var(--color-accent-hover)]">
-            {isDE ? "Kontakt" : "Contact"}
+            {isEN ? "Contact" : "Kontakt"}
           </Link>
 
           <div className="flex items-center justify-center gap-4 text-[16px] font-medium pt-4 border-t border-[var(--color-border-hairline)]">

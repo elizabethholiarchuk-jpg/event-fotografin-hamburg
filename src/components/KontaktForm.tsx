@@ -27,7 +27,7 @@ export default function KontaktForm({ lang = 'en' }: { lang?: Language }) {
             });
 
             if (response.ok) {
-                router.push(lang === 'de' ? "/de/danke" : "/danke");
+                router.push(lang === 'de' ? "/danke" : "/en/danke");
             } else {
                 console.error("Form submission error", await response.text());
                 setIsSubmitting(false);

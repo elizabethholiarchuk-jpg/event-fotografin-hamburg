@@ -17,7 +17,7 @@ export default function DankePage({ lang }: { lang: Language }) {
                     </p>
                 <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
                     <Link
-                        href={lang === 'de' ? "/de" : "/"}
+                        href={lang === 'de' ? "/" : "/en"}
                         className="bg-[var(--color-accent)] text-white px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)] inline-flex items-center justify-center gap-2 group w-full sm:w-auto"
                     >
                         <svg className="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
@@ -26,7 +26,7 @@ export default function DankePage({ lang }: { lang: Language }) {
                         {t.back}
                     </Link>
                     <Link
-                        href={lang === 'de' ? "/de/portfolio" : "/portfolio"}
+                        href={lang === 'de' ? "/portfolio" : "/en/portfolio"}
                         className="bg-transparent border border-[var(--color-border-hairline)] text-[var(--color-text-main)] hover:border-[var(--color-text-main)] px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors inline-flex items-center justify-center gap-2 group w-full sm:w-auto"
                     >
                         {t.toPortfolio}

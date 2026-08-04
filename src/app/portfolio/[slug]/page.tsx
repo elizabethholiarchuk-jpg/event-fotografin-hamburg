@@ -23,9 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const event = portfolioEvents.find((e) => e.slug === slug);
   if (!event) return {};
 
-  const title = event.title_i18n?.en ?? event.title;
-  const location = event.location_i18n?.en ?? "";
-  const desc = event.oneLiner_i18n?.en ?? `Event photography by Liza Holiarchuk — ${title}.`;
+  const title = event.title_i18n?.de ?? event.title;
+  const location = event.location_i18n?.de ?? "";
+  const desc = event.oneLiner_i18n?.de ?? `Eventfotografie von Liza Holiarchuk — ${title}.`;
 
   return {
     title: `${title}${location ? ` — ${location}` : ""} | Portfolio`,
@@ -33,9 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { 
       canonical: `/portfolio/${slug}`,
       languages: {
-        'en': `/portfolio/${slug}`,
-        'de': `/de/portfolio/${slug}`,
-        'x-default': `/portfolio/${slug}`,
+        en: `/en/portfolio/${slug}`,
+        de: `/portfolio/${slug}`,
+        "x-default": `/portfolio/${slug}`,
       },
     },
     openGraph: {
@@ -43,6 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: desc,
       url: `/portfolio/${slug}`,
       images: [{ url: `/images/portfolio/${slug}/01.webp`, width: 1200, height: 800, alt: title }],
+    alternateLocale: ["en_US"],
     },
   };
 }
@@ -57,23 +58,23 @@ function getImages(slug: string): string[] {
     .map((f) => `/images/portfolio/${slug}/${f}`);
 }
 
-export default async function CaseStudyPage({ params }: Props) {
+export default async function CaseStudyPageDe({ params }: Props) {
   const { slug } = await params;
   const event = portfolioEvents.find((e) => e.slug === slug);
   if (!event) notFound();
 
   const images = getImages(slug);
-  const title = event.title_i18n?.en ?? event.title;
-  const location = event.location_i18n?.en ?? "";
-  const venue = event.venue_i18n?.en ?? "";
-  const category = event.category.en;
-  const oneLiner = event.oneLiner_i18n?.en ?? "";
-  const altText = event.alt_i18n?.en ?? title;
+  const title = event.title_i18n?.de ?? event.title;
+  const location = event.location_i18n?.de ?? "";
+  const venue = event.venue_i18n?.de ?? "";
+  const category = event.category.de;
+  const oneLiner = event.oneLiner_i18n?.de ?? "";
+  const altText = event.alt_i18n?.de ?? title;
   const coverImage = images[0] ?? `/images/portfolio/${slug}/01.webp`;
 
   // Related: same category, different slug
   const related = portfolioEvents
-    .filter((e) => e.slug !== slug && e.category.en === event.category.en)
+    .filter((e) => e.slug !== slug && e.category.de === event.category.de)
     .slice(0, 3);
 
   // Build content location string from venue + city
@@ -81,7 +82,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildCaseStudyBreadcrumbJsonLd('en', title, slug)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildCaseStudyBreadcrumbJsonLd('de', title, slug)) }} />
       {images.length > 0 && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildImageObjectsJsonLd(
           images.map((src) => ({
@@ -121,58 +122,58 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 grid md:grid-cols-3 gap-12 md:gap-16">
           {/* Quick facts */}
           <div className="flex flex-col gap-6">
-            <h2 className="text-lg font-semibold text-[var(--color-text-main)] tracking-tight">Quick Facts</h2>
+            <h2 className="text-lg font-semibold text-[var(--color-text-main)] tracking-tight">Auf einen Blick</h2>
             <dl className="flex flex-col gap-4 text-[14px]">
               {category && (
                 <div className="flex flex-col gap-0.5">
-                  <dt className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Event Type</dt>
+                  <dt className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Event-Art</dt>
                   <dd className="text-[var(--color-text-main)]">{category}</dd>
                 </div>
               )}
               {location && (
                 <div className="flex flex-col gap-0.5">
-                  <dt className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Location</dt>
+                  <dt className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Ort</dt>
                   <dd className="text-[var(--color-text-main)]">{location}</dd>
                 </div>
               )}
               {venue && (
                 <div className="flex flex-col gap-0.5">
-                  <dt className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Venue</dt>
+                  <dt className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Location</dt>
                   <dd className="text-[var(--color-text-main)]">{venue}</dd>
                 </div>
               )}
               <div className="flex flex-col gap-0.5">
-                <dt className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Deliverables</dt>
-                <dd className="text-[var(--color-text-main)]">Fully edited gallery, private online delivery</dd>
+                <dt className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Lieferung</dt>
+                <dd className="text-[var(--color-text-main)]">Vollständig bearbeitete Galerie, private Online-Lieferung</dd>
               </div>
               <div className="flex flex-col gap-0.5">
-                <dt className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Usage</dt>
-                <dd className="text-[var(--color-text-main)]">Corporate communication, PR, social media</dd>
+                <dt className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Nutzungsrechte</dt>
+                <dd className="text-[var(--color-text-main)]">Unternehmenskommunikation, PR, Social Media</dd>
               </div>
             </dl>
-            <Link href="/contact" className="mt-4 bg-[var(--color-accent)] text-white px-6 py-3 rounded-xl text-[14px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)] text-center">
-              Book Similar Coverage
+            <Link href="/kontakt" className="mt-4 bg-[var(--color-accent)] text-white px-6 py-3 rounded-xl text-[14px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)] text-center">
+              Ähnliche Begleitung anfragen
             </Link>
           </div>
 
           {/* Overview */}
           <div className="md:col-span-2 flex flex-col gap-6">
-            <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text-main)] tracking-tight">Overview</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text-main)] tracking-tight">Überblick</h2>
             {oneLiner && (
               <p className="text-[17px] text-[var(--color-text-muted)] leading-[1.85]">{oneLiner}</p>
             )}
             <p className="text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
-              This gallery documents the full event from arrival to closing — capturing key moments on stage, audience and networking, branding, and team. Images were delivered via a private online gallery within 48 hours of the event.
+              Diese Galerie dokumentiert das gesamte Event von der Ankunft bis zum Abschluss — festgehalten wurden wichtige Momente auf der Bühne, im Publikum, beim Networking, sowie Branding und das Team. Die Bilder wurden innerhalb von 48 Stunden nach dem Event in einer privaten Online-Galerie bereitgestellt.
             </p>
             <div className="flex flex-col gap-2 mt-2">
-              <h3 className="text-base font-semibold text-[var(--color-text-main)]">What was captured</h3>
+              <h3 className="text-base font-semibold text-[var(--color-text-main)]">Was festgehalten wurde</h3>
               <ul className="flex flex-col gap-1.5">
                 {[
-                  "Stage and presentation coverage",
-                  "Audience and reaction shots",
-                  "Networking and social moments",
-                  "Branding, venue, and environment",
-                  "Team and speaker portraits",
+                  "Bühne und Präsentationen",
+                  "Publikum und Reaktionen",
+                  "Networking und Interaktionen",
+                  "Branding, Location und Atmosphäre",
+                  "Team- und Speaker-Porträts",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-[14px] text-[var(--color-text-muted)]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] opacity-60 shrink-0" />
@@ -189,7 +190,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {images.length > 0 && (
         <section className="py-12 md:py-20 border-b border-[var(--color-border-hairline)]">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col gap-8">
-            <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text-main)] tracking-tight">Gallery</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text-main)] tracking-tight">Galerie</h2>
             <ImageGallery
               images={images.map((src) => ({ src, alt: altText }))}
               gridClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full"
@@ -203,7 +204,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {related.length > 0 && (
         <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
           <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-8">
-            <h2 className="text-2xl font-semibold text-[var(--color-text-main)]">More {category} Projects</h2>
+            <h2 className="text-2xl font-semibold text-[var(--color-text-main)]">Weitere {category}-Projekte</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {related.map((e) => (
                 <Link
@@ -215,23 +216,23 @@ export default async function CaseStudyPage({ params }: Props) {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={`/images/portfolio/${e.slug}/01.webp`}
-                      alt={e.alt_i18n?.en ?? e.title_i18n?.en ?? e.title}
+                      alt={e.alt_i18n?.de ?? e.title_i18n?.de ?? e.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                       loading="lazy"
                     />
                   </div>
                   <div className="px-4 pb-4 flex flex-col gap-1">
-                    <span className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">{e.category.en}</span>
+                    <span className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">{e.category.de}</span>
                     <h3 className="text-base font-semibold text-[var(--color-text-main)] leading-snug group-hover:underline underline-offset-2">
-                      {e.title_i18n?.en ?? e.title}
+                      {e.title_i18n?.de ?? e.title}
                     </h3>
-                    {e.location_i18n?.en && <p className="text-[13px] text-[var(--color-text-muted)]">{e.location_i18n.en}</p>}
+                    {e.location_i18n?.de && <p className="text-[13px] text-[var(--color-text-muted)]">{e.location_i18n.de}</p>}
                   </div>
                 </Link>
               ))}
             </div>
             <Link href="/portfolio" className="text-[15px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 w-fit">
-              View full portfolio →
+              Gesamtes Portfolio ansehen →
             </Link>
           </div>
         </section>
@@ -240,7 +241,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* FAQ */}
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-8">
-          <h2 className="text-2xl font-semibold text-[var(--color-text-main)]">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-semibold text-[var(--color-text-main)]">Häufig gestellte Fragen</h2>
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -248,19 +249,19 @@ export default async function CaseStudyPage({ params }: Props) {
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
                 mainEntity: [
-                  { "@type": "Question", name: "How do I book similar event photography?", acceptedAnswer: { "@type": "Answer", text: "Use the contact form to describe your event — date, location, and type. You'll receive a quote within 24 hours." } },
-                  { "@type": "Question", name: "How quickly are photos delivered?", acceptedAnswer: { "@type": "Answer", text: "The full edited gallery is typically delivered within 48 business hours. Same-day highlights are available on request." } },
-                  { "@type": "Question", name: "Are usage rights included?", acceptedAnswer: { "@type": "Answer", text: "Yes. Full usage rights for corporate communication — website, social media, PR, and internal reports — are included with every project." } },
+                  { "@type": "Question", name: "Wie buche ich eine ähnliche Eventbegleitung?", acceptedAnswer: { "@type": "Answer", text: "Nutzen Sie das Kontaktformular, um Ihr Event zu beschreiben — Datum, Ort und Art. Sie erhalten innerhalb von 24 Stunden ein Angebot." } },
+                  { "@type": "Question", name: "Wie schnell werden die Fotos geliefert?", acceptedAnswer: { "@type": "Answer", text: "Die vollständig bearbeitete Galerie wird in der Regel innerhalb von 48 Stunden geliefert. Same-Day Highlights sind auf Anfrage möglich." } },
+                  { "@type": "Question", name: "Sind die Nutzungsrechte inklusive?", acceptedAnswer: { "@type": "Answer", text: "Ja. Die vollen Nutzungsrechte für die Unternehmenskommunikation — Website, Social Media, PR und interne Berichte — sind bei jedem Projekt inklusive." } },
                 ],
               }),
             }}
           />
           {[
-            { q: "How do I book similar event photography?", a: "Use the contact form to describe your event — date, location, and type. You'll receive a quote within 24 hours." },
-            { q: "How quickly are photos delivered?", a: "The full edited gallery is typically delivered within 48 business hours. Same-day highlights are available on request." },
-            { q: "Are usage rights included?", a: "Yes. Full usage rights for corporate communication — website, social media, PR, and internal reports — are included with every project." },
-            { q: "Can you cover similar events outside Hamburg?", a: "Yes. I regularly cover events across Germany and Europe. Travel costs are quoted per project." },
-            { q: "What format are the delivered images?", a: "High-resolution JPEG files (typically 20–50 MP), delivered via a private online gallery. TIFF on request." },
+            { q: "Wie buche ich eine ähnliche Eventbegleitung?", a: "Nutzen Sie das Kontaktformular, um Ihr Event zu beschreiben — Datum, Ort und Art. Sie erhalten innerhalb von 24 Stunden ein Angebot." },
+            { q: "Wie schnell werden die Fotos geliefert?", a: "Die vollständig bearbeitete Galerie wird in der Regel innerhalb von 48 Stunden geliefert. Same-Day Highlights sind auf Anfrage möglich." },
+            { q: "Sind die Nutzungsrechte inklusive?", a: "Ja. Die vollen Nutzungsrechte für die Unternehmenskommunikation — Website, Social Media, PR und interne Berichte — sind bei jedem Projekt inklusive." },
+            { q: "Begleiten Sie auch ähnliche Events außerhalb von Hamburg?", a: "Ja. Ich begleite regelmäßig Events in ganz Deutschland und Europa. Reisekosten werden pro Projekt kalkuliert." },
+            { q: "In welchem Format werden die Bilder geliefert?", a: "Hochauflösende JPEG-Dateien (typischerweise 20–50 MP), die über eine private Online-Galerie bereitgestellt werden. TIFF auf Anfrage." },
           ].map((item, i) => (
             <div key={i} className="flex flex-col gap-2 pb-6 border-b border-[var(--color-border-hairline)] last:border-0">
               <h3 className="text-base font-semibold text-[var(--color-text-main)]">{item.q}</h3>
@@ -273,10 +274,10 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* CTA */}
       <section className="py-24 md:py-32 bg-[#DDE7F0] text-[var(--color-text-main)] flex justify-center text-center">
         <div className="max-w-[700px] w-full px-6 flex flex-col gap-8 items-center">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">Book This Style of Coverage</h2>
-          <p className="text-xl opacity-80 font-light">Send your inquiry — I'll confirm availability and next steps.</p>
-          <Link href="/contact" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
-            Contact Me
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">Diesen Stil der Begleitung anfragen</h2>
+          <p className="text-xl opacity-80 font-light">Senden Sie Ihre Anfrage — ich bestätige die Verfügbarkeit und die nächsten Schritte.</p>
+          <Link href="/kontakt" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
+            Kontakt aufnehmen
           </Link>
         </div>
       </section>

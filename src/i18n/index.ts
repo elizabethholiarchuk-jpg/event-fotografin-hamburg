@@ -9,5 +9,5 @@ export const dictionaries = {
 };
 
 export function getDictionary(lang: Language) {
-  return dictionaries[lang] ?? dictionaries.en;
+  return dictionaries[lang] ?? dictionaries.de;
 }

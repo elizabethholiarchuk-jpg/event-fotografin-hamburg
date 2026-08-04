@@ -3,21 +3,21 @@ import DankePage from "@/components/pages/DankePage";
 import { getDictionary } from "@/i18n";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = getDictionary('en');
+  const t = getDictionary('de');
   return {
     title: t.danke.meta.title,
-    description: "Thank you for your request.",
+    description: "Ihre Anfrage wurde erfolgreich gesendet.",
     alternates: {
       canonical: "/danke",
       languages: {
-        'en': '/danke',
-        'de': '/de/danke',
-        'x-default': '/danke',
+        en: "/en/danke",
+        de: "/danke",
+        "x-default": "/danke",
       },
     },
   };
 }
 
-export default function Danke() {
-  return <DankePage lang="en" />;
+export default function DankeDE() {
+  return <DankePage lang="de" />;
 }
