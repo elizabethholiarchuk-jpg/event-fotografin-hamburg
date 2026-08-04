@@ -12,7 +12,7 @@ export default function CookieBanner() {
     const [showLangPrompt, setShowLangPrompt] = useState(false);
 
     const pathname = usePathname();
-    const lang: Language = pathname.startsWith("/de") ? "de" : "en";
+    const lang: Language = pathname.startsWith("/en") ? "en" : "de";
     const t = getDictionary(lang).cookieBanner;
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function CookieBanner() {
 
         // Check for language prompt
         const siteLang = document.cookie.split('; ').find(row => row.startsWith('site_lang='))?.split('=')[1];
-        if (siteLang === "de" && lang === "en") {
+        if (siteLang === "en" && lang === "de") {
             setShowLangPrompt(true);
         }
 
@@ -53,8 +53,8 @@ export default function CookieBanner() {
     };
 
     const switchLang = () => {
-        document.cookie = `site_lang=de; path=/; max-age=31536000; samesite=lax`;
-        window.location.href = `/de${pathname === "/" ? "" : pathname}`;
+        document.cookie = `site_lang=en; path=/; max-age=31536000; samesite=lax`;
+        window.location.href = `/en${pathname === "/" ? "" : pathname}`;
     };
 
     return (
@@ -65,7 +65,7 @@ export default function CookieBanner() {
             {/* Language Prompt */}
             {showLangPrompt && !showBanner && (
                 <div className="fixed bottom-6 right-6 z-40 bg-white border border-[var(--color-border-hairline)] shadow-lg rounded-2xl p-4 flex flex-col gap-3 max-w-[300px] animate-in slide-in-from-right-8 duration-500">
-                    <p className="text-[14px] text-[var(--color-text-main)] font-medium">Prefer Deutsch? Switch to German.</p>
+                    <p className="text-[14px] text-[var(--color-text-main)] font-medium">Prefer English? Switch to English.</p>
                     <div className="flex justify-end gap-3">
                         <button onClick={() => setShowLangPrompt(false)} className="text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors">Dismiss</button>
                         <button onClick={switchLang} className="text-[13px] bg-[var(--color-accent)] text-white px-4 py-1.5 rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors">Switch</button>
@@ -84,7 +84,7 @@ export default function CookieBanner() {
                             {lang === 'en' 
                                 ? 'This website uses necessary cookies. Analytics cookies are only set with your consent to better understand website usage and improve the offering. Further information can be found in the '
                                 : 'Diese Website verwendet notwendige Cookies. Analyse-Cookies werden nur mit Ihrer Einwilligung gesetzt, um die Nutzung der Website besser zu verstehen und das Angebot zu verbessern. Weitere Informationen finden Sie in der '}
-                            <Link href={lang === 'en' ? "/datenschutz" : "/de/datenschutz"} className="underline hover:text-[var(--color-text-main)] transition-colors">{lang === 'en' ? 'Privacy Policy' : 'Datenschutzerklärung'}</Link>.
+                            <Link href={lang === 'en' ? "/en/datenschutz" : "/datenschutz"} className="underline hover:text-[var(--color-text-main)] transition-colors">{lang === 'en' ? 'Privacy Policy' : 'Datenschutzerklärung'}</Link>.
                         </p>
                     </div>
 

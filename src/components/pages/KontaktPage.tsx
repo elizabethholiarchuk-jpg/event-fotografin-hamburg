@@ -15,14 +15,14 @@ export default function KontaktPage({ lang }: { lang: Language }) {
                             {
                                 "@type": "ListItem",
                                 "position": 1,
-                                "name": "Home",
-                                "item": "https://www.event-fotografin-hamburg.de"
+                                "name": lang === 'de' ? "Start" : "Home",
+                                "item": lang === 'de' ? "https://www.event-fotografin-hamburg.de" : "https://www.event-fotografin-hamburg.de/en"
                             },
                             {
                                 "@type": "ListItem",
                                 "position": 2,
-                                "name": "Kontakt",
-                                "item": "https://www.event-fotografin-hamburg.de/kontakt"
+                                "name": lang === 'de' ? "Kontakt" : "Contact",
+                                "item": lang === 'de' ? "https://www.event-fotografin-hamburg.de/kontakt" : "https://www.event-fotografin-hamburg.de/en/contact"
                             }
                         ]
                     }),

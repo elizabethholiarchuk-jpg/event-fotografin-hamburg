@@ -95,7 +95,7 @@ export function buildPersonSchema(lang: Language) {
     name: t.home.about.title,           // "Liza Holiarchuk"
     jobTitle: JOB_TITLE[lang],
     worksFor: { '@id': BUSINESS_ID },
-    url: abs('/about'),
+    url: lang === 'en' ? abs('/en/about') : abs('/ueber-mich'),
     image: abs(LOGO_PATH),
     description: t.home.about.p1,
     sameAs: [...SAME_AS],
@@ -193,7 +193,7 @@ export function buildServicePageJsonLd(
   input: ServiceSchemaInput,
 ) {
   const homeName = lang === 'de' ? 'Start' : 'Home';
-  const homePath = lang === 'de' ? '/de' : '/';
+  const homePath = lang === 'en' ? '/en' : '/';
 
   return {
     '@context': 'https://schema.org',
@@ -268,7 +268,7 @@ export function buildBreadcrumbListJsonLd(
   items: BreadcrumbItem[],
 ) {
   const homeName = lang === 'de' ? 'Start' : 'Home';
-  const homePath = lang === 'de' ? '/de' : '/';
+  const homePath = lang === 'en' ? '/en' : '/';
 
   return {
     '@context': 'https://schema.org',
@@ -298,7 +298,7 @@ export function buildBreadcrumbListJsonLd(
  * Portfolio index breadcrumb: Home → Portfolio
  */
 export function buildPortfolioIndexBreadcrumbJsonLd(lang: Language) {
-  const portfolioPath = lang === 'de' ? '/de/portfolio' : '/portfolio';
+  const portfolioPath = lang === 'en' ? '/en/portfolio' : '/portfolio';
   return buildBreadcrumbListJsonLd(lang, [
     { name: 'Portfolio', path: portfolioPath },
   ]);
@@ -312,8 +312,8 @@ export function buildCaseStudyBreadcrumbJsonLd(
   title: string,
   slug: string,
 ) {
-  const portfolioPath = lang === 'de' ? '/de/portfolio' : '/portfolio';
-  const casePath = lang === 'de' ? `/de/portfolio/${slug}` : `/portfolio/${slug}`;
+  const portfolioPath = lang === 'en' ? '/en/portfolio' : '/portfolio';
+  const casePath = lang === 'en' ? `/en/portfolio/${slug}` : `/portfolio/${slug}`;
   return buildBreadcrumbListJsonLd(lang, [
     { name: 'Portfolio', path: portfolioPath },
     { name: title, path: casePath },
@@ -329,7 +329,7 @@ export function buildCaseStudyBreadcrumbJsonLd(
  */
 export function buildPricingBreadcrumbJsonLd(lang: Language) {
   const name = lang === 'de' ? 'Preise' : 'Pricing';
-  const pricingPath = lang === 'de' ? '/de/preise' : '/pricing';
+  const pricingPath = lang === 'en' ? '/en/pricing' : '/preise';
   return buildBreadcrumbListJsonLd(lang, [
     { name, path: pricingPath },
   ]);
@@ -368,7 +368,7 @@ export function buildBlogPostingJsonLd(input: BlogPostingInput) {
     publisher: { '@id': BUSINESS_ID },
     mainEntityOfPage: {
       '@type': 'WebPage' as const,
-      '@id': abs(`/insights/${input.slug}`),
+      '@id': abs(`/en/insights/${input.slug}`),
     },
   };
 }
@@ -383,8 +383,8 @@ export function buildArticleBreadcrumbJsonLd(
   slug: string,
 ) {
   return buildBreadcrumbListJsonLd(lang, [
-    { name: 'Insights', path: '/insights' },
-    { name: title, path: `/insights/${slug}` },
+    { name: 'Insights', path: '/en/insights' },
+    { name: title, path: `/en/insights/${slug}` },
   ]);
 }
 
@@ -399,8 +399,8 @@ export function buildInsightsIndexJsonLd(
     '@graph': [
       {
         '@type': 'Blog' as const,
-        '@id': abs('/insights'),
-        url: abs('/insights'),
+        '@id': abs('/en/insights'),
+        url: abs('/en/insights'),
         name: 'Event Photography Insights',
         description:
           'Guides on event photography briefings, trade show coverage at Hamburg Messe, and same-day photo delivery — for marketing and event managers.',
@@ -412,11 +412,11 @@ export function buildInsightsIndexJsonLd(
         itemListElement: posts.map((post, i) => ({
           '@type': 'ListItem' as const,
           position: i + 1,
-          url: abs(`/insights/${post.slug}`),
+          url: abs(`/en/insights/${post.slug}`),
         })),
       },
       buildBreadcrumbListJsonLd('en', [
-        { name: 'Insights', path: '/insights' },
+        { name: 'Insights', path: '/en/insights' },
       ]),
     ],
   };

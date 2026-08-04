@@ -48,14 +48,14 @@ export default function HomePage({ lang }: { lang: Language }) {
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-10 mt-6 w-full sm:w-auto">
             <Link
-              href={lang === 'de' ? "/de/kontakt" : "/kontakt"}
+              href={lang === 'de' ? "/kontakt" : "/en/contact"}
               title="Eventfotograf Hamburg Anfrage stellen"
               className="bg-white text-[var(--color-dark-bg)] px-12 py-5 text-sm tracking-widest uppercase font-semibold transition-colors hover:bg-gray-200 text-center rounded-2xl w-full sm:w-auto"
             >
               {t.hero.ctaPrimary}
             </Link>
             <Link
-              href={lang === 'de' ? "/de/portfolio" : "/portfolio"}
+              href={lang === 'de' ? "/portfolio" : "/en/portfolio"}
               title="Eventfotografie Portfolio ansehen"
               className="text-white text-sm tracking-widest uppercase font-semibold transition-all hover:text-white/70 underline-offset-8 decoration-1 underline text-center w-full sm:w-auto"
             >
@@ -142,7 +142,7 @@ export default function HomePage({ lang }: { lang: Language }) {
               <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[var(--color-text-main)]">{t.portfolioPreview.title}</h2>
               <p className="text-[var(--color-text-muted)] text-[17px] font-normal">{t.portfolioPreview.desc}</p>
             </div>
-            <Link href={lang === 'de' ? "/de/portfolio" : "/portfolio"} title="Gesamtes Eventfotografie-Portfolio" className="text-[var(--color-text-main)] text-[15px] font-semibold transition-colors hover:text-[var(--color-text-muted)] flex items-center gap-2 group underline-offset-4 decoration-1 underline shrink-0 mb-1">
+            <Link href={lang === 'de' ? "/portfolio" : "/en/portfolio"} title="Gesamtes Eventfotografie-Portfolio" className="text-[var(--color-text-main)] text-[15px] font-semibold transition-colors hover:text-[var(--color-text-muted)] flex items-center gap-2 group underline-offset-4 decoration-1 underline shrink-0 mb-1">
               {t.portfolioPreview.viewAll}
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </Link>
@@ -263,7 +263,7 @@ export default function HomePage({ lang }: { lang: Language }) {
             </div>
           </div>
           <div className="pt-4">
-            <Link href={lang === 'de' ? "/de/kontakt" : "/kontakt"} title="Eventfotograf Hamburg Angebot anfragen" className="text-[var(--color-text-main)] text-[15px] font-semibold transition-colors hover:text-[var(--color-text-muted)] flex items-center gap-2 group underline-offset-4 decoration-1 underline w-fit">
+            <Link href={lang === 'de' ? "/kontakt" : "/en/contact"} title="Eventfotograf Hamburg Angebot anfragen" className="text-[var(--color-text-main)] text-[15px] font-semibold transition-colors hover:text-[var(--color-text-muted)] flex items-center gap-2 group underline-offset-4 decoration-1 underline w-fit">
               {t.packages.cta}
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </Link>
@@ -347,7 +347,7 @@ export default function HomePage({ lang }: { lang: Language }) {
       <section className="py-24 md:py-32 bg-[#DDE7F0] text-[var(--color-text-main)] flex justify-center text-center">
         <div className="max-w-[800px] w-full px-6 flex flex-col gap-10 items-center">
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1]" dangerouslySetInnerHTML={{ __html: t.finalCta.title }}></h2>
-          <Link href={lang === 'de' ? "/de/kontakt" : "/kontakt"} title="Kontakt & Angebot Anfrage Eventfotografie Hamburg" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
+          <Link href={lang === 'de' ? "/kontakt" : "/en/contact"} title="Kontakt & Angebot Anfrage Eventfotografie Hamburg" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
             {t.finalCta.btn}
           </Link>
         </div>

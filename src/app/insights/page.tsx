@@ -4,15 +4,21 @@ import { insightsPosts } from "@/data/insights";
 import { buildInsightsIndexJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Event Photography Insights",
+  title: "Eventfotografie Insights",
   description:
-    "Guides on event photography briefings, trade show coverage at Hamburg Messe, and same-day photo delivery — for marketing and event managers.",
+    "Ratgeber zu Eventfotografie-Briefings, Messebegleitung auf der Hamburg Messe und Same-Day-Foto-Lieferung — für Marketing- und Eventmanager.",
   alternates: {
     canonical: "/insights",
+    languages: {
+      en: "/en/insights",
+      de: "/insights",
+      "x-default": "/insights",
+    },
   },
   openGraph: {
-    title: "Event Photography Insights | Liza Holiarchuk",
+    title: "Eventfotografie Insights | Liza Holiarchuk",
     url: "/insights",
+    alternateLocale: ["en_US"],
   },
 };
 
@@ -56,7 +62,7 @@ export default function InsightsPage() {
       <section className="pt-32 md:pt-44 pb-16 md:pb-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-6">
           <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)] font-light">
-            <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Home</Link>
+            <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Startseite</Link>
             <span className="mx-2" aria-hidden="true">›</span>
             <span className="text-[var(--color-text-main)]">Insights</span>
           </nav>
@@ -64,7 +70,7 @@ export default function InsightsPage() {
             Insights
           </h1>
           <p className="text-xl text-[var(--color-text-muted)] max-w-[55ch] font-normal leading-relaxed">
-            Practical guides on conference photography, trade show coverage, and event documentation — for marketing and communications teams.
+            Praktische Ratgeber zu Konferenzfotografie, Messebegleitung und Eventdokumentation — für Marketing- und Kommunikationsteams.
           </p>
         </div>
       </section>
@@ -113,13 +119,13 @@ export default function InsightsPage() {
       {/* Internal links to services */}
       <section className="py-16 md:py-20 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-8">
-          <h2 className="text-2xl font-semibold text-[var(--color-text-main)]">Explore My Services</h2>
+          <h2 className="text-2xl font-semibold text-[var(--color-text-main)]">Meine Leistungen</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { href: "/conference-photographer-hamburg", label: "Conference Photography" },
-              { href: "/trade-show-photographer-hamburg", label: "Trade Show Photography" },
-              { href: "/corporate-event-photographer-hamburg", label: "Corporate Events" },
-              { href: "/event-photographer-hamburg", label: "All Services" },
+              { href: "/konferenzfotografie-hamburg", label: "Konferenzfotografie" },
+              { href: "/messefotograf-hamburg", label: "Messefotografie" },
+              { href: "/eventfotograf-hamburg", label: "Corporate Events" },
+              { href: "/eventfotograf-hamburg", label: "Alle Leistungen" },
             ].map((s) => (
               <Link
                 key={s.href}
@@ -136,10 +142,10 @@ export default function InsightsPage() {
       {/* CTA */}
       <section className="py-24 md:py-32 bg-[#DDE7F0] text-[var(--color-text-main)] flex justify-center text-center">
         <div className="max-w-[600px] w-full px-6 flex flex-col gap-8 items-center">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">Have an Event Coming Up?</h2>
-          <p className="text-xl opacity-80 font-light">Send your inquiry — I'll reply within 24 hours.</p>
-          <Link href="/contact" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
-            Contact Me
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">Planen Sie ein Event?</h2>
+          <p className="text-xl opacity-80 font-light">Senden Sie Ihre Anfrage — ich melde mich innerhalb von 24 Stunden.</p>
+          <Link href="/kontakt" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
+            Kontakt aufnehmen
           </Link>
         </div>
       </section>

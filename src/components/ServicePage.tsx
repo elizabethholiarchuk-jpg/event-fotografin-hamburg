@@ -69,7 +69,7 @@ export default function ServicePage({
       <section className={`${heroImage ? 'pt-12 md:pt-16' : 'pt-32 md:pt-44'} pb-16 md:pb-24 bg-transparent border-b border-[var(--color-border-hairline)]`}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-6">
           <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)] font-light">
-            <Link href={lang === 'de' ? "/de" : "/"} className="hover:text-[var(--color-accent)] transition-colors">{lang === 'de' ? "Startseite" : "Home"}</Link>
+            <Link href={lang === 'de' ? "/" : "/en"} className="hover:text-[var(--color-accent)] transition-colors">{lang === 'de' ? 'Start' : 'Home'}</Link>
             <span className="mx-2" aria-hidden="true">›</span>
             <span className="text-[var(--color-text-main)]">{hero.h1}</span>
           </nav>
@@ -80,10 +80,10 @@ export default function ServicePage({
             {hero.subtitle}
           </p>
           <div className="flex flex-wrap gap-4 mt-4">
-            <Link href={lang === 'de' ? "/de/kontakt" : "/contact"} className="bg-[var(--color-accent)] text-white px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)]">
+            <Link href={lang === 'de' ? "/kontakt" : "/en/contact"} className="bg-[var(--color-accent)] text-white px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)]">
               {lang === 'de' ? "Verfügbarkeit prüfen" : "Check Availability"}
             </Link>
-            <Link href={lang === 'de' ? "/de/portfolio" : "/portfolio"} className="border border-[var(--color-border-hairline)] text-[var(--color-text-main)] px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:border-[var(--color-text-main)]">
+            <Link href={lang === 'de' ? "/portfolio" : "/en/portfolio"} className="border border-[var(--color-border-hairline)] text-[var(--color-text-main)] px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:border-[var(--color-text-main)]">
               {lang === 'de' ? "Portfolio ansehen" : "View Portfolio"}
             </Link>
           </div>
@@ -151,7 +151,7 @@ export default function ServicePage({
               {related.map((event) => (
                 <Link
                   key={event.slug}
-                  href={lang === 'de' ? `/de/portfolio/${event.slug}` : `/portfolio/${event.slug}`}
+                  href={lang === 'de' ? `/portfolio/${event.slug}` : `/portfolio/${event.slug}`}
                   className="group flex flex-col gap-3 border border-[var(--color-border-hairline)] rounded-2xl overflow-hidden hover:border-[var(--color-text-muted)] transition-colors"
                 >
                   <div className="relative aspect-[3/2] bg-[var(--color-border-hairline)] overflow-hidden">
@@ -175,7 +175,7 @@ export default function ServicePage({
                 </Link>
               ))}
             </div>
-            <Link href={lang === 'de' ? "/de/portfolio" : "/portfolio"} className="text-[15px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 w-fit">
+            <Link href={lang === 'de' ? "/portfolio" : "/en/portfolio"} className="text-[15px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 w-fit">
               {lang === 'de' ? "Zum vollständigen Portfolio →" : "View full portfolio →"}
             </Link>
           </div>
@@ -211,7 +211,7 @@ export default function ServicePage({
         <div className="max-w-[700px] w-full px-6 flex flex-col gap-8 items-center">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">{lang === 'de' ? "Bereit für eine Anfrage?" : "Ready to Book?"}</h2>
           <p className="text-xl opacity-80 font-light">{lang === 'de' ? "Senden Sie Ihre Anfrage – ich melde mich zeitnah bezüglich Verfügbarkeit und den nächsten Schritten." : "Send your inquiry — I'll confirm availability and next steps."}</p>
-          <Link href={lang === 'de' ? "/de/kontakt" : "/contact"} className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
+          <Link href={lang === 'de' ? "/kontakt" : "/en/contact"} className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
             {lang === 'de' ? "Angebot anfordern" : "Contact Me"}
           </Link>
         </div>

@@ -20,12 +20,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const baseMetadata: Metadata = {
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `/insights/${slug}` },
+    alternates: { canonical: `/insights/${slug}`,
+      languages: {
+        en: `/en/insights/${slug}`,
+        de: `/insights/${slug}`,
+        "x-default": `/insights/${slug}`,
+      }
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       url: `/insights/${slug}`,
       ...(post.coverImage && { images: [{ url: post.coverImage, width: 1200, height: 630, alt: post.title }] }),
+    alternateLocale: ["en_US"],
     },
   };
 
@@ -49,7 +56,7 @@ export default async function InsightsPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            buildArticleBreadcrumbJsonLd('en', post.title, slug),
+            buildArticleBreadcrumbJsonLd('de', post.title, slug),
           ),
         }}
       />
@@ -58,7 +65,7 @@ export default async function InsightsPostPage({ params }: Props) {
       <section className="pt-32 md:pt-44 pb-16 md:pb-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-6">
           <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)] font-light">
-            <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Home</Link>
+            <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Startseite</Link>
             <span className="mx-2" aria-hidden="true">›</span>
             <Link href="/insights" className="hover:text-[var(--color-accent)] transition-colors">Insights</Link>
             <span className="mx-2" aria-hidden="true">›</span>
@@ -71,7 +78,7 @@ export default async function InsightsPostPage({ params }: Props) {
             {post.excerpt}
           </p>
           <div className="flex items-center gap-4 text-[14px] text-[var(--color-text-muted)]">
-            <span>By <Link href="/about" className="text-[var(--color-text-main)] font-medium hover:underline underline-offset-2">Liza Holiarchuk</Link></span>
+            <span>Von <Link href="/about" className="text-[var(--color-text-main)] font-medium hover:underline underline-offset-2">Liza Holiarchuk</Link></span>
             <span className="w-1 h-1 rounded-full bg-[var(--color-text-muted)] opacity-50" />
             <span>{post.date}</span>
           </div>
@@ -94,16 +101,16 @@ export default async function InsightsPostPage({ params }: Props) {
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-8">
           <p className="text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
-            <strong className="text-[var(--color-text-main)]">Coming soon.</strong> Full article content is being prepared. In the meantime, explore related case studies and service pages below.
+            <strong className="text-[var(--color-text-main)]">Demnächst verfügbar.</strong> Der vollständige Artikel wird derzeit vorbereitet. In der Zwischenzeit können Sie sich verwandte Beiträge und Leistungen ansehen.
           </p>
 
           {/* Internal links */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { href: "/conference-photographer-hamburg", label: "Conference Photography Hamburg" },
-              { href: "/trade-show-photographer-hamburg", label: "Trade Show Photography Hamburg" },
-              { href: "/portfolio", label: "View Portfolio" },
-              { href: "/contact", label: "Request a Quote" },
+              { href: "/konferenzfotografie-hamburg", label: "Konferenzfotografie Hamburg" },
+              { href: "/messefotograf-hamburg", label: "Messefotografie Hamburg" },
+              { href: "/portfolio", label: "Portfolio ansehen" },
+              { href: "/kontakt", label: "Angebot anfordern" },
             ].map((link) => (
               <Link
                 key={link.href}
@@ -121,7 +128,7 @@ export default async function InsightsPostPage({ params }: Props) {
       {relatedPosts.length > 0 && (
         <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
           <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-10">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">More Insights</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">Weitere Insights</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedPosts.map((p) => (
                 <Link
@@ -149,10 +156,10 @@ export default async function InsightsPostPage({ params }: Props) {
       {/* CTA */}
       <section className="py-24 md:py-32 bg-[#DDE7F0] text-[var(--color-text-main)] flex justify-center text-center">
         <div className="max-w-[700px] w-full px-6 flex flex-col gap-8 items-center">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">Have an Event Coming Up?</h2>
-          <p className="text-xl opacity-80 font-light">Send your inquiry — I&apos;ll reply within 24 hours.</p>
-          <Link href="/contact" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
-            Contact Me
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">Planen Sie ein Event?</h2>
+          <p className="text-xl opacity-80 font-light">Senden Sie Ihre Anfrage — ich melde mich innerhalb von 24 Stunden.</p>
+          <Link href="/kontakt" className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl">
+            Kontakt aufnehmen
           </Link>
         </div>
       </section>

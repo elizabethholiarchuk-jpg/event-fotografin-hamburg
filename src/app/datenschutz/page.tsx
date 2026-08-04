@@ -2,18 +2,18 @@ import { Metadata } from "next";
 import DatenschutzPage from "@/components/pages/DatenschutzPage";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Datenschutz",
+  title: "Datenschutzerklärung",
   robots: "noindex, follow",
   alternates: {
     canonical: "/datenschutz",
     languages: {
-      'en': '/datenschutz',
-      'de': '/de/datenschutz',
-      'x-default': '/datenschutz',
-    },
+        en: "/en/datenschutz",
+        de: "/datenschutz",
+        "x-default": "/datenschutz",
+      },
   },
 };
 
-export default function Datenschutz() {
-  return <DatenschutzPage lang="en" />;
+export default function DatenschutzDE() {
+  return <DatenschutzPage lang="de" />;
 }

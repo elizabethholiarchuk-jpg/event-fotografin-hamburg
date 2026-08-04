@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.event-fotografin-hamburg.de"),
   title: {
     template: "%s | Liza Holiarchuk",
-    default: "Event Photographer Hamburg | Liza Holiarchuk",
+    default: "Eventfotografin Hamburg | Liza Holiarchuk",
   },
-  description: "Professional event photographer in Hamburg for conferences, trade shows & corporate events. Europe-wide.",
+  description: "Professionelle Eventfotografin in Hamburg für Konferenzen, Messen & Firmenveranstaltungen. Europaweit.",
   icons: {
     icon: [
       { url: "/images/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -31,7 +31,8 @@ export const metadata: Metadata = {
   manifest: "/images/favicon/site.webmanifest",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "de_DE",
+    alternateLocale: ["en_US"],
     url: "https://www.event-fotografin-hamburg.de",
     siteName: "Liza Holiarchuk Event Photography",
     images: [
@@ -54,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="de" className="scroll-smooth">
       <head>
         {/* Google Analytics (GA4) */}
         <Script

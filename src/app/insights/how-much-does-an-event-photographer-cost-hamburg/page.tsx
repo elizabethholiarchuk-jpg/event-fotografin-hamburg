@@ -10,35 +10,41 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Event Photographer in Germany: What Does It Actually Cost?",
+  title: "Was kostet ein Eventfotograf? (Preise & Übersicht)",
   description:
-    "Event photography in Germany costs €300–€2,500+ depending on scope. Here's what's behind the price — and what to look for before you book.",
+    "Eventfotografie in Deutschland kostet je nach Aufwand 300 € – 2.500 €+. Hier erfahren Sie, wie sich die Preise zusammensetzen – und worauf Sie vor der Buchung achten sollten.",
   alternates: {
     canonical: "/insights/how-much-does-an-event-photographer-cost-hamburg",
+    languages: {
+      en: "/en/insights/how-much-does-an-event-photographer-cost-hamburg",
+      de: "/insights/how-much-does-an-event-photographer-cost-hamburg",
+      "x-default": "/insights/how-much-does-an-event-photographer-cost-hamburg",
+    },
   },
   openGraph: {
-    title: "Event Photographer in Germany: What Does It Actually Cost?",
+    title: "Was kostet ein Eventfotograf? (Preise & Übersicht)",
     description:
-      "Event photography in Germany costs €450–€2,050+ depending on scope. Here's what's behind the price — and what to look for before you book.",
+      "Eventfotografie in Deutschland kostet je nach Aufwand 450 € – 2.050 €+. Hier erfahren Sie, wie sich die Preise zusammensetzen – und worauf Sie vor der Buchung achten sollten.",
     url: "/insights/how-much-does-an-event-photographer-cost-hamburg",
     images: [
       {
         url: "/images/insights/event-photographer-hamburg-conference-speaker-audience.webp",
         width: 1200,
         height: 630,
-        alt: "Event photographer Hamburg — conference speaker presenting to a seated business audience",
+        alt: "Eventfotograf Hamburg — Konferenzsprecher präsentiert vor geschäftlichem Publikum",
+    alternateLocale: ["en_US"],
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Event Photographer in Germany: What Does It Actually Cost?",
+    title: "Was kostet ein Eventfotograf? (Preise & Übersicht)",
     description:
-      "Event photography in Germany costs €450–€2,050+ depending on scope. Here's what's behind the price — and what to look for before you book.",
+      "Eventfotografie in Deutschland kostet je nach Aufwand 450 € – 2.050 €+. Hier erfahren Sie, wie sich die Preise zusammensetzen – und worauf Sie vor der Buchung achten sollten.",
     images: [
       {
         url: "/images/insights/event-photographer-hamburg-conference-speaker-audience.webp",
-        alt: "Event photographer Hamburg — conference speaker presenting to a seated business audience",
+        alt: "Eventfotograf Hamburg — Konferenzsprecher präsentiert vor geschäftlichem Publikum",
       },
     ],
   },
@@ -49,40 +55,38 @@ const post = insightsPosts.find((p) => p.slug === SLUG)!;
 
 const FAQ_ITEMS = [
   {
-    q: "How much does an event photographer in Germany cost?",
-    a: "For corporate events in Germany, realistic market rates are: 2 hours from €450, 4 hours €900 – €1,400, and a full day (8 hours) €1400 – €2500, all net. Prices at the higher end reflect professional equipment, post-production, usage rights, and same-day delivery options.",
+    q: "Wie viel kostet ein Eventfotograf in Deutschland?",
+    a: "Für Corporate Events in Deutschland liegen die realistischen Marktpreise bei: 2 Stunden ab 450 €, 4 Stunden 900 € – 1.400 € und ein ganzer Tag (8 Stunden) 1.400 € – 2.500 €, jeweils netto. Preise im oberen Segment spiegeln professionelle Ausrüstung, Postproduktion, Nutzungsrechte und Optionen für eine Lieferung am selben Tag wider.",
   },
   {
-    q: "Why do event photographer prices vary so much?",
-    a: "Part of it is operational: the rate covers pre-event coordination, post-production, equipment, insurance, software, and limited billable days per year. But a large part comes down to mindset. Many photographers have never calculated what it costs to do this full time. When you run the real numbers — equipment depreciation, unpaid admin, taxes, no sick pay — €50 per hour is below minimum wage for a self-employed person. That price exists because some photographers treat photography as supplemental income, not a business. It distorts client expectations and makes it harder for full-time professionals to charge what the work actually costs.",
+    q: "Warum variieren die Preise für Eventfotografen so stark?",
+    a: "Ein Teil davon ist betriebsbedingt: Der Preis deckt Vorbesprechung, Postproduktion, Ausrüstung, Versicherung, Software und eine begrenzte Anzahl abrechenbarer Tage pro Jahr ab. Aber ein großer Teil hängt auch vom Mindset ab. Viele Fotografen haben nie berechnet, was es kostet, diesen Beruf in Vollzeit auszuüben. Wenn man die tatsächlichen Zahlen betrachtet – Wertminderung der Ausrüstung, unbezahlte Verwaltungsarbeit, Steuern, kein Krankengeld – liegen 50 € pro Stunde unter dem Mindestlohn für einen Selbständigen. Dieser Preis existiert, weil manche Fotografen die Fotografie als Zusatzeinkommen betrachten, nicht als Unternehmen. Das verzerrt die Kundenerwartungen und macht es für Vollzeit-Profis schwerer, das zu berechnen, was die Arbeit tatsächlich kostet.",
   },
   {
-    q: "Is €1,000 for 4 hours of event photography a fair price?",
-    a: "Yes — within the normal professional range for major German cities. When you factor in preparation, post-production, equipment, and overhead, a 4-hour booking is effectively a full working day for the photographer.",
+    q: "Sind 1.000 € für 4 Stunden Eventfotografie ein fairer Preis?",
+    a: "Ja – das liegt im normalen professionellen Rahmen für deutsche Großstädte. Wenn man Vorbereitung, Postproduktion, Ausrüstung und Gemeinkosten mit einbezieht, ist eine 4-Stunden-Buchung für den Fotografen faktisch ein ganzer Arbeitstag.",
   },
   {
-    q: "Should I pay a deposit for event photography?",
-    a: "Yes — any professional photographer will ask for one, and you should expect it. A deposit secures your date exclusively and protects both sides. A photographer who doesn't ask for a deposit has no formal commitment from you, and you have no formal commitment from them. Clear payment terms, a deposit structure, and cancellation conditions should appear in any professional quote.",
+    q: "Sollte ich eine Anzahlung für Eventfotografie leisten?",
+    a: "Ja – jeder professionelle Fotograf wird eine verlangen, und Sie sollten dies auch erwarten. Eine Anzahlung sichert Ihnen exklusiv das Datum und schützt beide Seiten. Ein Fotograf, der keine Anzahlung verlangt, hat keine formelle Verpflichtung Ihnen gegenüber, und Sie haben keine formelle Verpflichtung ihm gegenüber. Klare Zahlungsbedingungen, eine Anzahlungsstruktur und Stornierungsbedingungen sollten in jedem professionellen Angebot enthalten sein.",
   },
   {
-    q: "What do you need from me before the event?",
-    a: "Two things: the event agenda and the names of key people — speakers, executives, anyone who should not be missed. Researching those names before arriving means no time is wasted on the day. If you need same-day content for Instagram or LinkedIn, mention that in advance — it changes how moments are prioritized and how quickly highlights are delivered.",
+    q: "Was benötigen Sie von mir vor dem Event?",
+    a: "Zwei Dinge: den Ablaufplan des Events und die Namen der wichtigsten Personen – Redner, Führungskräfte, alle, die nicht verpasst werden dürfen. Wenn diese Namen vorab recherchiert werden, wird am Tag selbst keine Zeit verschwendet. Wenn Sie am selben Tag Inhalte für Instagram oder LinkedIn benötigen, erwähnen Sie das im Vorfeld – das ändert die Priorisierung der Momente und wie schnell Highlights geliefert werden.",
   },
   {
-    q: "How many photos will I receive from my event?",
-    a: "Volume is the wrong metric. A photographer can deliver 200 images you'll never use, or 30 you'll use everywhere — website, press, LinkedIn, next year's event invitation. What matters is curation and variety, not quantity.",
+    q: "Wie viele Fotos erhalte ich von meinem Event?",
+    a: "Menge ist die falsche Kennzahl. Ein Fotograf kann 200 Bilder liefern, die Sie nie nutzen werden, oder 30, die Sie überall verwenden – Website, Presse, LinkedIn, Einladung zum nächsten Event. Was zählt, ist Kuration und Vielfalt, nicht Quantität.",
   },
   {
-    q: "How quickly can I receive the photos?",
-    a: "A full edited gallery within 24 hours is standard. Same-day highlights — 5 to 10 images for live social media or press — can be arranged in advance and delivered during or immediately after the event.",
+    q: "Wie schnell kann ich die Fotos erhalten?",
+    a: "Eine vollständig bearbeitete Galerie innerhalb von 24 Stunden ist der Standard. Highlights am selben Tag – 5 bis 10 Bilder für Live-Social-Media oder die Presse – können vorab vereinbart und während oder unmittelbar nach dem Event geliefert werden.",
   },
   {
-    q: "Do I own the photos after booking?",
-    a: "In Germany, copyright stays with the photographer by law. What you receive are usage rights — typically covering internal use, press, social media, and website. Commercial use beyond that scope is quoted separately.",
+    q: "Gehören die Fotos nach der Buchung mir?",
+    a: "In Deutschland bleibt das Urheberrecht gesetzlich beim Fotografen. Was Sie erhalten, sind Nutzungsrechte – typischerweise für den internen Gebrauch, Presse, Social Media und die Website. Kommerzielle Nutzung darüber hinaus wird separat angeboten.",
   },
 ];
-
-
 
 export default function EventPhotographerCostPage() {
   const relatedSlugs = [
@@ -100,7 +104,7 @@ export default function EventPhotographerCostPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            buildArticleBreadcrumbJsonLd('en', post.title, SLUG),
+            buildArticleBreadcrumbJsonLd('de', "Was kostet ein Eventfotograf?", SLUG),
           ),
         }}
       />
@@ -110,8 +114,8 @@ export default function EventPhotographerCostPage() {
           __html: JSON.stringify(
             buildBlogPostingJsonLd({
               slug: SLUG,
-              headline: post.title,
-              description: post.excerpt,
+              headline: "Was kostet ein Eventfotograf?",
+              description: "Eventfotografie in Deutschland kostet je nach Aufwand 300 € – 2.500 €+. Hier erfahren Sie, wie sich die Preise zusammensetzen.",
               datePublished: post.datePublished,
               dateModified: post.dateModified,
               image: post.coverImage,
@@ -130,26 +134,25 @@ export default function EventPhotographerCostPage() {
       <section className="pt-32 md:pt-44 pb-16 md:pb-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-6">
           <nav aria-label="Breadcrumb" className="text-[13px] text-[var(--color-text-muted)] font-light">
-            <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Home</Link>
+            <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Startseite</Link>
             <span className="mx-2" aria-hidden="true">›</span>
             <Link href="/insights" className="hover:text-[var(--color-accent)] transition-colors">Insights</Link>
             <span className="mx-2" aria-hidden="true">›</span>
             <span className="text-[var(--color-text-main)]">Pricing &amp; Booking</span>
           </nav>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[var(--color-text-main)] leading-[1.08] max-w-4xl">
-            Event Photographer in Germany: What Does It Actually Cost?
+            Eventfotograf in Deutschland: Was kostet das eigentlich?
           </h1>
           <p className="text-lg md:text-xl text-[var(--color-text-muted)] max-w-[60ch] font-normal leading-relaxed">
-            Event photography in Germany costs €300–€2,500+ depending on scope.
-            Here&apos;s what&apos;s behind the price — and what to look for
-            before you book.
+            Eventfotografie in Deutschland kostet je nach Aufwand 300 € – 2.500 €+.
+            Hier erfahren Sie, wie sich die Preise zusammensetzen – und worauf Sie vor der Buchung achten sollten.
           </p>
           <div className="flex items-center gap-4 text-[14px] text-[var(--color-text-muted)]">
-            <span>By <Link href="/about" className="text-[var(--color-text-main)] font-medium hover:underline underline-offset-2">Liza Holiarchuk</Link></span>
+            <span>Von <Link href="/ueber-mich" className="text-[var(--color-text-main)] font-medium hover:underline underline-offset-2">Liza Holiarchuk</Link></span>
             <span className="w-1 h-1 rounded-full bg-[var(--color-text-muted)] opacity-50" />
-            <span>June 2026</span>
+            <span>Juni 2026</span>
             <span className="w-1 h-1 rounded-full bg-[var(--color-text-muted)] opacity-50" />
-            <span>8 min read</span>
+            <span>8 Min. Lesezeit</span>
           </div>
         </div>
       </section>
@@ -160,7 +163,7 @@ export default function EventPhotographerCostPage() {
           <div className="relative aspect-[16/7] rounded-[20px] overflow-hidden bg-[var(--color-border-hairline)] border border-gray-100 shadow-sm">
             <Image
               src="/images/insights/event-photographer-hamburg-conference-speaker-audience.webp"
-              alt="Event photographer Hamburg — conference speaker presenting to a seated business audience"
+              alt="Eventfotograf Hamburg — Konferenzsprecher präsentiert vor geschäftlichem Publikum"
               fill
               className="object-cover"
               sizes="(max-width: 1248px) 100vw, 1200px"
@@ -170,19 +173,14 @@ export default function EventPhotographerCostPage() {
         </div>
       </section>
 
-
-
       {/* Article body — The short answer */}
       <section className="pb-16 md:pb-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-8">
           <p className="text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
-            Search for an event photographer and you&apos;ll find quotes ranging
-            from €50 to €500 per hour. Seemingly the same service. So what
-            explains the gap? And what&apos;s actually behind a price that might
-            look high at first glance?
+            Wenn Sie nach einem Eventfotografen suchen, finden Sie Angebote, die von 50 € bis 500 € pro Stunde reichen. 
+            Scheinbar für die gleiche Dienstleistung. Was erklärt diese Differenz? Und was steckt tatsächlich hinter 
+            einem Preis, der auf den ersten Blick vielleicht hoch erscheint?
           </p>
-
-
         </div>
       </section>
 
@@ -190,40 +188,39 @@ export default function EventPhotographerCostPage() {
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-8">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
-            Why prices vary so much — and what nobody says out loud
+            Warum die Preise so stark variieren — und was niemand laut ausspricht
           </h2>
           <div className="flex flex-col gap-6 text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
             <p>
-              The easy answer is that the rate covers more than time on-site:
-              pre-event coordination, post-production, equipment, insurance,
-              software, a limited number of actually billable days per year. A lower
-              price often means one or more of those is simply not there.
+              Die einfache Antwort ist, dass der Preis mehr abdeckt als nur die Zeit vor Ort: 
+              Vorabkoordination, Postproduktion, Ausrüstung, Versicherung, Software und eine 
+              begrenzte Anzahl tatsächlich abrechenbarer Tage pro Jahr. Ein niedrigerer Preis 
+              bedeutet oft, dass einer oder mehrere dieser Punkte schlichtweg fehlen.
             </p>
-            <p>But that&apos;s only part of the story.</p>
+            <p>Aber das ist nur ein Teil der Geschichte.</p>
             <p>
-              A large share of the price variation in this market has nothing to do
-              with what&apos;s included. It comes down to mindset. Many
-              photographers have never actually calculated what it costs to do this
-              work full time. They started from passion, kept prices low out of
-              habit or insecurity, and never ran the real numbers. When you do —
-              equipment depreciation, unpaid admin hours, taxes, no sick pay, no
-              paid holidays — €50 per hour lands below minimum wage for a
-              self-employed person with no benefits. Not a bargain. A signal that
-              someone hasn&apos;t done the math.
-            </p>
-            <p>
-              If every photographer working in this field sat down and calculated
-              their true costs honestly, that rate would disappear from the
-              professional market. It persists because some people treat photography
-              as supplemental income, not a business. That is a valid personal
-              choice. But it distorts price expectations for clients and makes it
-              harder for full-time professionals to charge what the work actually
-              costs.
+              Ein großer Teil der Preisunterschiede in diesem Markt hat nichts damit zu tun, 
+              was inkludiert ist. Es ist eine Frage des Mindsets. Viele Fotografen haben nie 
+              wirklich ausgerechnet, was es kostet, diese Arbeit in Vollzeit zu machen. Sie 
+              haben aus Leidenschaft angefangen, die Preise aus Gewohnheit oder Unsicherheit 
+              niedrig gehalten und nie die wahren Zahlen durchkalkuliert. Wenn man das tut — 
+              Wertminderung der Ausrüstung, unbezahlte Verwaltungsstunden, Steuern, kein Krankengeld, 
+              kein bezahlter Urlaub — dann landen 50 € pro Stunde unter dem Mindestlohn für eine 
+              selbstständige Person ohne Sozialleistungen. Kein Schnäppchen. Ein Signal, dass 
+              jemand die Mathematik dahinter nicht gemacht hat.
             </p>
             <p>
-              The result is a market where a €50 quote and a €200 quote look like a
-              quality spectrum — when they actually represent completely different
-              operational realities.
+              Würde sich jeder Fotograf, der in diesem Bereich arbeitet, hinsetzen und seine wahren 
+              Kosten ehrlich berechnen, würde dieser Preis vom professionellen Markt verschwinden. 
+              Er bleibt bestehen, weil manche Leute die Fotografie als Zusatzeinkommen und nicht 
+              als Unternehmen betrachten. Das ist eine valide persönliche Entscheidung. Aber sie verzerrt 
+              die Preiserwartungen für Kunden und macht es für Vollzeit-Profis schwieriger, das zu 
+              berechnen, was die Arbeit tatsächlich kostet.
+            </p>
+            <p>
+              Das Ergebnis ist ein Markt, in dem ein 50-€-Angebot und ein 200-€-Angebot wie ein 
+              Qualitätsspektrum aussehen — während sie eigentlich völlig unterschiedliche 
+              geschäftliche Realitäten darstellen.
             </p>
           </div>
         </div>
@@ -233,51 +230,49 @@ export default function EventPhotographerCostPage() {
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-8">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
-            What the hourly rate doesn&apos;t tell you
+            Was der Stundensatz Ihnen nicht verrät
           </h2>
           <div className="flex flex-col gap-6 text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
             <p>
-              When a photographer charges €1,000 for a 4-hour event, you&apos;re not
-              paying for 4 hours of work. You&apos;re paying for roughly double —
-              and that&apos;s only the visible part.
+              Wenn ein Fotograf 1.000 € für ein 4-stündiges Event berechnet, zahlen Sie nicht 
+              für 4 Stunden Arbeit. Sie zahlen für etwa das Doppelte — und das ist nur der 
+              sichtbare Teil.
             </p>
             <p>
-              Before the event, there&apos;s coordination, briefing, location
-              research, checking and charging equipment, packing a full kit. A
-              professional photographer doesn&apos;t just show up and start
-              shooting.
+              Vor dem Event gibt es Koordination, Briefing, Location-Recherche, das Überprüfen 
+              und Laden der Ausrüstung, das Packen des gesamten Equipments. Ein professioneller 
+              Fotograf taucht nicht einfach auf und fängt an zu fotografieren.
             </p>
             <p>
-              The event itself is 4 hours. The smallest part of the total work.
+              Das Event selbst dauert 4 Stunden. Der kleinste Teil der Gesamtarbeit.
             </p>
             <p>
-              After the event is where most clients underestimate what&apos;s
-              involved — and where cutting corners shows. My editing process runs in
-              two stages deliberately. The day of the event I do a first pass:
-              selecting frames with potential, marking what caught my eye. The
-              actual editing happens the next day. Not because I&apos;m slow, but
-              because a tired eye misses things. After hours of shooting under
-              pressure, judgment blurs. A fresh perspective the next morning is the
-              difference between a delivery you&apos;re proud of and one
-              that&apos;s merely acceptable.
+              Nach dem Event unterschätzen die meisten Kunden, was alles ansteht — und hier zeigt 
+              es sich, wenn an den falschen Enden gespart wurde. Mein Bearbeitungsprozess läuft 
+              bewusst in zwei Phasen ab. Am Tag des Events mache ich einen ersten Durchgang: 
+              Bilder mit Potenzial auswählen, markieren, was mir ins Auge gefallen ist. 
+              Die eigentliche Bearbeitung findet am nächsten Tag statt. Nicht weil ich langsam 
+              bin, sondern weil ein müdes Auge Dinge übersieht. Nach stundenlangem Fotografieren 
+              unter Druck verschwimmt die Urteilskraft. Eine frische Perspektive am nächsten 
+              Morgen macht den Unterschied zwischen einer Lieferung, auf die man stolz ist, und 
+              einer, die nur "ganz okay" ist.
             </p>
           </div>
 
           <div className="bg-[#F5F8FB] border border-[var(--color-border-hairline)] rounded-[20px] px-8 py-7">
             <p className="text-xl md:text-2xl font-normal text-[var(--color-text-main)] leading-relaxed italic">
-              &ldquo;We don&apos;t need a lot of pictures. We need the best
-              highlights.&rdquo;
+              „Wir brauchen nicht viele Bilder. Wir brauchen die besten Highlights.“
             </p>
           </div>
 
           <div className="flex flex-col gap-6 text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
             <p>
-              Not about technical quality. About curation and variety. Ten images
-              you actually use are worth more than a hundred you scroll past.
+              Nicht nur über technische Qualität. Über Kuration und Vielfalt. Zehn Bilder, die Sie 
+              tatsächlich nutzen, sind mehr wert als hundert, über die Sie hinwegscrollen.
             </p>
             <p>
-              In practice, a &quot;4-hour job&quot; is a full 8 to 10-hour workday.
-              The hourly rate, spread across total time, halves immediately.
+              In der Praxis ist ein "4-Stunden-Job" ein voller 8- bis 10-Stunden-Arbeitstag. 
+              Der Stundensatz, auf die Gesamtzeit verteilt, halbiert sich sofort.
             </p>
           </div>
         </div>
@@ -287,12 +282,13 @@ export default function EventPhotographerCostPage() {
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-8">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
-            The costs clients don&apos;t see
+            Die Kosten, die Kunden nicht sehen
           </h2>
           <div className="flex flex-col gap-6 text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
             <p>
-              Think of a professional photographer as a small business, not a person
-              with a camera. The equipment alone tells the story. A body like the{" "}
+              Denken Sie an einen professionellen Fotografen als ein kleines Unternehmen, nicht 
+              als eine Person mit einer Kamera. Die Ausrüstung allein erzählt die Geschichte. 
+              Ein Kameragehäuse wie die{" "}
               <a
                 href="https://www.canon.de/cameras/eos-r5/"
                 target="_blank"
@@ -301,16 +297,16 @@ export default function EventPhotographerCostPage() {
               >
                 Canon EOS R5
               </a>{" "}
-              costs over €3,500. A single professional lens — the kind that performs
-              reliably in the low light of a conference room or the mixed lighting
-              of a trade fair floor — runs €1,500 to €2,500. Add a backup body,
-              lighting equipment, flashes, stands, and cases, and a complete working
-              kit reaches €10,000 to €15,000 without stretching the budget. None of
-              that is optional. Cameras fail. Cards corrupt. A photographer without
-              backup equipment at a corporate event is a liability.
+              kostet über 3.500 €. Ein einzelnes professionelles Objektiv — die Art, die im 
+              schwachen Licht eines Konferenzraums oder bei der gemischten Beleuchtung einer 
+              Messehalle zuverlässig funktioniert — liegt bei 1.500 € bis 2.500 €. Fügen Sie ein 
+              Backup-Gehäuse, Beleuchtungsausrüstung, Blitze, Stative und Koffer hinzu, und ein 
+              komplettes Arbeitsset erreicht 10.000 € bis 15.000 €, ohne das Budget zu sprengen. 
+              Nichts davon ist optional. Kameras fallen aus. Speicherkarten gehen kaputt. 
+              Ein Fotograf ohne Backup-Ausrüstung bei einem Corporate Event ist ein Risiko.
             </p>
             <p>
-              Then there&apos;s the software layer.{" "}
+              Dann ist da noch die Software.{" "}
               <a
                 href="https://www.adobe.com/creativecloud.html"
                 target="_blank"
@@ -319,22 +315,20 @@ export default function EventPhotographerCostPage() {
               >
                 Adobe Creative Cloud
               </a>{" "}
-              — the industry standard for editing — runs around €60 per month for
-              photographers. Add gallery delivery platforms, accounting tools, a
-              CRM, and the total easily reaches €150 to €200 per month: roughly
-              €2,000 per year in fixed overhead before a single client is invoiced.
-              Professional liability and equipment insurance adds another €500 to
-              €1,200 annually, a requirement rather than a luxury when you&apos;re
-              working at corporate events with expensive setups and public liability
-              concerns.
+              — der Branchenstandard für die Bearbeitung — kostet für Fotografen etwa 60 € im 
+              Monat. Mit Plattformen für die Galeriebereitstellung, Buchhaltungstools und einem 
+              CRM erreicht die Gesamtsumme leicht 150 € bis 200 € pro Monat: rund 2.000 € pro Jahr 
+              an Fixkosten, bevor einem einzigen Kunden eine Rechnung gestellt wird. 
+              Berufshaftpflicht- und Ausrüstungsversicherungen fügen jährlich weitere 500 € 
+              bis 1.200 € hinzu, was bei Firmenveranstaltungen mit teuren Setups und Fragen 
+              der öffentlichen Haftung eher eine Voraussetzung als ein Luxus ist.
             </p>
             <p>
-              The number that surprises most people: a freelance photographer
-              doesn&apos;t have 220 fully billable days a year. After client
-              acquisition, post-production, administration, and professional
-              development, the realistic estimate is 60 to 100 actual shooting
-              days. Every day rate has to carry an entire year of fixed costs,
-              taxes, and time that doesn&apos;t appear on any invoice.
+              Die Zahl, die die meisten Menschen überrascht: Ein freiberuflicher Fotograf hat 
+              keine 220 voll abrechenbaren Tage im Jahr. Nach Kundenakquise, Postproduktion, 
+              Verwaltung und beruflicher Weiterbildung liegt die realistische Schätzung bei 60 
+              bis 100 tatsächlichen Einsatztagen. Jeder Tagessatz muss ein ganzes Jahr an 
+              Fixkosten, Steuern und Zeit tragen, die auf keiner Rechnung auftaucht.
             </p>
           </div>
 
@@ -342,7 +336,7 @@ export default function EventPhotographerCostPage() {
           <div className="relative aspect-[16/9] rounded-[20px] overflow-hidden bg-[var(--color-border-hairline)] border border-gray-100 shadow-sm">
             <Image
               src="/images/insights/event-photographer-hamburg-networking-detail.webp"
-              alt="Event networking in Hamburg — guests with coffee and phones at a corporate event"
+              alt="Event Networking in Hamburg — Gäste mit Kaffee und Handys bei einer Firmenveranstaltung"
               fill
               className="object-cover"
               sizes="(max-width: 948px) 100vw, 900px"
@@ -355,38 +349,38 @@ export default function EventPhotographerCostPage() {
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-8">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
-            When cheap becomes expensive
+            Wenn günstig teuer wird
           </h2>
           <div className="flex flex-col gap-6 text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
             <p>
-              I&apos;ve spoken with marketing managers who booked a photographer at
-              a low rate for a company conference and received a gallery they
-              couldn&apos;t use publicly — motion blur on the keynote speaker, flat
-              light on the networking moments, no usable portrait of the CEO. The
-              event was over. There was no second chance. What they saved on
-              photography they spent rebuilding the situation: stock images for the
-              press release, no content for LinkedIn, and an annual report page that
-              went out without the photos it was designed around.
+              Ich habe mit Marketingmanagern gesprochen, die einen Fotografen zu einem 
+              niedrigen Preis für eine Unternehmenskonferenz gebucht haben und eine Galerie 
+              erhielten, die sie nicht öffentlich nutzen konnten — Bewegungsunschärfe beim 
+              Hauptredner, flaches Licht bei den Networking-Momenten, kein brauchbares 
+              Porträt des CEOs. Das Event war vorbei. Es gab keine zweite Chance. Was sie 
+              bei der Fotografie gespart haben, haben sie dafür ausgegeben, die Situation zu 
+              retten: Stockbilder für die Pressemitteilung, keine Inhalte für LinkedIn und eine 
+              Jahresberichtseite, die ohne die Fotos herausgegeben wurde, um die herum sie 
+              eigentlich entworfen worden war.
             </p>
           </div>
 
           <div className="bg-[#F5F8FB] border border-[var(--color-border-hairline)] rounded-[20px] px-8 py-7">
             <p className="text-xl md:text-2xl font-normal text-[var(--color-text-main)] leading-relaxed italic">
-              This pattern is specific and common enough to have a name in the
-              industry: the invisible cost of a bad hire.
+              Dieses Muster ist in der Branche so spezifisch und häufig, dass es einen Namen 
+              hat: Die unsichtbaren Kosten einer falschen Einstellung.
             </p>
           </div>
 
           <div className="flex flex-col gap-6 text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
             <p>
-              Low rates in event photography typically mean some combination of
-              the following — no professional backup equipment, limited experience
-              with the light and pace conditions of real corporate events, no
-              meaningful post-production, and no contractual clarity if something
-              goes wrong. Any one of these is manageable in isolation. Together
-              they produce a gallery that looks like the event was covered by
-              someone&apos;s colleague with a new camera. Which, often enough, is
-              exactly what happened.
+              Niedrige Raten in der Eventfotografie bedeuten typischerweise eine Kombination aus 
+              Folgendem — keine professionelle Backup-Ausrüstung, begrenzte Erfahrung mit den 
+              Licht- und Tempobedingungen echter Corporate Events, keine nennenswerte 
+              Postproduktion und keine vertragliche Klarheit, falls etwas schiefgeht. Jedes 
+              davon ist isoliert betrachtet handhabbar. Zusammen ergeben sie eine Galerie, die 
+              so aussieht, als wäre das Event von einem Kollegen mit einer neuen Kamera 
+              dokumentiert worden. Was oft genug genau das ist, was passiert ist.
             </p>
           </div>
         </div>
@@ -396,31 +390,30 @@ export default function EventPhotographerCostPage() {
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-8">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
-            What a solid quote actually contains
+            Was ein solides Angebot wirklich enthält
           </h2>
           <p className="text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
-            These are the points I cover in every quote I send — because
-            they&apos;re what clients most often don&apos;t think to ask about
-            upfront, and where mismatched expectations come from.
+            Diese Punkte decke ich in jedem Angebot ab, das ich verschicke — weil sie es sind, 
+            woran Kunden im Voraus am häufigsten nicht denken, und woher abweichende Erwartungen kommen.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                title: "What's included and what isn't",
-                text: "Post-production, number of final images, delivery format, gallery hosting — make sure these are explicit, not assumed. A quote that lists only the hours and a price is incomplete.",
+                title: "Was inkludiert ist und was nicht",
+                text: "Postproduktion, Anzahl der finalen Bilder, Lieferformat, Galerie-Hosting — stellen Sie sicher, dass diese explizit genannt werden. Ein Angebot, das nur Stunden und einen Preis auflistet, ist unvollständig.",
               },
               {
-                title: "Usage rights",
-                text: "In Germany, copyright stays with the photographer by law. What you receive are usage rights. A well-structured quote defines these clearly: internal communications, press, social media, website.",
+                title: "Nutzungsrechte",
+                text: "In Deutschland bleibt das Urheberrecht gesetzlich beim Fotografen. Was Sie erhalten, sind Nutzungsrechte. Ein gut strukturiertes Angebot definiert diese klar: interne Kommunikation, Presse, Social Media, Website.",
               },
               {
-                title: "Delivery timeline",
-                text: "A full edited gallery within 24 hours is standard for professional event work. Same-day highlights — 5 to 10 images for live social media or press — are a distinct service, planned in advance.",
+                title: "Lieferzeitraum",
+                text: "Eine vollständig bearbeitete Galerie innerhalb von 24 Stunden ist der Standard für professionelle Event-Arbeit. Highlights am selben Tag — 5 bis 10 Bilder für Live-Social-Media oder Presse — sind eine separate Dienstleistung, die im Voraus geplant wird.",
               },
               {
-                title: "Backup systems",
-                text: "Ask directly. Professional photographers write to multiple memory cards simultaneously throughout a shoot. A card failure — which happens — loses nothing. Standard practice, not a premium feature.",
+                title: "Backup-Systeme",
+                text: "Fragen Sie direkt nach. Professionelle Fotografen schreiben während eines gesamten Shootings auf mehrere Speicherkarten gleichzeitig. Ein Ausfall einer Karte — was vorkommen kann — bedeutet keinen Verlust. Standardpraxis, kein Premium-Feature.",
               },
             ].map((item) => (
               <div
@@ -440,25 +433,25 @@ export default function EventPhotographerCostPage() {
           {/* Payment terms — full width */}
           <div className="flex flex-col gap-3 p-6 border border-[var(--color-border-hairline)] rounded-[20px]">
             <h3 className="text-lg font-semibold text-[var(--color-text-main)]">
-              Payment and cancellation terms
+              Zahlungs- und Stornierungsbedingungen
             </h3>
             <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-              When I moved to Germany and was starting out in a new market, I
-              didn&apos;t ask for a deposit. I travelled to another city to
-              photograph a corporate event, delivered the work, received a thank
-              you — and never got paid. No contract, no deposit, no recourse. That
-              happened once. It won&apos;t happen again, and it&apos;s why I now
-              treat payment terms as non-negotiable regardless of how
-              straightforward a client seems. A professional photographer holds
-              your date exclusively and turns down other work to be at yours.
-              Serious quotes include a deposit structure, clear payment terms, and
-              cancellation conditions for both sides. If a quote doesn&apos;t
-              mention any of this, ask why.
+              Als ich nach Deutschland zog und in einem neuen Markt anfing, verlangte ich 
+              keine Anzahlung. Ich reiste in eine andere Stadt, um ein Firmenevent zu 
+              fotografieren, lieferte die Arbeit ab, erhielt ein Dankeschön — und wurde 
+              nie bezahlt. Kein Vertrag, keine Anzahlung, keine rechtliche Handhabe. Das 
+              passierte einmal. Es wird nicht wieder passieren, und deshalb betrachte 
+              ich Zahlungsbedingungen nun als nicht verhandelbar, egal wie unkompliziert 
+              ein Kunde erscheinen mag. Ein professioneller Fotograf hält Ihr Datum exklusiv 
+              und lehnt andere Aufträge ab, um bei Ihrem zu sein. Seriöse Angebote 
+              enthalten eine Anzahlungsstruktur, klare Zahlungsbedingungen und 
+              Stornierungsbedingungen für beide Seiten. Wenn ein Angebot nichts davon 
+              erwähnt, fragen Sie nach dem Grund.
             </p>
           </div>
 
           <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-            The{" "}
+            Der{" "}
             <a
               href="https://www.bff.de/"
               target="_blank"
@@ -467,9 +460,8 @@ export default function EventPhotographerCostPage() {
             >
               BFF (Bundesverband Freie Fotografen und Filmgestalter)
             </a>
-            , Germany&apos;s professional photographers&apos; association,
-            publishes standard usage rights frameworks that most professional
-            photographers follow.
+            , Deutschlands Berufsverband für Fotografen, veröffentlicht Standard-Nutzungsrecht-Rahmenwerke, 
+            an denen sich die meisten professionellen Fotografen orientieren.
           </p>
         </div>
       </section>
@@ -479,45 +471,45 @@ export default function EventPhotographerCostPage() {
         <div className="max-w-[1000px] mx-auto px-6 md:px-12 flex flex-col gap-10">
           <div className="flex flex-col gap-2">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
-              Standard Price Ranges
+              Realistische Preisrahmen
             </h2>
             <p className="text-[14px] text-[var(--color-text-muted)]">
-              Net prices, excluding VAT.&ensp;·&ensp;Professional photographers in Germany generally do not bill simply for the time spent shooting; their rates account for preparation, post-production, professional equipment, insurance, and business overhead. Most professionals will not accept a 1-hour booking and have a minimum requirement of 2 to 3 hours.
+              Nettopreise, exklusive MwSt.&ensp;·&ensp;Professionelle Fotografen in Deutschland stellen in der Regel nicht einfach die Zeit in Rechnung, die für das Fotografieren aufgewendet wird; ihre Preise berücksichtigen Vorbereitung, Postproduktion, professionelle Ausrüstung, Versicherung und Geschäftskosten. Die meisten Profis akzeptieren keine 1-Stunden-Buchungen und haben eine Mindestanforderung von 2 bis 3 Stunden.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex flex-col gap-3 p-6 border border-[var(--color-border-hairline)] rounded-[20px]">
-              <h3 className="text-lg font-semibold text-[var(--color-text-main)]">Hourly Rate</h3>
-              <p className="text-xl font-medium text-[var(--color-text-main)]">€200 – €300+ / hr</p>
+              <h3 className="text-lg font-semibold text-[var(--color-text-main)]">Stundensatz</h3>
+              <p className="text-xl font-medium text-[var(--color-text-main)]">200 € – 300 €+ / Std.</p>
               <p className="text-[14px] text-[var(--color-text-muted)] mt-2">
-                <strong className="font-medium text-[var(--color-text-main)]">Note:</strong> The first hour is sometimes billed higher to cover basic setup and travel, with subsequent hours dropping slightly. Hourly rates are often used to calculate overtime rather than initial bookings.
+                <strong className="font-medium text-[var(--color-text-main)]">Hinweis:</strong> Die erste Stunde wird manchmal höher berechnet, um grundlegenden Aufbau und Anfahrt abzudecken, wobei die folgenden Stunden leicht sinken. Stundensätze werden oft eher zur Berechnung von Überstunden herangezogen als für anfängliche Buchungen.
               </p>
             </div>
 
             <div className="flex flex-col gap-3 p-6 border border-[var(--color-border-hairline)] rounded-[20px]">
-              <h3 className="text-lg font-semibold text-[var(--color-text-main)]">Half-Day Rate <span className="text-[15px] font-normal text-[var(--color-text-muted)]">(approx. 4 hours)</span></h3>
-              <p className="text-xl font-medium text-[var(--color-text-main)]">€900 – €1400</p>
+              <h3 className="text-lg font-semibold text-[var(--color-text-main)]">Halbtagessatz <span className="text-[15px] font-normal text-[var(--color-text-muted)]">(ca. 4 Stunden)</span></h3>
+              <p className="text-xl font-medium text-[var(--color-text-main)]">900 € – 1.400 €</p>
               <p className="text-[14px] text-[var(--color-text-muted)] mt-2">
-                This is the most common package for evening corporate receptions, medium-sized PR events, or half-day conferences.
+                Dies ist das gängigste Paket für abendliche Firmenempfänge, mittelgroße PR-Events oder Halbtageskonferenzen.
               </p>
               <p className="text-[14px] text-[var(--color-text-muted)] mt-1 italic">
-                In a major business hub like Hamburg, expect most reliable professionals to quote between €1000 and €1500 for a half-day.
+                In einem großen Wirtschaftszentrum wie Hamburg können Sie davon ausgehen, dass die meisten zuverlässigen Profis zwischen 1.000 € und 1.500 € für einen halben Tag veranschlagen.
               </p>
             </div>
 
             <div className="flex flex-col gap-3 p-6 border border-[var(--color-border-hairline)] rounded-[20px]">
-              <h3 className="text-lg font-semibold text-[var(--color-text-main)]">Full-Day Rate <span className="text-[15px] font-normal text-[var(--color-text-muted)]">(approx. 8 hours)</span></h3>
-              <p className="text-xl font-medium text-[var(--color-text-main)]">€1400 – €2,500+</p>
+              <h3 className="text-lg font-semibold text-[var(--color-text-main)]">Ganztagessatz <span className="text-[15px] font-normal text-[var(--color-text-muted)]">(ca. 8 Stunden)</span></h3>
+              <p className="text-xl font-medium text-[var(--color-text-main)]">1.400 € – 2.500 €+</p>
               <p className="text-[14px] text-[var(--color-text-muted)] mt-2">
-                In Hamburg, a standard full-day corporate shoot will typically land around €1600 to €2,500+ depending on specific usage rights, post-production complexity, and same-day delivery options.
+                In Hamburg wird ein standardmäßiges ganztägiges Corporate-Shooting in der Regel bei rund 1.600 € bis 2.500 €+ landen, je nach spezifischen Nutzungsrechten, Komplexität der Postproduktion und Optionen für eine Lieferung am selben Tag.
               </p>
             </div>
           </div>
 
           <div className="bg-[#F5F8FB] border border-[var(--color-border-hairline)] rounded-[20px] px-6 py-5 mt-2">
             <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">
-              <strong className="font-semibold text-[var(--color-text-main)]">Note:</strong> Students or semi-professionals might charge €60–€100 per hour, but they generally lack the commercial liability insurance, backup equipment, and low-light expertise expected for high-stakes corporate events.
+              <strong className="font-semibold text-[var(--color-text-main)]">Hinweis:</strong> Studenten oder Semi-Profis verlangen möglicherweise 60 €–100 € pro Stunde, aber ihnen fehlt im Allgemeinen die gewerbliche Haftpflichtversicherung, die Backup-Ausrüstung und die Expertise bei schwachem Licht, die für geschäftskritische Firmenevents erwartet wird.
             </p>
           </div>
         </div>
@@ -527,16 +519,16 @@ export default function EventPhotographerCostPage() {
       <section className="py-16 md:py-20 bg-[#F5F8FB] border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[700px] mx-auto px-6 md:px-12 flex flex-col items-center gap-6 text-center">
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[var(--color-text-main)]">
-            Need a precise quote for your event?
+            Benötigen Sie ein konkretes Angebot für Ihr Event?
           </h2>
           <p className="text-[17px] text-[var(--color-text-muted)] font-normal">
-            Tell me about your event — date, location, and deliverables. I&apos;ll send a clear quote tailored to your scope.
+            Erzählen Sie mir von Ihrem Event — Datum, Ort und gewünschte Ergebnisse. Ich sende Ihnen ein klares, auf Ihr Projekt zugeschnittenes Angebot.
           </p>
           <Link
-            href="/contact"
+            href="/kontakt"
             className="bg-[var(--color-accent)] text-white px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)]"
           >
-            Get in Touch
+            Kontakt aufnehmen
           </Link>
         </div>
       </section>
@@ -547,7 +539,7 @@ export default function EventPhotographerCostPage() {
           <div className="relative aspect-[16/9] rounded-[20px] overflow-hidden bg-[var(--color-border-hairline)] border border-gray-100 shadow-sm">
             <Image
               src="/images/insights/event-photographer-hamburg-venue-guests.webp"
-              alt="Corporate event guests walking through a Hamburg venue, photographed by Liza Holiarchuk"
+              alt="Gäste eines Corporate Events in einer Hamburger Location, fotografiert von Liza Holiarchuk"
               fill
               className="object-cover"
               sizes="(max-width: 1248px) 100vw, 1200px"
@@ -560,33 +552,31 @@ export default function EventPhotographerCostPage() {
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-8">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
-            The actual question worth asking
+            Die eigentliche Frage, die es sich zu stellen lohnt
           </h2>
           <div className="flex flex-col gap-6 text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
             <p>
-              Most clients arrive focused on price per hour and number of photos
-              delivered. Both are the wrong starting point.
+              Die meisten Kunden legen den Fokus zunächst auf den Preis pro Stunde und die Anzahl 
+              der gelieferten Fotos. Beides ist der falsche Ansatzpunkt.
             </p>
             <p>
-              The images from your event will be used — on your website, in a press
-              release, on LinkedIn, in the invitation for next year&apos;s edition —
-              or they won&apos;t be used at all. That outcome is decided largely
-              before the photographer arrives: by who you book, what briefing you
-              give them, and whether they understand what the images are actually
-              for.
+              Die Bilder Ihres Events werden genutzt — auf Ihrer Website, in einer Pressemitteilung, 
+              auf LinkedIn, in der Einladung für das nächste Jahr — oder sie werden gar nicht genutzt. 
+              Dieses Ergebnis wird größtenteils entschieden, bevor der Fotograf überhaupt eintrifft: 
+              dadurch, wen Sie buchen, welches Briefing Sie geben und ob er versteht, wofür die 
+              Bilder eigentlich gedacht sind.
             </p>
             <p>
-              A photographer who asks for your event agenda and researches your
-              keynote speakers before arriving is not being difficult. They&apos;re
-              making sure the right moments don&apos;t get missed in a room with no
-              second takes. A photographer who delivers 40 curated, usable images
-              instead of 300 mediocre ones is not giving you less. They&apos;re
-              giving you more of what you&apos;ll actually publish.
+              Ein Fotograf, der nach Ihrem Event-Ablaufplan fragt und vorab Ihre Hauptredner recherchiert, 
+              ist nicht anstrengend. Er stellt sicher, dass die richtigen Momente in einem Raum 
+              ohne zweite Chance nicht verpasst werden. Ein Fotograf, der 40 kuratierte, brauchbare 
+              Bilder liefert anstelle von 300 mittelmäßigen, gibt Ihnen nicht weniger. Er gibt 
+              Ihnen mehr von dem, was Sie tatsächlich veröffentlichen werden.
             </p>
             <p>
-              Price is one variable. It matters. But the question that produces
-              better results is simpler: <em className="text-[var(--color-text-main)] font-medium">do the images from this photographer look
-              like something my company would be proud to put its name next to?</em>
+              Der Preis ist eine Variable. Er ist wichtig. Aber die Frage, die zu besseren 
+              Ergebnissen führt, ist einfacher: <em className="text-[var(--color-text-main)] font-medium">Sehen die Bilder dieses Fotografen 
+              nach etwas aus, neben dem mein Unternehmen stolz seinen Namen platzieren würde?</em>
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
@@ -594,13 +584,13 @@ export default function EventPhotographerCostPage() {
               href="/portfolio"
               className="bg-[var(--color-accent)] text-white px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)]"
             >
-              View Portfolio
+              Portfolio ansehen
             </Link>
             <Link
-              href="/contact"
+              href="/kontakt"
               className="border border-[var(--color-border-hairline)] text-[var(--color-text-main)] px-8 py-3.5 rounded-2xl text-[15px] font-semibold transition-colors hover:border-[var(--color-text-main)]"
             >
-              Request a Quote
+              Angebot anfordern
             </Link>
           </div>
         </div>
@@ -610,7 +600,7 @@ export default function EventPhotographerCostPage() {
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-10">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
-            Frequently Asked Questions
+            Häufig gestellte Fragen (FAQ)
           </h2>
           <FaqAccordion items={FAQ_ITEMS} />
         </div>
@@ -620,7 +610,7 @@ export default function EventPhotographerCostPage() {
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-10">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
-            Also Worth Reading
+            Auch lesenswert
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {relatedPosts.map((p) =>
@@ -659,13 +649,13 @@ export default function EventPhotographerCostPage() {
       {/* Explore Related */}
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-8">
-          <h2 className="text-2xl font-semibold text-[var(--color-text-main)]">Explore My Services</h2>
+          <h2 className="text-2xl font-semibold text-[var(--color-text-main)]">Meine Leistungen entdecken</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { href: "/pricing", label: "Pricing" },
-              { href: "/event-photographer-hamburg", label: "Event Photography Hamburg" },
-              { href: "/conference-photographer-hamburg", label: "Conference Photography" },
-              { href: "/trade-show-photographer-hamburg", label: "Trade Show Photography" },
+              { href: "/preise", label: "Preise" },
+              { href: "/eventfotograf-hamburg", label: "Eventfotografie Hamburg" },
+              { href: "/konferenzfotografie-hamburg", label: "Konferenzfotografie" },
+              { href: "/messefotograf-hamburg", label: "Messefotografie" },
             ].map((s) => (
               <Link
                 key={s.href}
@@ -686,21 +676,21 @@ export default function EventPhotographerCostPage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/home/10-about/01-about.webp"
-              alt="Liza Holiarchuk — Event Photographer Hamburg"
+              alt="Liza Holiarchuk — Eventfotografin Hamburg"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="flex flex-col gap-2 text-center md:text-left">
             <p className="text-lg font-semibold text-[var(--color-text-main)]">Liza Holiarchuk</p>
             <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed max-w-[55ch]">
-              Hamburg-based freelance photographer specializing in corporate event photography, business portraits, and conference documentation. Over 5 years of experience working with companies, agencies, and event organizers across Hamburg, Germany, and Europe.
+              Freiberufliche Fotografin mit Sitz in Hamburg, spezialisiert auf Corporate Eventfotografie, Business-Porträts und Konferenzdokumentation. Über 5 Jahre Erfahrung in der Zusammenarbeit mit Unternehmen, Agenturen und Veranstaltern in Hamburg, Deutschland und Europa.
             </p>
             <div className="flex flex-wrap gap-4 mt-1 justify-center md:justify-start">
-              <Link href="/about" className="text-[14px] text-[var(--color-text-main)] font-medium underline underline-offset-4 decoration-1 hover:text-[var(--color-accent)]">
-                About
+              <Link href="/ueber-mich" className="text-[14px] text-[var(--color-text-main)] font-medium underline underline-offset-4 decoration-1 hover:text-[var(--color-accent)]">
+                Über mich
               </Link>
-              <Link href="/contact" className="text-[14px] text-[var(--color-text-main)] font-medium underline underline-offset-4 decoration-1 hover:text-[var(--color-accent)]">
-                Contact
+              <Link href="/kontakt" className="text-[14px] text-[var(--color-text-main)] font-medium underline underline-offset-4 decoration-1 hover:text-[var(--color-accent)]">
+                Kontakt
               </Link>
             </div>
           </div>
@@ -711,16 +701,16 @@ export default function EventPhotographerCostPage() {
       <section className="py-24 md:py-32 bg-[#DDE7F0] text-[var(--color-text-main)] flex justify-center text-center">
         <div className="max-w-[700px] w-full px-6 flex flex-col gap-8 items-center">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
-            Have an Event Coming Up?
+            Planen Sie ein Event?
           </h2>
           <p className="text-xl opacity-80 font-light">
-            Send your inquiry — I&apos;ll reply within 24 hours.
+            Senden Sie Ihre Anfrage — ich melde mich innerhalb von 24 Stunden.
           </p>
           <Link
-            href="/contact"
+            href="/kontakt"
             className="bg-[var(--color-text-main)] text-white px-10 py-4 text-base font-semibold transition-colors hover:bg-[var(--color-accent-hover)] rounded-2xl"
           >
-            Contact Me
+            Kontakt aufnehmen
           </Link>
         </div>
       </section>

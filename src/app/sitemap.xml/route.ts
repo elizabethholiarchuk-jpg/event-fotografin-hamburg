@@ -7,26 +7,18 @@ export async function GET() {
     const baseUrl = 'https://www.event-fotografin-hamburg.de';
     const lastModified = new Date().toISOString();
 
-    // EN+DE bilingual routes
+    // Bilingual routes with same slug (DE at root, EN at /en/)
     const bilingualRoutes = [
         { path: '', priority: '1.0', changefreq: 'monthly' },
         { path: '/portfolio', priority: '0.8', changefreq: 'monthly' },
         { path: '/impressum', priority: '0.5', changefreq: 'yearly' },
         { path: '/datenschutz', priority: '0.5', changefreq: 'yearly' },
-    ];
-
-    // EN-only routes
-    const enOnlyRoutes = [
-        { path: '/contact', priority: '0.8', changefreq: 'yearly' },
-        { path: '/conference-photographer-hamburg', priority: '0.9', changefreq: 'monthly' },
-        { path: '/corporate-event-photographer-hamburg', priority: '0.9', changefreq: 'monthly' },
-        { path: '/about', priority: '0.6', changefreq: 'yearly' },
         { path: '/insights', priority: '0.7', changefreq: 'weekly' },
     ];
 
     let urls = '';
 
-    // Bilingual routes
+    // Shared-slug bilingual routes
     bilingualRoutes.forEach(route => {
         urls += `
   <url>
@@ -34,90 +26,55 @@ export async function GET() {
     <lastmod>${lastModified}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}${route.path}" />
-    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de${route.path}" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}${route.path}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en${route.path}" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${route.path}" />
   </url>
   <url>
-    <loc>${baseUrl}/de${route.path}</loc>
+    <loc>${baseUrl}/en${route.path}</loc>
     <lastmod>${lastModified}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}${route.path}" />
-    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de${route.path}" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}${route.path}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en${route.path}" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${route.path}" />
   </url>`;
     });
 
-    // Asymmetric event photography routes with reciprocal hreflang
-    urls += `
-  <url>
-    <loc>${baseUrl}/event-photographer-hamburg</loc>
-    <lastmod>${lastModified}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/event-photographer-hamburg" />
-    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/eventfotograf-hamburg" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/event-photographer-hamburg" />
-  </url>
-  <url>
-    <loc>${baseUrl}/de/eventfotograf-hamburg</loc>
-    <lastmod>${lastModified}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/event-photographer-hamburg" />
-    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/eventfotograf-hamburg" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/event-photographer-hamburg" />
-  </url>
-  <url>
-    <loc>${baseUrl}/trade-show-photographer-hamburg</loc>
-    <lastmod>${lastModified}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/trade-show-photographer-hamburg" />
-    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/messefotograf-hamburg" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/trade-show-photographer-hamburg" />
-  </url>
-  <url>
-    <loc>${baseUrl}/de/messefotograf-hamburg</loc>
-    <lastmod>${lastModified}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/trade-show-photographer-hamburg" />
-    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/messefotograf-hamburg" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/trade-show-photographer-hamburg" />
-  </url>
-  <url>
-    <loc>${baseUrl}/pricing</loc>
-    <lastmod>${lastModified}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/pricing" />
-    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/preise" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/pricing" />
-  </url>
-  <url>
-    <loc>${baseUrl}/de/preise</loc>
-    <lastmod>${lastModified}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/pricing" />
-    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/preise" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/pricing" />
-  </url>`;
+    // Asymmetric bilingual routes (different DE/EN slugs)
+    const asymmetricRoutes = [
+        { de: '/eventfotograf-hamburg', en: '/en/event-photographer-hamburg', priority: '0.9' },
+        { de: '/konferenzfotografie-hamburg', en: '/en/conference-photographer-hamburg', priority: '0.9' },
+        { de: '/messefotograf-hamburg', en: '/en/trade-show-photographer-hamburg', priority: '0.9' },
+        { de: '/corporate-event-fotograf-hamburg', en: '/en/corporate-event-photographer-hamburg', priority: '0.9' },
+        { de: '/preise', en: '/en/pricing', priority: '0.7' },
+        { de: '/kontakt', en: '/en/contact', priority: '0.8' },
+        { de: '/ueber-mich', en: '/en/about', priority: '0.6' },
+    ];
 
-    // EN-only routes
-    enOnlyRoutes.forEach(route => {
+    asymmetricRoutes.forEach(({ de, en, priority }) => {
         urls += `
   <url>
-    <loc>${baseUrl}${route.path}</loc>
+    <loc>${baseUrl}${de}</loc>
     <lastmod>${lastModified}</lastmod>
-    <changefreq>${route.changefreq}</changefreq>
-    <priority>${route.priority}</priority>
+    <changefreq>monthly</changefreq>
+    <priority>${priority}</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}${de}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}${en}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${de}" />
+  </url>
+  <url>
+    <loc>${baseUrl}${en}</loc>
+    <lastmod>${lastModified}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>${priority}</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}${de}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}${en}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${de}" />
   </url>`;
     });
 
-    // Portfolio case study pages
+    // Portfolio case study pages (shared slug)
     portfolioEvents.forEach(event => {
         urls += `
   <url>
@@ -125,17 +82,17 @@ export async function GET() {
     <lastmod>${lastModified}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/portfolio/${event.slug}" />
-    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/portfolio/${event.slug}" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/portfolio/${event.slug}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en/portfolio/${event.slug}" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/portfolio/${event.slug}" />
   </url>
   <url>
-    <loc>${baseUrl}/de/portfolio/${event.slug}</loc>
+    <loc>${baseUrl}/en/portfolio/${event.slug}</loc>
     <lastmod>${lastModified}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/portfolio/${event.slug}" />
-    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/portfolio/${event.slug}" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/portfolio/${event.slug}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en/portfolio/${event.slug}" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/portfolio/${event.slug}" />
   </url>`;
     });
@@ -148,6 +105,18 @@ export async function GET() {
     <lastmod>${lastModified}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/insights/${post.slug}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en/insights/${post.slug}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/insights/${post.slug}" />
+  </url>
+  <url>
+    <loc>${baseUrl}/en/insights/${post.slug}</loc>
+    <lastmod>${lastModified}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/insights/${post.slug}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en/insights/${post.slug}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/insights/${post.slug}" />
   </url>`;
     });
 
