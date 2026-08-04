@@ -26,13 +26,14 @@ export const metadata: Metadata = {
     description:
       "Eventfotografie in Deutschland kostet je nach Aufwand 450 € – 2.050 €+. Hier erfahren Sie, wie sich die Preise zusammensetzen – und worauf Sie vor der Buchung achten sollten.",
     url: "/insights/how-much-does-an-event-photographer-cost-hamburg",
+    locale: "de_DE",
+    alternateLocale: ["en_US"],
     images: [
       {
         url: "/images/insights/event-photographer-hamburg-conference-speaker-audience.webp",
         width: 1200,
         height: 630,
         alt: "Eventfotograf Hamburg — Konferenzsprecher präsentiert vor geschäftlichem Publikum",
-    alternateLocale: ["en_US"],
       },
     ],
   },

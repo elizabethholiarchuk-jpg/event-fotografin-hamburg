@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     title: "Konferenzfotograf Hamburg — Kongresse & B2B-Events | Liza Holiarchuk",
     description: "Konferenzfotografie in Hamburg: Keynotes, Panels, Networking und Speaker-Porträts.",
     url: "/konferenzfotografie-hamburg",
+    locale: "de_DE",
+    alternateLocale: ["en_US"],
     images: [
       {
         url: "/images/services/conference-photographer-hamburg-cover.webp",
         width: 1200,
         height: 630,
         alt: "Konferenzfotografie — großer Saal mit aufmerksamem Publikum",
-    locale: "de_DE",
-    alternateLocale: ["en_US"],
       },
     ],
   },

@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Corporate Event Fotografin Hamburg — Firmenfeiern & Galas | Liza Holiarchuk",
     description: "Corporate Event Fotografin in Hamburg für Preisverleihungen, interne Events, Firmenjubiläen und Executive-Dinner.",
+    locale: "de_DE",
+    alternateLocale: ["en_US"],
     url: "/corporate-event-fotograf-hamburg",
     images: [
       {
@@ -25,8 +27,6 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Corporate Event Fotografie Hamburg — Gäste bei einem abendlichen Corporate Dinner",
-    locale: "de_DE",
-    alternateLocale: ["en_US"],
       },
     ],
   },

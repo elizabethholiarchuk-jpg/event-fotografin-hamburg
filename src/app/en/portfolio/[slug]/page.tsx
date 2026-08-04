@@ -36,9 +36,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         en: `/en/portfolio/${slug}`,
         de: `/portfolio/${slug}`,
         'x-default': `/portfolio/${slug}`,
-      }`,
-        'de': `/de/portfolio/${slug}`,
-        'x-default': `/portfolio/${slug}`,
       },
     },
     openGraph: {
@@ -46,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       alternateLocale: ["de_DE"],
       title: `${title}`,
       description: desc,
-      url: `/portfolio/${slug}`,
+      url: `/en/portfolio/${slug}`,
       images: [{ url: `/images/portfolio/${slug}/01.webp`, width: 1200, height: 800, alt: title }],
     },
   };

@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     description: "Eventfotografin in Hamburg für Konferenzen, Messen und Firmenevents. Bearbeitete Galerie in der Regel in 2 Werktagen, Highlights am selben Tag auf Wunsch. Jetzt anfragen.",
     url: "/eventfotograf-hamburg",
     locale: "de_DE",
+    alternateLocale: ["en_US"],
     images: [
       {
         url: "/images/services/event-photographer-hamburg-cover.webp",
         width: 1200,
         height: 630,
         alt: "Eventfotograf Hamburg — Liza Holiarchuk",
-    alternateLocale: ["en_US"],
       },
     ],
   },

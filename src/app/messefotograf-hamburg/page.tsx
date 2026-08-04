@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     title: "Messefotograf Hamburg — Messen & B2B-Ausstellungen | Liza Holiarchuk",
     description: "Messefotografie in Hamburg: Standfotografie, Besucherinteraktionen und Branding.",
     url: "/messefotograf-hamburg",
+    locale: "de_DE",
+    alternateLocale: ["en_US"],
     images: [
       {
         url: "/images/services/trade-show-photographer-hamburg-messe.webp",
         width: 1200,
         height: 630,
         alt: "Messefotografie — gebrandeter Ausstellerstand auf einer internationalen Messe",
-    locale: "de_DE",
-    alternateLocale: ["en_US"],
       },
     ],
   },
