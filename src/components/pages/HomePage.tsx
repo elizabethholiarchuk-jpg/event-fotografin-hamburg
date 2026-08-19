@@ -29,7 +29,7 @@ export default function HomePage({ lang }: { lang: Language }) {
       {/* 1. HERO - EXACTLY AS BEFORE */}
       <section className="relative w-full min-h-[92vh] md:min-h-screen flex items-end justify-start bg-[var(--color-dark-bg)] overflow-hidden pb-16 md:pb-24 pt-40 md:pt-48">
         <SafeImage
-          src="/images/home/02-hero/01-hero.webp"
+          src="/images/home/02-hero/hero.webp"
           alt="Liza Holiarchuk — event photographer Hamburg at a corporate conference"
           fill
           priority
