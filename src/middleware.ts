@@ -16,6 +16,20 @@ const EN_ONLY_SLUGS = new Set([
   'corporate-event-photographer-hamburg',
 ]);
 
+// Old one-off URLs → new URL (exact path match, checked before the /de rule)
+const LEGACY_REDIRECTS: Record<string, string> = {
+  '/conference-photography-hamburg': '/en/conference-photographer-hamburg',
+  '/trade-show-photography-hamburg': '/en/trade-show-photographer-hamburg',
+  '/corporate-event-photography-hamburg': '/en/corporate-event-photographer-hamburg',
+  '/de/konferenzfotograf-hamburg': '/konferenzfotografie-hamburg',
+  '/konferenzfotograf-hamburg': '/konferenzfotografie-hamburg',
+  '/home': '/',
+  '/kyiv': '/portfolio',
+  '/portfolio/charity-event-kyiv': '/portfolio',
+  '/en/portfolio/charity-event-kyiv': '/en/portfolio',
+  '/corporate-photos': '/corporate-event-fotograf-hamburg',
+};
+
 export function middleware(request: NextRequest) {
   const { search } = request.nextUrl;
   let { pathname } = request.nextUrl;
@@ -35,6 +49,13 @@ export function middleware(request: NextRequest) {
   }
 
   // --- 301 Redirects (old → new) ---
+
+  // 0. Old one-off URLs
+  const legacyTarget = LEGACY_REDIRECTS[pathname];
+  if (legacyTarget) {
+    const url = new URL(legacyTarget + search, request.url);
+    return NextResponse.redirect(url, 301);
+  }
 
   // 1. All old /de/* URLs → root (drop /de prefix)
   //    Use exact match + prefix-with-slash to avoid matching /delivery etc.

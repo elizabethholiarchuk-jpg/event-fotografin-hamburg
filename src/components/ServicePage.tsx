@@ -151,7 +151,7 @@ export default function ServicePage({
               {related.map((event) => (
                 <Link
                   key={event.slug}
-                  href={lang === 'de' ? `/portfolio/${event.slug}` : `/portfolio/${event.slug}`}
+                  href={lang === 'de' ? `/portfolio/${event.slug}` : `/en/portfolio/${event.slug}`}
                   className="group flex flex-col gap-3 border border-[var(--color-border-hairline)] rounded-2xl overflow-hidden hover:border-[var(--color-text-muted)] transition-colors"
                 >
                   <div className="relative aspect-[3/2] bg-[var(--color-border-hairline)] overflow-hidden">

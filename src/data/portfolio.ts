@@ -333,21 +333,6 @@ export const portfolioEvents: PortfolioEvent[] = [
         count: 6,
     },
     {
-        slug: 'charity-event-kyiv',
-        title: 'Charity event in Kyiv, Ukraine',
-        title_i18n: {
-            en: 'Charity Event in Kyiv',
-            de: 'Charity-Event in Kyiv',
-        },
-        location_i18n: { en: 'Kyiv, Ukraine', de: 'Kyiv, Ukraine' },
-        category: { en: 'Charity Event', de: 'Charity Event' },
-        oneLiner_i18n: {
-            en: 'Charity event photography in Kyiv, Ukraine.',
-            de: 'Charity-Event-Fotografie in Kyiv, Ukraine.',
-        },
-        count: 3,
-    },
-    {
         slug: 'logisticstech-talks',
         title: 'LogisticsTech Talks',
         title_i18n: {
