@@ -154,6 +154,28 @@ export default function GermanPricingPage() {
             ))}
           </div>
 
+          {/* Video */}
+          <div className="flex flex-col gap-5">
+            <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-[var(--color-text-main)]">{p.video.title}</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {p.video.items.map((item) => (
+                <div
+                  key={item.name}
+                  className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl"
+                >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h4 className="text-base font-semibold text-[var(--color-text-main)]">{item.name}</h4>
+                    <span className="text-[15px] font-semibold text-[var(--color-text-main)] whitespace-nowrap">{item.price}</span>
+                  </div>
+                  <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            <Link href="/video-support" className="text-[15px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 w-fit">
+              {p.video.examples}
+            </Link>
+          </div>
+
           {/* Standalone Video Support Banner */}
           <Link
             href="/video-support"

@@ -80,9 +80,18 @@ const addons = [
     name: "Travel (Europe-wide)",
     desc: "Amsterdam, Milan, Copenhagen, Berlin and beyond. Quoted per project.",
   },
+];
+
+const videoOptions = [
   {
-    name: "Short Highlight Film",
-    desc: "60–90 second edit for internal sharing or social media.",
+    name: "Social clip",
+    price: "€450",
+    desc: "One clip of about 30 seconds for LinkedIn or Instagram. I film it on my phone alongside the photos and edit it myself. You get it the next day. Good when you need something to post fast.",
+  },
+  {
+    name: "Event video",
+    price: "Quoted per project",
+    desc: "Professional video with my regular videographer, Valeriy Riyako: highlight film, stand interviews or an aftermovie. We shoot in parallel, and you have one contact for photo and video. Delivery time agreed per project.",
   },
 ];
 
@@ -180,6 +189,28 @@ export default function PricingPage() {
                 <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{addon.desc}</p>
               </div>
             ))}
+          </div>
+
+          {/* Video */}
+          <div className="flex flex-col gap-5">
+            <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-[var(--color-text-main)]">Video</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {videoOptions.map((item) => (
+                <div
+                  key={item.name}
+                  className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl"
+                >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h4 className="text-base font-semibold text-[var(--color-text-main)]">{item.name}</h4>
+                    <span className="text-[15px] font-semibold text-[var(--color-text-main)] whitespace-nowrap">{item.price}</span>
+                  </div>
+                  <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            <Link href="/en/video-support" className="text-[15px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 w-fit">
+              See examples
+            </Link>
           </div>
 
           {/* Standalone Video Support Banner */}

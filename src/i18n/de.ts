@@ -345,9 +345,24 @@ export const de = {
       items: [
         { name: "Same-Day Selects", desc: "10–20 bearbeitete Bilder noch am selben Abend geliefert." },
         { name: "Second Photographer", desc: "Für parallele Sessions oder großflächige, mehrspurige Events." },
-        { name: "Reisen (Europaweit)", desc: "Amsterdam, Mailand, Kopenhagen, Berlin und darüber hinaus. Individuell berechnet." },
-        { name: "Kurzer Highlight-Film", desc: "60–90 Sekunden für den internen Gebrauch oder Social Media." }
+        { name: "Reisen (Europaweit)", desc: "Amsterdam, Mailand, Kopenhagen, Berlin und darüber hinaus. Individuell berechnet." }
       ]
+    },
+    video: {
+      title: "Video",
+      items: [
+        {
+          name: "Social-Clip",
+          price: "450 €",
+          desc: "Ein Clip von ca. 30 Sekunden für LinkedIn oder Instagram. Ich drehe ihn mit dem Smartphone parallel zu den Fotos und schneide ihn selbst. Sie bekommen ihn am nächsten Tag. Ideal, wenn Sie schnell etwas posten möchten."
+        },
+        {
+          name: "Event-Video",
+          price: "Preis nach Projekt",
+          desc: "Professionelles Video mit meinem festen Videografen Valeriy Riyako: Highlight-Film, Interviews am Stand oder Aftermovie. Wir drehen parallel, Sie haben einen Ansprechpartner für Foto und Video. Lieferzeit nach Absprache."
+        }
+      ],
+      examples: "Beispiele ansehen"
     },
     cta: {
       title: "Individuelles Angebot anfragen",
