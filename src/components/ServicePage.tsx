@@ -15,7 +15,7 @@ export interface ServicePageProps {
   intro: string;
   whatYouGet: string[];
   howItWorks: { step: string; desc: string }[];
-  faq: { q: string; a: string }[];
+  faq: { q: string; a: string; link?: { href: string; label: string } }[];
   testimonial?: { quote: string; name: string; role: string };
   relatedCategories: string[];
   schema: object;

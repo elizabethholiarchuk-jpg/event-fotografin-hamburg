@@ -47,7 +47,7 @@ const FAQ = [
   { q: "Do you photograph awards ceremonies?", a: "Yes. Awards evenings are a specialty — stage coverage, trophy moments, table shots, and the networking before and after." },
   { q: "Can we use the photos for LinkedIn company pages and internal communications?", a: "Yes. All images include full usage rights for internal and external corporate communication." },
   { q: "What about evening events with low light?", a: "Fully covered. I use fast professional lenses and optimise for venue lighting — whether it's a bright conference room or a candlelit awards dinner." },
-  { q: "Can you produce a highlight reel in addition to photos?", a: "Video can be added as an optional service — a short highlight reel (60–90 seconds) suitable for internal sharing or social media." },
+  { q: "Do you offer video as well as photos?", a: "Yes, in two options. Social clip: one clip of about 30 seconds for LinkedIn or Instagram, filmed on my phone and delivered the next day, €450. Event video: with a videographer from my team, price and delivery time agreed per project.", link: { href: "/en/video-support", label: "See video examples" } },
   { q: "What is your cancellation policy?", a: "Cancellation terms are agreed in the booking confirmation. For most events, cancellation within 7 days of the event date may incur a partial fee." },
   { q: "Do you handle multi-location events (e.g., morning Hamburg, evening Berlin)?", a: "For single-day multi-location events, logistics need to be viable. This is always assessed case by case. Let me know your requirements." },
   { q: "Can I see examples of corporate event work?", a: "Yes — view the portfolio for case studies from Plug and Play, Oyster Bay Venture Capital, IMMOJECTS, Shell, and others." },

@@ -187,7 +187,7 @@ export const de = {
       { q: "Fotografieren Sie auch Preisverleihungen?", a: "Ja. Preisverleihungen sind eine meiner Spezialitäten — von der Bühne über den Trophäenmoment bis hin zu den Tischen und dem anschließenden Networking." },
       { q: "Können wir die Fotos für LinkedIn und unsere interne Kommunikation nutzen?", a: "Ja. Alle Bilder beinhalten die vollen Nutzungsrechte für Ihre interne und externe Unternehmenskommunikation." },
       { q: "Was ist mit Abendveranstaltungen bei wenig Licht?", a: "Kein Problem. Ich nutze lichtstarke Profi-Objektive und optimiere meine Ausrüstung für die jeweilige Location — egal ob heller Konferenzraum oder Award-Dinner bei Kerzenschein." },
-      { q: "Bieten Sie neben Fotos auch Highlight-Videos an?", a: "Ja, Video kann als optionaler Service hinzugefügt werden — ein kurzes Highlight-Video (60–90 Sekunden), ideal für internes Sharing oder Social Media." },
+      { q: "Bieten Sie neben Fotos auch Video an?", a: "Ja, in zwei Varianten. Social-Clip: ein Clip von ca. 30 Sekunden für LinkedIn oder Instagram, mit dem Smartphone gedreht, am nächsten Tag geliefert, 450 €. Event-Video: mit einem Videografen aus meinem Team, Preis und Lieferzeit nach Projekt.", link: { href: "/video-support", label: "Video-Beispiele ansehen" } },
       { q: "Wie lauten Ihre Stornierungsbedingungen?", a: "Die Bedingungen werden bei Buchung festgelegt. Bei Absagen innerhalb von 7 Tagen vor dem Event fällt in der Regel eine Teilgebühr an." },
       { q: "Übernehmen Sie auch Events an mehreren Standorten (z. B. morgens Hamburg, abends Berlin)?", a: "Bei eintägigen Events mit mehreren Standorten muss die Logistik passen. Wir besprechen das gerne individuell." },
       { q: "Gibt es Beispiele für Ihre Corporate Event Fotografie?", a: "Ja — in meinem Portfolio finden Sie Projekte für Plug and Play, Oyster Bay Venture Capital, IMMOJECTS, Shell und andere." }
@@ -359,7 +359,7 @@ export const de = {
         {
           name: "Event-Video",
           price: "Preis nach Projekt",
-          desc: "Professionelles Video mit meinem festen Videografen Valeriy Riyako: Highlight-Film, Interviews am Stand oder Aftermovie. Wir drehen parallel, Sie haben einen Ansprechpartner für Foto und Video. Lieferzeit nach Absprache."
+          desc: "Professionelles Video mit einem erfahrenen Videografen aus meinem Team: Highlight-Film, Interviews am Stand oder Aftermovie. Wir drehen parallel, Sie haben einen Ansprechpartner für Foto und Video. Lieferzeit nach Absprache."
         }
       ],
       examples: "Beispiele ansehen"

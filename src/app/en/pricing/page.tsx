@@ -91,7 +91,7 @@ const videoOptions = [
   {
     name: "Event video",
     price: "Quoted per project",
-    desc: "Professional video with my regular videographer, Valeriy Riyako: highlight film, stand interviews or an aftermovie. We shoot in parallel, and you have one contact for photo and video. Delivery time agreed per project.",
+    desc: "Professional video with an experienced videographer from my team: highlight film, stand interviews or an aftermovie. We shoot in parallel, and you have one contact for photo and video. Delivery time agreed per project.",
   },
 ];
 
@@ -212,37 +212,6 @@ export default function PricingPage() {
               See examples
             </Link>
           </div>
-
-          {/* Standalone Video Support Banner */}
-          <Link
-            href="/en/video-support"
-            className="group flex flex-col md:flex-row items-center gap-6 md:gap-8 p-6 md:p-8 rounded-3xl border border-[var(--color-border-hairline)] transition-all hover:border-[var(--color-text-muted)] mt-2"
-          >
-            <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border border-[var(--color-border-hairline)]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/services/Valeriy.webp"
-                alt="Valeriy Riyako — Event Video Specialist"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="flex flex-col gap-1 text-center md:text-left flex-1">
-              <div className="flex items-center justify-center md:justify-start">
-                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-blue-950/10 text-blue-950">
-                  Team Partnership
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold text-[var(--color-text-main)] mt-1">
-                Need professional video support too?
-              </h3>
-              <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed max-w-[65ch]">
-                I partner with my dedicated video specialist <strong>Valeriy Riyako</strong> to deliver both pristine event stills and dynamic motion coverage in one cohesive team package.
-              </p>
-            </div>
-            <span className="shrink-0 px-6 py-3.5 rounded-2xl bg-[var(--color-text-main)] text-white text-[14px] font-semibold transition-colors group-hover:bg-[var(--color-accent)] shadow-sm whitespace-nowrap">
-              View Video Examples →
-            </span>
-          </Link>
         </div>
       </section>
 

@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 interface FaqItem {
   q: string;
   a: string;
+  link?: { href: string; label: string };
 }
 
 export default function FaqAccordion({ items }: { items: FaqItem[] }) {
@@ -64,6 +66,14 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
                 <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed pb-5">
                   {item.a}
                 </p>
+                {item.link && (
+                  <Link
+                    href={item.link.href}
+                    className="inline-block text-[15px] font-medium text-[var(--color-text-main)] underline underline-offset-4 pb-5"
+                  >
+                    {item.link.label}
+                  </Link>
+                )}
               </div>
             </div>
           </div>
