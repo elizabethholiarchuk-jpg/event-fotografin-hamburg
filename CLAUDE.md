@@ -27,7 +27,7 @@ Next.js 16 (App Router), TypeScript, Tailwind CSS v4. Репозиторій: `e
 - Новий маршрут завжди додавати в `src/app/sitemap.xml/route.ts` з правильними hreflang (`de`, `en`, `x-default` → DE):
   - якщо slug однаковий у DE і EN — у `bilingualRoutes`;
   - якщо slug різний (наприклад `/preise` ↔ `/en/pricing`) — у `asymmetricRoutes`.
-- Для нової сторінки з різними slug ще й у `src/components/Header.tsx`: `routeMap` (інакше перемикач мов веде не туди) і, якщо це послуга, `deServiceLinks` / `enServiceLinks` (меню «Leistungen» / «Services»). Футер (`src/components/Footer.tsx`) має свій окремий список послуг.
+- Для нової сторінки з різними slug ще й `ROUTE_MAP` у `src/lib/localeRoutes.ts` (інакше перемикач мов і редирект за cookie `site_lang` у middleware ведуть на 404) і, якщо це послуга, `deServiceLinks` / `enServiceLinks` у `src/components/Header.tsx` (меню «Leistungen» / «Services»). Футер (`src/components/Footer.tsx`) має свій окремий список послуг.
 - Старі адреси перенаправляються 301-редиректами в `src/middleware.ts`. Нічого не видаляти без редиректу. Разові старі адреси — у мапі `LEGACY_REDIRECTS` (перевіряється перед правилом для `/de`).
 - `robots.ts` нічого не забороняє; `/video-support` тепер відкрита для індексації.
 - Кожна нова сторінка послуги або міста отримує: смугу з ключовими цифрами (`src/components/KeyFacts.tsx`, дані в `src/data/keyFacts.ts`; у `ServicePage` вона вже є), JSON-LD (`buildServicePageJsonLd` + FAQ), запис у sitemap і в `public/llms.txt`.

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { toEnglishPath, toGermanPath } from '@/lib/localeRoutes';
 
 /* ------------------------------------------------------------------ */
 /*  301 Redirects: Old URL structure → New URL structure               */
@@ -81,14 +82,15 @@ export function middleware(request: NextRequest) {
 
   const siteLang = request.cookies.get('site_lang')?.value;
 
-  if (siteLang === 'en' && !pathname.startsWith('/en')) {
-    const targetPath = pathname === '/' ? '/en' : `/en${pathname}`;
-    return NextResponse.redirect(new URL(targetPath + search, request.url));
+  // Translate the slug (e.g. /preise ↔ /en/pricing), not just add or drop /en
+  const isEnglishPath = pathname === '/en' || pathname.startsWith('/en/');
+
+  if (siteLang === 'en' && !isEnglishPath) {
+    return NextResponse.redirect(new URL(toEnglishPath(pathname) + search, request.url));
   }
 
-  if (siteLang === 'de' && pathname.startsWith('/en')) {
-    const targetPath = pathname === '/en' ? '/' : pathname.replace(/^\/en/, '');
-    return NextResponse.redirect(new URL(targetPath + search, request.url));
+  if (siteLang === 'de' && isEnglishPath) {
+    return NextResponse.redirect(new URL(toGermanPath(pathname) + search, request.url));
   }
 
   return NextResponse.next();

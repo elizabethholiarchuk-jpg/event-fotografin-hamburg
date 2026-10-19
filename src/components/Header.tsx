@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { getDictionary, Language } from "@/i18n";
+import { toEnglishPath, toGermanPath } from "@/lib/localeRoutes";
 
 const enServiceLinks = [
   { href: "/event-photographer-hamburg", label: "Event Photographer Hamburg" },
@@ -35,29 +36,6 @@ const deNavLinks = [
   { href: "/preise", label: "Preise" },
 ];
 
-// Maps EN slug → DE slug
-const routeMap: Record<string, string> = {
-  "event-photographer-hamburg": "eventfotograf-hamburg",
-  "conference-photographer-hamburg": "konferenzfotografie-hamburg",
-  "trade-show-photographer-hamburg": "messefotograf-hamburg",
-  "corporate-event-photographer-hamburg": "corporate-event-fotograf-hamburg",
-  "christmas-party-photographer-hamburg": "weihnachtsfeier-fotograf-hamburg",
-  "about": "ueber-mich",
-  "pricing": "preise",
-  "contact": "kontakt",
-  "portfolio": "portfolio",
-  "insights": "insights",
-  "impressum": "impressum",
-  "datenschutz": "datenschutz",
-  "danke": "danke",
-  "video-support": "video-support",
-};
-
-const reverseRouteMap: Record<string, string> = Object.entries(routeMap).reduce(
-  (acc, [en, de]) => ({ ...acc, [de]: en }),
-  {} as Record<string, string>
-);
-
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -73,30 +51,7 @@ export default function Header() {
     if (newLang === lang) return;
     document.cookie = `site_lang=${newLang}; path=/; max-age=31536000; samesite=lax`;
 
-    const pathSegments = pathname.split('/').filter(Boolean);
-    let newPath = "/";
-
-    if (newLang === "en") {
-      // Switching DE (root) → EN (/en/*)
-      const deSegment = pathSegments[0] || "";
-      const enSegment = reverseRouteMap[deSegment] || deSegment;
-      if (pathSegments.length > 1) {
-        const rest = pathSegments.slice(1).join('/');
-        newPath = enSegment ? `/en/${enSegment}/${rest}` : `/en/${rest}`;
-      } else {
-        newPath = enSegment ? `/en/${enSegment}` : `/en`;
-      }
-    } else {
-      // Switching EN (/en/*) → DE (root)
-      const enSegment = pathSegments[1] || "";
-      const deSegment = routeMap[enSegment] || enSegment;
-      if (pathSegments.length > 2) {
-        const rest = pathSegments.slice(2).join('/');
-        newPath = deSegment ? `/${deSegment}/${rest}` : `/${rest}`;
-      } else {
-        newPath = deSegment ? `/${deSegment}` : `/`;
-      }
-    }
+    const newPath = newLang === "en" ? toEnglishPath(pathname) : toGermanPath(pathname);
 
     window.location.href = newPath;
   };
