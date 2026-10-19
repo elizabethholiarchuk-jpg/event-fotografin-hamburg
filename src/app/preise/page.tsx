@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { buildPricingBreadcrumbJsonLd, buildFaqPageJsonLd } from "@/lib/schema";
 import { getDictionary } from "@/i18n";
+import { videoOptions } from "@/data/videoOptions";
 
 export const metadata: Metadata = {
   title: "Preise & Pakete — Eventfotografie Hamburg | Liza Holiarchuk",
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 export default function GermanPricingPage() {
   const t = getDictionary("de");
   const p = t.pricing!;
+  const video = videoOptions.de;
 
   const packages = [
     {
@@ -156,9 +158,9 @@ export default function GermanPricingPage() {
 
           {/* Video */}
           <div className="flex flex-col gap-5">
-            <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-[var(--color-text-main)]">{p.video.title}</h3>
+            <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-[var(--color-text-main)]">{video.title}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {p.video.items.map((item) => (
+              {video.items.map((item) => (
                 <div
                   key={item.name}
                   className="flex flex-col gap-2 p-6 border border-[var(--color-border-hairline)] rounded-2xl"
@@ -172,7 +174,7 @@ export default function GermanPricingPage() {
               ))}
             </div>
             <Link href="/video-support" className="text-[15px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 w-fit">
-              {p.video.examples}
+              {video.examples}
             </Link>
           </div>
         </div>

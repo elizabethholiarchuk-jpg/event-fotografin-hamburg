@@ -14,6 +14,7 @@ export async function GET() {
         { path: '/impressum', priority: '0.5', changefreq: 'yearly' },
         { path: '/datenschutz', priority: '0.5', changefreq: 'yearly' },
         { path: '/insights', priority: '0.7', changefreq: 'weekly' },
+        { path: '/video-support', priority: '0.8', changefreq: 'monthly' },
     ];
 
     let urls = '';

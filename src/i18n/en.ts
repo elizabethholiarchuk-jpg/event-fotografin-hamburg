@@ -9,12 +9,13 @@ export const en: Dictionary = {
   },
   home: {
     meta: {
-      title: "Event Photographer Hamburg",
-      description: "Professional event photographer in Hamburg for conference photography, trade shows & corporate events. Fast delivery & consistent visual style."
+      title: "Event & Trade Show Photo & Video Hamburg",
+      description: "Event and trade show photographer in Hamburg. Photo and video for trade shows, conferences and corporate events across Germany and Europe."
     },
     hero: {
-      title: "Event Photographer Hamburg",
-      subtitle: "Photography for B2B Conferences & Corporate Events<br />Hamburg & Europe-wide",
+      title: "Event & Trade Show Photographer in Hamburg",
+      subtitle: "Photo and video for trade shows, conferences and corporate events. Based in Hamburg, working across Germany and Europe.",
+      points: ["First photos the same day", "Social clip the next day", "Photo and video from one team"],
       ctaPrimary: "Check Availability",
       ctaSecondary: "View Portfolio"
     },

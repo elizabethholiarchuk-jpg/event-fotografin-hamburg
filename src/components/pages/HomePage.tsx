@@ -38,13 +38,24 @@ export default function HomePage({ lang }: { lang: Language }) {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/10 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
+        {/* Extra shade on mobile so the text stays readable on light photos */}
+        <div className="absolute inset-0 md:hidden bg-gradient-to-t from-black/60 via-black/40 to-black/10" />
+        <div className="absolute inset-0 md:hidden bg-gradient-to-r from-black/30 to-transparent" />
         <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6 md:px-12 text-white flex flex-col gap-10 md:gap-12">
           <div className="max-w-[1100px] flex flex-col gap-6 md:gap-8">
-            <h1 className="text-5xl md:text-7xl lg:text-[100px] font-medium tracking-tight leading-[1]">
+            <h1 className="text-[34px] sm:text-5xl md:text-7xl lg:text-[100px] font-medium tracking-tight leading-[1.05] md:leading-[1]">
               {t.hero.title}
             </h1>
-            <p className="text-2xl md:text-4xl font-light leading-snug text-white/95 max-w-[45ch]" dangerouslySetInnerHTML={{ __html: t.hero.subtitle }}>
+            <p className="text-2xl md:text-4xl font-normal md:font-light leading-snug text-white/95 max-w-[45ch]" dangerouslySetInnerHTML={{ __html: t.hero.subtitle }}>
             </p>
+            <ul className="flex flex-col sm:flex-row sm:flex-wrap gap-y-1 text-[15px] md:text-lg font-normal text-white/85">
+              {t.hero.points.map((point, i) => (
+                <li key={point} className="sm:whitespace-nowrap">
+                  {i > 0 && <span className="hidden sm:inline mx-3" aria-hidden="true">·</span>}
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-10 mt-6 w-full sm:w-auto">
             <Link

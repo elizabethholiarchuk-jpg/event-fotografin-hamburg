@@ -7,7 +7,6 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: ['/video-support', '/en/video-support'],
         },
         sitemap: 'https://www.event-fotografin-hamburg.de/sitemap.xml',
     }
