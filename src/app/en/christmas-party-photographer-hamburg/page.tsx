@@ -3,12 +3,13 @@ import ChristmasPartyPage, { type ChristmasPartyContent } from "@/components/pag
 import { JsonLd } from "@/components/JsonLd";
 import { buildServicePageJsonLd, buildFaqPageJsonLd } from "@/lib/schema";
 import { weihnachtsfeierPhotos } from "@/data/weihnachtsfeier";
+import { SOCIAL_CLIP_PRICE } from "@/data/videoOptions";
 
 const weihnachtsfeierHero = weihnachtsfeierPhotos.tanzflaeche;
 
 const TITLE = "Christmas Party Photographer in Hamburg | Corporate Events";
 const DESCRIPTION =
-  "Photographer for corporate Christmas parties in Hamburg. Up to 4 hours from €1,000, first photos the next day. Book your December date now.";
+  "Photographer for corporate Christmas parties in Hamburg. Up to 4 hours from €1,200, first photos the next day. Book your December date now.";
 const PATH = "/en/christmas-party-photographer-hamburg";
 
 export const metadata: Metadata = {
@@ -63,14 +64,14 @@ const CONTENT: ChristmasPartyContent = {
     "I photograph company Christmas and year-end parties in Hamburg. Quietly and with an eye for real moments: speeches, team photos, the mood of the evening. You get the first photos the next day.",
   ctaLabel: "Ask about your Christmas party date",
   ctaHref: "/en/contact",
-  trustLine: ["Recently: Christmas party at Fairmont Hotel Vier\u00A0Jahreszeiten", "First photos the next day", "from €1,000"],
+  trustLine: ["Recently: Christmas party at Fairmont Hotel Vier\u00A0Jahreszeiten", "First photos the next day", "from €1,200"],
   whatYouGetTitle: "What you get",
   whatYouGet: [
-    "Up to 4 hours on site, from €1,000 plus VAT",
+    "Up to 4 hours on site, from €1,200 plus VAT",
     "80–150 edited photos in an online gallery",
     "First selection the next day, all photos within 48 hours",
     "Usage rights for internal communication, social media and your website",
-    "Optional: social clip for LinkedIn or Instagram, €450",
+    `Optional: social clip for LinkedIn or Instagram, ${SOCIAL_CLIP_PRICE.en}`,
   ],
   howItWorksTitle: "How it works",
   howItWorks: [

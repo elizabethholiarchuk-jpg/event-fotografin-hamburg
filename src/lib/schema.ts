@@ -335,6 +335,50 @@ export function buildPricingBreadcrumbJsonLd(lang: Language) {
   ]);
 }
 
+export interface PricingOfferInput {
+  /** Package name, e.g. "Halbtag" */
+  name: string;
+  /** Short description, e.g. "Bis zu 4 Stunden vor Ort" */
+  description: string;
+  /** Minimum ("ab") net price in EUR */
+  price: number;
+}
+
+/**
+ * Pricing page JSON-LD — Service with one Offer per package.
+ * `price` is the minimum ("ab") net price, VAT excluded.
+ */
+export function buildPricingOffersJsonLd(
+  lang: Language,
+  offers: PricingOfferInput[],
+) {
+  const pricingPath = lang === 'en' ? '/en/pricing' : '/preise';
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service' as const,
+    name: lang === 'de' ? 'Eventfotografie Hamburg' : 'Event Photography Hamburg',
+    serviceType: 'Event Photography',
+    url: abs(pricingPath),
+    provider: { '@id': BUSINESS_ID },
+    areaServed: [...AREA_SERVED],
+    inLanguage: LANG_TAG[lang],
+    offers: offers.map((offer) => ({
+      '@type': 'Offer' as const,
+      name: offer.name,
+      description: offer.description,
+      price: offer.price,
+      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'PriceSpecification' as const,
+        minPrice: offer.price,
+        priceCurrency: 'EUR',
+        valueAddedTaxIncluded: false,
+      },
+      url: abs(pricingPath),
+    })),
+  };
+}
+
 /* ------------------------------------------------------------------ */
 /*  Blog / Article helpers                                             */
 /* ------------------------------------------------------------------ */

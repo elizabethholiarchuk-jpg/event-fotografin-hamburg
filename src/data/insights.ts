@@ -1,3 +1,5 @@
+import { PACKAGE_PRICES, formatFromPrice } from "@/data/pricing";
+
 export interface InsightsPost {
   slug: string;
   title: string;
@@ -18,7 +20,7 @@ export const insightsPosts: InsightsPost[] = [
     slug: "how-much-does-an-event-photographer-cost-hamburg",
     title: "Event Photographer in Hamburg: What Does It Actually Cost?",
     excerpt:
-      "Event photography in Hamburg costs €450–€2,050+ depending on scope. Here's what's behind the price — and what to look for before you book.",
+      `What does an event photographer cost in Hamburg in 2026? Market rates: half day €900 – €1,400, full day €1,400 – €2,500+. My packages start ${formatFromPrice("en", PACKAGE_PRICES.halfDay)}.`,
     category: "Pricing & Booking",
     date: "June 2026",
     datePublished: "2026-06-03",

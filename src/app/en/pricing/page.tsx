@@ -1,12 +1,13 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { videoOptions } from "@/data/videoOptions";
-import { buildPricingBreadcrumbJsonLd } from "@/lib/schema";
+import { PACKAGE_PRICES, formatFromPrice } from "@/data/pricing";
+import { buildPricingBreadcrumbJsonLd, buildFaqPageJsonLd, buildPricingOffersJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Event Photography Pricing Hamburg",
   description:
-    "Conference and event photography in Hamburg from €750. Half-day and full-day packages. Transparent pricing, custom quotes within 24 hours.",
+    `Conference and event photography in Hamburg ${formatFromPrice("en", PACKAGE_PRICES.halfDay)}. Packages for 4, 6 and 8 hours. Transparent pricing, custom quotes within 24 hours.`,
   alternates: {
     canonical: "/en/pricing",
     languages: {
@@ -23,16 +24,43 @@ export const metadata: Metadata = {
   },
 };
 
-const packages = [
+type Package = {
+  name: string;
+  duration: string;
+  range: string;
+  /** Minimum ("from") net price in EUR, used for the Offer JSON-LD */
+  price?: number;
+  note?: string;
+  ideal: string;
+  includes: string[];
+  highlight?: boolean;
+};
+
+const packages: Package[] = [
   {
     name: "Half Day",
     duration: "Up to 4 hours on-site",
-    range: "€1,000 – €1,500",
+    range: formatFromPrice("en", PACKAGE_PRICES.halfDay),
+    price: PACKAGE_PRICES.halfDay,
     ideal:
       "Panel discussions, compact conferences, networking events, single-day stand coverage at a trade fair.",
     includes: [
       "Up to 4 hours on-site",
-      "Fully edited gallery (typically 80–150 images)",
+      "Fully edited gallery (approx. 80–150 images)",
+      "Private online gallery, delivered within 48h",
+      "Full corporate usage rights",
+    ],
+  },
+  {
+    name: "Extended",
+    duration: "Up to 6 hours on-site",
+    range: formatFromPrice("en", PACKAGE_PRICES.extended),
+    price: PACKAGE_PRICES.extended,
+    ideal:
+      "Conferences followed by a get-together, long trade fair days, corporate events with an evening programme.",
+    includes: [
+      "Up to 6 hours on-site",
+      "Fully edited gallery (approx. 150–250 images)",
       "Private online gallery, delivered within 48h",
       "Full corporate usage rights",
     ],
@@ -40,12 +68,13 @@ const packages = [
   {
     name: "Full Day",
     duration: "Up to 8 hours on-site",
-    range: "€2,000 – €2,500",
+    range: formatFromPrice("en", PACKAGE_PRICES.fullDay),
+    price: PACKAGE_PRICES.fullDay,
     ideal:
       "Full-day conferences, all-day trade show coverage, corporate events, award ceremonies.",
     includes: [
       "Up to 8 hours on-site",
-      "Fully edited gallery (typically 200–400 images)",
+      "Fully edited gallery (approx. 200–400 images)",
       "Private online gallery, delivered within 48h",
       "Full corporate usage rights",
       "Optional: same-day highlight selects",
@@ -55,7 +84,8 @@ const packages = [
   {
     name: "Multi-Day",
     duration: "2+ days",
-    range: "Custom, discounted day-rate",
+    range: "Day rate on request",
+    note: "Lower from day two.",
     ideal:
       "Trade fairs, international congresses, brand activations and events running across multiple days.",
     includes: [
@@ -66,6 +96,27 @@ const packages = [
       "Optional: second photographer for parallel sessions",
     ],
   },
+];
+
+const offers = packages.flatMap((pkg) =>
+  pkg.price ? [{ name: pkg.name, description: pkg.duration, price: pkg.price }] : []
+);
+
+const priceFactors = [
+  "Trade show with early start",
+  "Multiple days",
+  "Second photographer",
+  "Same-day first photos",
+  "Social clip",
+  "Travel outside Hamburg",
+  "Extended rights for advertising",
+];
+
+const FAQ = [
+  { q: "How much does an event photographer in Hamburg cost?", a: `My packages start ${formatFromPrice("en", PACKAGE_PRICES.halfDay)} for a half day (up to 4 hours). The final price depends on duration, scope and add-ons — you get a fixed quote upfront, not an estimate.` },
+  { q: "Do you charge by the hour?", a: "I work with packages for 4, 6 and 8 hours instead of pure hourly rates, because preparation and editing are always part of the job. For very short formats we'll find a solution that fits." },
+  { q: "When will I receive the photos?", a: "The edited gallery usually within 48 hours, highlights on the same day if you need them." },
+  { q: "Are there travel costs?", a: "Usually not within Hamburg. For events outside Hamburg, travel costs are listed transparently in the quote." },
 ];
 
 const addons = [
@@ -91,6 +142,18 @@ export default function PricingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(buildPricingBreadcrumbJsonLd('en')),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildFaqPageJsonLd(FAQ)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildPricingOffersJsonLd("en", offers)),
         }}
       />
 
@@ -122,11 +185,11 @@ export default function PricingPage() {
               Typical Budgets
             </h2>
             <p className="text-[14px] text-[var(--color-text-muted)]">
-              Minimum booking: half-day.&ensp;·&ensp;All prices exclude VAT (if applicable).
+              Minimum booking: half day (up to 4 hours).&ensp;·&ensp;All prices exclude VAT (if applicable).
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {packages.map((pkg) => (
               <div
                 key={pkg.name}
@@ -146,8 +209,9 @@ export default function PricingPage() {
                   <p className="text-sm text-[var(--color-text-muted)]">{pkg.duration}</p>
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Typical budget</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Price</p>
                   <p className="text-3xl font-semibold text-[var(--color-text-main)]">{pkg.range}</p>
+                  {pkg.note && <p className="text-[14px] text-[var(--color-text-muted)]">{pkg.note}</p>}
                 </div>
                 <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{pkg.ideal}</p>
                 <ul className="flex flex-col gap-2 mt-auto">
@@ -161,6 +225,25 @@ export default function PricingPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* What affects the price */}
+      <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-8">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
+            What affects the price
+          </h2>
+          <ul className="flex flex-wrap gap-3">
+            {priceFactors.map((item) => (
+              <li
+                key={item}
+                className="px-4 py-2 border border-[var(--color-border-hairline)] rounded-full text-[15px] text-[var(--color-text-muted)]"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -228,6 +311,23 @@ export default function PricingPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
+        <div className="max-w-[800px] mx-auto px-6 md:px-12 flex flex-col gap-10">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
+            FAQ
+          </h2>
+          <div className="flex flex-col gap-8">
+            {FAQ.map((item, i) => (
+              <div key={i} className="flex flex-col gap-2">
+                <h3 className="text-lg font-semibold text-[var(--color-text-main)]">{item.q}</h3>
+                <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

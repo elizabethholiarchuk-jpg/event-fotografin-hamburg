@@ -8,11 +8,17 @@ import {
   buildFaqPageJsonLd,
   buildArticleBreadcrumbJsonLd,
 } from "@/lib/schema";
+import { PACKAGE_PRICES, formatFromPrice } from "@/data/pricing";
+import { videoOptions } from "@/data/videoOptions";
+
+const SLUG = "how-much-does-an-event-photographer-cost-hamburg";
+const post = insightsPosts.find((p) => p.slug === SLUG)!;
+
+const TITLE = `Event Photographer Hamburg: Prices 2026 – ${formatFromPrice("en", PACKAGE_PRICES.halfDay)}`;
 
 export const metadata: Metadata = {
-  title: "Event Photographer in Germany: What Does It Actually Cost?",
-  description:
-    "Event photography in Germany costs €300–€2,500+ depending on scope. Here's what's behind the price — and what to look for before you book.",
+  title: { absolute: TITLE },
+  description: post.excerpt,
   alternates: {
     canonical: "/en/insights/how-much-does-an-event-photographer-cost-hamburg",
       languages: {
@@ -24,9 +30,8 @@ export const metadata: Metadata = {
   openGraph: {
       locale: "en_US",
       alternateLocale: ["de_DE"],
-    title: "Event Photographer in Germany: What Does It Actually Cost?",
-    description:
-      "Event photography in Germany costs €450–€2,050+ depending on scope. Here's what's behind the price — and what to look for before you book.",
+    title: TITLE,
+    description: post.excerpt,
     url: "/en/insights/how-much-does-an-event-photographer-cost-hamburg",
     images: [
       {
@@ -39,9 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Event Photographer in Germany: What Does It Actually Cost?",
-    description:
-      "Event photography in Germany costs €450–€2,050+ depending on scope. Here's what's behind the price — and what to look for before you book.",
+    title: TITLE,
+    description: post.excerpt,
     images: [
       {
         url: "/images/insights/event-photographer-hamburg-conference-speaker-audience.webp",
@@ -51,21 +55,19 @@ export const metadata: Metadata = {
   },
 };
 
-const SLUG = "how-much-does-an-event-photographer-cost-hamburg";
-const post = insightsPosts.find((p) => p.slug === SLUG)!;
 
 const FAQ_ITEMS = [
   {
     q: "How much does an event photographer in Germany cost?",
-    a: "For corporate events in Germany, realistic market rates are: 2 hours from €450, 4 hours €900 – €1,400, and a full day (8 hours) €1400 – €2500, all net. Prices at the higher end reflect professional equipment, post-production, usage rights, and same-day delivery options.",
+    a: "For corporate events in Germany, realistic market rates are: €200 – €300+ per hour, a half day (approx. 4 hours) €900 – €1,400, and a full day (approx. 8 hours) €1,400 – €2,500+, all net. In Hamburg, most reliable professionals quote €1,000 – €1,500 for a half day and €1,600 – €2,500+ for a full day. Prices at the higher end reflect professional equipment, post-production, usage rights, and same-day delivery options.",
   },
   {
     q: "Why do event photographer prices vary so much?",
     a: "Part of it is operational: the rate covers pre-event coordination, post-production, equipment, insurance, software, and limited billable days per year. But a large part comes down to mindset. Many photographers have never calculated what it costs to do this full time. When you run the real numbers — equipment depreciation, unpaid admin, taxes, no sick pay — €50 per hour is below minimum wage for a self-employed person. That price exists because some photographers treat photography as supplemental income, not a business. It distorts client expectations and makes it harder for full-time professionals to charge what the work actually costs.",
   },
   {
-    q: "Is €1,000 for 4 hours of event photography a fair price?",
-    a: "Yes — within the normal professional range for major German cities. When you factor in preparation, post-production, equipment, and overhead, a 4-hour booking is effectively a full working day for the photographer.",
+    q: "Is €1,000 – €1,500 for 4 hours of event photography normal in Hamburg?",
+    a: "Yes — that's where most reliable professionals in Hamburg sit for a half day. When you factor in preparation, post-production, equipment, and overhead, a 4-hour booking is effectively a full working day for the photographer.",
   },
   {
     q: "Should I pay a deposit for event photography?",
@@ -90,6 +92,13 @@ const FAQ_ITEMS = [
 ];
 
 
+
+const myRates = [
+  { label: "Up to 4 hours", price: formatFromPrice("en", PACKAGE_PRICES.halfDay) },
+  { label: "Up to 6 hours", price: formatFromPrice("en", PACKAGE_PRICES.extended) },
+  { label: "Up to 8 hours", price: formatFromPrice("en", PACKAGE_PRICES.fullDay) },
+  ...videoOptions.en.items.map((item) => ({ label: item.name, price: item.price })),
+];
 
 export default function EventPhotographerCostPage() {
   const relatedSlugs = [
@@ -147,7 +156,7 @@ export default function EventPhotographerCostPage() {
             Event Photographer in Germany: What Does It Actually Cost?
           </h1>
           <p className="text-lg md:text-xl text-[var(--color-text-muted)] max-w-[60ch] font-normal leading-relaxed">
-            Event photography in Germany costs €300–€2,500+ depending on scope.
+            Event photography in Germany costs €900 – €2,500+ for a half to full day, depending on scope.
             Here&apos;s what&apos;s behind the price — and what to look for
             before you book.
           </p>
@@ -188,8 +197,34 @@ export default function EventPhotographerCostPage() {
             explains the gap? And what&apos;s actually behind a price that might
             look high at first glance?
           </p>
+        </div>
+      </section>
 
-
+      {/* My rates */}
+      <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
+        <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-6">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
+            My rates
+          </h2>
+          <p className="text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
+            Before we get to the market: this is what I charge. All prices net, plus VAT.
+          </p>
+          <ul className="flex flex-col border-t border-[var(--color-border-hairline)]">
+            {myRates.map((rate) => (
+              <li
+                key={rate.label}
+                className="flex items-baseline justify-between gap-4 py-4 border-b border-[var(--color-border-hairline)] text-[16px]"
+              >
+                <span className="text-[var(--color-text-muted)]">{rate.label}</span>
+                <span className="font-semibold text-[var(--color-text-main)] whitespace-nowrap">{rate.price}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-medium">
+            <Link href="/en/pricing" className="text-[var(--color-text-main)] underline underline-offset-4 hover:text-[var(--color-accent)]">All packages and prices</Link>
+            <Link href="/en/video-support" className="text-[var(--color-text-main)] underline underline-offset-4 hover:text-[var(--color-accent)]">Video</Link>
+            <Link href="/en/christmas-party-photographer-hamburg" className="text-[var(--color-text-main)] underline underline-offset-4 hover:text-[var(--color-accent)]">Christmas parties</Link>
+          </div>
         </div>
       </section>
 
@@ -504,20 +539,20 @@ export default function EventPhotographerCostPage() {
 
             <div className="flex flex-col gap-3 p-6 border border-[var(--color-border-hairline)] rounded-[20px]">
               <h3 className="text-lg font-semibold text-[var(--color-text-main)]">Half-Day Rate <span className="text-[15px] font-normal text-[var(--color-text-muted)]">(approx. 4 hours)</span></h3>
-              <p className="text-xl font-medium text-[var(--color-text-main)]">€900 – €1400</p>
+              <p className="text-xl font-medium text-[var(--color-text-main)]">€900 – €1,400</p>
               <p className="text-[14px] text-[var(--color-text-muted)] mt-2">
                 This is the most common package for evening corporate receptions, medium-sized PR events, or half-day conferences.
               </p>
               <p className="text-[14px] text-[var(--color-text-muted)] mt-1 italic">
-                In a major business hub like Hamburg, expect most reliable professionals to quote between €1000 and €1500 for a half-day.
+                In a major business hub like Hamburg, expect most reliable professionals to quote between €1,000 and €1,500 for a half-day.
               </p>
             </div>
 
             <div className="flex flex-col gap-3 p-6 border border-[var(--color-border-hairline)] rounded-[20px]">
               <h3 className="text-lg font-semibold text-[var(--color-text-main)]">Full-Day Rate <span className="text-[15px] font-normal text-[var(--color-text-muted)]">(approx. 8 hours)</span></h3>
-              <p className="text-xl font-medium text-[var(--color-text-main)]">€1400 – €2,500+</p>
+              <p className="text-xl font-medium text-[var(--color-text-main)]">€1,400 – €2,500+</p>
               <p className="text-[14px] text-[var(--color-text-muted)] mt-2">
-                In Hamburg, a standard full-day corporate shoot will typically land around €1600 to €2,500+ depending on specific usage rights, post-production complexity, and same-day delivery options.
+                In Hamburg, a standard full-day corporate shoot will typically land around €1,600 to €2,500+ depending on specific usage rights, post-production complexity, and same-day delivery options.
               </p>
             </div>
           </div>

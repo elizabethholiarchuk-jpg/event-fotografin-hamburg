@@ -8,11 +8,15 @@ import {
   buildFaqPageJsonLd,
   buildArticleBreadcrumbJsonLd,
 } from "@/lib/schema";
+import { PACKAGE_PRICES, formatFromPrice } from "@/data/pricing";
+import { videoOptions } from "@/data/videoOptions";
+
+const TITLE = `Eventfotograf Hamburg: Preise 2026 – ${formatFromPrice("de", PACKAGE_PRICES.halfDay)}`;
+const DESCRIPTION = `Was kostet ein Eventfotograf in Hamburg 2026? Marktpreise: Halbtag 900 € – 1.400 €, Ganztag 1.400 € – 2.500 €+. Meine Pakete starten ${formatFromPrice("de", PACKAGE_PRICES.halfDay)}.`;
 
 export const metadata: Metadata = {
-  title: "Was kostet ein Eventfotograf? (Preise & Übersicht)",
-  description:
-    "Eventfotografie in Deutschland kostet je nach Aufwand 300 € – 2.500 €+. Hier erfahren Sie, wie sich die Preise zusammensetzen – und worauf Sie vor der Buchung achten sollten.",
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
   alternates: {
     canonical: "/insights/how-much-does-an-event-photographer-cost-hamburg",
     languages: {
@@ -22,9 +26,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Was kostet ein Eventfotograf? (Preise & Übersicht)",
-    description:
-      "Eventfotografie in Deutschland kostet je nach Aufwand 450 € – 2.050 €+. Hier erfahren Sie, wie sich die Preise zusammensetzen – und worauf Sie vor der Buchung achten sollten.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: "/insights/how-much-does-an-event-photographer-cost-hamburg",
     locale: "de_DE",
     alternateLocale: ["en_US"],
@@ -39,9 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Was kostet ein Eventfotograf? (Preise & Übersicht)",
-    description:
-      "Eventfotografie in Deutschland kostet je nach Aufwand 450 € – 2.050 €+. Hier erfahren Sie, wie sich die Preise zusammensetzen – und worauf Sie vor der Buchung achten sollten.",
+    title: TITLE,
+    description: DESCRIPTION,
     images: [
       {
         url: "/images/insights/event-photographer-hamburg-conference-speaker-audience.webp",
@@ -57,15 +59,15 @@ const post = insightsPosts.find((p) => p.slug === SLUG)!;
 const FAQ_ITEMS = [
   {
     q: "Wie viel kostet ein Eventfotograf in Deutschland?",
-    a: "Für Corporate Events in Deutschland liegen die realistischen Marktpreise bei: 2 Stunden ab 450 €, 4 Stunden 900 € – 1.400 € und ein ganzer Tag (8 Stunden) 1.400 € – 2.500 €, jeweils netto. Preise im oberen Segment spiegeln professionelle Ausrüstung, Postproduktion, Nutzungsrechte und Optionen für eine Lieferung am selben Tag wider.",
+    a: "Für Corporate Events in Deutschland liegen die realistischen Marktpreise bei: 200 € – 300 €+ pro Stunde, ein halber Tag (ca. 4 Stunden) 900 € – 1.400 € und ein ganzer Tag (ca. 8 Stunden) 1.400 € – 2.500 €+, jeweils netto. In Hamburg liegen die meisten zuverlässigen Profis bei 1.000 € – 1.500 € für einen halben und 1.600 € – 2.500 €+ für einen ganzen Tag. Preise im oberen Segment spiegeln professionelle Ausrüstung, Postproduktion, Nutzungsrechte und Optionen für eine Lieferung am selben Tag wider.",
   },
   {
     q: "Warum variieren die Preise für Eventfotografen so stark?",
     a: "Ein Teil davon ist betriebsbedingt: Der Preis deckt Vorbesprechung, Postproduktion, Ausrüstung, Versicherung, Software und eine begrenzte Anzahl abrechenbarer Tage pro Jahr ab. Aber ein großer Teil hängt auch vom Mindset ab. Viele Fotografen haben nie berechnet, was es kostet, diesen Beruf in Vollzeit auszuüben. Wenn man die tatsächlichen Zahlen betrachtet – Wertminderung der Ausrüstung, unbezahlte Verwaltungsarbeit, Steuern, kein Krankengeld – liegen 50 € pro Stunde unter dem Mindestlohn für einen Selbständigen. Dieser Preis existiert, weil manche Fotografen die Fotografie als Zusatzeinkommen betrachten, nicht als Unternehmen. Das verzerrt die Kundenerwartungen und macht es für Vollzeit-Profis schwerer, das zu berechnen, was die Arbeit tatsächlich kostet.",
   },
   {
-    q: "Sind 1.000 € für 4 Stunden Eventfotografie ein fairer Preis?",
-    a: "Ja – das liegt im normalen professionellen Rahmen für deutsche Großstädte. Wenn man Vorbereitung, Postproduktion, Ausrüstung und Gemeinkosten mit einbezieht, ist eine 4-Stunden-Buchung für den Fotografen faktisch ein ganzer Arbeitstag.",
+    q: "Sind 1.000 € – 1.500 € für 4 Stunden Eventfotografie in Hamburg normal?",
+    a: "Ja – in diesem Rahmen liegen die meisten zuverlässigen Profis in Hamburg für einen halben Tag. Wenn man Vorbereitung, Postproduktion, Ausrüstung und Gemeinkosten mit einbezieht, ist eine 4-Stunden-Buchung für den Fotografen faktisch ein ganzer Arbeitstag.",
   },
   {
     q: "Sollte ich eine Anzahlung für Eventfotografie leisten?",
@@ -87,6 +89,13 @@ const FAQ_ITEMS = [
     q: "Gehören die Fotos nach der Buchung mir?",
     a: "In Deutschland bleibt das Urheberrecht gesetzlich beim Fotografen. Was Sie erhalten, sind Nutzungsrechte – typischerweise für den internen Gebrauch, Presse, Social Media und die Website. Kommerzielle Nutzung darüber hinaus wird separat angeboten.",
   },
+];
+
+const myRates = [
+  { label: "Bis 4 Stunden", price: formatFromPrice("de", PACKAGE_PRICES.halfDay) },
+  { label: "Bis 6 Stunden", price: formatFromPrice("de", PACKAGE_PRICES.extended) },
+  { label: "Bis 8 Stunden", price: formatFromPrice("de", PACKAGE_PRICES.fullDay) },
+  ...videoOptions.de.items.map((item) => ({ label: item.name, price: item.price })),
 ];
 
 export default function EventPhotographerCostPage() {
@@ -116,7 +125,7 @@ export default function EventPhotographerCostPage() {
             buildBlogPostingJsonLd({
               slug: SLUG,
               headline: "Was kostet ein Eventfotograf?",
-              description: "Eventfotografie in Deutschland kostet je nach Aufwand 300 € – 2.500 €+. Hier erfahren Sie, wie sich die Preise zusammensetzen.",
+              description: DESCRIPTION,
               datePublished: post.datePublished,
               dateModified: post.dateModified,
               image: post.coverImage,
@@ -145,7 +154,7 @@ export default function EventPhotographerCostPage() {
             Eventfotograf in Deutschland: Was kostet das eigentlich?
           </h1>
           <p className="text-lg md:text-xl text-[var(--color-text-muted)] max-w-[60ch] font-normal leading-relaxed">
-            Eventfotografie in Deutschland kostet je nach Aufwand 300 € – 2.500 €+.
+            Eventfotografie in Deutschland kostet je nach Aufwand 900 € – 2.500 €+ für einen halben bis ganzen Tag.
             Hier erfahren Sie, wie sich die Preise zusammensetzen – und worauf Sie vor der Buchung achten sollten.
           </p>
           <div className="flex items-center gap-4 text-[14px] text-[var(--color-text-muted)]">
@@ -182,6 +191,34 @@ export default function EventPhotographerCostPage() {
             Scheinbar für die gleiche Dienstleistung. Was erklärt diese Differenz? Und was steckt tatsächlich hinter 
             einem Preis, der auf den ersten Blick vielleicht hoch erscheint?
           </p>
+        </div>
+      </section>
+
+      {/* My rates */}
+      <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
+        <div className="max-w-[900px] mx-auto px-6 md:px-12 flex flex-col gap-6">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
+            Meine Preise
+          </h2>
+          <p className="text-[17px] text-[var(--color-text-muted)] leading-[1.85]">
+            Bevor es um den Markt geht: So rechne ich selbst ab. Alle Preise netto, zzgl. MwSt.
+          </p>
+          <ul className="flex flex-col border-t border-[var(--color-border-hairline)]">
+            {myRates.map((rate) => (
+              <li
+                key={rate.label}
+                className="flex items-baseline justify-between gap-4 py-4 border-b border-[var(--color-border-hairline)] text-[16px]"
+              >
+                <span className="text-[var(--color-text-muted)]">{rate.label}</span>
+                <span className="font-semibold text-[var(--color-text-main)] whitespace-nowrap">{rate.price}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-medium">
+            <Link href="/preise" className="text-[var(--color-text-main)] underline underline-offset-4 hover:text-[var(--color-accent)]">Alle Pakete und Preise</Link>
+            <Link href="/video-support" className="text-[var(--color-text-main)] underline underline-offset-4 hover:text-[var(--color-accent)]">Video</Link>
+            <Link href="/weihnachtsfeier-fotograf-hamburg" className="text-[var(--color-text-main)] underline underline-offset-4 hover:text-[var(--color-accent)]">Weihnachtsfeier</Link>
+          </div>
         </div>
       </section>
 

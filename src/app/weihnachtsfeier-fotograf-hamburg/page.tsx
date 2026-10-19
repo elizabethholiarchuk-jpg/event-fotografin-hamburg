@@ -3,12 +3,13 @@ import ChristmasPartyPage, { type ChristmasPartyContent } from "@/components/pag
 import { JsonLd } from "@/components/JsonLd";
 import { buildServicePageJsonLd, buildFaqPageJsonLd } from "@/lib/schema";
 import { weihnachtsfeierPhotos } from "@/data/weihnachtsfeier";
+import { SOCIAL_CLIP_PRICE } from "@/data/videoOptions";
 
 const weihnachtsfeierHero = weihnachtsfeierPhotos.tanzflaeche;
 
 const TITLE = "Fotograf für Weihnachtsfeier in Hamburg | Firmenfeier fotografieren";
 const DESCRIPTION =
-  "Fotografin für Weihnachtsfeiern und Firmenfeiern in Hamburg. Bis zu 4 Stunden ab 1.000 €, erste Bilder am nächsten Tag. Jetzt Termin im Dezember anfragen.";
+  "Fotografin für Weihnachtsfeiern und Firmenfeiern in Hamburg. Bis zu 4 Stunden ab 1.200 €, erste Bilder am nächsten Tag. Jetzt Termin im Dezember anfragen.";
 const PATH = "/weihnachtsfeier-fotograf-hamburg";
 
 export const metadata: Metadata = {
@@ -63,14 +64,14 @@ const CONTENT: ChristmasPartyContent = {
     "Ich fotografiere Weihnachtsfeiern und Jahresabschlussfeiern von Unternehmen in Hamburg. Unauffällig und mit Blick für echte Momente: Reden, Teamfotos, Stimmung am Abend. Die ersten Bilder bekommen Sie am nächsten Tag.",
   ctaLabel: "Termin für Ihre Weihnachtsfeier anfragen",
   ctaHref: "/kontakt",
-  trustLine: ["Zuletzt: Weihnachtsfeier im Fairmont Hotel Vier\u00A0Jahreszeiten", "Erste Bilder am nächsten Tag", "ab 1.000 €"],
+  trustLine: ["Zuletzt: Weihnachtsfeier im Fairmont Hotel Vier\u00A0Jahreszeiten", "Erste Bilder am nächsten Tag", "ab 1.200 €"],
   whatYouGetTitle: "Was Sie bekommen",
   whatYouGet: [
-    "Bis zu 4 Stunden vor Ort, ab 1.000 € zzgl. MwSt.",
+    "Bis zu 4 Stunden vor Ort, ab 1.200 € zzgl. MwSt.",
     "80–150 bearbeitete Fotos in einer Online-Galerie",
     "Erste Auswahl am nächsten Tag, alle Bilder innerhalb von 48 Stunden",
     "Nutzungsrechte für interne Kommunikation, Social Media und Website",
-    "Optional: Social-Clip für LinkedIn oder Instagram, 450 €",
+    `Optional: Social-Clip für LinkedIn oder Instagram, ${SOCIAL_CLIP_PRICE.de}`,
   ],
   howItWorksTitle: "So läuft es ab",
   howItWorks: [

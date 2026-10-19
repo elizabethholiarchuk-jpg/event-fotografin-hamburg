@@ -1,13 +1,14 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { buildPricingBreadcrumbJsonLd, buildFaqPageJsonLd } from "@/lib/schema";
+import { buildPricingBreadcrumbJsonLd, buildFaqPageJsonLd, buildPricingOffersJsonLd } from "@/lib/schema";
 import { getDictionary } from "@/i18n";
 import { videoOptions } from "@/data/videoOptions";
+import { PACKAGE_PRICES, formatFromPrice } from "@/data/pricing";
 
 export const metadata: Metadata = {
   title: "Preise & Pakete — Eventfotografie Hamburg",
   description:
-    "Eventfotografie in Hamburg ab 1.000 €. Halbtags- und Ganztagspakete, transparente Preise, individuelles Angebot innerhalb von 24 Stunden.",
+    `Eventfotografie in Hamburg ${formatFromPrice("de", PACKAGE_PRICES.halfDay)}. Pakete für 4, 6 und 8 Stunden, transparente Preise, individuelles Angebot innerhalb von 24 Stunden.`,
   alternates: {
     canonical: "https://www.event-fotografin-hamburg.de/preise",
     languages: {
@@ -28,32 +29,20 @@ export default function GermanPricingPage() {
   const p = t.pricing!;
   const video = videoOptions.de;
 
-  const packages = [
-    {
-      name: p.halbtags.name,
-      duration: p.halbtags.duration,
-      range: p.halbtags.range,
-      ideal: p.halbtags.ideal,
-      includes: p.halbtags.includes,
-      highlight: false,
-    },
-    {
-      name: p.ganztags.name,
-      duration: p.ganztags.duration,
-      range: p.ganztags.range,
-      ideal: p.ganztags.ideal,
-      includes: p.ganztags.includes,
-      highlight: true,
-    },
-    {
-      name: p.mehrtagig.name,
-      duration: p.mehrtagig.duration,
-      range: p.mehrtagig.range,
-      ideal: p.mehrtagig.ideal,
-      includes: p.mehrtagig.includes,
-      highlight: false,
-    },
-  ];
+  const packages = [p.halbtags, p.erweitert, p.ganztags, p.mehrtagig].map((pkg) => ({
+    name: pkg.name,
+    duration: pkg.duration,
+    range: pkg.range,
+    note: "note" in pkg ? pkg.note : undefined,
+    price: "price" in pkg ? pkg.price : undefined,
+    ideal: pkg.ideal,
+    includes: pkg.includes,
+    highlight: pkg === p.ganztags,
+  }));
+
+  const offers = packages.flatMap((pkg) =>
+    pkg.price ? [{ name: pkg.name, description: pkg.duration, price: pkg.price }] : []
+  );
 
   return (
     <>
@@ -67,6 +56,12 @@ export default function GermanPricingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(buildFaqPageJsonLd(p.faq.items)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildPricingOffersJsonLd("de", offers)),
         }}
       />
 
@@ -102,7 +97,7 @@ export default function GermanPricingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {packages.map((pkg) => (
               <div
                 key={pkg.name}
@@ -122,8 +117,9 @@ export default function GermanPricingPage() {
                   <p className="text-sm text-[var(--color-text-muted)]">{pkg.duration}</p>
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">Typisches Budget</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">{p.priceLabel}</p>
                   <p className="text-3xl font-semibold text-[var(--color-text-main)]">{pkg.range}</p>
+                  {pkg.note && <p className="text-[14px] text-[var(--color-text-muted)]">{pkg.note}</p>}
                 </div>
                 <p className="text-[14px] text-[var(--color-text-muted)] leading-relaxed">{pkg.ideal}</p>
                 <ul className="flex flex-col gap-2 mt-auto">
@@ -137,6 +133,25 @@ export default function GermanPricingPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* What affects the price */}
+      <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-8">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-main)]">
+            {p.priceFactors.title}
+          </h2>
+          <ul className="flex flex-wrap gap-3">
+            {p.priceFactors.items.map((item) => (
+              <li
+                key={item}
+                className="px-4 py-2 border border-[var(--color-border-hairline)] rounded-full text-[15px] text-[var(--color-text-muted)]"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

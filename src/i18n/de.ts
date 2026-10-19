@@ -1,3 +1,6 @@
+import { videoFaq } from "@/data/videoOptions";
+import { PACKAGE_PRICES, formatFromPrice } from "@/data/pricing";
+
 export const de = {
   header: {
     home: "Start",
@@ -188,7 +191,7 @@ export const de = {
       { q: "Fotografieren Sie auch Preisverleihungen?", a: "Ja. Preisverleihungen sind eine meiner Spezialitäten — von der Bühne über den Trophäenmoment bis hin zu den Tischen und dem anschließenden Networking." },
       { q: "Können wir die Fotos für LinkedIn und unsere interne Kommunikation nutzen?", a: "Ja. Alle Bilder beinhalten die vollen Nutzungsrechte für Ihre interne und externe Unternehmenskommunikation." },
       { q: "Was ist mit Abendveranstaltungen bei wenig Licht?", a: "Kein Problem. Ich nutze lichtstarke Profi-Objektive und optimiere meine Ausrüstung für die jeweilige Location — egal ob heller Konferenzraum oder Award-Dinner bei Kerzenschein." },
-      { q: "Bieten Sie neben Fotos auch Video an?", a: "Ja, in zwei Varianten. Social-Clip: ein Clip von ca. 30 Sekunden für LinkedIn oder Instagram, mit dem Smartphone gedreht, am nächsten Tag geliefert, 450 €. Event-Video: mit einem Videografen aus meinem Team, Preis und Lieferzeit nach Projekt.", link: { href: "/video-support", label: "Video-Beispiele ansehen" } },
+      videoFaq.de,
       { q: "Wie lauten Ihre Stornierungsbedingungen?", a: "Die Bedingungen werden bei Buchung festgelegt. Bei Absagen innerhalb von 7 Tagen vor dem Event fällt in der Regel eine Teilgebühr an." },
       { q: "Übernehmen Sie auch Events an mehreren Standorten (z. B. morgens Hamburg, abends Berlin)?", a: "Bei eintägigen Events mit mehreren Standorten muss die Logistik passen. Wir besprechen das gerne individuell." },
       { q: "Gibt es Beispiele für Ihre Corporate Event Fotografie?", a: "Ja — in meinem Portfolio finden Sie Projekte für Plug and Play, Oyster Bay Venture Capital, IMMOJECTS, Shell und andere." }
@@ -227,7 +230,7 @@ export const de = {
       durationPlaceholder: "Bitte wählen",
       durationOptions: { short: "Kurz (~2h)", half: "Halbtags (~4h)", full: "Ganztags (~8h)", multi: "Mehrtägig" },
       budget: "Budget-Rahmen",
-      budgetPlaceholder: "z. B. 1.500 €",
+      budgetPlaceholder: "z. B. 1.200 €",
       howFound: "Wie sind Sie auf mich aufmerksam geworden?",
       howFoundPlaceholder: "Bitte wählen",
       howFoundOptions: {
@@ -283,7 +286,7 @@ export const de = {
   pricing: {
     meta: {
       title: "Preise & Pakete — Eventfotografie Hamburg | Liza Holiarchuk",
-      description: "Eventfotografie in Hamburg ab 1.000 €. Halbtags- und Ganztagspakete, transparente Preise, individuelles Angebot innerhalb von 24 Stunden."
+      description: `Eventfotografie in Hamburg ${formatFromPrice("de", PACKAGE_PRICES.halfDay)}. Pakete für 4, 6 und 8 Stunden, transparente Preise, individuelles Angebot innerhalb von 24 Stunden.`
     },
     hero: {
       title: "Preise & Pakete",
@@ -291,27 +294,43 @@ export const de = {
     },
     heroDesc: "Die finalen Angebote richten sich nach der Komplexität der Agenda (parallele Sessions), der Logistik vor Ort, den gewünschten Ergebnissen und eventuellen Reisekosten.",
     packagesTitle: "Typische Budgets",
-    packagesSub: "Mindestbuchung: halbtags. · Alle Preise verstehen sich zzgl. der gesetzlichen MwSt.",
+    priceLabel: "Preis",
+    packagesSub: "Mindestbuchung: Halbtag (bis 4 Stunden). · Alle Preise verstehen sich zzgl. der gesetzlichen MwSt.",
     halbtags: {
-      name: "Halbtags",
-      range: "1.000 € – 1.500 €",
+      name: "Halbtag",
+      range: formatFromPrice("de", PACKAGE_PRICES.halfDay),
+      price: PACKAGE_PRICES.halfDay,
       duration: "Bis zu 4 Stunden vor Ort",
       ideal: "Panel-Diskussionen, kompakte Konferenzen, Networking-Events, eintägige Messestand-Begleitung.",
       includes: [
         "Bis zu 4 Stunden vor Ort",
-        "Komplett bearbeitete Galerie (meist 80–150 Bilder)",
+        "Komplett bearbeitete Galerie (ca. 80–150 Bilder)",
+        "Private Online-Galerie, in der Regel in 48h",
+        "Nutzungsrechte für Ihre Unternehmenskommunikation"
+      ]
+    },
+    erweitert: {
+      name: "Erweitert",
+      range: formatFromPrice("de", PACKAGE_PRICES.extended),
+      price: PACKAGE_PRICES.extended,
+      duration: "Bis zu 6 Stunden vor Ort",
+      ideal: "Konferenzen mit anschließendem Get-together, lange Messetage, Firmenevents mit Abendprogramm.",
+      includes: [
+        "Bis zu 6 Stunden vor Ort",
+        "Komplett bearbeitete Galerie (ca. 150–250 Bilder)",
         "Private Online-Galerie, in der Regel in 48h",
         "Nutzungsrechte für Ihre Unternehmenskommunikation"
       ]
     },
     ganztags: {
-      name: "Ganztags",
-      range: "2.000 € – 2.500 €",
+      name: "Ganztag",
+      range: formatFromPrice("de", PACKAGE_PRICES.fullDay),
+      price: PACKAGE_PRICES.fullDay,
       duration: "Bis zu 8 Stunden vor Ort",
       ideal: "Ganztägige Konferenzen, komplette Messebegleitung, Corporate Events, Preisverleihungen.",
       includes: [
         "Bis zu 8 Stunden vor Ort",
-        "Komplett bearbeitete Galerie (meist 200–400 Bilder)",
+        "Komplett bearbeitete Galerie (ca. 200–400 Bilder)",
         "Private Online-Galerie, in der Regel in 48h",
         "Nutzungsrechte für Ihre Unternehmenskommunikation",
         "Optional: Erste Highlights am selben Tag"
@@ -319,7 +338,8 @@ export const de = {
     },
     mehrtagig: {
       name: "Mehrtägig",
-      range: "Individuell (reduzierter Tagessatz)",
+      range: "Tagessatz auf Anfrage",
+      note: "Ab dem zweiten Tag günstiger.",
       duration: "2+ Tage",
       ideal: "Messen, internationale Kongresse, Brand Activations und Events über mehrere Tage.",
       includes: [
@@ -328,6 +348,18 @@ export const de = {
         "Bearbeitete Galerie innerhalb von 3 Werktagen",
         "Nutzungsrechte für Ihre Unternehmenskommunikation",
         "Optional: Second Shooter für parallele Sessions"
+      ]
+    },
+    priceFactors: {
+      title: "Was den Preis beeinflusst",
+      items: [
+        "Messe mit frühem Start",
+        "Mehrere Tage",
+        "Zweiter Fotograf",
+        "Erste Bilder am selben Tag",
+        "Social-Clip",
+        "Anreise außerhalb Hamburgs",
+        "Erweiterte Nutzungsrechte für Werbung"
       ]
     },
     included: {
@@ -358,8 +390,8 @@ export const de = {
     faq: {
       title: "FAQ",
       items: [
-        { q: "Was kostet ein Eventfotograf in Hamburg?", a: "Meine Pakete beginnen bei 1.000 € für einen Halbtag. Der finale Preis hängt von Dauer, Umfang und Zusatzleistungen ab — Sie bekommen vorab ein festes Angebot, keine Schätzung." },
-        { q: "Gibt es Stundensätze?", a: "Ich arbeite mit Halbtags- und Ganztagspaketen statt reinen Stundensätzen, weil Vorbereitung und Bearbeitung immer dazugehören. Für sehr kurze Formate finden wir eine passende Lösung." },
+        { q: "Was kostet ein Eventfotograf in Hamburg?", a: `Meine Pakete beginnen ${formatFromPrice("de", PACKAGE_PRICES.halfDay)} für einen Halbtag (bis 4 Stunden). Der finale Preis hängt von Dauer, Umfang und Zusatzleistungen ab — Sie bekommen vorab ein festes Angebot, keine Schätzung.` },
+        { q: "Gibt es Stundensätze?", a: "Ich arbeite mit Paketen für 4, 6 und 8 Stunden statt reinen Stundensätzen, weil Vorbereitung und Bearbeitung immer dazugehören. Für sehr kurze Formate finden wir eine passende Lösung." },
         { q: "Wann erhalte ich die Bilder?", a: "Die bearbeitete Galerie in der Regel innerhalb von 48 Stunden, Highlights auf Wunsch am selben Tag." },
         { q: "Fallen Reisekosten an?", a: "Innerhalb Hamburgs in der Regel nicht. Für Termine außerhalb weise ich Reisekosten transparent im Angebot aus." }
       ]
