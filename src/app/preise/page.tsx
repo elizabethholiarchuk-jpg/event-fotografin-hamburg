@@ -5,7 +5,7 @@ import { getDictionary } from "@/i18n";
 import { videoOptions } from "@/data/videoOptions";
 
 export const metadata: Metadata = {
-  title: "Preise & Pakete — Eventfotografie Hamburg | Liza Holiarchuk",
+  title: "Preise & Pakete — Eventfotografie Hamburg",
   description:
     "Eventfotografie in Hamburg ab 1.000 €. Halbtags- und Ganztagspakete, transparente Preise, individuelles Angebot innerhalb von 24 Stunden.",
   alternates: {

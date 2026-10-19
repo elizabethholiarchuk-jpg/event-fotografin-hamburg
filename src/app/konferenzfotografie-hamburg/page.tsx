@@ -4,7 +4,7 @@ import { buildServicePageJsonLd, buildFaqPageJsonLd } from "@/lib/schema";
 import { de } from "@/i18n/de";
 
 export const metadata: Metadata = {
-  title: "Konferenzfotograf Hamburg — Kongresse & B2B-Events | Liza Holiarchuk",
+  title: "Konferenzfotograf Hamburg — Kongresse & B2B-Events",
   description:
     "Konferenzfotografie in Hamburg: Keynotes, Panels, Networking und Speaker-Porträts. Bearbeitete Galerie meist in 48 Stunden, Highlights am selben Tag.",
   alternates: {

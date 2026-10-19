@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { buildServicePageJsonLd, buildFaqPageJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Eventfotograf Hamburg – Liza Holiarchuk | Messen & Konferenzen",
+  title: "Eventfotograf Hamburg — Messen & Konferenzen",
   description:
     "Eventfotografin in Hamburg für Konferenzen, Messen und Firmenevents. Bearbeitete Galerie in der Regel in 2 Werktagen, Highlights am selben Tag auf Wunsch. Jetzt anfragen.",
   alternates: {

@@ -4,7 +4,7 @@ import { buildServicePageJsonLd, buildFaqPageJsonLd } from "@/lib/schema";
 import { de } from "@/i18n/de";
 
 export const metadata: Metadata = {
-  title: "Corporate Event Fotografin Hamburg — Firmenfeiern & Galas | Liza Holiarchuk",
+  title: "Corporate Event Fotografin Hamburg — Firmenfeiern & Galas",
   description:
     "Corporate Event Fotografin in Hamburg für Preisverleihungen, interne Events, Firmenjubiläen und Executive-Dinner.",
   alternates: {
