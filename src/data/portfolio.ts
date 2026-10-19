@@ -6,6 +6,8 @@ export interface PortfolioEvent {
     count: number;
     /** Per-language title */
     title_i18n?: { en: string; de: string };
+    /** Shorter title for <title>/og:title/twitter:title only (without "| Liza Holiarchuk"); replaces title + city */
+    metaTitle_i18n?: { en: string; de: string };
     /** City + country */
     location_i18n?: { en: string; de: string };
     /** Venue name(s) */
@@ -27,6 +29,10 @@ export const portfolioEvents: PortfolioEvent[] = [
         alt_i18n: {
             en: 'WISE Conference (WFUNA) at the United Nations Office at Geneva and CICG — Geneva, Switzerland',
             de: 'WISE Conference (WFUNA) im UN-Büro Genf und im CICG — Genf, Schweiz',
+        },
+        metaTitle_i18n: {
+            en: 'WISE Conference by WFUNA — Geneva',
+            de: 'WISE Conference der WFUNA — Genf',
         },
         location_i18n: { en: 'Geneva, Switzerland', de: 'Genf, Schweiz' },
         venue_i18n: { en: 'UN Office at Geneva (UNOG) · CICG', de: 'UN Office at Geneva (UNOG) · CICG' },
@@ -162,6 +168,10 @@ export const portfolioEvents: PortfolioEvent[] = [
             en: 'FEMS 2023 — 10th Congress of European Microbiologists',
             de: 'FEMS 2023 — 10. Kongress europäischer Mikrobiolog:innen',
         },
+        metaTitle_i18n: {
+            en: 'FEMS 2023 Microbiology Congress — Hamburg',
+            de: 'FEMS 2023 Mikrobiologie-Kongress — Hamburg',
+        },
         alt_i18n: {
             en: 'FEMS 2023 conference at Hamburg Messe und Congress — Hamburg, Germany',
             de: 'FEMS 2023 Konferenz in der Hamburg Messe und Congress — Hamburg',
@@ -181,6 +191,10 @@ export const portfolioEvents: PortfolioEvent[] = [
         title_i18n: {
             en: 'Testsieger Food Festival (Genuss-Guide Hamburg)',
             de: 'Testsieger Food-Festival (Genuss-Guide Hamburg)',
+        },
+        metaTitle_i18n: {
+            en: 'Testsieger Food Festival — Hamburg',
+            de: 'Testsieger Food-Festival — Hamburg',
         },
         location_i18n: { en: 'Hamburg, Germany', de: 'Hamburg, Deutschland' },
         venue_i18n: { en: 'Fabrik Ottensen', de: 'Fabrik Ottensen' },

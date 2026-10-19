@@ -27,7 +27,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const location = event.location_i18n?.en ?? "";
   const desc = event.oneLiner_i18n?.en ?? `Event photography by Liza Holiarchuk — ${title}.`;
 
-  const pageTitle = `${title}${location ? ` — ${location}` : ""}`;
+  // <title>/og/twitter: city without country, and no city if the event name already has it
+  const city = location.split(",")[0].trim();
+  const pageTitle =
+    event.metaTitle_i18n?.en ?? (city && !title.includes(city) ? `${title} — ${city}` : title);
 
   return {
     title: pageTitle,
