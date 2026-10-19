@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const location = event.location_i18n?.en ?? "";
   const desc = event.oneLiner_i18n?.en ?? `Event photography by Liza Holiarchuk — ${title}.`;
 
-  const pageTitle = `${title}${location ? ` — ${location}` : ""} | Portfolio`;
+  const pageTitle = `${title}${location ? ` — ${location}` : ""}`;
 
   return {
     title: pageTitle,
