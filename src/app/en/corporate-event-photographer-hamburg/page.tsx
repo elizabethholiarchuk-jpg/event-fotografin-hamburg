@@ -76,6 +76,7 @@ export default function CorporateEventPhotographyHamburg() {
         "Private online gallery within 48h",
         "Brand-consistent editing across all images",
       ]}
+      relatedLinks={[{ href: "/en/christmas-party-photographer-hamburg", label: "Christmas Party Photographer in Hamburg →" }]}
       howItWorks={[
         { step: "Pre-event call", desc: "We align on the event programme, key moments, and brand style expectations." },
         { step: "On-site arrival", desc: "I arrive early to scout the venue and prepare for the light conditions." },

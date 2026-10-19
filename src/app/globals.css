@@ -12,8 +12,14 @@
   --font-sans: var(--font-inter);
 }
 
+:root {
+  --page-bg: #EAF1F6;
+  --header-bg: #EAF1F6;
+  --footer-bg: #FAFAFA;
+}
+
 body {
-  background-color: #EAF1F6;
+  background-color: var(--page-bg);
   color: var(--color-text-main);
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;

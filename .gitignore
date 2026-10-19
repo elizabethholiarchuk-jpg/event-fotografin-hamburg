@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Claude Code local config
 .claude/
+
+# Original Christmas party photos (webp versions live in public/images/weihnachtsfeier)
+/weihnachtsfeier/

@@ -48,6 +48,7 @@ export async function GET() {
         { de: '/konferenzfotografie-hamburg', en: '/en/conference-photographer-hamburg', priority: '0.9' },
         { de: '/messefotograf-hamburg', en: '/en/trade-show-photographer-hamburg', priority: '0.9' },
         { de: '/corporate-event-fotograf-hamburg', en: '/en/corporate-event-photographer-hamburg', priority: '0.9' },
+        { de: '/weihnachtsfeier-fotograf-hamburg', en: '/en/christmas-party-photographer-hamburg', priority: '0.8' },
         { de: '/preise', en: '/en/pricing', priority: '0.7' },
         { de: '/kontakt', en: '/en/contact', priority: '0.8' },
         { de: '/ueber-mich', en: '/en/about', priority: '0.6' },

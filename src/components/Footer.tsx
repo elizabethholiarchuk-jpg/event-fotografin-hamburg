@@ -16,7 +16,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="w-full border-t border-[var(--color-border-hairline)] bg-[#FAFAFA] py-16 md:py-24 mt-auto">
+        <footer className="w-full border-t border-[var(--color-border-hairline)] bg-[var(--footer-bg)] py-16 md:py-24 mt-auto">
             <div className="max-w-[1120px] mx-auto px-6 md:px-10 flex flex-col md:flex-row justify-between gap-16 md:gap-8">
                 {/* Brand */}
                 <div className="flex flex-col gap-6 md:w-1/3">

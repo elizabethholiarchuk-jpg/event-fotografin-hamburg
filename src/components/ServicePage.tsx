@@ -14,6 +14,8 @@ export interface ServicePageProps {
   };
   intro: string;
   whatYouGet: string[];
+  /** Optional links shown under "What you get", e.g. to a related service page */
+  relatedLinks?: { href: string; label: string }[];
   howItWorks: { step: string; desc: string }[];
   faq: { q: string; a: string; link?: { href: string; label: string } }[];
   testimonial?: { quote: string; name: string; role: string };
@@ -29,6 +31,7 @@ export default function ServicePage({
   heroImage,
   intro,
   whatYouGet,
+  relatedLinks,
   howItWorks,
   faq,
   testimonial,
@@ -123,6 +126,11 @@ export default function ServicePage({
               </li>
             ))}
           </ul>
+          {relatedLinks?.map((link) => (
+            <Link key={link.href} href={link.href} className="text-[15px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 w-fit">
+              {link.label}
+            </Link>
+          ))}
         </div>
       </section>
 

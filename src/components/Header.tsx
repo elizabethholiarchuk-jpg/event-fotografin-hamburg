@@ -10,6 +10,7 @@ const enServiceLinks = [
   { href: "/conference-photographer-hamburg", label: "Conference Photography" },
   { href: "/trade-show-photographer-hamburg", label: "Trade Show Photography" },
   { href: "/corporate-event-photographer-hamburg", label: "Corporate Event Photography" },
+  { href: "/christmas-party-photographer-hamburg", label: "Christmas Party Photography" },
 ];
 
 const deServiceLinks = [
@@ -17,6 +18,7 @@ const deServiceLinks = [
   { href: "/konferenzfotografie-hamburg", label: "Konferenzfotografie" },
   { href: "/messefotograf-hamburg", label: "Messefotografie" },
   { href: "/corporate-event-fotograf-hamburg", label: "Corporate Event Fotografie" },
+  { href: "/weihnachtsfeier-fotograf-hamburg", label: "Weihnachtsfeier-Fotografie" },
 ];
 
 const enNavLinks = [
@@ -39,6 +41,7 @@ const routeMap: Record<string, string> = {
   "conference-photographer-hamburg": "konferenzfotografie-hamburg",
   "trade-show-photographer-hamburg": "messefotograf-hamburg",
   "corporate-event-photographer-hamburg": "corporate-event-fotograf-hamburg",
+  "christmas-party-photographer-hamburg": "weihnachtsfeier-fotograf-hamburg",
   "about": "ueber-mich",
   "pricing": "preise",
   "contact": "kontakt",
@@ -125,8 +128,8 @@ export default function Header() {
   const currentNavLinks = isEN ? enNavLinks : deNavLinks;
 
   const bgClass = scrolled
-    ? "bg-[#EAF1F6]/92 backdrop-blur-md border-b border-[var(--color-border-hairline)] shadow-sm"
-    : "bg-[#EAF1F6]/85 backdrop-blur-md border-b border-[var(--color-border-hairline)]";
+    ? "bg-[var(--header-bg)]/92 backdrop-blur-md border-b border-[var(--color-border-hairline)] shadow-sm"
+    : "bg-[var(--header-bg)]/85 backdrop-blur-md border-b border-[var(--color-border-hairline)]";
   const textClass = "text-[var(--color-text-main)]";
   const mutedTextClass = "text-[var(--color-text-muted)]";
   const buttonClass = "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] border border-transparent";
@@ -177,7 +180,7 @@ export default function Header() {
               </svg>
             </button>
             {servicesOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-[#EAF1F6] border border-[var(--color-border-hairline)] shadow-lg rounded-2xl py-3 px-2 min-w-[280px] flex flex-col gap-1 z-50">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-[var(--header-bg)] border border-[var(--color-border-hairline)] shadow-lg rounded-2xl py-3 px-2 min-w-[280px] flex flex-col gap-1 z-50">
                 {currentServiceLinks.map(s => (
                   <Link
                     key={s.href}
@@ -228,7 +231,7 @@ export default function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="absolute top-[80px] left-0 right-0 bg-[#EAF1F6] border-b border-[var(--color-border-hairline)] px-6 py-8 flex flex-col gap-6 md:hidden shadow-sm max-h-[80vh] overflow-y-auto">
+        <div className="absolute top-[80px] left-0 right-0 bg-[var(--header-bg)] border-b border-[var(--color-border-hairline)] px-6 py-8 flex flex-col gap-6 md:hidden shadow-sm max-h-[80vh] overflow-y-auto">
           <Link href={getLocalizedHref("/portfolio")} onClick={() => setMobileMenuOpen(false)} className={`text-lg font-medium ${isActive("/portfolio") ? textClass : mutedTextClass}`}>Portfolio</Link>
 
           <div className="text-lg font-medium text-[var(--color-text-muted)]">{isEN ? "Services" : "Leistungen"}</div>

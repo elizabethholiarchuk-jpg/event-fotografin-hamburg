@@ -59,6 +59,7 @@ export default function CorporateEventFotografieHamburg() {
       }}
       intro={t.intro}
       whatYouGet={t.whatYouGet}
+      relatedLinks={[{ href: "/weihnachtsfeier-fotograf-hamburg", label: "Fotografin für Ihre Weihnachtsfeier in Hamburg →" }]}
       howItWorks={t.howItWorks}
       faq={t.faq}
       testimonial={{
