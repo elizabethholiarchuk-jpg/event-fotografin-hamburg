@@ -1,4 +1,6 @@
 import { getDictionary, type Language } from '@/i18n';
+import { PACKAGE_PRICES } from '@/data/pricing';
+import { SOCIAL_CLIP_PRICE_EUR } from '@/data/videoOptions';
 
 /* ------------------------------------------------------------------ */
 /*  Constants                                                          */
@@ -14,25 +16,18 @@ const LOGO_PATH   = '/images/home/10-about/01-about.webp';
 const TELEPHONE   = '+491752606697';
 const EMAIL       = 'hello@lizaholiarchuk.com';
 
-const SAME_AS = [
-  'https://de.linkedin.com/in/lizaholiarchuk',
-  'https://www.instagram.com/liza.holiarchuk/',
-  'https://share.google/PykESRa2nPSRxACg0',
-] as const;
+const LINKEDIN = 'https://www.linkedin.com/in/lizaholiarchuk/';
+const GOOGLE_MAPS = 'https://maps.app.goo.gl/Q8ZrERj7Q7o6HBYM9';
+
+const SAME_AS = [LINKEDIN, GOOGLE_MAPS] as const;
 
 const ADDRESS = {
   '@type': 'PostalAddress' as const,
-  streetAddress: 'Rehhoffstrasse 10',
-  postalCode: '20459',
+  streetAddress: 'Roggenkamp 4',
+  postalCode: '22305',
   addressLocality: 'Hamburg',
   addressRegion: 'HH',
   addressCountry: 'DE',
-};
-
-const GEO = {
-  '@type': 'GeoCoordinates' as const,
-  latitude: 53.5511,
-  longitude: 9.9937,
 };
 
 /* ------------------------------------------------------------------ */
@@ -44,9 +39,43 @@ const LANG_TAG: Record<Language, string> = {
   de: 'de',
 };
 
-const JOB_TITLE: Record<Language, string> = {
-  en: 'Event Photographer',
-  de: 'Eventfotografin',
+const JOB_TITLE = 'Event Photographer';
+
+const KNOWS_LANGUAGE = ['en', 'de'];
+
+const AREA_SERVED_NAMES: Record<Language, [string, string, string]> = {
+  de: ['Hamburg', 'Deutschland', 'Europa'],
+  en: ['Hamburg', 'Germany', 'Europe'],
+};
+
+function areaServed(lang: Language) {
+  const [city, country, continent] = AREA_SERVED_NAMES[lang];
+  return [
+    { '@type': 'City' as const, name: city },
+    { '@type': 'Country' as const, name: country },
+    { '@type': 'Continent' as const, name: continent },
+  ];
+}
+
+/** Package names as on /preise and /en/pricing */
+const PACKAGE_NAMES: Record<Language, { halfDay: string; extended: string; fullDay: string; socialClip: string }> = {
+  de: { halfDay: 'Halbtag', extended: 'Erweitert', fullDay: 'Ganztag', socialClip: 'Social-Clip' },
+  en: { halfDay: 'Half Day', extended: 'Extended', fullDay: 'Full Day', socialClip: 'Social clip' },
+};
+
+const PACKAGE_DURATIONS: Record<Language, { halfDay: string; extended: string; fullDay: string; socialClip: string }> = {
+  de: {
+    halfDay: 'Bis zu 4 Stunden vor Ort',
+    extended: 'Bis zu 6 Stunden vor Ort',
+    fullDay: 'Bis zu 8 Stunden vor Ort',
+    socialClip: 'Ein Clip von ca. 30 Sekunden für LinkedIn oder Instagram, am nächsten Tag',
+  },
+  en: {
+    halfDay: 'Up to 4 hours on-site',
+    extended: 'Up to 6 hours on-site',
+    fullDay: 'Up to 8 hours on-site',
+    socialClip: 'One clip of about 30 seconds for LinkedIn or Instagram, delivered the next day',
+  },
 };
 
 function abs(path: string): string {
@@ -56,6 +85,58 @@ function abs(path: string): string {
 /* ------------------------------------------------------------------ */
 /*  Entity builders                                                    */
 /* ------------------------------------------------------------------ */
+
+/**
+ * OfferCatalog with the packages and prices from /preise (net, VAT excluded).
+ * Photo packages are "from" prices; the social clip is a fixed price.
+ */
+function buildOfferCatalog(lang: Language) {
+  const names = PACKAGE_NAMES[lang];
+  const durations = PACKAGE_DURATIONS[lang];
+  const pricingUrl = abs(lang === 'en' ? '/en/pricing' : '/preise');
+  const photoService = lang === 'de' ? 'Eventfotografie' : 'Event photography';
+
+  const fromOffer = (key: 'halfDay' | 'extended' | 'fullDay') => ({
+    '@type': 'Offer' as const,
+    name: names[key],
+    description: durations[key],
+    url: pricingUrl,
+    priceCurrency: 'EUR',
+    priceSpecification: {
+      '@type': 'PriceSpecification' as const,
+      minPrice: PACKAGE_PRICES[key],
+      priceCurrency: 'EUR',
+      valueAddedTaxIncluded: false,
+    },
+    itemOffered: { '@type': 'Service' as const, name: `${photoService}: ${names[key]}` },
+  });
+
+  return {
+    '@type': 'OfferCatalog' as const,
+    name: lang === 'de' ? 'Preise & Pakete' : 'Pricing & packages',
+    url: pricingUrl,
+    itemListElement: [
+      fromOffer('halfDay'),
+      fromOffer('extended'),
+      fromOffer('fullDay'),
+      {
+        '@type': 'Offer' as const,
+        name: names.socialClip,
+        description: durations.socialClip,
+        url: pricingUrl,
+        price: SOCIAL_CLIP_PRICE_EUR,
+        priceCurrency: 'EUR',
+        priceSpecification: {
+          '@type': 'PriceSpecification' as const,
+          price: SOCIAL_CLIP_PRICE_EUR,
+          priceCurrency: 'EUR',
+          valueAddedTaxIncluded: false,
+        },
+        itemOffered: { '@type': 'Service' as const, name: names.socialClip },
+      },
+    ],
+  };
+}
 
 /**
  * Organization + ProfessionalService — @id "#business"
@@ -73,13 +154,11 @@ export function buildOrganizationSchema(lang: Language) {
     description: t.home.meta.description,
     priceRange: '€€',
     address: ADDRESS,
-    geo: GEO,
-    areaServed: [
-      { '@type': 'City' as const, name: 'Hamburg' },
-      { '@type': 'Country' as const, name: 'Germany' },
-      { '@type': 'AdministrativeArea' as const, name: 'Europe' },
-    ],
+    areaServed: areaServed(lang),
+    knowsLanguage: KNOWS_LANGUAGE,
     founder: { '@id': PERSON_ID },
+    employee: { '@id': PERSON_ID },
+    hasOfferCatalog: buildOfferCatalog(lang),
     sameAs: [...SAME_AS],
   };
 }
@@ -93,12 +172,13 @@ export function buildPersonSchema(lang: Language) {
     '@type': 'Person' as const,
     '@id': PERSON_ID,
     name: t.home.about.title,           // "Liza Holiarchuk"
-    jobTitle: JOB_TITLE[lang],
+    jobTitle: JOB_TITLE,
     worksFor: { '@id': BUSINESS_ID },
     url: lang === 'en' ? abs('/en/about') : abs('/ueber-mich'),
     image: abs(LOGO_PATH),
     description: t.home.about.p1,
-    sameAs: [...SAME_AS],
+    knowsLanguage: KNOWS_LANGUAGE,
+    sameAs: [LINKEDIN],
   };
 }
 
@@ -121,13 +201,14 @@ export function buildWebSiteSchema(lang: Language) {
 /* ------------------------------------------------------------------ */
 
 /**
- * Homepage JSON-LD — emits Organization + WebSite in a single @graph.
+ * Homepage JSON-LD — emits Organization + Person + WebSite in a single @graph.
  */
 export function buildHomepageJsonLd(lang: Language) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
       buildOrganizationSchema(lang),
+      buildPersonSchema(lang),
       buildWebSiteSchema(lang),
     ],
   };
@@ -148,13 +229,13 @@ export function buildAboutJsonLd(lang: Language) {
             '@type': 'ListItem',
             position: 1,
             name: lang === 'de' ? 'Start' : 'Home',
-            item: abs('/'),
+            item: abs(lang === 'en' ? '/en' : '/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
-            name: 'About',
-            item: abs('/about'),
+            name: lang === 'de' ? 'Über mich' : 'About',
+            item: abs(lang === 'en' ? '/en/about' : '/ueber-mich'),
           },
         ],
       },
@@ -165,12 +246,6 @@ export function buildAboutJsonLd(lang: Language) {
 /* ------------------------------------------------------------------ */
 /*  Service-page helpers                                               */
 /* ------------------------------------------------------------------ */
-
-const AREA_SERVED = [
-  { '@type': 'City' as const, name: 'Hamburg' },
-  { '@type': 'Country' as const, name: 'Germany' },
-  { '@type': 'AdministrativeArea' as const, name: 'Europe' },
-] as const;
 
 export interface ServiceSchemaInput {
   /** e.g. "Event Photography", "Conference Photography" */
@@ -206,7 +281,7 @@ export function buildServicePageJsonLd(
         image: abs(input.image),
         serviceType: input.serviceType,
         provider: { '@id': BUSINESS_ID },
-        areaServed: [...AREA_SERVED],
+        areaServed: areaServed(lang),
         inLanguage: LANG_TAG[lang],
       },
       {
@@ -360,7 +435,7 @@ export function buildPricingOffersJsonLd(
     serviceType: 'Event Photography',
     url: abs(pricingPath),
     provider: { '@id': BUSINESS_ID },
-    areaServed: [...AREA_SERVED],
+    areaServed: areaServed(lang),
     inLanguage: LANG_TAG[lang],
     offers: offers.map((offer) => ({
       '@type': 'Offer' as const,
@@ -399,7 +474,8 @@ export interface BlogPostingInput {
 /**
  * BlogPosting JSON-LD — references #liza as author and #business as publisher.
  */
-export function buildBlogPostingJsonLd(input: BlogPostingInput) {
+export function buildBlogPostingJsonLd(input: BlogPostingInput, lang: Language = 'en') {
+  const insightsPath = lang === 'en' ? '/en/insights' : '/insights';
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting' as const,
@@ -412,7 +488,7 @@ export function buildBlogPostingJsonLd(input: BlogPostingInput) {
     publisher: { '@id': BUSINESS_ID },
     mainEntityOfPage: {
       '@type': 'WebPage' as const,
-      '@id': abs(`/en/insights/${input.slug}`),
+      '@id': abs(`${insightsPath}/${input.slug}`),
     },
   };
 }
@@ -426,9 +502,10 @@ export function buildArticleBreadcrumbJsonLd(
   title: string,
   slug: string,
 ) {
+  const insightsPath = lang === 'en' ? '/en/insights' : '/insights';
   return buildBreadcrumbListJsonLd(lang, [
-    { name: 'Insights', path: '/en/insights' },
-    { name: title, path: `/en/insights/${slug}` },
+    { name: 'Insights', path: insightsPath },
+    { name: title, path: `${insightsPath}/${slug}` },
   ]);
 }
 
@@ -437,30 +514,32 @@ export function buildArticleBreadcrumbJsonLd(
  */
 export function buildInsightsIndexJsonLd(
   posts: BlogPostingInput[],
+  lang: Language = 'en',
 ) {
+  const insightsPath = lang === 'en' ? '/en/insights' : '/insights';
   return {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'Blog' as const,
-        '@id': abs('/en/insights'),
-        url: abs('/en/insights'),
+        '@id': abs(insightsPath),
+        url: abs(insightsPath),
         name: 'Event Photography Insights',
         description:
           'Guides on event photography briefings, trade show coverage at Hamburg Messe, and same-day photo delivery — for marketing and event managers.',
         publisher: { '@id': BUSINESS_ID },
-        inLanguage: 'en',
+        inLanguage: LANG_TAG[lang],
       },
       {
         '@type': 'ItemList' as const,
         itemListElement: posts.map((post, i) => ({
           '@type': 'ListItem' as const,
           position: i + 1,
-          url: abs(`/en/insights/${post.slug}`),
+          url: abs(`${insightsPath}/${post.slug}`),
         })),
       },
-      buildBreadcrumbListJsonLd('en', [
-        { name: 'Insights', path: '/en/insights' },
+      buildBreadcrumbListJsonLd(lang, [
+        { name: 'Insights', path: insightsPath },
       ]),
     ],
   };

@@ -8,8 +8,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/lastmod.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

@@ -91,6 +91,7 @@ export default function EventFotografHamburg() {
         role: "Partner Success, Plug and Play Tech Center Hamburg",
       }}
       relatedCategories={["Conference", "Trade Show", "Corporate"]}
+      featuredCases={["lloyds-register-smm-hamburg-2024", "wise-conference-geneva-2024", "sbrs-shell-tech-center"]}
       schema={buildServicePageJsonLd('de', {
         serviceType: "Eventfotografie",
         name: "Eventfotograf Hamburg",

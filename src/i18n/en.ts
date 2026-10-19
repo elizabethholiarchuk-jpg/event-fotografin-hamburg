@@ -51,7 +51,9 @@ export const en: Dictionary = {
       full: { title: "Full Day (8h)", items: ["Ideal for conferences, trade shows, large corporate events.", "Complete story: Setup → Program → People → Closing.", "Optional: Team portraits + additional blocks."] },
       half: { title: "Half Day (4h)", items: ["Compact conferences, panels & networking formats.", "Focus: Key moments, branding, networking, speaker + audience."] },
       addons: { title: "Add-ons", items: ["Video shooting", "Same-day highlights", "On-site business portraits", "Multi-day events"] },
-      cta: "Request a quote"
+      cta: "Request a quote",
+      pricesLink: "All packages and prices",
+      vatNote: "plus VAT"
     },
     testimonials: {
       title: "Testimonials",
@@ -76,7 +78,8 @@ export const en: Dictionary = {
         { q: "How do we receive the pictures and how can we share them?", a: "Via a private online gallery; link can be shared internally + with guests; optionally password-protected." },
         { q: "What usage rights are included?", a: "Usage rights for corporate communication (website, social, PR) included; details depending on use case." },
         { q: "Can you cover parallel tracks/stages?", a: "Yes, for larger events in parallel: second shooter possible." },
-        { q: "Do you also work outside of Hamburg?", a: "Hamburg + surroundings as well as Germany-wide/Europe-wide by arrangement." }
+        { q: "Do you also work outside of Hamburg?", a: "Hamburg + surroundings as well as Germany-wide/Europe-wide by arrangement. Partner photographers in Berlin, Munich, Frankfurt, Amsterdam, Vienna, Zurich, Stockholm and Tallinn." },
+        { q: "Which languages do you work in?", a: "English and German." }
       ]
     },
     finalCta: {

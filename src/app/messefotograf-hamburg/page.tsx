@@ -67,6 +67,7 @@ export default function MessefotografieHamburg() {
         role: de.home.testimonials.items[2].role,
       }}
       relatedCategories={["Trade Show"]}
+      featuredCases={["lloyds-register-smm-hamburg-2024", "claas-agritechnica-2023", "akvantis-aquatech-amsterdam"]}
       schema={buildServicePageJsonLd("de", {
         serviceType: "Trade Show Photography",
         name: "Messefotograf Hamburg — Messen & B2B-Ausstellungen | Liza Holiarchuk",

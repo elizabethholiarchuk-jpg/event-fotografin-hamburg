@@ -12,8 +12,8 @@ export default function ImpressumPage({ lang }: { lang: Language }) {
                             <h2 className="text-xl font-semibold text-[var(--color-text-main)]">Service Provider (according to § 5 TMG)</h2>
                             <p className="leading-relaxed">
                                 Yelyzaveta Holiarchuk<br />
-                                Rehhoffstrasse 10<br />
-                                20459 Hamburg<br />
+                                Roggenkamp 4<br />
+                                22305 Hamburg<br />
                                 Germany
                             </p>
                         </section>
@@ -37,8 +37,8 @@ export default function ImpressumPage({ lang }: { lang: Language }) {
                             <h2 className="text-xl font-semibold text-[var(--color-text-main)]">Responsible for Content (according to § 18 Abs. 2 MStV)</h2>
                             <p className="leading-relaxed">
                                 Yelyzaveta Holiarchuk<br />
-                                Rehhoffstrasse 10<br />
-                                20459 Hamburg<br />
+                                Roggenkamp 4<br />
+                                22305 Hamburg<br />
                                 Germany
                             </p>
                         </section>
@@ -70,8 +70,8 @@ export default function ImpressumPage({ lang }: { lang: Language }) {
                             <h2 className="text-xl font-semibold text-[var(--color-text-main)]">Anbieterin / Diensteanbieterin (§ 5 TMG)</h2>
                             <p className="leading-relaxed">
                                 Yelyzaveta Holiarchuk<br />
-                                Rehhoffstrasse 10<br />
-                                20459 Hamburg<br />
+                                Roggenkamp 4<br />
+                                22305 Hamburg<br />
                                 Deutschland
                             </p>
                         </section>
@@ -95,8 +95,8 @@ export default function ImpressumPage({ lang }: { lang: Language }) {
                             <h2 className="text-xl font-semibold text-[var(--color-text-main)]">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
                             <p className="leading-relaxed">
                                 Yelyzaveta Holiarchuk<br />
-                                Rehhoffstrasse 10<br />
-                                20459 Hamburg<br />
+                                Roggenkamp 4<br />
+                                22305 Hamburg<br />
                                 Deutschland
                             </p>
                         </section>

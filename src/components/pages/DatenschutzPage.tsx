@@ -24,8 +24,9 @@ export default function DatenschutzPage({ lang }: { lang: Language }) {
                             </p>
                             <address className="not-italic flex flex-col gap-1">
                                 <strong>Yelyzaveta Holiarchuk</strong><br />
-                                Rehhoffstrasse 10<br />
-                                20459 Hamburg<br />
+                                Roggenkamp 4<br />
+                                22305 Hamburg<br />
+                                Germany<br />
                                 <br />
                                 Phone: <a href="tel:+491752606697" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">+49 175 260 6697</a><br />
                                 E-Mail: <a href="mailto:hello@lizaholiarchuk.com" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">hello@lizaholiarchuk.com</a>
@@ -148,8 +149,9 @@ export default function DatenschutzPage({ lang }: { lang: Language }) {
                             </p>
                             <address className="not-italic flex flex-col gap-1">
                                 <strong>Yelyzaveta Holiarchuk</strong><br />
-                                Rehhoffstrasse 10<br />
-                                20459 Hamburg<br />
+                                Roggenkamp 4<br />
+                                22305 Hamburg<br />
+                                Deutschland<br />
                                 <br />
                                 Telefon: <a href="tel:+491752606697" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">+49 175 260 6697</a><br />
                                 E-Mail: <a href="mailto:hello@lizaholiarchuk.com" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">hello@lizaholiarchuk.com</a>

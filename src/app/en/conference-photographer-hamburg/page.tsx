@@ -90,11 +90,12 @@ export default function ConferencePhotographyHamburg() {
         role: "Event Specialist, Lloyd's Register",
       }}
       relatedCategories={["Conference"]}
+      featuredCases={["wise-conference-geneva-2024", "fems-micro-2025-milan", "fems2023-hamburg"]}
       schema={buildServicePageJsonLd('en', {
         serviceType: "Conference Photography",
         name: "Conference Photography Hamburg",
         description: "Professional conference photographer in Hamburg. Keynotes, panels, networking and speaker portraits — delivered within 48 hours.",
-        path: "/conference-photographer-hamburg",
+        path: "/en/conference-photographer-hamburg",
         image: "/images/services/conference-photographer-hamburg-cover.webp",
       })}
       faqSchema={buildFaqPageJsonLd(FAQ)}

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
-import { portfolioEvents } from "@/data/portfolio";
+import { portfolioEvents, getServiceLinkForEvent } from "@/data/portfolio";
 import ImageGallery from "@/components/ImageGallery";
 import {
   buildCaseStudyBreadcrumbJsonLd,
@@ -158,6 +158,9 @@ export default async function CaseStudyPageDe({ params }: Props) {
             </dl>
             <Link href="/kontakt" className="mt-4 bg-[var(--color-accent)] text-white px-6 py-3 rounded-xl text-[14px] font-semibold transition-colors hover:bg-[var(--color-accent-hover)] text-center">
               Ähnliche Begleitung anfragen
+            </Link>
+            <Link href={getServiceLinkForEvent(event, "de").href} className="text-[14px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors underline underline-offset-4 w-fit">
+              {getServiceLinkForEvent(event, "de").label}
             </Link>
           </div>
 

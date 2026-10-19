@@ -362,3 +362,17 @@ export const portfolioEvents: PortfolioEvent[] = [
         count: 3,
     },
 ];
+
+/** Service page that matches a case's category — used for the link from a case back to the service. */
+export function getServiceLinkForEvent(event: PortfolioEvent, lang: 'de' | 'en'): { href: string; label: string } {
+    const cat = event.category.en.toLowerCase();
+    const service =
+        cat.includes('trade show')
+            ? { de: { href: '/messefotograf-hamburg', label: 'Mehr zur Messefotografie →' }, en: { href: '/en/trade-show-photographer-hamburg', label: 'More about trade show photography →' } }
+            : cat.includes('conference') || cat.includes('summer school')
+                ? { de: { href: '/konferenzfotografie-hamburg', label: 'Mehr zur Konferenzfotografie →' }, en: { href: '/en/conference-photographer-hamburg', label: 'More about conference photography →' } }
+                : cat.includes('corporate')
+                    ? { de: { href: '/corporate-event-fotograf-hamburg', label: 'Mehr zur Fotografie für Corporate Events →' }, en: { href: '/en/corporate-event-photographer-hamburg', label: 'More about corporate event photography →' } }
+                    : { de: { href: '/eventfotograf-hamburg', label: 'Mehr zur Eventfotografie →' }, en: { href: '/en/event-photographer-hamburg', label: 'More about event photography →' } };
+    return service[lang];
+}

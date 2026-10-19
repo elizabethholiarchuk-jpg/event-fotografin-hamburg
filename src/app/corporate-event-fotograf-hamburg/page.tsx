@@ -68,6 +68,7 @@ export default function CorporateEventFotografieHamburg() {
         role: de.home.testimonials.items[3].role,
       }}
       relatedCategories={["Corporate"]}
+      featuredCases={["sbrs-shell-tech-center", "plug-and-play-tech-center", "aerolight-gmbh"]}
       schema={buildServicePageJsonLd("de", {
         serviceType: "Corporate Event Photography",
         name: "Corporate Event Fotografin Hamburg — Firmenfeiern & Galas | Liza Holiarchuk",

@@ -90,11 +90,12 @@ export default function TradeShowPhotographyHamburg() {
         role: "Event Specialist, Lloyd's Register",
       }}
       relatedCategories={["Trade Show"]}
+      featuredCases={["lloyds-register-smm-hamburg-2024", "claas-agritechnica-2023", "akvantis-aquatech-amsterdam"]}
       schema={buildServicePageJsonLd('en', {
         serviceType: "Trade Show Photography",
         name: "Trade Show & Expo Photography Hamburg",
         description: "Trade show photographer in Hamburg. Booth coverage, visitor interactions, product shots and branding — for Hamburg Messe and beyond.",
-        path: "/trade-show-photographer-hamburg",
+        path: "/en/trade-show-photographer-hamburg",
         image: "/images/services/trade-show-photographer-hamburg-messe.webp",
       })}
       faqSchema={buildFaqPageJsonLd(FAQ)}

@@ -129,7 +129,7 @@ export default function EventPhotographerCostPage() {
               datePublished: post.datePublished,
               dateModified: post.dateModified,
               image: post.coverImage,
-            }),
+            }, 'de'),
           ),
         }}
       />

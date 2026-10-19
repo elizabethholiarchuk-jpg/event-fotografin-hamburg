@@ -2,9 +2,11 @@
 // Keep the wording identical in both places — edit it only here.
 // The prices below are also used in FAQ answers (Corporate, Weihnachtsfeier, …).
 
+export const SOCIAL_CLIP_PRICE_EUR = 450;
+
 export const SOCIAL_CLIP_PRICE: Record<"de" | "en", string> = {
-  de: "450 €",
-  en: "€450",
+  de: `${SOCIAL_CLIP_PRICE_EUR} €`,
+  en: `€${SOCIAL_CLIP_PRICE_EUR}`,
 };
 
 export interface VideoOption {

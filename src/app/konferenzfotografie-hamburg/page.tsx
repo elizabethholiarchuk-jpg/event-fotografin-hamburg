@@ -67,6 +67,7 @@ export default function KonferenzfotografieHamburg() {
         role: de.home.testimonials.items[2].role,
       }}
       relatedCategories={["Conference"]}
+      featuredCases={["wise-conference-geneva-2024", "fems-micro-2025-milan", "fems2023-hamburg"]}
       schema={buildServicePageJsonLd("de", {
         serviceType: "Conference Photography",
         name: "Konferenzfotograf Hamburg — Kongresse & B2B-Events | Liza Holiarchuk",

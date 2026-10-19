@@ -1,0 +1,38 @@
+# Liza Holiarchuk — Event Photographer Hamburg
+
+> Event photographer based in Hamburg, working across Germany and Europe. Focus: trade shows, conferences and corporate events. Half day (up to 4 h) from €1,200, full day (up to 8 h) from €1,800, social clip €450 (all prices net, plus VAT).
+
+- 5+ years in event photography, previously worked in event organisation
+- Same-day first photos possible, full gallery usually within 48 hours
+- Partner photographers in Berlin, Munich, Frankfurt, Amsterdam, Vienna, Zurich, Stockholm and Tallinn
+- Working languages: English and German
+- Address: Roggenkamp 4, 22305 Hamburg, Germany
+- Contact: hello@lizaholiarchuk.com, +49 175 260 6697
+
+The website is bilingual: German at the root, English under /en.
+
+## Main pages
+
+- [Home (English)](https://www.event-fotografin-hamburg.de/en): Overview of services, clients, packages and FAQ
+- [Home (German)](https://www.event-fotografin-hamburg.de/): Startseite auf Deutsch
+- [Pricing](https://www.event-fotografin-hamburg.de/en/pricing): Packages and prices — half day, extended (up to 6 h, from €1,600), full day, multi-day, video options ([German](https://www.event-fotografin-hamburg.de/preise))
+- [Contact](https://www.event-fotografin-hamburg.de/en/contact): Inquiry form, email and phone ([German](https://www.event-fotografin-hamburg.de/kontakt))
+
+## Services
+
+- [Trade show photographer](https://www.event-fotografin-hamburg.de/en/trade-show-photographer-hamburg): Booth coverage, visitor interactions, product shots and team photos at Hamburg Messe and trade fairs across Europe ([German](https://www.event-fotografin-hamburg.de/messefotograf-hamburg))
+- [Conference photographer](https://www.event-fotografin-hamburg.de/en/conference-photographer-hamburg): Keynotes, panels, networking and audience at B2B conferences in Hamburg and across Europe ([German](https://www.event-fotografin-hamburg.de/konferenzfotografie-hamburg))
+- [Corporate event photographer](https://www.event-fotografin-hamburg.de/en/corporate-event-photographer-hamburg): Awards nights, internal events, company anniversaries and executive gatherings ([German](https://www.event-fotografin-hamburg.de/corporate-event-fotograf-hamburg))
+- [Event photographer](https://www.event-fotografin-hamburg.de/en/event-photographer-hamburg): B2B conferences, trade shows and corporate events in Hamburg and across Europe ([German](https://www.event-fotografin-hamburg.de/eventfotograf-hamburg))
+- [Christmas party photographer](https://www.event-fotografin-hamburg.de/en/christmas-party-photographer-hamburg): Corporate Christmas parties in Hamburg, up to 4 hours from €1,200 ([German](https://www.event-fotografin-hamburg.de/weihnachtsfeier-fotograf-hamburg))
+- [Video support](https://www.event-fotografin-hamburg.de/en/video-support): Two video options — social clip filmed on a smartphone and delivered the next day (€450), or event video with a videographer (quoted per project) ([German](https://www.event-fotografin-hamburg.de/video-support))
+
+## Portfolio and articles
+
+- [Portfolio](https://www.event-fotografin-hamburg.de/en/portfolio): Case studies from trade shows (SMM Hamburg, AGRITECHNICA, Aquatech Amsterdam), conferences (WISE Geneva, FEMS) and corporate events ([German](https://www.event-fotografin-hamburg.de/portfolio))
+- [What does an event photographer cost in Hamburg?](https://www.event-fotografin-hamburg.de/en/insights/how-much-does-an-event-photographer-cost-hamburg): Market rates for event photography in Hamburg and Germany and what affects the price ([German](https://www.event-fotografin-hamburg.de/insights/how-much-does-an-event-photographer-cost-hamburg))
+
+## Optional
+
+- [About](https://www.event-fotografin-hamburg.de/en/about): Background and approach ([German](https://www.event-fotografin-hamburg.de/ueber-mich))
+- [Sitemap](https://www.event-fotografin-hamburg.de/sitemap.xml): All pages with German and English versions

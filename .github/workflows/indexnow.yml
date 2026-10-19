@@ -1,0 +1,47 @@
+# After every successful production deploy on Vercel, send the pages that changed
+# since the previous production deploy to IndexNow (Bing).
+name: IndexNow
+
+on: deployment_status
+
+permissions:
+  contents: read
+  deployments: read
+
+jobs:
+  indexnow:
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Date of the previous production deploy
+        id: prev
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CURRENT_ID: ${{ github.event.deployment.id }}
+          CURRENT_SHA: ${{ github.event.deployment.sha }}
+        run: |
+          prev_sha=$(gh api "repos/${{ github.repository }}/deployments?environment=Production&per_page=30" \
+            --jq "[.[] | select(.id < $CURRENT_ID and .sha != \"$CURRENT_SHA\")][0].sha // empty")
+          if [ -n "$prev_sha" ] && git cat-file -e "$prev_sha" 2>/dev/null; then
+            echo "since=$(git show -s --format=%cs "$prev_sha")" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Wait until the new sitemap is live
+        run: sleep 30
+
+      - name: Send changed URLs to IndexNow
+        run: |
+          if [ -n "${{ steps.prev.outputs.since }}" ]; then
+            node scripts/indexnow.mjs --since "${{ steps.prev.outputs.since }}"
+          else
+            node scripts/indexnow.mjs
+          fi

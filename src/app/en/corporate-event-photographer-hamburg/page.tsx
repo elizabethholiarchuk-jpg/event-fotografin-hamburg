@@ -92,11 +92,12 @@ export default function CorporateEventPhotographyHamburg() {
         role: "Director, Factory Hammerbrooklyn",
       }}
       relatedCategories={["Corporate"]}
+      featuredCases={["sbrs-shell-tech-center", "plug-and-play-tech-center", "aerolight-gmbh"]}
       schema={buildServicePageJsonLd('en', {
         serviceType: "Corporate Event Photography",
         name: "Corporate Event Photography Hamburg",
         description: "Corporate event photographer in Hamburg for awards evenings, internal events, company anniversaries, product launches and executive gatherings.",
-        path: "/corporate-event-photographer-hamburg",
+        path: "/en/corporate-event-photographer-hamburg",
         image: "/images/services/corporate-event-photographer-hamburg-cover.webp",
       })}
       faqSchema={buildFaqPageJsonLd(FAQ)}

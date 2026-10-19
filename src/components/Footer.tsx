@@ -83,8 +83,8 @@ export default function Footer() {
                             <a href="mailto:hello@lizaholiarchuk.com" className="text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors">hello@lizaholiarchuk.com</a>
                             <address className="not-italic text-[var(--color-text-muted)] leading-relaxed text-[14px]">
                                 Liza Holiarchuk<br />
-                                Rehhoffstrasse 10<br />
-                                20459 Hamburg<br />
+                                Roggenkamp 4<br />
+                                22305 Hamburg<br />
                                 {lang === "de" ? "Deutschland" : "Germany"}
                             </address>
                         </div>

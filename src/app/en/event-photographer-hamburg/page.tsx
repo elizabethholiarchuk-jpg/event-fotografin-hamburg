@@ -90,11 +90,12 @@ export default function EventPhotographerHamburg() {
         role: "Partner Success, Plug and Play Tech Center Hamburg",
       }}
       relatedCategories={["Conference", "Trade Show", "Corporate"]}
+      featuredCases={["lloyds-register-smm-hamburg-2024", "wise-conference-geneva-2024", "sbrs-shell-tech-center"]}
       schema={buildServicePageJsonLd('en', {
         serviceType: "Event Photography",
         name: "Event Photographer Hamburg",
         description: "Professional event photographer based in Hamburg. Covering conferences, trade shows, and corporate events across Hamburg and Europe. Fast delivery, consistent quality.",
-        path: "/event-photographer-hamburg",
+        path: "/en/event-photographer-hamburg",
         image: "/images/services/event-photographer-hamburg-cover.webp",
       })}
       faqSchema={buildFaqPageJsonLd(FAQ)}

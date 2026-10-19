@@ -53,6 +53,7 @@ export default function InsightsPage() {
                 dateModified: p.dateModified,
                 image: p.coverImage,
               })),
+              'de',
             ),
           ),
         }}

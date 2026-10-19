@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image, { getImageProps } from "next/image";
 import FaqAccordion from "@/components/FaqAccordion";
+import KeyFacts from "@/components/KeyFacts";
 import { weihnachtsfeierPhotos as photos, type WeihnachtsfeierPhoto } from "@/data/weihnachtsfeier";
 
 type Lang = "de" | "en";
@@ -205,6 +206,9 @@ export default function ChristmasPartyPage({ lang, content }: { lang: Lang; cont
           </div>
         </div>
       </section>
+
+      {/* 6b. Key facts */}
+      <KeyFacts lang={lang} variant="weihnachtsfeier" />
 
       {/* 7. FAQ */}
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">

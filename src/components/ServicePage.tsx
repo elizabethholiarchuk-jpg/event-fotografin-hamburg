@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { portfolioEvents } from "@/data/portfolio";
-import FaqAccordion from "@/components/FaqAccordion";import { Language } from "@/i18n";
+import FaqAccordion from "@/components/FaqAccordion";
+import KeyFacts from "@/components/KeyFacts";
+import { Language } from "@/i18n";
 
 export interface ServicePageProps {
   hero: {
@@ -20,6 +22,8 @@ export interface ServicePageProps {
   faq: { q: string; a: string; link?: { href: string; label: string } }[];
   testimonial?: { quote: string; name: string; role: string };
   relatedCategories: string[];
+  /** Portfolio slugs to show first in "Portfolio Highlights" (in this order) */
+  featuredCases?: string[];
   schema: object;
   faqSchema?: object;
   extraSchemas?: object[];
@@ -36,15 +40,20 @@ export default function ServicePage({
   faq,
   testimonial,
   relatedCategories,
+  featuredCases = [],
   schema,
   faqSchema,
   extraSchemas,
   lang = 'en',
 }: ServicePageProps) {
-  // Pull relevant portfolio items (EN only; pick first 6 matching categories)
-  const related = portfolioEvents
-    .filter((e) => relatedCategories.some((cat) => e.category.en.toLowerCase().includes(cat.toLowerCase())))
-    .slice(0, 6);
+  // Featured cases first, then other items from matching categories (max 6)
+  const featured = featuredCases.flatMap((slug) => portfolioEvents.filter((e) => e.slug === slug));
+  const related = [
+    ...featured,
+    ...portfolioEvents.filter(
+      (e) => !featuredCases.includes(e.slug) && relatedCategories.some((cat) => e.category.en.toLowerCase().includes(cat.toLowerCase())),
+    ),
+  ].slice(0, 6);
 
   return (
     <>
@@ -189,6 +198,8 @@ export default function ServicePage({
           </div>
         </section>
       )}
+
+      <KeyFacts lang={lang} />
 
       {/* FAQ */}
       <section className="py-16 md:py-24 border-b border-[var(--color-border-hairline)]">

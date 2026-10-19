@@ -1,11 +1,21 @@
 import { portfolioEvents } from "@/data/portfolio";
 import { insightsPosts } from "@/data/insights";
+import lastmodData from "@/data/lastmod.json";
+
+// Date each page's content last changed — kept up to date by scripts/lastmod.mjs
+// after every local build. Pages without a known date get no <lastmod>.
+const LASTMOD: Record<string, { date: string }> = lastmodData;
+
+function lastmod(path: string): string {
+    const date = LASTMOD[path || '/']?.date;
+    return date ? `
+    <lastmod>${date}</lastmod>` : '';
+}
 
 export const dynamic = 'force-static';
 
 export async function GET() {
     const baseUrl = 'https://www.event-fotografin-hamburg.de';
-    const lastModified = new Date().toISOString();
 
     // Bilingual routes with same slug (DE at root, EN at /en/)
     const bilingualRoutes = [
@@ -23,8 +33,7 @@ export async function GET() {
     bilingualRoutes.forEach(route => {
         urls += `
   <url>
-    <loc>${baseUrl}${route.path}</loc>
-    <lastmod>${lastModified}</lastmod>
+    <loc>${baseUrl}${route.path}</loc>${lastmod(`${route.path}`)}
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
     <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}${route.path}" />
@@ -32,8 +41,7 @@ export async function GET() {
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${route.path}" />
   </url>
   <url>
-    <loc>${baseUrl}/en${route.path}</loc>
-    <lastmod>${lastModified}</lastmod>
+    <loc>${baseUrl}/en${route.path}</loc>${lastmod(`/en${route.path}`)}
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
     <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}${route.path}" />
@@ -57,8 +65,7 @@ export async function GET() {
     asymmetricRoutes.forEach(({ de, en, priority }) => {
         urls += `
   <url>
-    <loc>${baseUrl}${de}</loc>
-    <lastmod>${lastModified}</lastmod>
+    <loc>${baseUrl}${de}</loc>${lastmod(`${de}`)}
     <changefreq>monthly</changefreq>
     <priority>${priority}</priority>
     <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}${de}" />
@@ -66,8 +73,7 @@ export async function GET() {
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${de}" />
   </url>
   <url>
-    <loc>${baseUrl}${en}</loc>
-    <lastmod>${lastModified}</lastmod>
+    <loc>${baseUrl}${en}</loc>${lastmod(`${en}`)}
     <changefreq>monthly</changefreq>
     <priority>${priority}</priority>
     <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}${de}" />
@@ -80,8 +86,7 @@ export async function GET() {
     portfolioEvents.forEach(event => {
         urls += `
   <url>
-    <loc>${baseUrl}/portfolio/${event.slug}</loc>
-    <lastmod>${lastModified}</lastmod>
+    <loc>${baseUrl}/portfolio/${event.slug}</loc>${lastmod(`/portfolio/${event.slug}`)}
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/portfolio/${event.slug}" />
@@ -89,8 +94,7 @@ export async function GET() {
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/portfolio/${event.slug}" />
   </url>
   <url>
-    <loc>${baseUrl}/en/portfolio/${event.slug}</loc>
-    <lastmod>${lastModified}</lastmod>
+    <loc>${baseUrl}/en/portfolio/${event.slug}</loc>${lastmod(`/en/portfolio/${event.slug}`)}
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/portfolio/${event.slug}" />
@@ -103,8 +107,7 @@ export async function GET() {
     insightsPosts.filter(post => !post.isPlaceholder).forEach(post => {
         urls += `
   <url>
-    <loc>${baseUrl}/insights/${post.slug}</loc>
-    <lastmod>${lastModified}</lastmod>
+    <loc>${baseUrl}/insights/${post.slug}</loc>${lastmod(`/insights/${post.slug}`)}
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/insights/${post.slug}" />
@@ -112,8 +115,7 @@ export async function GET() {
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/insights/${post.slug}" />
   </url>
   <url>
-    <loc>${baseUrl}/en/insights/${post.slug}</loc>
-    <lastmod>${lastModified}</lastmod>
+    <loc>${baseUrl}/en/insights/${post.slug}</loc>${lastmod(`/en/insights/${post.slug}`)}
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/insights/${post.slug}" />

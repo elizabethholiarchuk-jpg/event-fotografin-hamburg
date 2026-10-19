@@ -51,7 +51,9 @@ export const de = {
       full: { title: "Ganztags (8h)", items: ["Ideal für Konferenzen, Messen, große Corporate Events.", "Vollständige Story: Setup → Programmpunkte → People → Closing.", "Optional: Teamporträts + zusätzliche Blöcke."] },
       half: { title: "Halbtags (4h)", items: ["Kompakte Konferenzen, Panels & Networking-Formate.", "Fokus: Key moments, Branding, Networking, Speaker + Audience."] },
       addons: { title: "Add-ons", items: ["Videoshooting", "Same-day Highlights", "Business Portraits vor Ort", "Mehrtages-Events"] },
-      cta: "Angebot anfragen"
+      cta: "Angebot anfragen",
+      pricesLink: "Alle Pakete und Preise",
+      vatNote: "zzgl. MwSt."
     },
     testimonials: {
       title: "Kundenstimmen",
@@ -76,7 +78,8 @@ export const de = {
         { q: "Wie erhalten wir die Bilder und wie können wir sie teilen?", a: "Über private Online-Galerie; Link intern + mit Gästen teilbar; optional passwortgeschützt." },
         { q: "Welche Nutzungsrechte sind enthalten?", a: "Nutzungsrechte für Unternehmenskommunikation (Website, Social, PR) enthalten; Details nach Use Case." },
         { q: "Können Sie parallele Tracks/Stages abdecken?", a: "Ja, bei größeren Events parallel: Second Shooter möglich." },
-        { q: "Arbeiten Sie auch außerhalb von Hamburg?", a: "Hamburg + Umgebung sowie deutschlandweit/europaweit nach Absprache." }
+        { q: "Arbeiten Sie auch außerhalb von Hamburg?", a: "Hamburg + Umgebung sowie deutschlandweit/europaweit nach Absprache. Partnerfotografen in Berlin, München, Frankfurt, Amsterdam, Wien, Zürich, Stockholm und Tallinn." },
+        { q: "In welchen Sprachen arbeiten Sie?", a: "Englisch und Deutsch." }
       ]
     },
     finalCta: {

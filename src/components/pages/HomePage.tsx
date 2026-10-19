@@ -1,6 +1,8 @@
 import Link from "next/link";
 import SafeImage from "@/components/SafeImage";
 import ImageGallery from "@/components/ImageGallery";
+import { KeyFactsStrip } from "@/components/KeyFacts";
+import { PACKAGE_PRICES, formatFromPrice } from "@/data/pricing";
 import { getDictionary, Language } from "@/i18n";
 
 export default function HomePage({ lang }: { lang: Language }) {
@@ -255,13 +257,19 @@ export default function HomePage({ lang }: { lang: Language }) {
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[var(--color-text-main)]">{t.packages.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-border-hairline)] border-t border-[var(--color-border-hairline)] pt-12">
             <div className="flex flex-col gap-6 md:pr-10">
-              <h3 className="text-xl font-semibold tracking-tight text-[var(--color-text-main)]">{t.packages.full.title}</h3>
+              <div className="flex flex-col gap-1.5">
+                <h3 className="text-xl font-semibold tracking-tight text-[var(--color-text-main)]">{t.packages.full.title}</h3>
+                <p className="text-[15px] text-[var(--color-text-muted)]"><span className="text-[var(--color-text-main)] font-semibold">{formatFromPrice(lang, PACKAGE_PRICES.fullDay)}</span> {t.packages.vatNote}</p>
+              </div>
               <ul className="list-disc pl-5 flex flex-col gap-3 text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed marker:text-[var(--color-text-main)]">
                 {t.packages.full.items.map((item, i) => <li key={i}>{item}</li>)}
               </ul>
             </div>
             <div className="flex flex-col gap-6 pt-10 md:pt-0 md:px-10">
-              <h3 className="text-xl font-semibold tracking-tight text-[var(--color-text-main)]">{t.packages.half.title}</h3>
+              <div className="flex flex-col gap-1.5">
+                <h3 className="text-xl font-semibold tracking-tight text-[var(--color-text-main)]">{t.packages.half.title}</h3>
+                <p className="text-[15px] text-[var(--color-text-muted)]"><span className="text-[var(--color-text-main)] font-semibold">{formatFromPrice(lang, PACKAGE_PRICES.halfDay)}</span> {t.packages.vatNote}</p>
+              </div>
               <ul className="list-disc pl-5 flex flex-col gap-3 text-[var(--color-text-muted)] text-[17px] font-normal leading-relaxed marker:text-[var(--color-text-main)]">
                 {t.packages.half.items.map((item, i) => <li key={i}>{item}</li>)}
               </ul>
@@ -273,10 +281,13 @@ export default function HomePage({ lang }: { lang: Language }) {
               </ul>
             </div>
           </div>
-          <div className="pt-4">
+          <div className="pt-4 flex flex-wrap items-center gap-x-10 gap-y-4">
             <Link href={lang === 'de' ? "/kontakt" : "/en/contact"} title="Eventfotograf Hamburg Angebot anfragen" className="text-[var(--color-text-main)] text-[15px] font-semibold transition-colors hover:text-[var(--color-text-muted)] flex items-center gap-2 group underline-offset-4 decoration-1 underline w-fit">
               {t.packages.cta}
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </Link>
+            <Link href={lang === 'de' ? "/preise" : "/en/pricing"} className="text-[var(--color-text-muted)] text-[15px] font-medium transition-colors hover:text-[var(--color-text-main)] underline-offset-4 decoration-1 underline w-fit">
+              {t.packages.pricesLink}
             </Link>
           </div>
         </div>
@@ -323,6 +334,9 @@ export default function HomePage({ lang }: { lang: Language }) {
               <p>{t.about.p2}</p>
             </div>
           </div>
+        </div>
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 mt-12 md:mt-20">
+          <KeyFactsStrip lang={lang} />
         </div>
       </section>
 
