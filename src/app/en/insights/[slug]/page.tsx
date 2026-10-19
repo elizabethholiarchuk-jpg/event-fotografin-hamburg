@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       locale: "en_US",
       alternateLocale: ["de_DE"],
-      title: post.title,
+      title: `${post.title} | Liza Holiarchuk`,
       description: post.excerpt,
       url: `/en/insights/${slug}`,
       ...(post.coverImage && { images: [{ url: post.coverImage, width: 1200, height: 630, alt: post.title }] }),

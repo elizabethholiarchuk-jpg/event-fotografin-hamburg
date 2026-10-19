@@ -285,7 +285,7 @@ export const de = {
   },
   pricing: {
     meta: {
-      title: "Preise & Pakete — Eventfotografie Hamburg | Liza Holiarchuk",
+      title: "Preise & Pakete — Eventfotografie Hamburg",
       description: `Eventfotografie in Hamburg ${formatFromPrice("de", PACKAGE_PRICES.halfDay)}. Pakete für 4, 6 und 8 Stunden, transparente Preise, individuelles Angebot innerhalb von 24 Stunden.`
     },
     hero: {

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       },
   },
   openGraph: {
-    title: "Eventfotograf Hamburg – Liza Holiarchuk | Messen & Konferenzen",
+    title: "Eventfotograf Hamburg — Messen & Konferenzen | Liza Holiarchuk",
     description: "Eventfotografin in Hamburg für Konferenzen, Messen und Firmenevents. Bearbeitete Galerie in der Regel in 2 Werktagen, Highlights am selben Tag auf Wunsch. Jetzt anfragen.",
     url: "/eventfotograf-hamburg",
     locale: "de_DE",

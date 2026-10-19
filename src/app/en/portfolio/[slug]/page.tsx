@@ -27,8 +27,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const location = event.location_i18n?.en ?? "";
   const desc = event.oneLiner_i18n?.en ?? `Event photography by Liza Holiarchuk — ${title}.`;
 
+  const pageTitle = `${title}${location ? ` — ${location}` : ""} | Portfolio`;
+
   return {
-    title: `${title}${location ? ` — ${location}` : ""} | Portfolio`,
+    title: pageTitle,
     description: desc,
     alternates: { 
       canonical: `/en/portfolio/${slug}`,
@@ -41,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       locale: "en_US",
       alternateLocale: ["de_DE"],
-      title: `${title}`,
+      title: `${pageTitle} | Liza Holiarchuk`,
       description: desc,
       url: `/en/portfolio/${slug}`,
       images: [{ url: `/images/portfolio/${slug}/01.webp`, width: 1200, height: 800, alt: title }],
